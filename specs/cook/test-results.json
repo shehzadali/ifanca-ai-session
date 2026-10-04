@@ -1,0 +1,81 @@
+{
+  "feature": "cook",
+  "date": "2026-10-04",
+  "commit": "3054384",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Cook tile mentions the meal plan and opens Cook",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "text": "Newest first, with title and date, 341 recipes",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 3,
+      "text": "Search lentil",
+      "result": "Pass",
+      "notes": "14 recipes for lentil"
+    },
+    {
+      "n": 4,
+      "text": "Chicken chip filters and clears",
+      "result": "Pass",
+      "notes": "52 recipes with Chicken. Tapping again restored 341."
+    },
+    {
+      "n": 5,
+      "text": "8 or fewer ingredients",
+      "result": "Pass",
+      "notes": "131 recipes"
+    },
+    {
+      "n": 6,
+      "text": "Recipe text equals the data, with source link and date",
+      "result": "Pass",
+      "notes": "Lemon Tiramisu"
+    },
+    {
+      "n": 7,
+      "text": "Add to Tuesday shows in the meal plan",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 8,
+      "text": "Meal plan survives a reload",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 9,
+      "text": "Remove takes it out of the plan",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "No diet, calorie, healthy, or nutrition words in app text",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 11,
+      "text": "Snapshot date on every Cook screen",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 12,
+      "text": "No sideways scroll and 44px tap targets",
+      "result": "Pass",
+      "notes": ""
+    }
+  ],
+  "consoleErrors": []
+}

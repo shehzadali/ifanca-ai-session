@@ -10,8 +10,8 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Feature 1 product-check | done, 12 of 12 pass | 96e4f81 to 573192d |
 | Feature 2 ingredient-check | done, 15 of 15 pass | spec 9b06901 to report |
 | Feature 3 learn-halal | done, 13 of 13 pass | 476fcd0 to report |
-| Feature 4 cook | in progress | |
-| Feature 5 read | not started | |
+| Feature 4 cook | done, 12 of 12 pass | 6dbfb03 to report |
+| Feature 5 read | in progress | |
 | PWA (manifest, icons, offline, noindex) | not started | |
 | /ship command and smoke test | not started | |
 | Vercel project and production deploy | not started | |
@@ -71,3 +71,12 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D29. Lessons are split into paragraphs of about 60 words at sentence breaks. No words change. The test joins the paragraphs and compares with faqs.json for all 26.
 - D30. The crawl flattened the bulleted list in "What is halal?" into running text. The app shows it as stored. Fix belongs in the crawl export.
 - D31. Opening a lesson marks it read (`thw.learn.read`). No separate "mark as read" button.
+
+### Feature 4 cook
+
+- D32. Filters are "Main ingredient" (Chicken, Beef, Lamb or goat, Fish and seafood, one at a time) and "8 or fewer ingredients". A main ingredient matches when the ingredient lines name it. These are plain text facts, not categories the app invents. Counts: Chicken 52, 8 or fewer 131.
+- D33. Search covers titles and ingredient lines. Newest first. 30 rows at a time.
+- D34. No recipe photos. They are hosted on ifanca.org, would load from IFANCA's server on every view, and would not work offline.
+- D35. Ingredient and step lines that end with a colon show as small headings. Steps are numbered by the app. The words are unchanged.
+- D36. Meal plan: seven days, Monday to Sunday, any number of recipes per day. Stored by recipe URL in localStorage (`thw.mealplan`). Clearing asks for confirmation.
+- D37. Lemon Tiramisu lists "limoncello (optional)". Left unchanged as IFANCA published it. Flagged in the test report for IFANCA to review.
