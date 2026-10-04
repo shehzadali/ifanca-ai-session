@@ -90,29 +90,36 @@
       </div>
     </div>
     <script>
-      // Once per app session, on any screen except the projector leaderboard. A tap skips it.
+      // Plays on every app load (not on the projector leaderboard) and again from the top-left logo.
+      // A tap skips it. Tests set sessionStorage "thw.splash.skip" to start past it.
       ;(function () {
-        var s = document.getElementById('splash')
-        var seen = false
-        try {
-          seen = sessionStorage.getItem('thw.splash') === '1'
-          sessionStorage.setItem('thw.splash', '1')
-        } catch (e) {}
-        if (seen || location.pathname.replace(/\/$/, '') === '/leaderboard') {
-          s.remove()
-          return
-        }
-        s.hidden = false
+        var tpl = document.getElementById('splash')
+        tpl.remove()
         var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
-        var closed = false
-        function close(fast) {
-          if (closed) return
-          closed = true
-          s.classList.add('sp-out')
-          setTimeout(function () { s.remove() }, fast || reduce ? 300 : 460)
+        var current = null
+        function play() {
+          if (current) current.remove()
+          var s = tpl.cloneNode(true)
+          s.hidden = false
+          document.body.appendChild(s)
+          current = s
+          var closed = false
+          function close(fast) {
+            if (closed) return
+            closed = true
+            s.classList.add('sp-out')
+            setTimeout(function () {
+              s.remove()
+              if (current === s) current = null
+            }, fast || reduce ? 300 : 460)
+          }
+          setTimeout(close, reduce ? 700 : 2100)
+          s.addEventListener('click', function () { close(true) })
         }
-        setTimeout(close, reduce ? 700 : 2100)
-        s.addEventListener('click', function () { close(true) })
+        window.thwSplash = play
+        var skip = false
+        try { skip = sessionStorage.getItem('thw.splash.skip') === '1' } catch (e) {}
+        if (!skip && location.pathname.replace(/\/$/, '') !== '/leaderboard') play()
       })()
     </script>
     <div id="root"></div>

@@ -22,7 +22,7 @@
 
 ## Steps
 
-- [ ] 1. Splash on every load, `window.thwSplash()`, logo tap plays it. (AC 1, 2, 3, 7, 8, 9)
+- [x] 1. Splash on every load, `window.thwSplash()`, logo tap plays it. (AC 1, 2, 3, 7, 8, 9)
 - [ ] 2. Home in the bottom navigation, navigation on home. (AC 4, 5, 6, 10)
 - [ ] 3. Update tests and the smoke test, rerun everything. (AC 11)
 
