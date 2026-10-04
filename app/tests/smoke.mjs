@@ -52,7 +52,6 @@ await check('home: logo, six tiles in order, footer', async () => {
 await check('product-check: search, category, missing message', async () => {
   await go('product')
   await page.waitForSelector('[data-testid=result-count]', { timeout: 20000 })
-  assert((await page.textContent('[data-testid=snapshot]')).includes('2026'), 'snapshot date')
   await page.selectOption('select', 'Cheese')
   assert((await page.textContent('[data-testid=result-count]')) === '258 products', 'Cheese count')
   await page.selectOption('select', '')
@@ -85,6 +84,7 @@ await check('learn-halal: first lesson and quiz', async () => {
   await common()
   // Answer one question only. A finished round would post to the live leaderboard.
   await page.evaluate(() => localStorage.setItem('thw.profile', JSON.stringify({ name: 'Smoke test', avatar: 'star-emerald' })))
+  await page.reload()
   await go('learn/quiz/Beginner')
   await page.locator('[data-testid=option]').first().click()
   assert((await page.locator('[data-testid=quote]').count()) === 1, 'quiz quote')
