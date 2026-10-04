@@ -32,6 +32,7 @@
 - [x] 1. Add `lib/data.ts`, `Screen`, `Snapshot`, `NotInList`. Change `App.tsx` routing to use the first path segment and render feature screens. Product route renders `ProductCheck` with the controls only. (AC 1, 9, 12)
 - [x] 2. Load products, build the index and category list, render search, category select, count, and cards with show more. (AC 2, 3, 4, 5, 6, 8, 10)
 - [x] 3. Empty state with `NotInList`, links to the official list and to the ingredient check. Check 390px layout and tap targets. (AC 7, 11)
+- [x] 4. Fix from the first test run: the snapshot source link is 34px tall. Put it on its own line with a 44px tap area. (AC 11)
 
 ## Test cases
 
