@@ -1,7 +1,7 @@
 {
   "feature": "cook",
   "date": "2026-10-04",
-  "commit": "3054384",
+  "commit": "f3eed7b",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -26,7 +26,7 @@
       "n": 4,
       "text": "Chicken chip filters and clears",
       "result": "Pass",
-      "notes": "52 recipes with Chicken. Tapping again restored 341."
+      "notes": "52 recipes with Chicken. Tapping again restored 340."
     },
     {
       "n": 5,
@@ -38,7 +38,7 @@
       "n": 6,
       "text": "Recipe text equals the data, with source link and date",
       "result": "Pass",
-      "notes": "Lemon Tiramisu"
+      "notes": "Pakistani Street-Style Bun Kabob"
     },
     {
       "n": 7,
@@ -71,11 +71,37 @@
       "notes": ""
     },
     {
+      "n": 13,
+      "text": "Photo loads from ifanca.org when online",
+      "result": "Pass",
+      "notes": "Beef Pasanday, 1280px wide"
+    },
+    {
+      "n": 14,
+      "text": "Offline shows the placeholder and requests no photo",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 15,
+      "text": "A failed photo shows the placeholder",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 16,
+      "text": "Lemon Tiramisu is hidden",
+      "result": "Pass",
+      "notes": "search \"tiramisu\" gives 0 rows"
+    },
+    {
       "n": 12,
       "text": "No sideways scroll and 44px tap targets",
       "result": "Pass",
       "notes": ""
     }
   ],
-  "consoleErrors": []
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_FAILED"
+  ]
 }

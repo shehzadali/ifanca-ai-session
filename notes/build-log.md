@@ -109,6 +109,16 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D55. QR code: `slides/qr.png` (1000 x 1000) and `slides/qr.svg`, dark green on white, error correction M. The PNG was decoded with jsQR and gives the production URL.
 - D56. `.vercelignore` keeps tests, the icon script, `.env` files, and build output out of the upload.
 
+### Changes on 2026-10-04 (second request)
+
+- D57. Lemon Tiramisu is hidden. Reason: its ingredient list includes limoncello, an alcoholic liqueur, as optional. The project owner asked to hide it until IFANCA reviews it. The data export now reads `crawl/app_exclusions.csv` (url, dataset, reason, date) and leaves those URLs out. A row without a reason stops the export. recipes.json has 340 recipes and records `recipes_excluded: 1`.
+- D58. The export reruns byte for byte the same before the change. After the change, only faqs.json (new `blocks` field) and recipes.json (one recipe fewer) differ. No `answer` text changed. ingredients.json is unchanged.
+- D59. FAQ structure comes from the cached answer HTML in `data/raw/faq/`. `<ul>` and `<ol>` become lists. Other text is split into paragraphs at `<p>` tags and blank lines, which is how WordPress stores paragraphs. The export stops if the joined blocks differ from the `answer` text by even one character.
+- D60. Ten of the 26 lessons had lists in the source. All ten now show them, numbered for `<ol>` and bulleted for `<ul>`. Source paragraph breaks are kept in every lesson. Source paragraphs over about 60 words are still split at sentence breaks for a phone screen.
+- D61. Recipe photos show only on the recipe screen, from the `image_url` in recipes.json (207 of 340 recipes have one). The list has no thumbnails, so a page of 30 rows does not make 30 requests to ifanca.org.
+- D62. Photos load only when the browser reports it is online. Offline, missing, or failed photos show a plain placeholder with one line of text. Images use `referrerPolicy="no-referrer"` and lazy loading.
+- D63. "Do not cache the photos": the service worker has a NetworkOnly rule for ifanca.org, so it never stores them, and the live smoke test checks this. The browser's own short-lived HTTP cache is controlled by ifanca.org's headers and is outside the app's control.
+
 ## Deploys
 
 | Date | Commit | URL | Live smoke |

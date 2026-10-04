@@ -40,6 +40,11 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
+            // Recipe photos come from ifanca.org and are never stored by the service worker.
+            urlPattern: ({ url }) => url.hostname.endsWith('ifanca.org'),
+            handler: 'NetworkOnly',
+          },
+          {
             urlPattern: ({ url }) => url.pathname.startsWith('/tesseract/'),
             handler: 'CacheFirst',
             options: { cacheName: 'ocr' },

@@ -90,9 +90,10 @@ await check('learn-halal: first lesson and quiz', async () => {
 await check('cook: list, recipe, meal plan', async () => {
   await go('cook')
   await page.waitForSelector('[data-testid=recipe-row]')
-  assert((await page.textContent('[data-testid=result-count]')) === '341 recipes', 'recipe count')
+  assert((await page.textContent('[data-testid=result-count]')) === '340 recipes', 'recipe count')
   await page.locator('[data-testid=recipe-row]').first().click()
   await page.waitForSelector('[data-testid=ingredients]')
+  await page.locator('[data-testid=recipe-photo], [data-testid=photo-placeholder]').first().waitFor()
   await page.getByRole('button', { name: 'Add to meal plan' }).click()
   await page.getByRole('button', { name: 'Friday' }).click()
   await go('cook/plan')
@@ -153,7 +154,14 @@ await check('pwa: works offline after first load', async () => {
   } finally {
     await ctx.setOffline(false)
   }
-  return 'all five screens load offline'
+  // Recipe photos must never be stored by the service worker.
+  const stored = await page.evaluate(async () => {
+    let n = 0
+    for (const k of await caches.keys()) n += (await (await caches.open(k)).keys()).filter((r) => r.url.includes('ifanca.org')).length
+    return n
+  })
+  assert(stored === 0, `${stored} ifanca.org files in the service worker cache`)
+  return 'all five screens load offline, no photos cached'
 })
 
 await browser.close()

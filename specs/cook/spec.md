@@ -39,7 +39,7 @@
 ## Acceptance criteria
 
 1. Given the home screen, then the Cook tile subtitle mentions the meal plan, and tapping it opens the recipes screen.
-2. Given the recipes screen, then recipes are listed newest first, each with title and date, and the count reads "341 recipes".
+2. Given the recipes screen, then recipes are listed newest first, each with title and date, and the count reads "340 recipes".
 3. Given the recipes screen, when the user types "lentil", then every listed recipe has "lentil" in its title or ingredients.
 4. Given the recipes screen, when the user taps the "Chicken" chip, then every listed recipe names chicken in its ingredients, and tapping it again removes the filter.
 5. Given the "8 or fewer ingredients" chip is on, then every listed recipe has 8 or fewer ingredient lines.
@@ -51,14 +51,24 @@
 11. Given any Cook screen, then the snapshot date is visible.
 12. Given any Cook screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 
+### Change on 2026-10-04: one recipe hidden, photos added
+
+- "Lemon Tiramisu" is left out by the data export (`crawl/app_exclusions.csv`). The list now has 340 recipes.
+- The recipe screen shows the recipe photo from its ifanca.org URL when the device is online. Offline, when a recipe has no photo, or when the photo fails to load, a plain placeholder shows instead. The service worker never stores the photos.
+
+13. Given a recipe with a photo and the device online, then the photo loads from its ifanca.org URL.
+14. Given the device is offline, when the user opens a recipe, then a plain placeholder shows and no photo is requested.
+15. Given the photo request fails, then the placeholder shows "The photo could not load."
+16. Given the recipe list, then "Lemon Tiramisu" is not in it and its URL does not open a recipe.
+
 ## Data needed
 
-- `app/public/data/recipes.json`: `crawl_date` (2026-10-04), `count` (341), `items` with `title`, `url`, `date`, `ingredients` (lines), `steps` (lines), `image_url`, `parsed_from`. Dates range from 2006 to 2026. No blocker.
+- `app/public/data/recipes.json`: `crawl_date` (2026-10-04), `count` (340, after one exclusion), `items` with `title`, `url`, `date`, `ingredients` (lines), `steps` (lines), `image_url`, `parsed_from`. Dates range from 2006 to 2026. No blocker.
 
 ## Out of scope
 
 - Nutrition facts, health claims, or diet advice of any kind.
-- Recipe photos. They are hosted on ifanca.org and would not work offline.
+- Storing recipe photos for offline use.
 - Shopping lists, serving sizes, or meal times within a day.
 - Checking recipe ingredients against IFANCA's ingredient statements.
 - Changing recipe text in any way.

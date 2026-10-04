@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
+import RecipePhoto from '../components/RecipePhoto'
 import Screen from '../components/Screen'
 import MealPlan, { AddToPlan, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
@@ -191,6 +192,7 @@ function RecipeView({ recipe, date }: { recipe: Recipe; date: string }) {
   return (
     <Screen title={recipe.title} back={{ href: '#/cook', label: 'All recipes' }} snapshot={date}>
       {source}
+      <RecipePhoto src={recipe.image_url} alt={`Photo of ${recipe.title} from ifanca.org`} />
       <AddToPlan url={recipe.url} />
 
       <h3 className="mt-5 text-lg font-semibold">Ingredients</h3>

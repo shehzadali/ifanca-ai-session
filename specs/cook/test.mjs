@@ -23,6 +23,7 @@ async function appText(page) {
 const BANNED = /\b(diet|diets|calorie|calories|healthy|nutrition|nutritional)\b/i
 
 const target = recipes.find((r) => r.ingredients.some((l) => l.trim().endsWith(':'))) ?? recipes[0]
+const withPhoto = recipes.find((r) => r.image_url)
 
 await run('cook', [
   [1, 'Cook tile mentions the meal plan and opens Cook', async ({ page }) => {
@@ -34,7 +35,7 @@ await run('cook', [
     assert(page.url().endsWith('#/cook'), page.url())
   }],
   [2, 'Newest first, with title and date, 341 recipes', async ({ page }) => {
-    assert((await count(page)) === '341 recipes', await count(page))
+    assert((await count(page)) === '340 recipes', await count(page))
     const first = byUrl.get((await rowUrls(page))[0])
     assert(first.date === newest, `first is ${first.date}, newest ${newest}`)
     const t = await page.locator('[data-testid=recipe-row]').first().innerText()
@@ -59,9 +60,9 @@ await run('cook', [
     const urls = await rowUrls(page)
     assert(urls.every((u) => /\bchicken\b/i.test(byUrl.get(u).ingredients.join(' '))), 'row without chicken')
     await page.getByRole('button', { name: 'Chicken' }).click()
-    assert((await count(page)) === '341 recipes', 'not cleared')
+    assert((await count(page)) === '340 recipes', 'not cleared')
     await page.getByRole('button', { name: 'Chicken' }).click()
-    return `${n} with Chicken. Tapping again restored 341.`
+    return `${n} with Chicken. Tapping again restored 340.`
   }],
   [5, '8 or fewer ingredients', async ({ page }) => {
     await page.getByRole('button', { name: 'Chicken' }).click()
@@ -111,6 +112,59 @@ await run('cook', [
       await go(page, h)
       assert((await page.textContent('[data-testid=snapshot]')).includes('October 4, 2026'), h)
     }
+  }],
+  [13, 'Photo loads from ifanca.org when online', async ({ page }) => {
+    await go(page, `cook/${slug(withPhoto.url)}`)
+    const img = page.locator('[data-testid=recipe-photo]')
+    await img.scrollIntoViewIfNeeded()
+    await page.waitForFunction(() => document.querySelector('[data-testid=recipe-photo]')?.complete)
+    assert((await img.getAttribute('src')) === withPhoto.image_url, 'src differs')
+    const w = await img.evaluate((i) => i.naturalWidth)
+    assert(w > 0, 'photo did not load')
+    return `${withPhoto.title}, ${w}px wide`
+  }],
+  [14, 'Offline shows the placeholder and requests no photo', async ({ page }) => {
+    const photoRequests = []
+    const onReq = (r) => r.url().includes('/app/uploads/') && photoRequests.push(r.url())
+    await go(page, 'cook')
+    page.on('request', onReq)
+    await page.context().setOffline(true)
+    try {
+      await page.evaluate((h) => (location.hash = h), `#/cook/${slug(withPhoto.url)}`)
+      await page.waitForSelector('[data-testid=photo-placeholder]')
+      assert((await page.textContent('[data-testid=photo-placeholder]')).includes('when you are online'), 'wrong note')
+      assert(photoRequests.length === 0, `requested ${photoRequests.length}`)
+      await page.locator('[data-testid=photo-placeholder]').scrollIntoViewIfNeeded()
+      await page.screenshot({ path: new URL('./screenshots/ac-14-offline.png', import.meta.url).pathname })
+    } finally {
+      page.off('request', onReq)
+      await page.context().setOffline(false)
+    }
+  }],
+  [15, 'A failed photo shows the placeholder', async ({ newPage, setPage }) => {
+    // A fresh context, so the photo is not served from the memory cache of AC 13.
+    const page = await newPage()
+    setPage(page)
+    await page.route('**/app/uploads/**', (r) => r.abort())
+    try {
+      await go(page, `cook/${slug(withPhoto.url)}`)
+      await page.waitForSelector('[data-testid=photo-placeholder]')
+      assert((await page.textContent('[data-testid=photo-placeholder]')).includes('could not load'), 'wrong note')
+      await page.locator('[data-testid=photo-placeholder]').scrollIntoViewIfNeeded()
+    } finally {
+      await page.unroute('**/app/uploads/**')
+    }
+  }],
+  [16, 'Lemon Tiramisu is hidden', async ({ page }) => {
+    assert(!recipes.some((r) => /lemon-tiramisu/.test(r.url)), 'still in recipes.json')
+    await go(page, 'cook')
+    await page.fill('input[type=search]', 'tiramisu')
+    await page.waitForTimeout(200)
+    const titles = await page.locator('[data-testid=recipe-row]').allInnerTexts()
+    assert(!titles.some((t) => /lemon tiramisu/i.test(t)), 'listed')
+    await go(page, 'cook/lemon-tiramisu')
+    assert((await page.locator('[data-testid=ingredients]').count()) === 0, 'recipe opened')
+    return `search "tiramisu" gives ${titles.length} rows`
   }],
   [12, 'No sideways scroll and 44px tap targets', async ({ page }) => {
     for (const h of ['cook', `cook/${slug(target.url)}`, 'cook/plan']) {
