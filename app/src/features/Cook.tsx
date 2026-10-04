@@ -56,10 +56,12 @@ export function useRecipes() {
   return { recipes, date: data?.crawl_date ?? '2026-10-04', error }
 }
 
-export default function Cook(_: { params: string[] }) {
+export default function Cook({ params }: { params: string[] }) {
   const { recipes, date, error } = useRecipes()
   if (error) return <Screen title="Cook">The recipes could not load. Check your connection and try again.</Screen>
   if (!recipes) return <Screen title="Cook">Loading...</Screen>
+  const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
+  if (recipe) return <RecipeView recipe={recipe} date={date} />
   return (
     <Screen title="Cook" snapshot={date} sourceUrl={SOURCE}>
       <RecipeList recipes={recipes} />
@@ -170,5 +172,61 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
         </button>
       )}
     </div>
+  )
+}
+
+function RecipeView({ recipe, date }: { recipe: Recipe; date: string }) {
+  const source = (
+    <p className="text-[14px] text-muted" data-testid="recipe-source">
+      Published {formatDate(recipe.date)} on ifanca.org.{' '}
+      <a href={recipe.url} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center font-medium text-brand underline">
+        View the original recipe
+      </a>
+    </p>
+  )
+  let n = 0
+  return (
+    <Screen title={recipe.title} back={{ href: '#/cook', label: 'All recipes' }} snapshot={date}>
+      {source}
+
+      <h3 className="mt-5 text-lg font-semibold">Ingredients</h3>
+      <ul className="mt-2 space-y-1.5 text-[16px] leading-snug" data-testid="ingredients">
+        {recipe.ingredients.map((line, i) =>
+          isHeading(line) ? (
+            <li key={i} className="pt-2 text-[14px] font-semibold text-muted" data-line>
+              {line}
+            </li>
+          ) : (
+            <li key={i} className="flex gap-2" data-line>
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+              <span>{line}</span>
+            </li>
+          ),
+        )}
+      </ul>
+
+      <h3 className="mt-6 text-lg font-semibold">Steps</h3>
+      <ol className="mt-2 space-y-3 text-[16px] leading-relaxed" data-testid="steps">
+        {recipe.steps.map((line, i) =>
+          isHeading(line) ? (
+            <li key={i} className="pt-2 text-[14px] font-semibold text-muted" data-line>
+              {line}
+            </li>
+          ) : (
+            <li key={i} className="flex gap-3">
+              <span aria-hidden="true" className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[13px] font-semibold text-brand">
+                {++n}
+              </span>
+              <span data-line>{line}</span>
+            </li>
+          ),
+        )}
+      </ol>
+
+      <div className="mt-6 rounded-xl bg-brand-soft p-3">
+        <p className="text-[14px]">Recipe text as published by IFANCA.</p>
+        {source}
+      </div>
+    </Screen>
   )
 }
