@@ -9,7 +9,10 @@
     "prebuild": "node scripts/copy-tesseract.mjs && node scripts/check-quiz.mjs",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "smoke": "node tests/smoke.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "qr": "node scripts/qr.mjs"
   },
   "dependencies": {
     "@tesseract.js-data/eng": "^1.0.0",

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState, type ComponentType, type ReactNode } from 'react'
-import { loadData } from './lib/data'
+import { formatDate, loadData } from './lib/data'
 
 const ProductCheck = lazy(() => import('./features/ProductCheck'))
 const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
@@ -193,7 +193,7 @@ export default function App() {
 
       <footer className="mt-8 border-t border-line pt-4 text-center text-[13px] leading-relaxed text-muted">
         <p>Demo built from IFANCA's public content. Not an official IFANCA app.</p>
-        {crawlDate && <p className="mt-1">Content snapshot from ifanca.org, {crawlDate}.</p>}
+        {crawlDate && <p className="mt-1">Content snapshot from ifanca.org, {formatDate(crawlDate)}.</p>}
       </footer>
     </div>
   )

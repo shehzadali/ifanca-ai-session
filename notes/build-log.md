@@ -12,8 +12,8 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Feature 3 learn-halal | done, 13 of 13 pass | 476fcd0 to report |
 | Feature 4 cook | done, 12 of 12 pass | 6dbfb03 to report |
 | Feature 5 read | done, 10 of 10 pass | a397f93 to report |
-| PWA (manifest, icons, offline, noindex) | in progress | |
-| /ship command and smoke test | not started | |
+| PWA (manifest, icons, offline, noindex) | done, local smoke 8 of 8 | see git log "pwa:" |
+| /ship command and smoke test | in progress | `app/tests/smoke.mjs` done |
 | Vercel project and production deploy | not started | |
 | QR code | not started | |
 | Live smoke test | not started | |
@@ -87,3 +87,15 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D39. Each card leads with "Published <date>" in bold, then title, type and theme, the stored 40-word preview, and the link.
 - D40. 20 cards at a time. Search covers title and preview only, because the full text is not in the data.
 - D41. The filter chip moved to `components/Chip.tsx` so Cook and Read share it.
+
+### PWA
+
+- D42. New original icon: a cream winding path with a small green leaf on the brand green. The scaffold icon was a crescent with a dot. It was replaced so nothing in the app resembles IFANCA's Crescent-M mark.
+- D43. Icon files from `scripts/make-icons.mjs` (Playwright renders the SVG): 192, 512, maskable 512 (full bleed, art in the safe zone), Apple touch 180, favicon 32, and the SVG. They are committed. The script is run by hand.
+- D44. Manifest name "The Halal Way", short name "Halal Way", theme color #1f5f4a (the existing brand green), background #f7f5ef.
+- D45. Offline: all data files are now precached (40 entries, about 4.3 MB) so every screen works offline after the first visit. This changes a Stage 3 decision that cached data only on first use. The precache downloads in the background after the first page shows, so it does not slow the first load. The precache size limit is raised to 4 MB for products.json.
+- D46. OCR files are not precached. The Photo tab works offline only after one photo has been read online.
+- D47. noindex in three places: a robots meta tag, `robots.txt` with "Disallow: /", and an `X-Robots-Tag` header in `vercel.json`.
+- D48. `vercel.json` sets `sw.js` to revalidate on every load, so installed copies find a new deployment on the next open. Hashed assets are cached for a year.
+- D49. The footer date now uses the same format as the screens ("October 3, 2026").
+- D50. `app/tests/smoke.mjs` checks all five features at 390px, the manifest, noindex, robots.txt, and offline loading of all five screens. It takes the base URL as an argument.
