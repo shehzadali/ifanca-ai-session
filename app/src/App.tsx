@@ -4,12 +4,14 @@ import { loadData } from './lib/data'
 const ProductCheck = lazy(() => import('./features/ProductCheck'))
 const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
 const Learn = lazy(() => import('./features/Learn'))
+const Cook = lazy(() => import('./features/Cook'))
 
 // Screens that are built. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   product: ProductCheck,
   ingredients: IngredientCheck,
   learn: Learn,
+  cook: Cook,
 }
 
 type Tile = {
@@ -68,7 +70,7 @@ const TILES: Tile[] = [
   {
     id: 'cook',
     label: 'Cook',
-    blurb: "Recipes from IFANCA's resource library",
+    blurb: "Recipes from IFANCA's library and a weekly meal plan",
     icon: (
       <svg {...iconProps}>
         <path d="M4 11h16a8 8 0 0 1-16 0z" />

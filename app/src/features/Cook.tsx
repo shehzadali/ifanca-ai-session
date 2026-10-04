@@ -1,0 +1,174 @@
+import { useMemo, useState } from 'react'
+import Screen from '../components/Screen'
+import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
+
+type RawRecipe = {
+  title: string
+  url: string
+  date: string
+  ingredients: string[]
+  steps: string[]
+  image_url: string
+  parsed_from: string
+}
+
+export type Recipe = RawRecipe & {
+  slug: string
+  haystack: string
+  ingredientCount: number
+  mains: string[]
+}
+
+const SOURCE = 'https://ifanca.org/resources/'
+const PAGE = 30
+const MAX_FEW = 8
+
+// A recipe matches a main ingredient when its ingredient lines name it.
+const MAINS: [string, RegExp][] = [
+  ['Chicken', /\bchicken\b/i],
+  ['Beef', /\bbeef\b/i],
+  ['Lamb or goat', /\b(lamb|mutton|goat)\b/i],
+  ['Fish and seafood', /\b(fish|salmon|tuna|shrimp|prawns?|cod|tilapia|mackerel|sardines?|seafood|halibut|trout)\b/i],
+]
+
+export const isHeading = (line: string) => line.trim().endsWith(':')
+
+function prepare(items: RawRecipe[]): Recipe[] {
+  return items
+    .map((r) => {
+      const title = decodeEntities(r.title)
+      const lines = r.ingredients.join('\n')
+      return {
+        ...r,
+        title,
+        slug: r.url.replace(/\/$/, '').split('/').pop() ?? '',
+        haystack: fold(`${title} ${r.ingredients.join(' ')}`),
+        ingredientCount: r.ingredients.filter((l) => !isHeading(l)).length,
+        mains: MAINS.filter(([, re]) => re.test(lines)).map(([m]) => m),
+      }
+    })
+    .sort((a, b) => b.date.localeCompare(a.date))
+}
+
+export function useRecipes() {
+  const { data, error } = useData<Dataset<RawRecipe>>('recipes.json')
+  const recipes = useMemo(() => (data ? prepare(data.items) : null), [data])
+  return { recipes, date: data?.crawl_date ?? '2026-10-04', error }
+}
+
+export default function Cook(_: { params: string[] }) {
+  const { recipes, date, error } = useRecipes()
+  if (error) return <Screen title="Cook">The recipes could not load. Check your connection and try again.</Screen>
+  if (!recipes) return <Screen title="Cook">Loading...</Screen>
+  return (
+    <Screen title="Cook" snapshot={date} sourceUrl={SOURCE}>
+      <RecipeList recipes={recipes} />
+    </Screen>
+  )
+}
+
+function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: string }) {
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      className={`min-h-11 shrink-0 rounded-full border px-4 text-[14px] font-medium ${
+        on ? 'border-brand bg-brand text-white' : 'border-line bg-card text-ink'
+      }`}
+    >
+      {children}
+    </button>
+  )
+}
+
+function RecipeList({ recipes }: { recipes: Recipe[] }) {
+  const [query, setQuery] = useState('')
+  const [main, setMain] = useState<string | null>(null)
+  const [few, setFew] = useState(false)
+  const [limit, setLimit] = useState(PAGE)
+
+  const results = useMemo(() => {
+    const words = terms(query)
+    return recipes.filter(
+      (r) =>
+        (!main || r.mains.includes(main)) &&
+        (!few || r.ingredientCount <= MAX_FEW) &&
+        words.every((w) => r.haystack.includes(w)),
+    )
+  }, [recipes, query, main, few])
+
+  const reset = () => setLimit(PAGE)
+
+  return (
+    <div>
+      <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>
+
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value)
+          reset()
+        }}
+        placeholder="Search recipes or ingredients"
+        aria-label="Search recipes or ingredients"
+        autoComplete="off"
+        className="mt-3 h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
+      />
+
+      <p className="mt-3 text-[13px] font-medium text-muted">Main ingredient</p>
+      <div className="mt-1 flex flex-wrap gap-2" data-testid="main-chips">
+        {MAINS.map(([m]) => (
+          <Chip
+            key={m}
+            on={main === m}
+            onClick={() => {
+              setMain(main === m ? null : m)
+              reset()
+            }}
+          >
+            {m}
+          </Chip>
+        ))}
+      </div>
+      <div className="mt-2 flex gap-2">
+        <Chip
+          on={few}
+          onClick={() => {
+            setFew(!few)
+            reset()
+          }}
+        >
+          {`${MAX_FEW} or fewer ingredients`}
+        </Chip>
+      </div>
+
+      <p className="mt-4 text-[14px] font-medium text-muted" data-testid="result-count">
+        {results.length} {results.length === 1 ? 'recipe' : 'recipes'}
+      </p>
+      {results.length === 0 && <p className="mt-2">No recipes match. Try fewer filters.</p>}
+      <ul className="mt-2 overflow-hidden rounded-xl border border-line bg-card empty:hidden">
+        {results.slice(0, limit).map((r) => (
+          <li key={r.url} className="border-b border-line last:border-0">
+            <a href={`#/cook/${r.slug}`} className="block min-h-14 px-4 py-2.5" data-testid="recipe-row" data-url={r.url}>
+              <span className="block text-[16px] leading-snug font-medium">{r.title}</span>
+              <span className="mt-0.5 block text-[13px] text-muted">
+                {formatDate(r.date)}. {r.ingredientCount} ingredients.
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {results.length > limit && (
+        <button
+          type="button"
+          onClick={() => setLimit((n) => n + PAGE)}
+          className="mt-3 h-12 w-full rounded-xl border border-line bg-card font-medium text-brand"
+        >
+          Show more
+        </button>
+      )}
+    </div>
+  )
+}
