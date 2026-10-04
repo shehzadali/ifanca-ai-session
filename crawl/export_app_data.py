@@ -1,0 +1,465 @@
+"""Export app data for "The Halal Way" demo PWA into app/public/data/.
+
+Reads only the local cache and the CSVs built in earlier stages. Makes no live
+requests. Every record carries its source URL. Every file carries the crawl
+date and a demo snapshot note.
+
+Ground rule: halal rulings are out of scope to generate. ingredients.json
+records only ingredients that IFANCA names in its FAQs and its two most recent
+shopper guides, with IFANCA's own wording. The script fails if any quoted
+source text is not found word for word in the cached source.
+"""
+from __future__ import annotations
+
+import csv
+import datetime as dt
+import html
+import json
+import re
+from pathlib import Path
+
+from bs4 import BeautifulSoup
+
+from fetcher import RAW_DIR, REPO_ROOT, slugify_path
+
+DATA_DIR = REPO_ROOT / "data"
+OUT_DIR = REPO_ROOT / "app" / "public" / "data"
+
+NOTE = (
+    "Demo snapshot of public ifanca.org content, for a training session only. "
+    "Not an official IFANCA dataset. Content may be out of date. "
+    "Check ifanca.org for current information."
+)
+
+INGREDIENT_GUIDE_URL = "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/"
+QUICK_REFERENCE_URL = "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/"
+
+# Status values allowed in ingredients.json.
+HALAL, HARAM, MASHBOOH, DEPENDS = "halal", "haram", "mashbooh", "depends on source"
+
+
+# ---------- shared helpers ----------
+
+def clean(text: str) -> str:
+    """Collapse whitespace and drop zero-width characters, nothing else."""
+    text = html.unescape(text).replace("​", "").replace("\xa0", " ")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def cached_html(url: str) -> BeautifulSoup | None:
+    path = RAW_DIR / "html" / slugify_path(url)
+    if not path.exists():
+        return None
+    return BeautifulSoup(path.read_text(encoding="utf-8"), "lxml")
+
+
+def file_date(path: Path) -> str:
+    return dt.date.fromtimestamp(path.stat().st_mtime).isoformat()
+
+
+def iso_date(listing_date: str) -> str:
+    """'June 30, 2026' -> '2026-06-30'. Returns the input if it does not parse."""
+    try:
+        return dt.datetime.strptime(listing_date.strip(), "%B %d, %Y").date().isoformat()
+    except ValueError:
+        return listing_date
+
+
+def first_words(text: str, n: int = 40) -> str:
+    words = text.split()
+    return " ".join(words[:n]) + (" ..." if len(words) > n else "")
+
+
+def write(name: str, crawl_date: str, source: str, items: list[dict], extra: dict | None = None) -> int:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {"crawl_date": crawl_date, "note": NOTE, "source": source, "count": len(items)}
+    payload.update(extra or {})
+    payload["items"] = items
+    (OUT_DIR / name).write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    return len(items)
+
+
+def read_csv(name: str) -> list[dict]:
+    with (DATA_DIR / name).open(encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+# ---------- products ----------
+
+def export_products() -> int:
+    rows = read_csv("products.csv")
+    items = [
+        {
+            "name": r["title"],
+            "company": r["company"],
+            "category": r["category"],
+            "sold_in": r["sold_in"],
+            "marketplace": r["marketplace"],
+            "url": r["url"],
+        }
+        for r in rows
+    ]
+    return write(
+        "products.json",
+        max(r["crawl_date"] for r in rows),
+        "https://ifanca.org/halal-certified-products/",
+        items,
+    )
+
+
+# ---------- recipes ----------
+
+def _structured_recipe(soup: BeautifulSoup) -> tuple[list[str], list[str]]:
+    """Current theme layout: section#recipe with .ingredients li and .indiv-step blocks."""
+    section = soup.find("section", id="recipe")
+    if not section:
+        return [], []
+    ing_box = section.find("div", class_="ingredients")
+    ingredients = [clean(li.get_text(" ")) for li in ing_box.find_all("li")] if ing_box else []
+    steps = []
+    for step in section.find_all("div", class_="indiv-step"):
+        heading = step.find("h3")
+        if heading:
+            heading.extract()
+        text = clean(step.get_text(" "))
+        if text:
+            steps.append(text)
+    return [i for i in ingredients if i], steps
+
+
+_ING_HEAD = re.compile(r"ingredients", re.I)
+_STEP_HEAD = re.compile(r"^(instructions|directions|method|preparation)\b", re.I)
+
+
+def _freetext_recipe(soup: BeautifulSoup) -> tuple[list[str], list[str]]:
+    """Older posts: headings named Ingredients and Instructions/Directions inside section#wysiwyg."""
+    section = soup.find("section", id="wysiwyg")
+    if not section:
+        return [], []
+    ingredients: list[str] = []
+    steps: list[str] = []
+    mode = None
+    for el in section.find_all(["h2", "h3", "h4", "p", "li"]):
+        text = clean(el.get_text(" "))
+        if not text:
+            continue
+        is_bold_p = el.name == "p" and el.find(["strong", "b"]) and len(text) < 40
+        if el.name in ("h2", "h3", "h4") or is_bold_p:
+            if _STEP_HEAD.search(text):
+                mode = "steps"
+                continue
+            if _ING_HEAD.search(text):
+                mode = "ingredients"
+                continue
+            if el.name == "h2":
+                mode = None
+                continue
+            # A minor heading inside a list (for example "Fruit", "Topping") is a
+            # sub-section label. Keep it as a line, as the structured layout does.
+        if el.name == "p" and el.find_parent("li"):
+            continue
+        if mode == "ingredients":
+            ingredients.append(text)
+        elif mode == "steps":
+            steps.append(text)
+    return ingredients, steps
+
+
+def _image(soup: BeautifulSoup) -> str:
+    tag = soup.find("meta", attrs={"property": "og:image"})
+    return tag["content"] if tag and tag.has_attr("content") else ""
+
+
+def export_recipes() -> tuple[int, list[str]]:
+    rows = [r for r in read_csv("resources-themes.csv") if r["type"] == "Recipe"]
+    items, skipped = [], []
+    for r in rows:
+        soup = cached_html(r["url"])
+        if soup is None:
+            skipped.append(f"{r['url']} (not cached)")
+            continue
+        ingredients, steps = _structured_recipe(soup)
+        layout = "structured"
+        if not ingredients or not steps:
+            ingredients, steps = _freetext_recipe(soup)
+            layout = "free text"
+        if not ingredients or not steps:
+            skipped.append(f"{r['url']} (no ingredients or steps found)")
+            continue
+        items.append(
+            {
+                "title": r["title"],
+                "url": r["url"],
+                "date": iso_date(r["date"]),
+                "ingredients": ingredients,
+                "steps": steps,
+                "image_url": _image(soup),
+                "parsed_from": layout,
+            }
+        )
+    write(
+        "recipes.json",
+        max(r["crawl_date"] for r in rows),
+        "https://ifanca.org/resources/ (type: Recipe)",
+        items,
+        {"recipes_in_listing": len(rows), "recipes_skipped": len(skipped)},
+    )
+    return len(items), skipped
+
+
+# ---------- articles ----------
+
+def _body_text(soup: BeautifulSoup) -> str:
+    section = soup.find("section", id="wysiwyg")
+    return clean(section.get_text(" ")) if section else ""
+
+
+def export_articles() -> int:
+    rows = [r for r in read_csv("resources-themes.csv") if r["type"] != "Recipe"]
+    items = []
+    for r in rows:
+        soup = cached_html(r["url"])
+        body = _body_text(soup) if soup else ""
+        items.append(
+            {
+                "title": r["title"],
+                "url": r["url"],
+                "type": r["type"],
+                "theme": r["theme"],
+                "date": iso_date(r["date"]),
+                "first_40_words": first_words(body or r["opening_text"]),
+            }
+        )
+    return write(
+        "articles.json",
+        max(r["crawl_date"] for r in rows),
+        "https://ifanca.org/resources/ (all types except Recipe)",
+        items,
+        {"theme_note": "Themes come from keyword rules in crawl/themes.py and are approximate."},
+    )
+
+
+# ---------- FAQs ----------
+
+def load_faqs() -> tuple[list[dict], str]:
+    faqs, dates = [], []
+    for path in sorted((RAW_DIR / "faq").glob("page_*.json")):
+        dates.append(file_date(path))
+        for post in json.loads(path.read_text(encoding="utf-8"))["posts"].values():
+            answer = re.sub(r"</(li|p)>|<br\s*/?>", "\n", post["answer"])
+            answer = re.sub(r"<[^>]+>", " ", answer)
+            faqs.append(
+                {
+                    "question": clean(post["question"]),
+                    "answer": clean(answer),
+                    "url": post["tocopylink"],
+                }
+            )
+    return faqs, max(dates)
+
+
+def export_faqs() -> int:
+    faqs, crawl_date = load_faqs()
+    return write("faqs.json", crawl_date, "https://ifanca.org/faqs/", faqs)
+
+
+# ---------- ingredients ----------
+
+# FAQ statements, quoted word for word. Status follows the quoted sentence.
+# Each tuple: (ingredient name, status, FAQ url, exact quote).
+FAQ = "https://ifanca.org/faqs/"
+FAQ_STATEMENTS = [
+    ("Mono and diglycerides", DEPENDS, FAQ + "are-mono-and-diglycerides-halal/",
+     "Mono and diglycerides can be derived from animal or vegetable sources. When derived from vegetable sources, they are halal. When derived from animal sources, they are questionable."),
+    ("Yellow No. 5", DEPENDS, FAQ + "is-yellow-no-5-halal/",
+     "Yellow No. 5 and all other numbered dyes (colors) are made from petrochemicals. In their pure form, they are halal. However, when used in food products they may be mixed with other doubtful or haram ingredients, such as gelatin."),
+    ("Chocolate liquor", HALAL, FAQ + "is-chocolate-liquor-haram/",
+     "It does not contain any alcohol, so it is not haram."),
+    ("Lecithin", DEPENDS, FAQ + "is-lecithin-halal/",
+     "If the lecithin is derived from plants, egg yolks or halal animals slaughtered according to Islamic law, it is Halal. Otherwise it is not."),
+    ("Cheese", MASHBOOH, FAQ + "isnt-all-cheese-halal/",
+     "Today, most cheeses in the North American markets are questionable."),
+    ("Pepsin", HARAM, FAQ + "isnt-all-cheese-halal/",
+     "The enzyme derived from pigs is called pepsin and is haram."),
+    ("Lipase", DEPENDS, FAQ + "isnt-all-cheese-halal/",
+     "Another enzyme derived from pigs or small cattle is lipase. (Lipase can also be made by microorganisms, which is halal.)"),
+    ("Microbial enzymes", HALAL, FAQ + "isnt-all-cheese-halal/",
+     "Microbial enzymes are not derived from meat and are halal."),
+    ("Rennet", DEPENDS, FAQ + "what-is-the-source-of-rennet/",
+     "If the calf is slaughtered according to Islamic requirements, the rennet is halal. Otherwise, it is not."),
+    ("Chymosin (produced using biotechnology)", HALAL, FAQ + "what-is-the-source-of-rennet/",
+     "Chymosin produced using biotechnology is halal."),
+    ("Gelatin", DEPENDS, FAQ + "may-we-eat-gelatin/",
+     "If the word gelatin appears on a label without reference to its source, it is generally derived from pig skins and cattle bones, so it must be avoided. It is possible to produce halal gelatin by using the bones and hides of halal slaughtered cattle."),
+    ("Gelatin", DEPENDS, FAQ + "are-kosher-products-halal/",
+     "For Muslims, if gelatin is prepared from swine it is haram. Even if gelatin is prepared from cows that are not zabiha, many scholars consider it haram."),
+    ("Alcoholic drinks and intoxicants", HARAM, FAQ + "are-kosher-products-halal/",
+     "Islam prohibits all intoxicants, including alcohols, liquors and wines"),
+    ("Gelatin", MASHBOOH, FAQ + "what-is-halal/",
+     "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram"),
+    ("Enzymes", MASHBOOH, FAQ + "what-is-halal/",
+     "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram"),
+    ("Emulsifiers", MASHBOOH, FAQ + "what-is-halal/",
+     "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram"),
+    ("Artificial and natural flavors", MASHBOOH, FAQ + "what-is-halal/",
+     "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram"),
+    ("Pork", HARAM, FAQ + "what-is-halal/",
+     "All foods are considered halal except the following sources: Swine/Pork and its by-products"),
+    ("Alcoholic drinks and intoxicants", HARAM, FAQ + "what-is-halal/",
+     "Alcoholic drinks and intoxicants"),
+    ("Blood and blood by-products", HARAM, FAQ + "what-is-halal/",
+     "Blood and blood by-products"),
+]
+
+# Group the different spellings IFANCA uses for the same ingredient. Spelling
+# variants only. Different substances (for example E-471 and mono and
+# diglycerides) are never merged, because that would add knowledge.
+ALIASES = {
+    "mono & diglycerides": "Mono and diglycerides",
+    "mono/diglycerides": "Mono and diglycerides",
+    "artificial & natural flavorings": "Artificial and natural flavors",
+    "artificial/natural flavors": "Artificial and natural flavors",
+    "natural & artificial flavors": "Artificial and natural flavors",
+    "natural flavors": "Artificial and natural flavors",
+    "artificial flavors": "Artificial and natural flavors",
+    "flavors": "Artificial and natural flavors",
+    "flavorings": "Artificial and natural flavors",
+    "artificial & natural colorings": "Artificial and natural colorings",
+}
+
+
+def canonical(name: str) -> str:
+    return ALIASES.get(name.lower(), name[:1].upper() + name[1:])
+
+
+def _guide_lines(url: str) -> tuple[list[str], str]:
+    soup = cached_html(url)
+    if soup is None:
+        raise SystemExit(f"Ingredient source not cached: {url}")
+    lines = [clean(x) for x in soup.find("section", id="wysiwyg").get_text("\n").split("\n")]
+    title = soup.find("h1").get_text(strip=True)
+    return [x for x in lines if x], title
+
+
+def guide_statements() -> list[dict]:
+    """Halal Shopper's Guide to Ingredients (2011): two labeled lists."""
+    lines, title = _guide_lines(INGREDIENT_GUIDE_URL)
+    sections = [
+        ("Haram/Avoid", HARAM, "Investigate Further (Some Questionable Ingredients)"),
+        ("Investigate Further (Some Questionable Ingredients)", MASHBOOH, "Concerns About Eating Out"),
+    ]
+    out = []
+    for heading, status, end in sections:
+        start = lines.index(heading) + 1
+        stop = lines.index(end)
+        for item in lines[start:stop]:
+            out.append({
+                "name": canonical(item), "status": status, "ifanca_label": heading,
+                "source_text": item, "context": f'Listed under "{heading}"',
+                "url": INGREDIENT_GUIDE_URL, "source_title": title, "source_date": "2011-09-21",
+            })
+    return out
+
+
+def quick_reference_statements() -> list[dict]:
+    """Halal Shopper's Quick Reference Guide to Products (2012): product rows of mashbooh examples."""
+    lines, title = _guide_lines(QUICK_REFERENCE_URL)
+    label = "Examples of Mashbooh* (Doubtful) Ingredients"
+    assert label in lines, "Quick reference label not found"
+    start = lines.index("Call and confirm with the manufacturer.") + 1
+    stop = next(i for i, x in enumerate(lines) if x.startswith("Post this on your fridge"))
+    rows = lines[start:stop]
+    out = []
+    for product, row in zip(rows[0::2], rows[1::2]):
+        # "Vitamin A, B2, C, D" is one listing, not four ingredients named "B2", "C", "D".
+        names = [n.strip() for n in row.split(",")]
+        if "Vitamin A" in names:
+            i = names.index("Vitamin A")
+            names = names[:i] + [", ".join(names[i:])]
+        # The Candy row prints "Whey Natural & Artificial Flavors" with no comma.
+        names = [p for n in names for p in (["Whey", "Natural & Artificial Flavors"]
+                                            if n == "Whey Natural & Artificial Flavors" else [n])]
+        for name in names:
+            out.append({
+                "name": canonical(name), "status": MASHBOOH, "ifanca_label": label,
+                "source_text": row, "context": f'Listed for "{product}" under "{label}"',
+                "url": QUICK_REFERENCE_URL, "source_title": title, "source_date": "2012-04-25",
+            })
+    return out
+
+
+def faq_statements() -> list[dict]:
+    faqs, _ = load_faqs()
+    by_url = {f["url"]: f for f in faqs}
+    out = []
+    for name, status, url, quote in FAQ_STATEMENTS:
+        faq = by_url[url]
+        if quote not in faq["answer"]:
+            raise SystemExit(f"Quote not found word for word in {url}: {quote[:60]}")
+        out.append({
+            "name": name, "status": status, "ifanca_label": "",
+            "source_text": quote, "context": f'FAQ: "{faq["question"]}"',
+            "url": url, "source_title": faq["question"], "source_date": "",
+        })
+    return out
+
+
+def export_ingredients() -> int:
+    statements = faq_statements() + guide_statements() + quick_reference_statements()
+    for s in statements:
+        assert s["status"] in (HALAL, HARAM, MASHBOOH, DEPENDS), s
+    # Group case-insensitively. The display name is the first spelling seen (FAQs come first).
+    grouped: dict[str, list[dict]] = {}
+    display: dict[str, str] = {}
+    for s in statements:
+        key = s["name"].lower()
+        display.setdefault(key, s["name"])
+        grouped.setdefault(key, []).append({k: v for k, v in s.items() if k != "name"})
+    items = []
+    for key in sorted(grouped):
+        name, stmts = display[key], grouped[key]
+        statuses = sorted({s["status"] for s in stmts})
+        items.append({
+            "name": name,
+            # Only set a single status when every IFANCA source agrees. Otherwise
+            # the app must show each statement, because choosing one would be a ruling.
+            "status": statuses[0] if len(statuses) == 1 else None,
+            "sources_disagree": len(statuses) > 1,
+            "statuses": statuses,
+            "statements": stmts,
+        })
+    _, faq_date = load_faqs()
+    return write(
+        "ingredients.json",
+        faq_date,
+        "IFANCA FAQs, Halal Shopper's Guide to Ingredients (2011), Halal Shopper's Quick Reference Guide to Products (2012)",
+        items,
+        {
+            "status_values": [HALAL, HARAM, MASHBOOH, DEPENDS],
+            "scope_note": (
+                "Only ingredients IFANCA names in these sources. Status is IFANCA's stated status. "
+                "'Investigate Further' and 'Examples of Mashbooh (Doubtful) Ingredients' are recorded as mashbooh, "
+                "following IFANCA's FAQ definition of mashbooh as doubtful or questionable. "
+                "An ingredient that is not in this file has no recorded status. It is not halal by default."
+            ),
+            "statement_count": len(statements),
+        },
+    )
+
+
+def main() -> None:
+    counts = {"products.json": export_products()}
+    n_recipes, skipped = export_recipes()
+    counts["recipes.json"] = n_recipes
+    counts["articles.json"] = export_articles()
+    counts["faqs.json"] = export_faqs()
+    counts["ingredients.json"] = export_ingredients()
+    for name, n in counts.items():
+        print(f"{name:18} {n:>6}")
+    print(f"recipes skipped: {len(skipped)}")
+    for s in skipped:
+        print("  ", s)
+
+
+if __name__ == "__main__":
+    main()

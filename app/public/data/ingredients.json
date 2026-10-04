@@ -1,0 +1,2333 @@
+{
+ "crawl_date": "2026-10-03",
+ "note": "Demo snapshot of public ifanca.org content, for a training session only. Not an official IFANCA dataset. Content may be out of date. Check ifanca.org for current information.",
+ "source": "IFANCA FAQs, Halal Shopper's Guide to Ingredients (2011), Halal Shopper's Quick Reference Guide to Products (2012)",
+ "count": 99,
+ "status_values": [
+  "halal",
+  "haram",
+  "mashbooh",
+  "depends on source"
+ ],
+ "scope_note": "Only ingredients IFANCA names in these sources. Status is IFANCA's stated status. 'Investigate Further' and 'Examples of Mashbooh (Doubtful) Ingredients' are recorded as mashbooh, following IFANCA's FAQ definition of mashbooh as doubtful or questionable. An ingredient that is not in this file has no recorded status. It is not halal by default.",
+ "statement_count": 147,
+ "items": [
+  {
+   "name": "Alcohol",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Alcohol, Flavors, Glycerin",
+     "context": "Listed for \"Mouth Wash\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Alcoholic drinks and intoxicants",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "",
+     "source_text": "Islam prohibits all intoxicants, including alcohols, liquors and wines",
+     "context": "FAQ: \"Are kosher products halal?\"",
+     "url": "https://ifanca.org/faqs/are-kosher-products-halal/",
+     "source_title": "Are kosher products halal?",
+     "source_date": ""
+    },
+    {
+     "status": "haram",
+     "ifanca_label": "",
+     "source_text": "Alcoholic drinks and intoxicants",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Animal Fat",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Animal Fat, Mono/Diglycerides",
+     "context": "Listed for \"Shortening\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Animal Shortening",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Animal Shortening",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Artificial and natural colorings",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Artificial & natural colorings",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Artificial and natural flavors",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "",
+     "source_text": "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Artificial & natural flavorings",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Cake\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Vitamin A, B2, C, D",
+     "context": "Listed for \"Cereal\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Coffee Creamer\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Natural Flavors",
+     "context": "Listed for \"Cola/Soda\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Mono/Diglycerides, Flavors",
+     "context": "Listed for \"Donuts/Pastries\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Flavorings",
+     "context": "Listed for \"Granola Bar\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Whey, Artificial Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Ice Cream\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Gelatin, Artificial/Natural Flavors",
+     "context": "Listed for \"Jello/Pudding\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Natural Flavors",
+     "context": "Listed for \"Ketchup\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Alcohol, Flavors, Glycerin",
+     "context": "Listed for \"Mouth Wash\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Flavors, Gelatin, Whey",
+     "context": "Listed for \"Yogurt\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Bacon",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Bacon",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Bacon bits",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Bacon bits",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Beer",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Beer",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Blood and blood by-products",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "",
+     "source_text": "Blood and blood by-products",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Calcium stearoyl lactylate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Calcium stearoyl lactylate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Cheese",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "",
+     "source_text": "Today, most cheeses in the North American markets are questionable.",
+     "context": "FAQ: \"Isn't all cheese halal?\"",
+     "url": "https://ifanca.org/faqs/isnt-all-cheese-halal/",
+     "source_title": "Isn't all cheese halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Cheese",
+     "context": "Listed for \"Chips\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Chocolate liquor",
+   "status": "halal",
+   "sources_disagree": false,
+   "statuses": [
+    "halal"
+   ],
+   "statements": [
+    {
+     "status": "halal",
+     "ifanca_label": "",
+     "source_text": "It does not contain any alcohol, so it is not haram.",
+     "context": "FAQ: \"Is chocolate liquor haram?\"",
+     "url": "https://ifanca.org/faqs/is-chocolate-liquor-haram/",
+     "source_title": "Is chocolate liquor haram?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Chymosin (produced using biotechnology)",
+   "status": "halal",
+   "sources_disagree": false,
+   "statuses": [
+    "halal"
+   ],
+   "statements": [
+    {
+     "status": "halal",
+     "ifanca_label": "",
+     "source_text": "Chymosin produced using biotechnology is halal.",
+     "context": "FAQ: \"What is the source of rennet?\"",
+     "url": "https://ifanca.org/faqs/what-is-the-source-of-rennet/",
+     "source_title": "What is the source of rennet?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Cysteine Hydrochloride",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Cysteine Hydrochloride, Enzymes, Folic Acid, Niacin",
+     "context": "Listed for \"Bagel\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "E-304",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-304",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-322",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-322",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-422",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-422",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-431",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-431",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-432",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-432",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-433",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-433",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-434",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-434",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-435",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-435",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-436",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-436",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-442",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-442",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-445",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-445",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-470a",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-470a",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-470b",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-470b",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-471",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-471",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472a",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472a",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472b",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472b",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472c",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472c",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472d",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472d",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472e",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472e",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-472f",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-472f",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-473",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-473",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-474",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-474",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-475",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-475",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-476",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-476",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-477",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-477",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-479",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-479",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-481",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-481",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-482",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-482",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-483",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-483",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-491",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-491",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-492",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-492",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-493",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-493",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-494",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-494",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-495",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-495",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "E-570",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "E-570",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Emulsifiers",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "",
+     "source_text": "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Enzymes",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "",
+     "source_text": "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Enzymes",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Cysteine Hydrochloride, Enzymes, Folic Acid, Niacin",
+     "context": "Listed for \"Bagel\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Enzymes",
+     "context": "Listed for \"Cheese\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Fatty acids",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Fatty acids",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Folic Acid",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Cysteine Hydrochloride, Enzymes, Folic Acid, Niacin",
+     "context": "Listed for \"Bagel\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Folic Acid, Thiamine",
+     "context": "Listed for \"Cookies\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Gelatin",
+   "status": null,
+   "sources_disagree": true,
+   "statuses": [
+    "depends on source",
+    "haram",
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "If the word gelatin appears on a label without reference to its source, it is generally derived from pig skins and cattle bones, so it must be avoided. It is possible to produce halal gelatin by using the bones and hides of halal slaughtered cattle.",
+     "context": "FAQ: \"May we eat gelatin?\"",
+     "url": "https://ifanca.org/faqs/may-we-eat-gelatin/",
+     "source_title": "May we eat gelatin?",
+     "source_date": ""
+    },
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "For Muslims, if gelatin is prepared from swine it is haram. Even if gelatin is prepared from cows that are not zabiha, many scholars consider it haram.",
+     "context": "FAQ: \"Are kosher products halal?\"",
+     "url": "https://ifanca.org/faqs/are-kosher-products-halal/",
+     "source_title": "Are kosher products halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "",
+     "source_text": "Foods containing ingredients such as gelatin, enzymes, emulsifiers, and flavors are questionable (mashbooh), because the origin of these ingredients or components there of, may be haram",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    },
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Gelatin",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Gelatin, Artificial/Natural Flavors",
+     "context": "Listed for \"Jello/Pudding\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Gelatin, Magnesium Stearate",
+     "context": "Listed for \"Nutritional Supplement\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Flavors, Gelatin, Whey",
+     "context": "Listed for \"Yogurt\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Gin",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Gin",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Glycerin",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Glycerin",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Stearic Acid",
+     "context": "Listed for \"Gum\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Alcohol, Flavors, Glycerin",
+     "context": "Listed for \"Mouth Wash\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Sodium Tallowate, Glycerin",
+     "context": "Listed for \"Soap\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Glycerol stearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Glycerol stearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Gum base",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Gum base",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Ham",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Ham",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Hydrolyzed animal protein",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Hydrolyzed animal protein",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Hydrolyzed bovine collagen",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Hydrolyzed bovine collagen",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Hydrolyzed porcine collagen",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Hydrolyzed porcine collagen",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Lactylated fatty acid esters",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Lactylated fatty acid esters",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Lard",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Lard",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Lecithin",
+   "status": null,
+   "sources_disagree": true,
+   "statuses": [
+    "depends on source",
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "If the lecithin is derived from plants, egg yolks or halal animals slaughtered according to Islamic law, it is Halal. Otherwise it is not.",
+     "context": "FAQ: \"Is lecithin halal?\"",
+     "url": "https://ifanca.org/faqs/is-lecithin-halal/",
+     "source_title": "Is lecithin halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Lecithin, Mono/Diglycerides",
+     "context": "Listed for \"Bread\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Lipase",
+   "status": "depends on source",
+   "sources_disagree": false,
+   "statuses": [
+    "depends on source"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "Another enzyme derived from pigs or small cattle is lipase. (Lipase can also be made by microorganisms, which is halal.)",
+     "context": "FAQ: \"Isn't all cheese halal?\"",
+     "url": "https://ifanca.org/faqs/isnt-all-cheese-halal/",
+     "source_title": "Isn't all cheese halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Magnesium stearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Magnesium stearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Gelatin, Magnesium Stearate",
+     "context": "Listed for \"Nutritional Supplement\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Malt",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Malt",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Malt liquor",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Malt liquor",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Microbial enzymes",
+   "status": "halal",
+   "sources_disagree": false,
+   "statuses": [
+    "halal"
+   ],
+   "statements": [
+    {
+     "status": "halal",
+     "ifanca_label": "",
+     "source_text": "Microbial enzymes are not derived from meat and are halal.",
+     "context": "FAQ: \"Isn't all cheese halal?\"",
+     "url": "https://ifanca.org/faqs/isnt-all-cheese-halal/",
+     "source_title": "Isn't all cheese halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Mono and diglycerides",
+   "status": null,
+   "sources_disagree": true,
+   "statuses": [
+    "depends on source",
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "Mono and diglycerides can be derived from animal or vegetable sources. When derived from vegetable sources, they are halal. When derived from animal sources, they are questionable.",
+     "context": "FAQ: \"Are mono and diglycerides halal?\"",
+     "url": "https://ifanca.org/faqs/are-mono-and-diglycerides-halal/",
+     "source_title": "Are mono and diglycerides halal?",
+     "source_date": ""
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Mono & Diglycerides",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Lecithin, Mono/Diglycerides",
+     "context": "Listed for \"Bread\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Cake\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Coffee Creamer\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Mono/Diglycerides, Flavors",
+     "context": "Listed for \"Donuts/Pastries\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Whey, Artificial Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Ice Cream\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Mono/Diglycerides",
+     "context": "Listed for \"Peanut Butter\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Animal Fat, Mono/Diglycerides",
+     "context": "Listed for \"Shortening\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Monoglycerides",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Niacin",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Cysteine Hydrochloride, Enzymes, Folic Acid, Niacin",
+     "context": "Listed for \"Bagel\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Pepsin",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "",
+     "source_text": "The enzyme derived from pigs is called pepsin and is haram.",
+     "context": "FAQ: \"Isn't all cheese halal?\"",
+     "url": "https://ifanca.org/faqs/isnt-all-cheese-halal/",
+     "source_title": "Isn't all cheese halal?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Phospholipids",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Phospholipids",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Polysorbates",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Polysorbates",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Pork",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "",
+     "source_text": "All foods are considered halal except the following sources: Swine/Pork and its by-products",
+     "context": "FAQ: \"What is halal?\"",
+     "url": "https://ifanca.org/faqs/what-is-halal/",
+     "source_title": "What is halal?",
+     "source_date": ""
+    },
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Pork",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Potassium stearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Potassium stearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Propylene glycol monostearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Propylene glycol monostearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Rennet",
+   "status": "depends on source",
+   "sources_disagree": false,
+   "statuses": [
+    "depends on source"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "If the calf is slaughtered according to Islamic requirements, the rennet is halal. Otherwise, it is not.",
+     "context": "FAQ: \"What is the source of rennet?\"",
+     "url": "https://ifanca.org/faqs/what-is-the-source-of-rennet/",
+     "source_title": "What is the source of rennet?",
+     "source_date": ""
+    }
+   ]
+  },
+  {
+   "name": "Rum",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Rum",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Scotch",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Scotch",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Shortening",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Shortening",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Sodium lauryl sulfate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Sodium lauryl sulfate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Sodium Lauryl Sulfate",
+     "context": "Listed for \"Toothpaste\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Sodium stearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Sodium stearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Sodium Tallowate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Sodium Tallowate, Glycerin",
+     "context": "Listed for \"Soap\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Sorbitan monostearate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Sorbitan monostearate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Stearic acid",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Stearic acid",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Stearic Acid",
+     "context": "Listed for \"Gum\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Stearoyl lactylate",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Stearoyl lactylate",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Tallow",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Tallow",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Thiamine",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Folic Acid, Thiamine",
+     "context": "Listed for \"Cookies\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Vitamin A, B2, C, D",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Artificial/Natural Flavors, Vitamin A, B2, C, D",
+     "context": "Listed for \"Cereal\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Vodka",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Vodka",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Whey",
+   "status": "mashbooh",
+   "sources_disagree": false,
+   "statuses": [
+    "mashbooh"
+   ],
+   "statements": [
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Investigate Further (Some Questionable Ingredients)",
+     "source_text": "Whey",
+     "context": "Listed under \"Investigate Further (Some Questionable Ingredients)\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Glycerin, Gelatin, Monoglycerides, Whey Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate",
+     "context": "Listed for \"Candy\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Whey, Artificial Flavors, Mono/Diglycerides",
+     "context": "Listed for \"Ice Cream\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    },
+    {
+     "status": "mashbooh",
+     "ifanca_label": "Examples of Mashbooh* (Doubtful) Ingredients",
+     "source_text": "Flavors, Gelatin, Whey",
+     "context": "Listed for \"Yogurt\" under \"Examples of Mashbooh* (Doubtful) Ingredients\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-quick-reference-guide-to-products/",
+     "source_title": "Halal Shopper’s Quick Reference Guide to Products",
+     "source_date": "2012-04-25"
+    }
+   ]
+  },
+  {
+   "name": "Whiskey",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Whiskey",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Wine",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Wine",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Wine coolers",
+   "status": "haram",
+   "sources_disagree": false,
+   "statuses": [
+    "haram"
+   ],
+   "statements": [
+    {
+     "status": "haram",
+     "ifanca_label": "Haram/Avoid",
+     "source_text": "Wine coolers",
+     "context": "Listed under \"Haram/Avoid\"",
+     "url": "https://ifanca.org/resources/halal-shoppers-guide-to-ingredients/",
+     "source_title": "Halal Shopper’s Guide to Ingredients",
+     "source_date": "2011-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Yellow No. 5",
+   "status": "depends on source",
+   "sources_disagree": false,
+   "statuses": [
+    "depends on source"
+   ],
+   "statements": [
+    {
+     "status": "depends on source",
+     "ifanca_label": "",
+     "source_text": "Yellow No. 5 and all other numbered dyes (colors) are made from petrochemicals. In their pure form, they are halal. However, when used in food products they may be mixed with other doubtful or haram ingredients, such as gelatin.",
+     "context": "FAQ: \"Is Yellow No. 5 halal?\"",
+     "url": "https://ifanca.org/faqs/is-yellow-no-5-halal/",
+     "source_title": "Is Yellow No. 5 halal?",
+     "source_date": ""
+    }
+   ]
+  }
+ ]
+}

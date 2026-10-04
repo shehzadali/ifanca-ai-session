@@ -151,3 +151,47 @@ Scripts: `crawl/themes.py`, `crawl/claims.py`. Outputs: `data/resources-themes.c
 | Resource themes | recipes 352, other 318, health and nutrition 224, community and events 78, industry and certification 69, ingredients 48, halal basics 26 |
 | Consumer education picks | 9 confirmed, 1 corrected and replaced |
 | Journeys | 3 walked, all fail at one or more steps |
+
+## Stage 3: App data export, project skills, and app scaffold (2026-10-04)
+
+**Driving instruction:** Create four project skills for a spec, plan, build, and test loop. Write `crawl/export_app_data.py` to turn the cache into JSON for a mobile PWA called "The Halal Way". Scaffold the app with Vite, React, TypeScript, Tailwind, and vite-plugin-pwa, with a home screen of five tiles and a footer that says it is not an official IFANCA app. Stop after the scaffold.
+
+Outputs: `.claude/skills/{journey-to-spec,spec-to-plan,implement-feature,test-feature}/SKILL.md`, `crawl/export_app_data.py`, `app/public/data/*.json`, `app/`, `notes/screenshots/home-390.png`. No live requests were made.
+
+### Steps another person can repeat
+
+1. **Write the build loop as skills before building.** Four short skills: journey to spec, spec to plan, implement with a commit per step, and test against the acceptance criteria at phone width. Put the safety rules in every skill that touches the UI, so they are applied each time and not only remembered.
+2. **Export from the cache, never from the live site.** The export reads only `data/raw/` and the CSVs from earlier stages. Every record keeps its source URL. Every file has `crawl_date`, a demo snapshot note, a source, and a count.
+3. **Parse recipes with two layouts in mind.** Newer posts use a structured block (an ingredient list and numbered step blocks). Older posts are free text with headings named Ingredients and Instructions or Directions. Try the structured layout first, then the free text one. Record which one was used on each recipe (`parsed_from`). Skip a recipe rather than guess when neither layout gives both ingredients and steps.
+4. **Build the ingredient list only from what the organization published.** Use a fixed set of sources and name them in the file. Copy list items exactly as printed. For FAQ answers, quote the sentence that states the status and have the script fail if the quote is not found word for word.
+5. **Do not resolve disagreements between sources.** When two sources give different statuses for the same ingredient, keep every statement and set `status` to null with `sources_disagree: true`. Choosing one would be a ruling.
+6. **Merge spelling variants only.** "Mono & Diglycerides", "Mono/Diglycerides", and "mono and diglycerides" are one ingredient. E-471 is not merged with mono and diglycerides, even though they are related, because the source does not say so.
+7. **Keep large data out of the install.** The PWA precaches only code and icons. The data files are cached on first use, because products.json is about 3 MB.
+8. **Check the scaffold at phone width.** Build, serve the production preview, and take a screenshot at 390 x 844 with Playwright. Check for console errors and horizontal scroll.
+
+### Decisions
+
+- Ingredient sources: the 26 FAQs, the Halal Shopper's Guide to Ingredients (2011), and the Halal Shopper's Quick Reference Guide to Products (2012). The older Shopper's Guides (2001 to 2005) are earlier versions of the 2011 list and were left out to avoid outdated duplicates. Ingredient articles (for example "Gelatin", 2017) are not guides and were left out.
+- "Investigate Further (Some Questionable Ingredients)" and "Examples of Mashbooh* (Doubtful) Ingredients" are recorded as mashbooh. The FAQ "What is halal?" defines mashbooh as doubtful or questionable. The original label is kept on every statement in `ifanca_label`.
+- FAQ answers that make a status conditional (lecithin, rennet, lipase, mono and diglycerides, gelatin, Yellow No. 5) are recorded as "depends on source".
+- The Quick Reference Guide row "Whey Natural & Artificial Flavors" is printed without a comma. It was split into Whey and Natural & Artificial Flavors. The row "Vitamin A, B2, C, D" was kept as one entry.
+- articles.json holds every resource except recipes (763 items). News posts are not included. Themes come from Stage 2 and are approximate.
+- crawl_date for FAQs and ingredients is the date the FAQ JSON was cached (2026-10-03). Products also say 2026-10-03. Resources say 2026-10-04.
+- The app uses hash routes. Tiles open a placeholder screen until each feature is built through the skills.
+
+### Problems hit
+
+- First recipe pass parsed 330 of 352. Older posts used `<b>` for headings and minor headings such as "Fruit" and "Topping" ended the ingredient list early. After the fix, 341 parsed. The 11 skipped are roundup posts that link to other recipes (for example "Afghani Comfort Foods") or have no Ingredients heading.
+- First ingredient pass split one name by capitalization ("Stearic acid" and "Stearic Acid") and split "Vitamin A, B2, C, D" into "B2", "C", and "D". Fixed by grouping case-insensitively and keeping the vitamin row whole.
+- The Vite template apostrophe in a single-quoted string broke the TypeScript build. Fixed with double quotes.
+- The project Playwright version needed a newer Chromium than the one on the machine. Installed it with `npx playwright install chromium`.
+
+### Results
+
+| File | Records | Notes |
+|---|---|---|
+| products.json | 11,642 | name, company, category, sold_in, marketplace, url |
+| recipes.json | 341 | of 352 recipes in the listing, 11 skipped. 302 structured, 39 free text |
+| articles.json | 763 | all non-recipe resources |
+| faqs.json | 26 | question, answer, url |
+| ingredients.json | 99 | from 147 statements. 68 mashbooh, 22 haram, 3 halal, 3 depends on source, 3 with sources that disagree (gelatin, lecithin, mono and diglycerides) |
