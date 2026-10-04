@@ -60,7 +60,7 @@
 - [x] 3. Meal plan section with day view, search, and Add. (AC 12)
 - [x] 4. Profile: avatars, sign up gate, auto post with avatar, leaderboard avatars, `002_profiles.sql` with local tests, fallback when 002 has not run. (AC 8, 9, 10)
 - [x] 5. Restyle feature screens to the new look, check both themes, offline check. (AC 13, 14)
-- [ ] 6. Update the earlier feature tests and the smoke test for the new texts and routes, and run them all. (AC 15)
+- [x] 6. Update the earlier feature tests and the smoke test for the new texts and routes, and run them all. (AC 15)
 
 ## Test cases
 

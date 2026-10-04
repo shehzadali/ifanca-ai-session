@@ -1,4 +1,4 @@
-import { assert, go, noOwnRuling, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, dateInAboutOnly, go, noOwnRuling, noSideScroll, run, tapTargets } from '../test-lib.mjs'
 
 const count = (page) => page.textContent('[data-testid=result-count]')
 const cards = (page) => page.locator('[data-testid=product-card]')
@@ -79,9 +79,8 @@ await run('product-check', [
     assert(ms < 100, `took ${ms} ms`)
     return `${ms} ms`
   }],
-  [9, 'Snapshot date visible', async ({ page }) => {
-    const t = await page.textContent('[data-testid=snapshot]')
-    assert(t.includes('October 3, 2026'), t)
+  [9, 'No snapshot line on screen, date in Settings, About', async ({ page }) => {
+    await dateInAboutOnly(page, 'October 3, 2026')
   }],
   [10, 'Show more adds 50 cards', async ({ page }) => {
     await search(page, '')

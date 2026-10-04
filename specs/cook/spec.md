@@ -48,7 +48,7 @@
 8. Given a planned recipe, when the page is reloaded, then the meal plan still shows it.
 9. Given a planned recipe, when the user taps Remove, then it leaves the plan.
 10. Given any Cook screen, then the words "diet", "calorie", "healthy", and "nutrition" do not appear in text the app wrote. Recipe text from IFANCA is excluded from this check.
-11. Given any Cook screen, then the snapshot date is visible.
+11. Given any Recipes or Meal plan screen, then no snapshot line is shown, and Settings, About shows the recipes date. (Changed in the redesign. Cook is now called Recipes.)
 12. Given any Cook screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 
 ### Change on 2026-10-04: one recipe hidden, photos added
@@ -60,6 +60,11 @@
 14. Given the device is offline, when the user opens a recipe, then a plain placeholder shows and no photo is requested.
 15. Given the photo request fails, then the placeholder shows "The photo could not load."
 16. Given the recipe list, then "Lemon Tiramisu" is not in it and its URL does not open a recipe.
+
+
+### Change on 2026-10-04: redesign
+
+The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
 ## Data needed
 

@@ -18,6 +18,7 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | QR code | done | `slides/qr.png`, `slides/qr.svg`, decoded and checked |
 | Live smoke test | done, 8 of 8 pass | 2026-10-04 |
 | Feature 6 room-leaderboard | done, connected to Supabase | project qfsryjrqgsarogapkspo |
+| Redesign (owner feedback) | done, 15 of 15 pass, earlier tests rerun and pass | owner to run `supabase/002_profiles.sql` for avatars |
 
 ## How each feature is built
 
@@ -140,6 +141,27 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D78. Realtime missed one event sent in the first moment after subscribing, then worked. The 5-second poll covers that window.
 - D79. Vercel flagged `VITE_SUPABASE_ANON_KEY` as a possible credential. It was added as a public config value on purpose. A Supabase anon key is meant to be in the browser. The access rules in `setup.sql` protect the data. The service role key is not used anywhere.
 - D80. The two settings are in Vercel (Production) and in `app/.env.local` for local builds. Neither file with values is committed.
+
+### Redesign after owner feedback (2026-10-04)
+
+- D81. Look: Plus Jakarta Sans (bundled with the app, works offline), a warm sand background, and six section colors (emerald, teal, amber, clay, indigo, plum). White text on each passes 4.5 to 1. Measured lowest text contrast: 5.5 light, 7.9 dark.
+- D82. Islamic geometric look: one original eight-point star lattice, drawn as an SVG mask so it takes any color. Used in the home header, tiles, section headers, and the leaderboard. No crescent shapes anywhere, so nothing resembles the Crescent-M mark.
+- D83. New logo: a gold eight-point star around a cream leaf on emerald. It replaces the path icon. It is on the home header, the top bar, the favicon, and the installed app icons.
+- D84. Home: logo header, Learn and quiz first and full width with the level bar, then Check a product, Check ingredients, Recipes, Meal plan, Read. Tiles have a label only.
+- D85. Level bar: four steps (Not started, Beginner, Learner, Advocate). A passed round fills one third. The best score in the next round fills part of the next third. The tile says how many levels are left.
+- D86. Snapshot dates: removed from every screen and the footer, as asked. Kept in Settings, About with each dataset's date and count, so the app still discloses the age of the data. This changes the first request's rule "show the snapshot date wherever IFANCA data is shown". The export now writes `meta.json` (dates and counts) so About does not load the 3 MB product file.
+- D87. The missing-product message keeps its warning but no longer uses the word "snapshot": "This list is a copy of IFANCA's website from a past date."
+- D88. Bottom navigation: six items (Learn, Products, Ingredients, Recipes, Meal plan, Read) on every section screen. Not on home, where the tiles do the same job, and not on the projector leaderboard.
+- D89. Top bar: logo and name on the left, avatar button on the right. It opens a Settings sheet with Profile (edit, sign out), Appearance (System, Light, Dark), and About. Text size was not added, because most text sizes are fixed for the phone layout.
+- D90. Dark theme: every color is a variable with a dark value. The choice is saved on the device and applied before the first paint to avoid a white flash.
+- D91. Cook is now Recipes (`#/recipes`). Old `#/cook` links still open the right screen.
+- D92. Meal plan is its own section (`#/plan`): seven day cards, and a day view with the planned recipes, Remove, a search box, and Add buttons. With no search, it lists the newest recipes. "Add to meal plan" on recipe pages still works.
+- D93. Sign up: a name (2 to 20 letters, numbers, spaces, hyphens, apostrophes, periods, or underscores) and one of 12 preset avatars. No password and no server account. The profile lives on the device. Uploaded photos were not offered: they would put faces on a projector with no way to moderate them.
+- D94. Only the quiz needs a profile. Lessons and every other section stay open.
+- D95. Scores post on their own after every round, with the profile's name and avatar. The separate name field and button on the result screen are gone.
+- D96. Sign out removes the profile, quiz progress, and the leaderboard device key, so the next person on the same phone gets a new entry. Lessons read and the meal plan stay.
+- D97. `supabase/002_profiles.sql` adds the avatar column (preset ids only, checked by pattern), the wider name rule, and a five-argument `post_score`. The first `post_score` stays for older copies. Until the owner runs 002, the app falls back to the old function and shows initials on the leaderboard. A name with numbers or an underscore is refused by the old function until 002 runs.
+- D98. Test safety: the feature tests now build without the Supabase settings (a test finishes quiz rounds, which would post to the live board). The smoke test answers one question only.
 
 ## Deploys
 

@@ -1,12 +1,12 @@
 {
   "feature": "cook",
   "date": "2026-10-04",
-  "commit": "f3eed7b",
+  "commit": "26761c8",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
-      "text": "Cook tile mentions the meal plan and opens Cook",
+      "text": "Recipes tile opens Recipes, and no Cook label remains",
       "result": "Pass",
       "notes": ""
     },
@@ -66,7 +66,7 @@
     },
     {
       "n": 11,
-      "text": "Snapshot date on every Cook screen",
+      "text": "No snapshot line on Recipes and Meal plan, date in Settings, About",
       "result": "Pass",
       "notes": ""
     },

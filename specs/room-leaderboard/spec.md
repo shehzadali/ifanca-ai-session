@@ -32,9 +32,9 @@ Purpose: show the room's top 10 on a projector.
 
 ## Acceptance criteria
 
-1. Given a finished quiz round and a working leaderboard, when the player types a first name and taps "Post my score", then "Posted as <name>" shows and the entry is sent with the total of best round scores.
+1. Given a signed up player finishes a quiz round and the leaderboard works, then the score is posted without a tap, with the profile name, avatar, and the total of best round scores, and the result says it was posted. (Changed in the redesign.)
 2. Given the same device posts again with a higher total, then the same entry is updated, not added twice.
-3. Given a name that is empty, longer than 20 characters, or has characters other than letters, spaces, hyphens, apostrophes, or periods, then the button stays disabled or the post is refused with a message.
+3. Given a profile name that is shorter than 2 or longer than 20 characters, or has characters other than letters, numbers, spaces, hyphens, apostrophes, periods, or underscores, then the profile cannot be saved, and the database refuses it. (Changed in the redesign.)
 4. Given the leaderboard service cannot be reached, when the player posts, then the failure message shows, the quiz score and level stay saved on the device, and the quiz still works.
 5. Given a failed post, when the device comes back online, then the post is tried again without a tap.
 6. Given the leaderboard screen at 1280 x 720, then up to 10 entries show in score order with large text (rank and name at least 32px), and the QR code is visible without scrolling.
@@ -45,6 +45,10 @@ Purpose: show the room's top 10 on a projector.
 11. Given the leaderboard is not configured, then the quiz shows no post section and the leaderboard says it is not connected yet.
 12. Given the database, then a visitor with the public key can read entries and call the post and reset functions, but cannot insert, update, or delete rows directly, and cannot read device keys or the reset code.
 13. Given any screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
+
+### Change on 2026-10-04: redesign
+
+The owner asked for a sign up with a name and an avatar before the quiz, because a leaderboard without them has no meaning. The name field moved from the result screen to the profile. Scores now post on their own after each round. The leaderboard shows avatars. `supabase/002_profiles.sql` adds the avatar column and the wider name rule. Until it runs, the app posts without the avatar.
 
 ## Data needed
 

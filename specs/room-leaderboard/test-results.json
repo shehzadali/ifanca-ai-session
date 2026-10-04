@@ -1,14 +1,14 @@
 {
   "feature": "room-leaderboard",
   "date": "2026-10-04",
-  "commit": "7da18f6",
+  "commit": "26761c8",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
-      "text": "Post a score after a round",
+      "text": "Sign up, then the score posts after a round",
       "result": "Pass",
-      "notes": "one post_score call, total 6"
+      "notes": "post_score with Amina, rosette-indigo, total 6, no tap needed"
     },
     {
       "n": 2,
@@ -18,15 +18,15 @@
     },
     {
       "n": 3,
-      "text": "Bad names keep the button disabled",
+      "text": "Bad profile names cannot be saved",
       "result": "Pass",
-      "notes": ""
+      "notes": "empty, 1 character, 21 characters, symbols, and a leading underscore are refused"
     },
     {
       "n": 4,
       "text": "Network failure keeps the score on the device",
       "result": "Pass",
-      "notes": "pending total 18 saved, level Advocate kept"
+      "notes": "pending total 18 with avatar saved, level Advocate kept"
     },
     {
       "n": 5,
@@ -38,13 +38,13 @@
       "n": 6,
       "text": "Projector view: top 10, large text, QR visible",
       "result": "Pass",
-      "notes": "12 entries, 10 shown, rank and name 34 and 34px, row 10 ends at 705px of 720"
+      "notes": "12 entries, 10 shown, rank and name 34 and 34px, row 10 ends at 693px of 720"
     },
     {
       "n": 7,
       "text": "A new score appears within 10 seconds without reload",
       "result": "Pass",
-      "notes": "appeared after 5.3 s (poll, realtime cannot reach the stand-in)"
+      "notes": "appeared after 4.8 s (poll, realtime cannot reach the stand-in)"
     },
     {
       "n": 8,
@@ -74,7 +74,7 @@
       "n": 12,
       "text": "Database access rules (local Postgres)",
       "result": "Pass",
-      "notes": "23 passed, 0 failed. Output in sql-test-output.txt"
+      "notes": "31 passed, 0 failed. Output in sql-test-output.txt"
     },
     {
       "n": 13,
@@ -84,6 +84,7 @@
     }
   ],
   "consoleErrors": [
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
     "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
     "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
     "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",

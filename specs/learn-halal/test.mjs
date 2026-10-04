@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { assert, go, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, dateInAboutOnly, go, noSideScroll, run, setProfile, tapTargets } from '../test-lib.mjs'
 
 const app = new URL('../../app/', import.meta.url).pathname
 const faqs = JSON.parse(fs.readFileSync(path.join(app, 'public/data/faqs.json'), 'utf8')).items
@@ -82,6 +82,7 @@ await run('learn-halal', [
     return ok.trim()
   }],
   [8, 'Feedback shows the quote and links', async ({ page }) => {
+    await setProfile(page)
     await go(page, 'learn/quiz/Beginner')
     const q = quiz.items.find((x) => x.level === 'Beginner')
     await page.locator('[data-testid=option]').nth(q.answer).click()
@@ -105,6 +106,8 @@ await run('learn-halal', [
   [10, 'Locked round is disabled with a reason', async ({ newPage, setPage }) => {
     const page = await newPage()
     setPage(page)
+    await go(page, '')
+    await setProfile(page)
     await go(page, 'learn/quiz')
     const b = page.locator('[data-testid=round-Learner]')
     assert(await b.isDisabled(), 'not disabled')
@@ -120,10 +123,11 @@ await run('learn-halal', [
     await page.waitForSelector('[data-testid=level]')
     assert((await page.textContent('[data-testid=level]')) === 'Learner', 'level not kept')
   }],
-  [12, 'Snapshot date on Learn home, lesson, and quiz', async ({ page }) => {
+  [12, 'No snapshot line on Learn screens, date in Settings, About', async ({ page }) => {
+    await setProfile(page)
     for (const h of ['learn', 'learn/what-is-halal', 'learn/quiz']) {
       await go(page, h)
-      assert((await page.textContent('[data-testid=snapshot]')).includes('October 3, 2026'), h)
+      await dateInAboutOnly(page, 'October 3, 2026')
     }
   }],
   [14, 'Lists from the source show as lists in all 10 lessons that have them', async ({ page }) => {

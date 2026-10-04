@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url'
-import { assert, go, noOwnRuling, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, dateInAboutOnly, go, noOwnRuling, noSideScroll, run, tapTargets } from '../test-lib.mjs'
 
 const LABEL = fileURLToPath(new URL('../fixtures/label.png', import.meta.url))
 let data
@@ -129,10 +129,9 @@ await run('ingredient-check', [
     assert(ocr.some((u) => u.includes('/tesseract/lang/eng.traineddata')), 'language data not from app')
     return `${ocr.length} requests, all on ${origin}`
   }],
-  [13, 'Snapshot date visible', async ({ page }) => {
+  [13, 'No snapshot line on screen, date in Settings, About', async ({ page }) => {
     await go(page, 'ingredients')
-    const t = await page.textContent('[data-testid=snapshot]')
-    assert(t.includes('October 3, 2026'), t)
+    await dateInAboutOnly(page, 'October 3, 2026')
   }],
   [14, 'No page side scroll, tap targets 44px', async ({ page }) => {
     await open(page, 'Gelatin')

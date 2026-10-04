@@ -33,10 +33,15 @@ Elements, top to bottom at 390px:
 6. Given a category name that contains an ampersand, when the user opens the filter, then it reads "Ice Cream & Frozen Yogurt" and not "&amp;".
 7. Given the product screen, when the user types text that matches nothing, such as "zzqx", then the screen shows "Not in IFANCA's published list. This does not mean it is not certified or not halal." and does not show the words "halal" or "not halal" as a status anywhere else.
 8. Given the data has loaded, when the user types a character, then results update within 100 ms on a desktop browser with 4x CPU slowdown.
-9. Given the product screen, then the snapshot date "October 3, 2026" is visible above the results.
+9. Given the product screen, then no snapshot line is shown, and Settings, About shows "October 3, 2026" for products. (Changed in the redesign.)
 10. Given more than 50 results, when the user taps "Show more", then 50 more cards appear.
 11. Given the screen at 390px width, then nothing scrolls sideways and tap targets are at least 44px tall.
 12. Given the first page load of the home screen, then `products.json` is not requested until the product screen opens.
+
+
+### Change on 2026-10-04: redesign
+
+The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
 ## Data needed
 

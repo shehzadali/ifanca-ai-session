@@ -25,6 +25,8 @@ async function go(hash) {
   await page.waitForLoadState('networkidle')
 }
 async function common() {
+  const main = await page.textContent('main')
+  assert(!/snapshot/i.test(main), 'snapshot line on screen')
   const w = await page.evaluate(() => document.documentElement.scrollWidth)
   assert(w <= 390, `page is ${w}px wide`)
   assert((await page.textContent('footer')).includes(FOOTER), 'footer text missing')
@@ -38,12 +40,12 @@ async function check(name, fn) {
   }
 }
 
-await check('home: five tiles and footer', async () => {
+await check('home: logo, six tiles in order, footer', async () => {
   await go('')
-  const tiles = await page.locator('main a[href^="#/"]').allInnerTexts()
-  assert(tiles.length === 5, `${tiles.length} tiles`)
-  assert(tiles.some((t) => t.includes('Learn and quiz')), 'Learn and quiz tile')
-  assert(tiles.some((t) => /meal plan/i.test(t)), 'Cook tile subtitle')
+  const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
+  const want = ['Learn and quiz', 'Check a product', 'Check ingredients', 'Recipes', 'Meal plan', 'Read']
+  assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
+  assert((await page.locator('main svg[aria-label="The Halal Way logo"]').count()) === 1, 'logo')
   await common()
 })
 
@@ -81,14 +83,16 @@ await check('learn-halal: first lesson and quiz', async () => {
   assert((await page.locator('[data-testid=lesson-title]').count()) === 26, 'lesson count')
   assert((await page.locator('[data-testid=lesson-title]').first().innerText()) === 'What is halal?', 'first lesson')
   await common()
+  // Answer one question only. A finished round would post to the live leaderboard.
+  await page.evaluate(() => localStorage.setItem('thw.profile', JSON.stringify({ name: 'Smoke test', avatar: 'star-emerald' })))
   await go('learn/quiz/Beginner')
   await page.locator('[data-testid=option]').first().click()
   assert((await page.locator('[data-testid=quote]').count()) === 1, 'quiz quote')
   await common()
 })
 
-await check('cook: list, recipe, meal plan', async () => {
-  await go('cook')
+await check('recipes and meal plan: list, recipe, add to a day', async () => {
+  await go('recipes')
   await page.waitForSelector('[data-testid=recipe-row]')
   assert((await page.textContent('[data-testid=result-count]')) === '340 recipes', 'recipe count')
   await page.locator('[data-testid=recipe-row]').first().click()
@@ -96,8 +100,12 @@ await check('cook: list, recipe, meal plan', async () => {
   await page.locator('[data-testid=recipe-photo], [data-testid=photo-placeholder]').first().waitFor()
   await page.getByRole('button', { name: 'Add to meal plan' }).click()
   await page.getByRole('button', { name: 'Friday' }).click()
-  await go('cook/plan')
-  assert(!(await page.textContent('[data-testid=day-Friday]')).includes('Nothing planned.'), 'meal plan')
+  await go('plan/Wednesday')
+  await page.fill('input[type=search]', 'lentil')
+  await page.locator('[data-testid=add-results] button').first().click()
+  await go('plan')
+  assert(!(await page.textContent('[data-testid=day-Friday]')).includes('Nothing planned'), 'Friday')
+  assert(!(await page.textContent('[data-testid=day-Wednesday]')).includes('Nothing planned'), 'Wednesday')
   await common()
 })
 
@@ -155,7 +163,8 @@ await check('pwa: works offline after first load', async () => {
       ['product', '[data-testid=result-count]'],
       ['ingredients', 'nav[aria-label="Ways to check"]'],
       ['learn', '[data-testid=lesson-title]'],
-      ['cook', '[data-testid=recipe-row]'],
+      ['recipes', '[data-testid=recipe-row]'],
+      ['plan', '[data-testid=day-Monday]'],
       ['read', '[data-testid=article-card]'],
     ]) {
       await page.goto(`${BASE}/#/${hash}`)
@@ -171,7 +180,10 @@ await check('pwa: works offline after first load', async () => {
     return n
   })
   assert(stored === 0, `${stored} ifanca.org files in the service worker cache`)
-  return 'all five screens load offline, no photos cached'
+  await page.click('[data-testid=avatar-button]')
+  await page.waitForSelector('[data-testid=about] dd')
+  await page.keyboard.press('Escape')
+  return 'every section and Settings load offline, no photos cached'
 })
 
 await browser.close()

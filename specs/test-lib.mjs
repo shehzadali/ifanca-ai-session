@@ -94,3 +94,22 @@ export async function noOwnRuling(page) {
   const rest = text.split(allowed).join('')
   assert(!/not halal/i.test(rest), 'found "not halal" outside the fixed message')
 }
+
+// Since the redesign (2026-10-04) the crawl date is shown only in Settings, About.
+export async function dateInAboutOnly(page, date) {
+  const main = await page.textContent('main')
+  assert(!/snapshot/i.test(main), 'the word "snapshot" is on the screen')
+  assert(!main.includes(date) && !main.includes('2026-10-0'), `the crawl date ${date} is on the screen`)
+  await page.click('[data-testid=avatar-button]')
+  await page.waitForSelector('[data-testid=about] dd')
+  const about = await page.textContent('[data-testid=about]')
+  assert(about.includes(date), `About does not show ${date}`)
+  await page.keyboard.press('Escape')
+}
+
+// The quiz needs a player profile since the redesign.
+// Reloads after writing, because the app reads the profile once and then follows its own changes.
+export async function setProfile(page, name = 'Tester', avatar = 'star-emerald') {
+  await page.evaluate(([n, a]) => localStorage.setItem('thw.profile', JSON.stringify({ name: n, avatar: a })), [name, avatar])
+  await page.reload()
+}

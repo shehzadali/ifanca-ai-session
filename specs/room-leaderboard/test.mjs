@@ -6,7 +6,7 @@
 import { execSync, spawn } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
-import { assert, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, noSideScroll, run, setProfile, tapTargets } from '../test-lib.mjs'
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..')
 const app = path.join(root, 'app')
@@ -34,17 +34,17 @@ await new Promise((r) => setTimeout(r, 2500))
 
 // ---------- stand-in Supabase ----------
 const store = { rows: [], devices: new Map(), calls: [], down: false }
-const NAME = /^\p{L}[\p{L} .'-]*$/u
+const NAME = /^[\p{L}\p{N}][\p{L}\p{N} .'_-]*$/u
 let seq = 0
-function postScore({ p_device, p_name, p_score, p_level }) {
+function postScore({ p_device, p_name, p_score, p_level, p_avatar = null }) {
   const name = String(p_name ?? '').replace(/\s+/g, ' ').trim()
   if (!p_device) return 'device id is required'
-  if (name.length < 1 || name.length > 20 || !NAME.test(name)) return 'name must be 1 to 20 letters'
+  if (name.length < 2 || name.length > 20 || !NAME.test(name)) return 'name must be 2 to 20 characters'
   if (!(p_score >= 0 && p_score <= 18)) return 'score must be between 0 and 18'
   const id = store.devices.get(p_device)
   const row = store.rows.find((r) => r.id === id)
   if (!row) {
-    const r = { id: `e${++seq}`, name, score: p_score, level: p_level, updated_at: new Date(Date.now() + seq).toISOString() }
+    const r = { id: `e${++seq}`, name, score: p_score, level: p_level, avatar: p_avatar, updated_at: new Date(Date.now() + seq).toISOString() }
     store.rows.push(r)
     store.devices.set(p_device, r.id)
   } else {
@@ -52,6 +52,7 @@ function postScore({ p_device, p_name, p_score, p_level }) {
     if (p_score > row.score) row.updated_at = new Date().toISOString()
     row.score = Math.max(row.score, p_score)
     row.name = name
+    row.avatar = p_avatar ?? row.avatar
   }
   return null
 }
@@ -93,59 +94,60 @@ async function playRound(page, base, level, allRight = true) {
   await page.waitForSelector('[data-testid=score]')
 }
 const status = (page) => page.locator('[data-testid=post-status]').innerText()
+const POSTED = 'text=Posted to the room leaderboard.'
 
 let pageA
 try {
   await run('room-leaderboard', [
-    [1, 'Post a score after a round', async ({ page }) => {
+    [1, 'Sign up, then the score posts after a round', async ({ page }) => {
       pageA = page
       await stub(page.context())
+      await page.goto(`${MOCKED}/#/learn/quiz`)
+      await page.waitForSelector('[data-testid=signup]')
+      await page.fill('[data-testid=profile-name]', 'Amina')
+      await page.locator('[data-testid=avatar-option]').nth(4).click()
+      await page.getByRole('button', { name: 'Start playing' }).click()
       await playRound(page, MOCKED, 'Beginner')
-      await page.fill('[data-testid=board-name]', 'Amina')
-      await page.getByRole('button', { name: 'Post my score' }).click()
-      await page.waitForSelector('text=Posted as Amina.')
-      assert(store.calls.length === 1 && store.calls[0].p_score === 6 && store.calls[0].p_name === 'Amina', JSON.stringify(store.calls))
+      await page.waitForSelector(POSTED)
+      const c = store.calls[0]
+      assert(store.calls.length >= 1 && c.p_score === 6 && c.p_name === 'Amina' && c.p_avatar === 'rosette-indigo', JSON.stringify(store.calls))
       await page.locator('[data-testid=post-score]').scrollIntoViewIfNeeded()
-      return 'one post_score call, total 6'
+      return `post_score with Amina, rosette-indigo, total 6, no tap needed`
     }],
     [2, 'Posting again updates the same entry', async ({ page }) => {
       await playRound(page, MOCKED, 'Learner')
-      assert((await page.inputValue('[data-testid=board-name]')) === 'Amina', 'name not remembered')
-      await page.getByRole('button', { name: 'Post my score' }).click()
-      await page.waitForSelector('text=Posted as Amina.')
-      assert(store.calls.length === 2 && store.calls[0].p_device === store.calls[1].p_device, 'device key differs')
+      await page.waitForSelector(POSTED)
+      const devices = new Set(store.calls.map((c) => c.p_device))
+      assert(devices.size === 1, 'device key differs')
       assert(store.rows.length === 1 && store.rows[0].score === 12, JSON.stringify(store.rows))
       await page.locator('[data-testid=post-score]').scrollIntoViewIfNeeded()
       return 'same device key, one entry, score 12'
     }],
-    [3, 'Bad names keep the button disabled', async ({ page }) => {
-      const button = page.getByRole('button', { name: 'Post my score' })
-      for (const n of ['', '   ', 'Abcdefghijklmnopqrstu', 'Bob<1>', '123']) {
-        await page.fill('[data-testid=board-name]', n)
+    [3, 'Bad profile names cannot be saved', async ({ page }) => {
+      await page.goto(`${MOCKED}/#/profile`)
+      const button = page.getByRole('button', { name: 'Save profile' })
+      for (const n of ['', 'A', 'Abcdefghijklmnopqrstu', 'Bob<1>', '_ali']) {
+        await page.fill('[data-testid=profile-name]', n)
         assert(await button.isDisabled(), `enabled for "${n}"`)
       }
-      await page.fill('[data-testid=board-name]', "Jean-Luc O'Neil")
+      await page.fill('[data-testid=profile-name]', "ali_99 O'Neil")
       assert(!(await button.isDisabled()), 'disabled for a good name')
-      await page.fill('[data-testid=board-name]', 'Bob<1>')
-      await page.locator('[data-testid=post-score]').scrollIntoViewIfNeeded()
+      await page.fill('[data-testid=profile-name]', 'Bob<1>')
+      return 'empty, 1 character, 21 characters, symbols, and a leading underscore are refused'
     }],
     [4, 'Network failure keeps the score on the device', async ({ page }) => {
       store.down = true
       await playRound(page, MOCKED, 'Advocate')
-      await page.fill('[data-testid=board-name]', 'Amina')
-      await page.getByRole('button', { name: 'Post my score' }).click()
-      await page.waitForSelector('text=Could not reach the leaderboard.')
-      assert((await status(page)).includes('Your score is saved on this device.'), 'message')
+      await page.waitForSelector('text=Saved on this device. It will post when you are back online.')
       const pending = await page.evaluate(() => JSON.parse(localStorage.getItem('thw.board')).pending)
-      assert(pending && pending.total === 18, `pending ${JSON.stringify(pending)}`)
-      // A second tab on the same device still has the quiz progress.
+      assert(pending && pending.total === 18 && pending.avatar === 'rosette-indigo', `pending ${JSON.stringify(pending)}`)
       const other = await page.context().newPage()
       await other.goto(`${MOCKED}/#/learn/quiz`)
       const level = await other.textContent('[data-testid=level]')
       await other.close()
       assert(level === 'Advocate', `level ${level}`)
       await page.locator('[data-testid=post-score]').scrollIntoViewIfNeeded()
-      return 'pending total 18 saved, level Advocate kept'
+      return 'pending total 18 with avatar saved, level Advocate kept'
     }],
     [5, 'Retries by itself when back online', async ({ page }) => {
       store.down = false
@@ -153,14 +155,14 @@ try {
       await page.context().setOffline(true)
       await page.waitForTimeout(300)
       await page.context().setOffline(false)
-      await page.waitForSelector('text=Posted as Amina.', { timeout: 10000 })
-      assert(store.calls.length === before + 1, 'no retry call')
+      await page.waitForSelector(POSTED, { timeout: 10000 })
+      assert(store.calls.length > before, 'no retry call')
       assert(store.rows[0].score === 18, `score ${store.rows[0].score}`)
       await page.locator('[data-testid=post-score]').scrollIntoViewIfNeeded()
     }],
     [6, 'Projector view: top 10, large text, QR visible', async ({ page }) => {
       for (const [i, n] of ['Yusuf', 'Fatima', 'Omar', 'Sara', 'Bilal', 'Maryam', 'Hamza', 'Zainab', 'Ibrahim', 'Noor', 'Adam'].entries()) {
-        postScore({ p_device: `seed-${i}`, p_name: n, p_score: 17 - i, p_level: 'Learner' })
+        postScore({ p_device: `seed-${i}`, p_name: n, p_score: 17 - i, p_level: 'Learner', p_avatar: i % 2 ? 'sun-amber' : 'leaf-teal' })
       }
       await page.setViewportSize({ width: 1280, height: 720 })
       await page.goto(`${MOCKED}/leaderboard`)
@@ -173,6 +175,8 @@ try {
         ['board-rank', 'board-name'].map((t) => parseFloat(getComputedStyle(document.querySelector(`[data-testid=${t}]`)).fontSize)),
       )
       assert(sizes.every((s) => s >= 32), `font sizes ${sizes}`)
+      const avatars = await page.locator('[data-testid=board-row] [data-avatar]').count()
+      assert(avatars === 10, `${avatars} avatars`)
       const qr = await page.locator('[data-testid=qr]').boundingBox()
       assert(qr && qr.y + qr.height <= 720 && qr.x + qr.width <= 1280, 'QR not fully in view')
       const last = await page.locator('[data-testid=board-row]').last().boundingBox()
@@ -210,6 +214,8 @@ try {
     [11, 'Without settings the feature is hidden', async ({ newPage, setPage }) => {
       const page = await newPage()
       setPage(page)
+      await page.goto(PLAIN)
+      await setProfile(page)
       await playRound(page, PLAIN, 'Beginner')
       assert((await page.locator('[data-testid=post-score]').count()) === 0, 'post section shown')
       await page.goto(`${PLAIN}/leaderboard`)
@@ -225,8 +231,9 @@ try {
     }],
     [13, 'No sideways scroll and 44px tap targets at 390px', async ({ page }) => {
       await page.setViewportSize({ width: 390, height: 844 })
+      await page.goto(MOCKED)
+      await setProfile(page)
       await playRound(page, MOCKED, 'Beginner')
-      await page.fill('[data-testid=board-name]', 'Amina')
       await noSideScroll(page)
       await tapTargets(page)
       await page.goto(`${MOCKED}/leaderboard`)

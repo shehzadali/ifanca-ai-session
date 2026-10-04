@@ -1,7 +1,7 @@
 {
   "feature": "product-check",
   "date": "2026-10-04",
-  "commit": "b85fa3e",
+  "commit": "26761c8",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -50,11 +50,11 @@
       "n": 8,
       "text": "Results update within 100 ms with 4x CPU slowdown",
       "result": "Pass",
-      "notes": "30 ms"
+      "notes": "47 ms"
     },
     {
       "n": 9,
-      "text": "Snapshot date visible",
+      "text": "No snapshot line on screen, date in Settings, About",
       "result": "Pass",
       "notes": ""
     },

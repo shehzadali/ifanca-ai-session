@@ -1,0 +1,105 @@
+{
+  "feature": "app-redesign",
+  "date": "2026-10-04",
+  "commit": "26761c8",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Logo in the header, tiles have one line each",
+      "result": "Pass",
+      "notes": "6 tiles"
+    },
+    {
+      "n": 2,
+      "text": "Learn and quiz first, then the given order",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 3,
+      "text": "Level bar shows Beginner and at least one third",
+      "result": "Pass",
+      "notes": "fill 33%"
+    },
+    {
+      "n": 4,
+      "text": "No snapshot outside About, dates inside About",
+      "result": "Pass",
+      "notes": "8 screens checked"
+    },
+    {
+      "n": 5,
+      "text": "Bottom navigation inside sections",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "text": "Avatar button opens Settings",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 7,
+      "text": "Dark theme is applied and kept after reload",
+      "result": "Pass",
+      "notes": "body rgb(11, 21, 19)"
+    },
+    {
+      "n": 8,
+      "text": "Sign up before the quiz",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 9,
+      "text": "Score posts with avatar, leaderboard shows it, and the fallback works before 002",
+      "result": "Pass",
+      "notes": "avatar sent and shown. Before 002: posted without avatar, initials shown"
+    },
+    {
+      "n": 10,
+      "text": "Network down: saved on device, posts later",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 11,
+      "text": "Recipes everywhere, no Cook label",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 12,
+      "text": "Meal plan: Wednesday, search lentil, Add, kept after reload",
+      "result": "Pass",
+      "notes": "Maash Ki Daal"
+    },
+    {
+      "n": 13,
+      "text": "Offline after one visit: home, sections, Settings, profile, fonts",
+      "result": "Pass",
+      "notes": "all sections, quiz, Settings with profile, and the font work offline"
+    },
+    {
+      "n": 14,
+      "text": "390px layout, tap targets, and contrast in both themes",
+      "result": "Pass",
+      "notes": "light: lowest 5.52, dark: lowest 7.87"
+    },
+    {
+      "n": 15,
+      "text": "Earlier feature tests pass after the redesign",
+      "result": "Pass",
+      "notes": "product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13"
+    }
+  ],
+  "consoleErrors": [
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
+  ]
+}

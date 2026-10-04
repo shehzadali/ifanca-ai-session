@@ -1,7 +1,7 @@
 {
   "feature": "ingredient-check",
   "date": "2026-10-04",
-  "commit": "62229e4",
+  "commit": "26761c8",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -78,7 +78,7 @@
     },
     {
       "n": 13,
-      "text": "Snapshot date visible",
+      "text": "No snapshot line on screen, date in Settings, About",
       "result": "Pass",
       "notes": ""
     },

@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { assert, go, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, dateInAboutOnly, go, noSideScroll, run, tapTargets } from '../test-lib.mjs'
 
 const articles = JSON.parse(fs.readFileSync(new URL('../../app/public/data/articles.json', import.meta.url), 'utf8')).items
 const byUrl = new Map(articles.map((a) => [a.url, a]))
@@ -71,7 +71,7 @@ await run('read', [
   }],
   [9, 'Snapshot date and themes note', async ({ page }) => {
     await go(page, 'read')
-    assert((await page.textContent('[data-testid=snapshot]')).includes('October 4, 2026'), 'date')
+    await dateInAboutOnly(page, 'October 4, 2026')
     assert((await page.textContent('main')).includes('Themes are approximate.'), 'note')
   }],
   [10, 'No sideways scroll and 44px tap targets', async ({ page }) => {

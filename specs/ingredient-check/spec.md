@@ -35,9 +35,14 @@ Elements at 390px:
 10. Given the Photo tab, when the user chooses a photo of a printed ingredient list, then a progress line shows, and the recognized text appears in an editable text area.
 11. Given recognized text, when the user edits it and taps Check ingredients, then the results reflect the edited text.
 12. Given the Photo tab is used, then all OCR files load from the app's own origin and the photo is not sent anywhere.
-13. Given the ingredient screen, then "October 3, 2026" is visible.
+13. Given the ingredient screen, then no snapshot line is shown, and Settings, About shows "October 3, 2026". (Changed in the redesign.)
 14. Given the screen at 390px, then nothing on the page scrolls sideways (the side-by-side row scrolls inside its card) and tap targets are at least 44px.
 15. Given the home screen or the One ingredient tab, then no OCR files are requested until the Photo tab is used.
+
+
+### Change on 2026-10-04: redesign
+
+The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
 ## Data needed
 

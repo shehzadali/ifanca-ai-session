@@ -32,8 +32,13 @@
 6. Given the Read screen, when the user types "gelatin", then every card has "gelatin" in its title or preview.
 7. Given no match, then the screen says "No articles match. Try another word or theme."
 8. Given more than 20 results, when the user taps "Show more", then 20 more cards appear.
-9. Given the Read screen, then the snapshot date is visible and the line says themes are approximate.
+9. Given the Read screen, then the line says themes are approximate, no snapshot line is shown, and Settings, About shows the articles date. (Changed in the redesign.)
 10. Given the Read screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
+
+
+### Change on 2026-10-04: redesign
+
+The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
 ## Data needed
 

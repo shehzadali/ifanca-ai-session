@@ -46,7 +46,7 @@
 9. Given the Beginner round, when the user answers all 6 correctly, then the score reads 6 of 6, the level becomes Beginner, and the Learner round opens.
 10. Given the Learner round is locked, then its button is disabled and says what is needed to open it.
 11. Given a level has been reached, when the page reloads, then the same level is shown.
-12. Given any Learn screen, then the snapshot date is visible.
+12. Given any Learn screen, then no snapshot line is shown, and Settings, About shows the FAQ date. (Changed in the redesign.)
 13. Given any Learn screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 
 ### Change on 2026-10-04: lists restored
@@ -54,6 +54,11 @@
 The first build showed each answer as running text because the crawl export dropped list markup. The export now also writes `blocks` (paragraphs and lists) from the cached FAQ HTML. Joining the blocks gives the same `answer` text, and the export fails if it does not.
 
 14. Given a lesson whose FAQ answer has a list on ifanca.org, then the lesson shows the same list (numbered for `ol`, bulleted for `ul`) with the same items. (Checked for all 10 such lessons.)
+
+
+### Change on 2026-10-04: redesign
+
+The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
 ## Data needed
 
