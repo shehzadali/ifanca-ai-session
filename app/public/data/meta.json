@@ -1,0 +1,30 @@
+{
+ "note": "Demo snapshot of public ifanca.org content, for a training session only. Not an official IFANCA dataset. Content may be out of date. Check ifanca.org for current information.",
+ "files": {
+  "products.json": {
+   "crawl_date": "2026-10-03",
+   "count": 11642,
+   "source": "https://ifanca.org/halal-certified-products/"
+  },
+  "ingredients.json": {
+   "crawl_date": "2026-10-03",
+   "count": 99,
+   "source": "IFANCA FAQs, Halal Shopper's Guide to Ingredients (2011), Halal Shopper's Quick Reference Guide to Products (2012)"
+  },
+  "faqs.json": {
+   "crawl_date": "2026-10-03",
+   "count": 26,
+   "source": "https://ifanca.org/faqs/"
+  },
+  "recipes.json": {
+   "crawl_date": "2026-10-04",
+   "count": 340,
+   "source": "https://ifanca.org/resources/ (type: Recipe)"
+  },
+  "articles.json": {
+   "crawl_date": "2026-10-04",
+   "count": 763,
+   "source": "https://ifanca.org/resources/ (all types except Recipe)"
+  }
+ }
+}

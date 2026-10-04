@@ -499,6 +499,16 @@ def export_ingredients() -> int:
     )
 
 
+def write_meta() -> None:
+    """A small index of the data files (crawl date and count), so the app can show dates without loading them."""
+    files = {}
+    for name in ("products.json", "ingredients.json", "faqs.json", "recipes.json", "articles.json"):
+        data = json.loads((OUT_DIR / name).read_text(encoding="utf-8"))
+        files[name] = {"crawl_date": data["crawl_date"], "count": data["count"], "source": data["source"]}
+    payload = {"note": NOTE, "files": files}
+    (OUT_DIR / "meta.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def main() -> None:
     counts = {"products.json": export_products()}
     n_recipes, skipped = export_recipes()
@@ -506,6 +516,7 @@ def main() -> None:
     counts["articles.json"] = export_articles()
     counts["faqs.json"] = export_faqs()
     counts["ingredients.json"] = export_ingredients()
+    write_meta()
     for name, n in counts.items():
         print(f"{name:18} {n:>6}")
     print(f"recipes skipped: {len(skipped)}")

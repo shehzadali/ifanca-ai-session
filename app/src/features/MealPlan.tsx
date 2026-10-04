@@ -53,7 +53,7 @@ export function AddToPlan({ url }: { url: string }) {
       {added && (
         <p className="mt-2 text-[14px]" role="status">
           Added to {added}.{' '}
-          <a href="#/cook/plan" className="inline-flex min-h-11 items-center font-medium text-brand underline">
+          <a href="#/plan" className="inline-flex min-h-11 items-center font-medium text-brand underline">
             See the meal plan
           </a>
         </p>
@@ -83,7 +83,7 @@ export default function MealPlan({ recipes }: { recipes: Recipe[] }) {
                 <ul className="mt-1">
                   {items.map((r) => (
                     <li key={r.url} className="flex items-center gap-2 border-t border-line first:border-0">
-                      <a href={`#/cook/${r.slug}`} className="flex min-h-11 flex-1 items-center py-1 text-[15px] font-medium text-brand">
+                      <a href={`#/recipes/${r.slug}`} className="flex min-h-11 flex-1 items-center py-1 text-[15px] font-medium text-brand">
                         {r.title}
                       </a>
                       <button

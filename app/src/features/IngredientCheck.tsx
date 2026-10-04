@@ -5,7 +5,6 @@ import { useData } from '../lib/data'
 import { buildMatchers, checkText, suggest, type Ingredient, type IngredientData, type Matcher } from '../lib/ingredients'
 import IngredientCard from './IngredientCard'
 
-const SOURCE = 'https://ifanca.org/faqs/'
 
 const TABS = [
   { id: '', label: 'One ingredient' },
@@ -19,7 +18,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
   const tab = TABS.some((t) => t.id === params[0]) ? params[0] : ''
 
   return (
-    <Screen title="Check ingredients" snapshot={data?.crawl_date ?? '2026-10-03'} sourceUrl={SOURCE}>
+    <Screen tone="ingredients" title="Check ingredients">
       <p className="text-[15px] text-muted" data-testid="no-verdict">
         This shows what IFANCA has published about each ingredient. It is not a verdict on the product.
       </p>

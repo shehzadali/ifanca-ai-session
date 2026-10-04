@@ -13,7 +13,6 @@ type RawArticle = {
 }
 type Article = RawArticle & { haystack: string }
 
-const SOURCE = 'https://ifanca.org/resources/'
 const PAGE = 20
 
 // Display labels for the stored theme values. Order is the chip order.
@@ -57,7 +56,7 @@ export default function Read(_: { params: string[] }) {
   }, [articles, query, theme])
 
   return (
-    <Screen title="Read" snapshot={data?.crawl_date ?? '2026-10-04'} sourceUrl={SOURCE}>
+    <Screen tone="read" title="Read">
       <p className="text-[15px] text-muted">
         Articles from IFANCA's resource library, newest first. Themes are approximate.
       </p>

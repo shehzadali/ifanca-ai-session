@@ -9,25 +9,21 @@ export const QUIZ_KEY = 'thw.quiz'
 export type QuizState = { best: Record<string, number>; level: string | null }
 export const EMPTY_QUIZ: QuizState = { best: {}, level: null }
 
-const SOURCE = 'https://ifanca.org/faqs/'
 const Quiz = lazy(() => import('./Quiz'))
 
 export default function Learn({ params }: { params: string[] }) {
   const { data, error } = useData<Dataset<Faq>>('faqs.json')
   const lessons = useMemo(() => (data ? buildLessons(data.items) : null), [data])
-  const date = data?.crawl_date ?? '2026-10-03'
   const slug = params[0] ?? ''
 
-  if (error) return <Screen title="Learn and quiz">The lessons could not load. Check your connection and try again.</Screen>
-  if (!lessons) return <Screen title="Learn and quiz">Loading...</Screen>
+  if (error) return <Screen tone="learn" title="Learn and quiz">The lessons could not load. Check your connection and try again.</Screen>
+  if (!lessons) return <Screen tone="learn" title="Learn and quiz">Loading...</Screen>
 
   if (slug === 'quiz') {
     return (
-      <Screen
+      <Screen tone="learn"
         title={params[1] ? `Quiz: ${params[1]}` : 'Quiz'}
         back={params[1] ? { href: '#/learn/quiz', label: 'All rounds' } : { href: '#/learn', label: 'Back to lessons' }}
-        snapshot={date}
-        sourceUrl={SOURCE}
       >
         <Suspense fallback={<p className="text-muted">Loading...</p>}>
           <Quiz round={params[1]} />
@@ -37,18 +33,18 @@ export default function Learn({ params }: { params: string[] }) {
   }
 
   const index = lessons.findIndex((l) => l.slug === slug)
-  if (slug && index >= 0) return <Lesson lessons={lessons} index={index} date={date} />
-  return <LearnHome lessons={lessons} date={date} />
+  if (slug && index >= 0) return <Lesson lessons={lessons} index={index} />
+  return <LearnHome lessons={lessons} />
 }
 
-function LearnHome({ lessons, date }: { lessons: L[]; date: string }) {
+function LearnHome({ lessons }: { lessons: L[] }) {
   const [read] = useStored<string[]>(READ_KEY, [])
   const [quiz] = useStored<QuizState>(QUIZ_KEY, EMPTY_QUIZ)
   const sections = [...new Set(lessons.map((l) => l.section))]
   const readCount = lessons.filter((l) => read.includes(l.slug)).length
 
   return (
-    <Screen title="Learn and quiz" snapshot={date} sourceUrl={SOURCE}>
+    <Screen tone="learn" title="Learn and quiz">
       <p className="text-[15px] text-muted">
         IFANCA's answers to common questions, in a suggested order. Each lesson is IFANCA's answer, quoted in full.
       </p>
@@ -109,7 +105,7 @@ function LearnHome({ lessons, date }: { lessons: L[]; date: string }) {
   )
 }
 
-function Lesson({ lessons, index, date }: { lessons: L[]; index: number; date: string }) {
+function Lesson({ lessons, index }: { lessons: L[]; index: number }) {
   const lesson = lessons[index]
   const [, setRead] = useStored<string[]>(READ_KEY, [])
   useEffect(() => {
@@ -120,7 +116,7 @@ function Lesson({ lessons, index, date }: { lessons: L[]; index: number; date: s
   const next = lessons[index + 1]
 
   return (
-    <Screen title={lesson.question} back={{ href: '#/learn', label: 'All lessons' }} snapshot={date}>
+    <Screen tone="learn" title={lesson.question} back={{ href: '#/learn', label: 'All lessons' }}>
       <p className="-mt-2 mb-3 text-[13px] text-muted">
         {lesson.section}. Lesson {index + 1} of {lessons.length}.
       </p>

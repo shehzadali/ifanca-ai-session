@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import RecipePhoto from '../components/RecipePhoto'
 import Screen from '../components/Screen'
-import MealPlan, { AddToPlan, useMealPlan } from './MealPlan'
+import { AddToPlan, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
 type RawRecipe = {
@@ -22,7 +22,6 @@ export type Recipe = RawRecipe & {
   mains: string[]
 }
 
-const SOURCE = 'https://ifanca.org/resources/'
 const PAGE = 30
 const MAX_FEW = 8
 
@@ -56,24 +55,17 @@ function prepare(items: RawRecipe[]): Recipe[] {
 export function useRecipes() {
   const { data, error } = useData<Dataset<RawRecipe>>('recipes.json')
   const recipes = useMemo(() => (data ? prepare(data.items) : null), [data])
-  return { recipes, date: data?.crawl_date ?? '2026-10-04', error }
+  return { recipes, error }
 }
 
 export default function Cook({ params }: { params: string[] }) {
-  const { recipes, date, error } = useRecipes()
-  if (error) return <Screen title="Cook">The recipes could not load. Check your connection and try again.</Screen>
-  if (!recipes) return <Screen title="Cook">Loading...</Screen>
+  const { recipes, error } = useRecipes()
+  if (error) return <Screen tone="recipes" title="Recipes">The recipes could not load. Check your connection and try again.</Screen>
+  if (!recipes) return <Screen tone="recipes" title="Recipes">Loading...</Screen>
   const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
-  if (recipe) return <RecipeView recipe={recipe} date={date} />
-  if (params[0] === 'plan') {
-    return (
-      <Screen title="Meal plan" back={{ href: '#/cook', label: 'All recipes' }} snapshot={date} sourceUrl={SOURCE}>
-        <MealPlan recipes={recipes} />
-      </Screen>
-    )
-  }
+  if (recipe) return <RecipeView recipe={recipe} />
   return (
-    <Screen title="Cook" snapshot={date} sourceUrl={SOURCE}>
+    <Screen tone="recipes" title="Recipes">
       <RecipeList recipes={recipes} />
     </Screen>
   )
@@ -102,7 +94,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
     <div>
       <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>
       <a
-        href="#/cook/plan"
+        href="#/plan"
         className="mt-3 flex h-12 items-center justify-between rounded-xl border border-line bg-card px-4 font-medium text-brand"
         data-testid="plan-link"
       >
@@ -157,7 +149,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
       <ul className="mt-2 overflow-hidden rounded-xl border border-line bg-card empty:hidden">
         {results.slice(0, limit).map((r) => (
           <li key={r.url} className="border-b border-line last:border-0">
-            <a href={`#/cook/${r.slug}`} className="block min-h-14 px-4 py-2.5" data-testid="recipe-row" data-url={r.url}>
+            <a href={`#/recipes/${r.slug}`} className="block min-h-14 px-4 py-2.5" data-testid="recipe-row" data-url={r.url}>
               <span className="block text-[16px] leading-snug font-medium">{r.title}</span>
               <span className="mt-0.5 block text-[13px] text-muted">
                 {formatDate(r.date)}. {r.ingredientCount} ingredients.
@@ -179,7 +171,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
   )
 }
 
-function RecipeView({ recipe, date }: { recipe: Recipe; date: string }) {
+function RecipeView({ recipe }: { recipe: Recipe }) {
   const source = (
     <p className="text-[14px] text-muted" data-testid="recipe-source">
       Published {formatDate(recipe.date)} on ifanca.org.{' '}
@@ -190,7 +182,7 @@ function RecipeView({ recipe, date }: { recipe: Recipe; date: string }) {
   )
   let n = 0
   return (
-    <Screen title={recipe.title} back={{ href: '#/cook', label: 'All recipes' }} snapshot={date}>
+    <Screen tone="recipes" title={recipe.title} back={{ href: '#/recipes', label: 'All recipes' }}>
       {source}
       <RecipePhoto src={recipe.image_url} alt={`Photo of ${recipe.title} from ifanca.org`} />
       <AddToPlan url={recipe.url} />

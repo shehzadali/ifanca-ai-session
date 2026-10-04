@@ -1,106 +1,46 @@
-import { lazy, Suspense, useEffect, useState, type ComponentType, type ReactNode } from 'react'
-import { formatDate, loadData } from './lib/data'
+import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, type ReactNode } from 'react'
+import BottomNav from './components/BottomNav'
+import { SECTIONS } from './components/Icons'
+import LevelBar from './components/LevelBar'
+import Logo from './components/Logo'
+import Settings from './components/Settings'
+import TopBar from './components/TopBar'
+import { useStored } from './lib/storage'
+import { useTheme } from './lib/theme'
+import type { QuizProgress } from './lib/level'
 
 const ProductCheck = lazy(() => import('./features/ProductCheck'))
 const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
 const Learn = lazy(() => import('./features/Learn'))
 const Cook = lazy(() => import('./features/Cook'))
+const PlanScreen = lazy(() => import('./features/PlanScreen'))
 const Read = lazy(() => import('./features/Read'))
 const Leaderboard = lazy(() => import('./features/Leaderboard'))
 
-// Screens that are built. Each gets the route segments after its id.
+// Screens by route id. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   product: ProductCheck,
   ingredients: IngredientCheck,
   learn: Learn,
-  cook: Cook,
+  recipes: Cook,
+  plan: PlanScreen,
   read: Read,
   leaderboard: Leaderboard,
 }
 
-type Tile = {
-  id: string
-  label: string
-  blurb: string
-  icon: ReactNode
+// Old links from the first version still work.
+function normalize(route: string): string {
+  if (route === 'cook/plan') return 'plan'
+  if (route === 'cook' || route.startsWith('cook/')) return route.replace(/^cook/, 'recipes')
+  return route
 }
-
-const iconProps = {
-  width: 28,
-  height: 28,
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.8,
-  strokeLinecap: 'round' as const,
-  strokeLinejoin: 'round' as const,
-  'aria-hidden': true,
-}
-
-const TILES: Tile[] = [
-  {
-    id: 'product',
-    label: 'Check a product',
-    blurb: "Search IFANCA's certified product list",
-    icon: (
-      <svg {...iconProps}>
-        <circle cx="11" cy="11" r="6.5" />
-        <path d="m20 20-4.2-4.2" />
-      </svg>
-    ),
-  },
-  {
-    id: 'ingredients',
-    label: 'Check ingredients',
-    blurb: 'See what IFANCA says about an ingredient',
-    icon: (
-      <svg {...iconProps}>
-        <path d="M9 3h6M10 3v5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-10V3" />
-        <path d="M7.5 14h9" />
-      </svg>
-    ),
-  },
-  {
-    id: 'learn',
-    label: 'Learn and quiz',
-    blurb: "IFANCA's answers to common questions, and a quiz",
-    icon: (
-      <svg {...iconProps}>
-        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
-        <path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'cook',
-    label: 'Cook',
-    blurb: "Recipes from IFANCA's library and a weekly meal plan",
-    icon: (
-      <svg {...iconProps}>
-        <path d="M4 11h16a8 8 0 0 1-16 0z" />
-        <path d="M9 7c0-1.5 1-2 1-3.5M14 7c0-1.5 1-2 1-3.5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'read',
-    label: 'Read',
-    blurb: "Articles from IFANCA's resource library",
-    icon: (
-      <svg {...iconProps}>
-        <path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z" />
-        <path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z" />
-      </svg>
-    ),
-  },
-]
 
 function useRoute(): string {
   // The projector link is a plain path, /leaderboard. Everything else uses hash routes.
   const read = () => {
     const hash = window.location.hash.replace(/^#\/?/, '')
     if (!hash && window.location.pathname.replace(/\/$/, '') === '/leaderboard') return 'leaderboard'
-    return hash
+    return normalize(hash)
   }
   const [route, setRoute] = useState(read)
   useEffect(() => {
@@ -114,57 +54,73 @@ function useRoute(): string {
   return route
 }
 
-function useCrawlDate(): string | null {
-  const [date, setDate] = useState<string | null>(null)
-  useEffect(() => {
-    loadData<{ crawl_date: string }>('faqs.json')
-      .then((d) => setDate(d.crawl_date))
-      .catch(() => setDate(null))
-  }, [])
-  return date
-}
-
 function Home() {
+  const [quiz] = useStored<QuizProgress>('thw.quiz', { best: {}, level: null })
+  const [learn, ...rest] = SECTIONS
   return (
-    <ul className="grid grid-cols-2 gap-3">
-      {TILES.map((t, i) => (
-        <li key={t.id} className={i === 0 ? 'col-span-2' : ''}>
-          <a
-            href={`#/${t.id}`}
-            className="flex h-full min-h-[132px] flex-col gap-3 rounded-2xl border border-line bg-card p-4 shadow-sm transition active:scale-[0.98] active:bg-brand-soft"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand">
-              {t.icon}
-            </span>
-            <span>
-              <span className="block text-[17px] font-semibold leading-tight">{t.label}</span>
-              <span className="mt-1 block text-[13px] leading-snug text-muted">{t.blurb}</span>
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
-}
+    <div>
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#127a60] to-[#0a4537] px-5 pt-5 pb-6 text-white shadow-md">
+        <div className="geo geo-lg absolute inset-0 text-[#e9bd55] opacity-25" aria-hidden="true" />
+        <div className="relative flex items-center gap-4">
+          <Logo size={64} className="shrink-0 drop-shadow-md" />
+          <div>
+            <h1 className="text-[28px] leading-tight font-extrabold tracking-tight">The Halal Way</h1>
+            <p className="mt-0.5 text-[14px] text-white/85">Halal products, ingredients, recipes, and lessons</p>
+          </div>
+        </div>
+      </div>
 
-function Placeholder({ tile }: { tile: Tile }) {
-  return (
-    <div className="rounded-2xl border border-line bg-card p-5">
-      <a href="#/" className="inline-flex min-h-11 items-center text-sm font-medium text-brand">
-        Back to home
+      <a
+        href="#/learn"
+        className="relative mt-4 block overflow-hidden rounded-3xl bg-learn p-5 text-white shadow-sm transition active:scale-[0.99]"
+        data-testid="tile"
+      >
+        <div className="geo absolute inset-0 opacity-[0.14]" aria-hidden="true" />
+        <div className="relative flex items-center gap-3">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
+            <learn.Icon size={28} />
+          </span>
+          <span className="text-[20px] font-bold" data-testid="tile-label">
+            {learn.label}
+          </span>
+        </div>
+        <div className="relative mt-4">
+          <LevelBar quiz={quiz} light />
+        </div>
       </a>
-      <h2 className="mt-2 text-xl font-semibold">{tile.label}</h2>
-      <p className="mt-2 text-muted">This screen is not built yet.</p>
+
+      <ul className="mt-3 grid grid-cols-2 gap-3">
+        {rest.map(({ id, label, Icon, color }, i) => (
+          <li key={id} className={i === rest.length - 1 ? 'col-span-2' : ''}>
+            <a
+              href={`#/${id}`}
+              className={`relative flex h-full min-h-[118px] flex-col justify-between overflow-hidden rounded-3xl ${color} p-4 text-white shadow-sm transition active:scale-[0.98]`}
+              data-testid="tile"
+            >
+              <div className="geo absolute inset-0 opacity-[0.14]" aria-hidden="true" />
+              <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15">
+                <Icon size={26} />
+              </span>
+              <span className="relative text-[17px] leading-tight font-bold" data-testid="tile-label">
+                {label}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
 
 export default function App() {
   const route = useRoute()
-  const crawlDate = useCrawlDate()
+  const [theme, setTheme] = useTheme()
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const closeSettings = useCallback(() => setSettingsOpen(false), [])
   const [id, ...params] = route.split('?')[0].split('/').filter(Boolean)
-  const tile = TILES.find((t) => t.id === id)
   const Feature = id ? SCREENS[id] : undefined
+  const projector = id === 'leaderboard'
+  const section = SECTIONS.some((s) => s.id === id) ? id : null
 
   let body: ReactNode = <Home />
   if (Feature) {
@@ -173,39 +129,30 @@ export default function App() {
         <Feature params={params} />
       </Suspense>
     )
-  } else if (tile) {
-    body = <Placeholder tile={tile} />
   }
 
   return (
     <div
-      className={`mx-auto flex min-h-dvh flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] ${
-        id === 'leaderboard' ? 'max-w-6xl lg:px-10' : 'max-w-md'
-      }`}
+      className={`mx-auto flex min-h-dvh flex-col px-4 pt-[max(0.75rem,env(safe-area-inset-top))] ${
+        projector ? 'max-w-6xl pb-6 lg:px-10' : 'max-w-md'
+      } ${section ? 'pb-24' : 'pb-[max(1rem,env(safe-area-inset-bottom))]'}`}
     >
-      {id === 'leaderboard' ? null : id ? (
-        <header className="mb-2">
-          <a href="#/" className="inline-flex min-h-11 items-center gap-2 text-[15px] font-semibold text-ink">
-            <img src="/icon.svg" alt="" width="24" height="24" className="rounded-md" />
-            The Halal Way
-          </a>
-        </header>
-      ) : (
-        <header className="mb-6">
-          <p className="text-sm font-medium tracking-wide text-brand uppercase">Demo</p>
-          <h1 className="mt-1 text-3xl font-semibold tracking-tight">The Halal Way</h1>
-          <p className="mt-2 text-[15px] text-muted">
-            Find what IFANCA has published about products, ingredients, and halal food.
-          </p>
-        </header>
-      )}
+      {!projector && <TopBar onSettings={() => setSettingsOpen(true)} />}
 
-      <main className="flex-1">{body}</main>
+      <main className={`flex-1 ${projector ? '' : 'mt-3'}`}>{body}</main>
 
-      <footer className="mt-8 border-t border-line pt-4 text-center text-[13px] leading-relaxed text-muted">
+      <footer className="mt-8 border-t border-line pt-4 pb-2 text-center text-[13px] leading-relaxed text-muted">
         <p>Demo built from IFANCA's public content. Not an official IFANCA app.</p>
-        {crawlDate && <p className="mt-1">Content snapshot from ifanca.org, {formatDate(crawlDate)}.</p>}
       </footer>
+
+      {section && <BottomNav current={section} />}
+      <Settings
+        open={settingsOpen}
+        onClose={closeSettings}
+        theme={theme}
+        setTheme={setTheme}
+        profile={<p className="text-[14px] text-muted">Sign up when you start the quiz.</p>}
+      />
     </div>
   )
 }

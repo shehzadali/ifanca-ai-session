@@ -57,7 +57,7 @@ export default function ProductCheck(_: { params: string[] }) {
   }, [prepared, deferredQuery, category])
 
   return (
-    <Screen title="Check a product" snapshot={data?.crawl_date ?? '2026-10-03'} sourceUrl={SOURCE}>
+    <Screen tone="product" title="Check a product">
       <p className="mb-3 text-[15px] text-muted">
         Search IFANCA's published list of certified products.
       </p>
@@ -133,7 +133,7 @@ export default function ProductCheck(_: { params: string[] }) {
             <div className="mt-2 rounded-xl border border-line bg-card p-4" data-testid="empty">
               <NotInList />
               <p className="mt-2 text-[14px] text-muted">
-                This list is a dated snapshot of IFANCA's website. Products can be added or removed after that date.
+                This list is a copy of IFANCA's website from a past date. Products can be added or removed since then.
               </p>
               <a
                 href={SOURCE}
