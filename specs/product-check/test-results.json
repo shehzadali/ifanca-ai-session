@@ -1,0 +1,81 @@
+{
+  "feature": "product-check",
+  "date": "2026-10-04",
+  "commit": "b85fa3e",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Home tile opens the product check with search and category filter",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "text": "Product name search shows name, company, category, sold in",
+      "result": "Pass",
+      "notes": "88 products"
+    },
+    {
+      "n": 3,
+      "text": "Company search",
+      "result": "Pass",
+      "notes": "504 products"
+    },
+    {
+      "n": 4,
+      "text": "Category Cheese gives 258 products, all Cheese",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 5,
+      "text": "Category and search combine",
+      "result": "Pass",
+      "notes": "8 products"
+    },
+    {
+      "n": 6,
+      "text": "Ampersand decoded in category names",
+      "result": "Pass",
+      "notes": "62 categories"
+    },
+    {
+      "n": 7,
+      "text": "No match shows the fixed message and no own ruling",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 8,
+      "text": "Results update within 100 ms with 4x CPU slowdown",
+      "result": "Pass",
+      "notes": "30 ms"
+    },
+    {
+      "n": 9,
+      "text": "Snapshot date visible",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "Show more adds 50 cards",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 11,
+      "text": "No sideways scroll, tap targets 44px",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 12,
+      "text": "products.json not loaded on home",
+      "result": "Pass",
+      "notes": ""
+    }
+  ],
+  "consoleErrors": []
+}
