@@ -148,3 +148,4 @@ The skills say to show the user the criteria or the plan and ask before moving o
 | 2026-10-04 | 1255a30 (first deploy, before the ship command was committed) | https://the-halal-way.vercel.app | 8 of 8 pass |
 | 2026-10-04 | c172bc9 (dry run of the /ship steps, nothing new to commit) | https://the-halal-way.vercel.app, unchanged, QR not regenerated | 8 of 8 pass |
 | 2026-10-04 | 1f1890b (hide one recipe, lesson lists, recipe photos, room leaderboard). Leaderboard deployed but not connected until the Supabase settings are added. | https://the-halal-way.vercel.app, unchanged, QR not regenerated | 9 of 9 pass |
+| 2026-10-04 | e5804c0 (connect the room leaderboard to Supabase) | https://the-halal-way.vercel.app, unchanged, QR not regenerated | 9 of 9 pass. Live end-to-end run: a phone posted a score, the projector showed it after 0.8 s over realtime, and the reset code cleared it through the UI. The board was left empty. |
