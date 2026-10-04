@@ -1,4 +1,5 @@
 import { useDeferredValue, useMemo, useState } from 'react'
+import NotInList from '../components/NotInList'
 import Screen from '../components/Screen'
 import { decodeEntities, fold, terms, useData, type Dataset } from '../lib/data'
 
@@ -128,6 +129,25 @@ export default function ProductCheck(_: { params: string[] }) {
               <ProductCard key={p.url} p={p} />
             ))}
           </ul>
+          {results.length === 0 && (
+            <div className="mt-2 rounded-xl border border-line bg-card p-4" data-testid="empty">
+              <NotInList />
+              <p className="mt-2 text-[14px] text-muted">
+                This list is a dated snapshot of IFANCA's website. Products can be added or removed after that date.
+              </p>
+              <a
+                href={SOURCE}
+                target="_blank"
+                rel="noopener"
+                className="mt-1 flex min-h-11 items-center text-[14px] font-medium text-brand underline"
+              >
+                Search the current list on ifanca.org
+              </a>
+              <a href="#/ingredients" className="flex min-h-11 items-center text-[14px] font-medium text-brand underline">
+                Check the ingredients on the label instead
+              </a>
+            </div>
+          )}
           {results.length > limit && (
             <button
               type="button"
