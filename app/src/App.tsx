@@ -3,11 +3,13 @@ import { loadData } from './lib/data'
 
 const ProductCheck = lazy(() => import('./features/ProductCheck'))
 const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
+const Learn = lazy(() => import('./features/Learn'))
 
 // Screens that are built. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   product: ProductCheck,
   ingredients: IngredientCheck,
+  learn: Learn,
 }
 
 type Tile = {
@@ -54,8 +56,8 @@ const TILES: Tile[] = [
   },
   {
     id: 'learn',
-    label: 'Learn halal',
-    blurb: "IFANCA's answers to common questions",
+    label: 'Learn and quiz',
+    blurb: "IFANCA's answers to common questions, and a quiz",
     icon: (
       <svg {...iconProps}>
         <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
