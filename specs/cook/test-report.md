@@ -28,3 +28,27 @@
 ## Console errors
 
 - Failed to load resource: net::ERR_FAILED
+
+## Notes on this run
+
+- The one console error is "Failed to load resource: net::ERR_FAILED". AC 15 causes it on purpose by blocking the photo request.
+- AC 14 asserts while offline. The harness screenshot `ac-14.png` is taken after the network is back, so it shows the photo. The offline view is in [ac-14-offline.png](screenshots/ac-14-offline.png).
+- AC 15 runs in a fresh browser context. In the first run it shared the context with AC 13, the browser served the photo from memory, and the blocked request never fired. That was a test fault, not an app fault.
+
+## Screenshot review
+
+All screenshots were checked by eye at 390px. The list, chips, recipe page with photo, offline and failed placeholders, day picker, and meal plan render cleanly.
+
+Observation, not a failure: some recipe titles use health words, for example "Antioxidant-Rich Yogurt Parfait". These are IFANCA's titles. The app adds no such words of its own (AC 10).
+
+## Safety check
+
+- The Cook screens state no halal status.
+- Ingredient and step lines equal recipes.json (AC 6). Every recipe shows its published date and a link to the original.
+- "Lemon Tiramisu" is no longer in the data or the app (AC 16).
+- Photos load only from their ifanca.org URLs while online. The live smoke test checks that the service worker stores none of them.
+- The feature is called a meal plan. App text has no diet, calorie, healthy, or nutrition words (AC 10).
+
+## Rerun after feedback-2 (2026-10-04)
+
+Rerun after the splash, title case, and Meal Plan day changes. See `specs/feedback-2/test-report.md` for the test changes this needed.
