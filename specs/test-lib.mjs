@@ -23,6 +23,8 @@ export async function run(feature, criteria) {
       hasTouch: true,
       serviceWorkers: 'block',
     })
+    // The splash shows once per session. Feature tests start past it. The splash has its own test.
+    if (!process.env.KEEP_SPLASH) await ctx.addInitScript(() => sessionStorage.setItem('thw.splash', '1'))
     const page = await ctx.newPage()
     page.on('console', (m) => m.type() === 'error' && consoleErrors.push(m.text()))
     page.on('pageerror', (e) => consoleErrors.push(String(e)))

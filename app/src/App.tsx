@@ -3,7 +3,6 @@ import Avatar from './components/Avatar'
 import BottomNav from './components/BottomNav'
 import { SECTIONS } from './components/Icons'
 import LevelBar from './components/LevelBar'
-import Logo from './components/Logo'
 import ProfileBlock from './components/ProfileBlock'
 import Settings from './components/Settings'
 import TopBar from './components/TopBar'
@@ -64,20 +63,9 @@ function Home() {
   const [learn, ...rest] = SECTIONS
   return (
     <div>
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#127a60] to-[#0a4537] px-5 pt-5 pb-6 text-white shadow-md">
-        <div className="geo geo-lg absolute inset-0 text-[#e9bd55] opacity-25" aria-hidden="true" />
-        <div className="relative flex items-center gap-4">
-          <Logo size={64} className="shrink-0 drop-shadow-md" />
-          <div>
-            <h1 className="text-[28px] leading-tight font-extrabold tracking-tight">The Halal Way</h1>
-            <p className="mt-0.5 text-[14px] text-white/85">Halal products, ingredients, recipes, and lessons</p>
-          </div>
-        </div>
-      </div>
-
       <a
         href="#/learn"
-        className="relative mt-4 block overflow-hidden rounded-3xl bg-learn p-5 text-white shadow-sm transition active:scale-[0.99]"
+        className="relative block overflow-hidden rounded-3xl bg-learn p-5 text-white shadow-sm transition active:scale-[0.99]"
         data-testid="tile"
       >
         <div className="geo absolute inset-0 opacity-[0.14]" aria-hidden="true" />

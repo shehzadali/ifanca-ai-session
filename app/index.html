@@ -19,10 +19,102 @@
         document.documentElement.dataset.theme = 'light'
       }
     </script>
+    <style>
+      /* Splash screen. Inline so it shows on the first paint, before the app code loads. */
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(160deg, #138a6c 0%, #0b5543 55%, #073a2e 100%);
+        color: #f6f1e7;
+        font-family: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        transition: opacity 0.45s ease;
+        cursor: pointer;
+      }
+      #splash.sp-out { opacity: 0; pointer-events: none; }
+      #splash .sp-geo {
+        position: absolute;
+        inset: 0;
+        background: #e9bd55;
+        opacity: 0;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M14 14h20v20H14zM24 9.9 38.1 24 24 38.1 9.9 24z'/%3E%3Cpath d='M24 0v9.9M24 38.1V48M0 24h9.9M38.1 24H48M0 0l14 14M48 0 34 14M0 48l14-14M48 48 34 34'/%3E%3Ccircle cx='24' cy='24' r='4'/%3E%3C/svg%3E") 0 0 / 72px 72px;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M14 14h20v20H14zM24 9.9 38.1 24 24 38.1 9.9 24z'/%3E%3Cpath d='M24 0v9.9M24 38.1V48M0 24h9.9M38.1 24H48M0 0l14 14M48 0 34 14M0 48l14-14M48 48 34 34'/%3E%3Ccircle cx='24' cy='24' r='4'/%3E%3C/svg%3E") 0 0 / 72px 72px;
+        animation: sp-fade 1.2s ease-out forwards, sp-drift 6s linear infinite;
+      }
+      #splash .sp-center { position: relative; text-align: center; padding: 24px; }
+      #splash .sp-logo { width: 176px; height: 176px; overflow: visible; display: block; margin: 0 auto; }
+      #splash .sp-glow { fill: #e9bd55; opacity: 0; transform-box: view-box; transform-origin: 256px 256px; animation: sp-glow 1.4s ease-out 0.9s forwards; }
+      #splash .sp-sq { fill: none; stroke: #e9bd55; stroke-width: 20; stroke-linejoin: round; stroke-dasharray: 920; stroke-dashoffset: 920; transform-box: view-box; transform-origin: 256px 256px; }
+      #splash .sp-sq1 { animation: sp-draw 1s cubic-bezier(.2,.7,.2,1) 0.1s forwards, sp-turn-a 1s cubic-bezier(.2,.7,.2,1) 0.1s both; }
+      #splash .sp-sq2 { animation: sp-draw 1s cubic-bezier(.2,.7,.2,1) 0.25s forwards, sp-turn-b 1s cubic-bezier(.2,.7,.2,1) 0.25s both; }
+      #splash .sp-leaf { transform-box: view-box; transform-origin: 256px 330px; transform: scale(0); animation: sp-grow 0.6s cubic-bezier(.3,1.6,.5,1) 0.85s forwards; }
+      #splash .sp-title { margin: 22px 0 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; opacity: 0; animation: sp-rise 0.6s ease-out 1s forwards; }
+      #splash .sp-line { margin: 6px 0 0; font-size: 15px; color: rgba(246, 241, 231, 0.85); opacity: 0; animation: sp-rise 0.6s ease-out 1.2s forwards; }
+      @keyframes sp-fade { to { opacity: 0.2; } }
+      @keyframes sp-drift { to { background-position: 72px 72px; -webkit-mask-position: 72px 72px; mask-position: 72px 72px; } }
+      @keyframes sp-draw { to { stroke-dashoffset: 0; } }
+      @keyframes sp-turn-a { from { transform: rotate(-135deg) scale(0.4); } to { transform: none; } }
+      @keyframes sp-turn-b { from { transform: rotate(135deg) scale(0.4); } to { transform: none; } }
+      @keyframes sp-grow { to { transform: scale(1); } }
+      @keyframes sp-glow { 0% { opacity: 0; transform: scale(0.6); } 40% { opacity: 0.35; } 100% { opacity: 0; transform: scale(1.6); } }
+      @keyframes sp-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) {
+        #splash *, #splash .sp-geo { animation: none !important; }
+        #splash .sp-geo { opacity: 0.2; }
+        #splash .sp-sq { stroke-dashoffset: 0; }
+        #splash .sp-leaf { transform: none; }
+        #splash .sp-title, #splash .sp-line { opacity: 1; }
+        #splash { transition-duration: 0.25s; }
+      }
+    </style>
     <meta name="description" content="Demo built from IFANCA's public content. Not an official IFANCA app." />
     <title>The Halal Way</title>
   </head>
   <body>
+    <div id="splash" hidden aria-hidden="true">
+      <div class="sp-geo"></div>
+      <div class="sp-center">
+        <svg class="sp-logo" viewBox="0 0 512 512" aria-hidden="true">
+          <circle class="sp-glow" cx="256" cy="256" r="200" />
+          <path class="sp-sq sp-sq1" d="M141 141h230v230H141z" />
+          <path class="sp-sq sp-sq2" d="M256 93.4 418.6 256 256 418.6 93.4 256z" />
+          <g class="sp-leaf">
+            <path d="M256 334c-46-28-62-76-36-128 18-36 54-56 74-62 10 44 4 96-14 130-6 12-14 24-24 60z" fill="#f6f1e7" />
+            <path d="M256 330c4-44 14-90 32-130" fill="none" stroke="#0f6b55" stroke-width="10" stroke-linecap="round" />
+          </g>
+        </svg>
+        <p class="sp-title">The Halal Way</p>
+        <p class="sp-line">Halal products, ingredients, recipes, and lessons</p>
+      </div>
+    </div>
+    <script>
+      // Once per app session, on any screen except the projector leaderboard. A tap skips it.
+      ;(function () {
+        var s = document.getElementById('splash')
+        var seen = false
+        try {
+          seen = sessionStorage.getItem('thw.splash') === '1'
+          sessionStorage.setItem('thw.splash', '1')
+        } catch (e) {}
+        if (seen || location.pathname.replace(/\/$/, '') === '/leaderboard') {
+          s.remove()
+          return
+        }
+        s.hidden = false
+        var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+        var closed = false
+        function close(fast) {
+          if (closed) return
+          closed = true
+          s.classList.add('sp-out')
+          setTimeout(function () { s.remove() }, fast || reduce ? 300 : 460)
+        }
+        setTimeout(close, reduce ? 700 : 2100)
+        s.addEventListener('click', function () { close(true) })
+      })()
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
