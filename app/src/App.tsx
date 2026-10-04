@@ -6,6 +6,7 @@ const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
 const Learn = lazy(() => import('./features/Learn'))
 const Cook = lazy(() => import('./features/Cook'))
 const Read = lazy(() => import('./features/Read'))
+const Leaderboard = lazy(() => import('./features/Leaderboard'))
 
 // Screens that are built. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
@@ -14,6 +15,7 @@ const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   learn: Learn,
   cook: Cook,
   read: Read,
+  leaderboard: Leaderboard,
 }
 
 type Tile = {
@@ -94,7 +96,12 @@ const TILES: Tile[] = [
 ]
 
 function useRoute(): string {
-  const read = () => window.location.hash.replace(/^#\/?/, '')
+  // The projector link is a plain path, /leaderboard. Everything else uses hash routes.
+  const read = () => {
+    const hash = window.location.hash.replace(/^#\/?/, '')
+    if (!hash && window.location.pathname.replace(/\/$/, '') === '/leaderboard') return 'leaderboard'
+    return hash
+  }
   const [route, setRoute] = useState(read)
   useEffect(() => {
     const onChange = () => {
@@ -171,8 +178,12 @@ export default function App() {
   }
 
   return (
-    <div className="mx-auto flex min-h-dvh max-w-md flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))]">
-      {id ? (
+    <div
+      className={`mx-auto flex min-h-dvh flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] ${
+        id === 'leaderboard' ? 'max-w-6xl lg:px-10' : 'max-w-md'
+      }`}
+    >
+      {id === 'leaderboard' ? null : id ? (
         <header className="mb-2">
           <a href="#/" className="inline-flex min-h-11 items-center gap-2 text-[15px] font-semibold text-ink">
             <img src="/icon.svg" alt="" width="24" height="24" className="rounded-md" />
