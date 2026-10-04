@@ -1,0 +1,7 @@
+.vercel
+node_modules
+dist
+tests
+scripts/make-icons.mjs
+*.log
+.env*

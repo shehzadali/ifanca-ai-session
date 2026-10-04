@@ -13,10 +13,10 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Feature 4 cook | done, 12 of 12 pass | 6dbfb03 to report |
 | Feature 5 read | done, 10 of 10 pass | a397f93 to report |
 | PWA (manifest, icons, offline, noindex) | done, local smoke 8 of 8 | see git log "pwa:" |
-| /ship command and smoke test | in progress | `app/tests/smoke.mjs` done |
-| Vercel project and production deploy | not started | |
-| QR code | not started | |
-| Live smoke test | not started | |
+| /ship command and smoke test | done | `.claude/commands/ship.md`, `app/tests/smoke.mjs` |
+| Vercel project and production deploy | done | https://the-halal-way.vercel.app |
+| QR code | done | `slides/qr.png`, `slides/qr.svg`, decoded and checked |
+| Live smoke test | done, 8 of 8 pass | 2026-10-04 |
 
 ## How each feature is built
 
@@ -99,3 +99,18 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D48. `vercel.json` sets `sw.js` to revalidate on every load, so installed copies find a new deployment on the next open. Hashed assets are cached for a year.
 - D49. The footer date now uses the same format as the screens ("October 3, 2026").
 - D50. `app/tests/smoke.mjs` checks all five features at 390px, the manifest, noindex, robots.txt, and offline loading of all five screens. It takes the base URL as an argument.
+
+### Deployment
+
+- D51. Vercel project "the-halal-way" in the personal team (hobby plan), linked from `app/`. Vercel builds from source (`npm run build`), so the prebuild steps (Tesseract copy, quiz check) run on every deploy.
+- D52. Production URL: https://the-halal-way.vercel.app. It is the project's production domain and stays the same on every `vercel deploy --prod`. The per-deployment URL is never used.
+- D53. Vercel reports "Vercel Authentication" deployment protection. On this plan it covers preview URLs only. The production URL was checked with curl and the smoke test without logging in, and it is public.
+- D54. `/ship` reads `productionUrl` from the JSON that `vercel deploy --prod --yes` prints, saved to `app/.vercel/last-deploy.json`. It compares that URL with `slides/qr-url.txt` and makes a new QR code only when the URL changes.
+- D55. QR code: `slides/qr.png` (1000 x 1000) and `slides/qr.svg`, dark green on white, error correction M. The PNG was decoded with jsQR and gives the production URL.
+- D56. `.vercelignore` keeps tests, the icon script, `.env` files, and build output out of the upload.
+
+## Deploys
+
+| Date | Commit | URL | Live smoke |
+|---|---|---|---|
+| 2026-10-04 | 1255a30 (first deploy, before the ship command was committed) | https://the-halal-way.vercel.app | 8 of 8 pass |
