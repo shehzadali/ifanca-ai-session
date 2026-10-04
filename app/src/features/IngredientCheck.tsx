@@ -46,6 +46,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
         <div className="mt-4">
           {tab === '' && <OneIngredient matchers={matchers} items={data.items} />}
           {tab === 'paste' && <PasteList matchers={matchers} />}
+          {tab === 'photo' && <Photo matchers={matchers} />}
         </div>
       )}
     </Screen>
@@ -206,5 +207,96 @@ export function Results({ text, matchers }: { text: string; matchers: Matcher[] 
         ))}
       </div>
     </section>
+  )
+}
+
+const STATUS_TEXT: Record<string, string> = {
+  loading: 'Getting the text reader ready',
+  'loading tesseract core': 'Getting the text reader ready',
+  'initializing tesseract': 'Getting the text reader ready',
+  'loading language traineddata': 'Loading English text data',
+  'initializing api': 'Getting the text reader ready',
+  'recognizing text': 'Reading the text',
+}
+
+function Photo({ matchers }: { matchers: Matcher[] }) {
+  const [text, setText] = useState<string | null>(null)
+  const [checked, setChecked] = useState<string | null>(null)
+  const [busy, setBusy] = useState<{ fraction: number; status: string } | null>(null)
+  const [failed, setFailed] = useState(false)
+
+  const onFile = async (file: File | undefined) => {
+    if (!file) return
+    setFailed(false)
+    setText(null)
+    setChecked(null)
+    setBusy({ fraction: 0, status: 'loading' })
+    try {
+      const { readText } = await import('../lib/ocr')
+      const result = await readText(file, (fraction, status) => setBusy({ fraction, status }))
+      setText(result)
+    } catch {
+      setFailed(true)
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const pickButton = (label: string, capture: boolean) => (
+    <label className="flex h-12 flex-1 cursor-pointer items-center justify-center rounded-xl border border-line bg-card font-medium text-brand">
+      {label}
+      <input
+        type="file"
+        accept="image/*"
+        {...(capture ? { capture: 'environment' as const } : {})}
+        className="sr-only"
+        data-testid={capture ? 'take-photo' : 'choose-photo'}
+        onChange={(e) => {
+          onFile(e.target.files?.[0])
+          e.target.value = ''
+        }}
+      />
+    </label>
+  )
+
+  return (
+    <div>
+      <p className="text-[14px] text-muted">
+        Take a clear photo of the ingredient list. The text is read on this device. The photo is not uploaded.
+      </p>
+      <div className="mt-3 flex gap-2">
+        {pickButton('Take a photo', true)}
+        {pickButton('Choose a photo', false)}
+      </div>
+
+      {busy && (
+        <div className="mt-4" data-testid="ocr-progress" aria-live="polite">
+          <p className="text-[14px] text-ink">
+            {STATUS_TEXT[busy.status] ?? 'Reading the text'}... {Math.round(busy.fraction * 100)}%
+          </p>
+          <div className="mt-2 h-2 overflow-hidden rounded-full bg-line">
+            <div className="h-full bg-brand transition-all" style={{ width: `${Math.round(busy.fraction * 100)}%` }} />
+          </div>
+          <p className="mt-2 text-[13px] text-muted">The first photo takes longer while the text reader loads.</p>
+        </div>
+      )}
+
+      {failed && (
+        <p className="mt-4 text-ink">The text could not be read. Try a sharper photo, or paste the list instead.</p>
+      )}
+
+      {text !== null && (
+        <div className="mt-4">
+          <TextCheck
+            text={text}
+            onChange={setText}
+            onCheck={() => setChecked(text)}
+            label="Recognized text"
+            note="Check the text and fix any mistakes before checking."
+          />
+        </div>
+      )}
+      {checked !== null && <Results text={checked} matchers={matchers} />}
+    </div>
   )
 }
