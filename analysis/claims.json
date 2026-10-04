@@ -1,0 +1,505 @@
+[
+  {
+    "id": "C01",
+    "source_text": "IFANCA is an organization dedicated to promoting halal through certification, education, and the creation and support of institutions.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education",
+      "institutions"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C02",
+    "source_text": "We help companies create halal products that consumers can trust",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C03",
+    "source_text": "our trademark Crescent-M logo means one thing: “This is halal.”",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C04",
+    "source_text": "Halal certification is provided by IFANCA to ensure compliance with the halal requirements.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C05",
+    "source_text": "IFANCA is a global leader in halal certification.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C06",
+    "source_text": "Since 1982, we have worked to promote halal.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C07",
+    "source_text": "We understand global halal standards and requirements and have optimized the halal certification process.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C08",
+    "source_text": "Our process is simple, cost effective and efficient, and easily implemented.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C09",
+    "source_text": "Globally recognized and accepted",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C10",
+    "source_text": "Trusted by industry and consumers",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C11",
+    "source_text": "Halal education & training for our client partners",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C12",
+    "source_text": "Explore Halal Certified Products",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C13",
+    "source_text": "IFANCA’s vision is to ensure everyone has access to the halal products and services that let them live a secure, satisfied life.",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [
+      "https://ifanca.org/about/",
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C14",
+    "source_text": "We strive to best serve humanity by promoting food and health security and nutrition equity through local and global partnerships",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [
+      "https://ifanca.org/about/",
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C15",
+    "source_text": "empowering other established institutions",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [
+      "https://ifanca.org/about/",
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C16",
+    "source_text": "uplifting religious and scientific voices",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [
+      "https://ifanca.org/about/",
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions",
+      "education"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C17",
+    "source_text": "Explore Programs",
+    "source_url": "https://ifanca.org/",
+    "also_found_on": [],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C18",
+    "source_text": "IFANCA is a not-for-profit organization committed to helping consumers and industry source authentic halal products since 1982.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C19",
+    "source_text": "Our registered Crescent-M halal service mark assures consumers the product is halal without a doubt!",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C20",
+    "source_text": "IFANCA halal certification means your products meet the dietary requirements of over 1.8 billion consumers.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C21",
+    "source_text": "Promote halal by helping industries produce halal-certified products, increasing awareness through education, and building and supporting institutions.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education",
+      "institutions"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C22",
+    "source_text": "Continue to be the trusted authority on halal",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C23",
+    "source_text": "We are a resource to everyone looking to learn about halal.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "education"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C24",
+    "source_text": "We are continually listening and evolving to overcome challenges and meet the needs of everyone we work with.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education",
+      "institutions"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C25",
+    "source_text": "Our team empowers different organizations to produce halal products.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C26",
+    "source_text": "We train client teams in certification standards",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "education"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C27",
+    "source_text": "assist R&D teams with scientific and religious guidance to develop new halal products",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C28",
+    "source_text": "solve problems using our network of affiliates and experts",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification",
+      "institutions"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C29",
+    "source_text": "We promote our clients’ halal-certified products to consumers",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C30",
+    "source_text": "make it easy for everyone to find and use IFANCA-certified products in their lives.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C31",
+    "source_text": "We invite everyone to learn about halal and become an advocate for increasing awareness.",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C32",
+    "source_text": "producing a quarterly Halal Consumer magazine",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C33",
+    "source_text": "writing articles for various publications around the world",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C34",
+    "source_text": "contributing to research papers and findings",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C35",
+    "source_text": "Our leaders and experts share their knowledge at industry conferences",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education"
+    ],
+    "audience": "industry",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C36",
+    "source_text": "we host events to promote halal",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "education",
+      "institutions"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C37",
+    "source_text": "IFANCA also invests in sponsorships and grants for various university partnerships",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C38",
+    "source_text": "supports different halal programs and events focused on awareness",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [
+      "https://ifanca.org/beyond-certification/"
+    ],
+    "pillar": [
+      "institutions",
+      "education"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C39",
+    "source_text": "A Global Leader in Halal Services",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "general",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C40",
+    "source_text": "Programs & Partnerships",
+    "source_url": "https://ifanca.org/beyond-certification/",
+    "also_found_on": [],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C41",
+    "source_text": "Want to collaborate with us? Get in touch with us",
+    "source_url": "https://ifanca.org/beyond-certification/",
+    "also_found_on": [],
+    "pillar": [
+      "institutions"
+    ],
+    "audience": "partner",
+    "crawl_date": "2026-10-04"
+  },
+  {
+    "id": "C42",
+    "source_text": "Our globally accepted and trusted Crescent-M logo means one thing: “this is halal.”",
+    "source_url": "https://ifanca.org/about/",
+    "also_found_on": [],
+    "pillar": [
+      "certification"
+    ],
+    "audience": "consumer",
+    "crawl_date": "2026-10-04"
+  }
+]

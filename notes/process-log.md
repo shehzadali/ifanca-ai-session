@@ -112,3 +112,42 @@ Script: `crawl/reachability.py`. Outputs: `data/visitor-inventory.csv`, `data/un
 | Site search results | 13,520 |
 | Dead or broken paths | 9 |
 | New live requests this stage | 259 (homepage, /sitemap/, 2 theme JS files, 8 search pages, listing walks, 17 uncached reachable pages). See `data/raw/_fetch_log.csv`. |
+
+## Stage 2: Claims and coverage (2026-10-04)
+
+**Driving instruction:** Work from the visitor inventory, the unreachable list, and the cached pages. Do not crawl. Classify the resources into themes, review the 10 consumer education picks, extract claims from the homepage, About, and Beyond Certification, score each claim against what a visitor can browse, walk three journeys, and write a ranked gap report.
+
+Scripts: `crawl/themes.py`, `crawl/claims.py`. Outputs: `data/resources-themes.csv`, `data/resources-consumer-education.csv` (updated), `analysis/claims.json`, `analysis/coverage.csv`, `analysis/journeys.md`, `analysis/gaps.md`. No live requests were made.
+
+### Steps another person can repeat
+
+1. **Theme the content library with transparent rules, not a black box.** Use the listing's own type first (here every Recipe is a recipe). Then match keywords in the title. Only then fall back to the opening text, with a short list of strong keywords. Record the matched keyword and where it matched on every row, so any label can be checked.
+2. **Audit the rules on a random sample before trusting the counts.** Draw 40 rows, read them, and adjust. Here the first pass let generic words in body text (flavor, industry, health) decide themes. Magazine editorials matched whatever they mentioned in passing. Fixes: editorials and puzzles are themed by title only, generic words are ignored in body text, and the body pass checks themes in a fixed order.
+3. **Read the full article before calling it consumer education.** Picks made from titles need a check. Here 1 of 10 was wrong (an industry supply chain story). It was replaced and the reason was recorded. Manual corrections go into an override table in the script, so reruns keep them.
+4. **Extract claims verbatim and check them by script.** Copy each claim as an exact substring of the page text. The script fails if any claim is not found word for word. One claim failed: the About page repeats the homepage Crescent-M line with different wording and case, so it became its own claim instead of a duplicate.
+5. **Score claims with written definitions.** strong: a visitor can browse to current content that directly backs it. weak: support is partial, dated, buried, broken, or contradicted. none: nothing backs it. hidden: backing content exists only through search or with no path. Give one reason and the supporting URLs for every score.
+6. **Walk journeys as a specific person with a specific goal.** Record every step, where it happens, and whether it works. Note what was not tested (here, live search results and form submission).
+7. **Rank gaps by mission impact and keep two lists.** Content that is missing, and content that exists but cannot be found. Tie every gap to claim IDs and URLs.
+
+### Decisions
+
+- A claim may carry more than one pillar when the page states it that way (for example the mission sentence). Per-pillar tallies count such a claim once in each pillar.
+- Claims repeated word for word on other pages are recorded once, with an `also_found_on` list.
+- Menu labels and button text were included as claims only when they make a promise on the page body (Explore Halal Certified Products, Explore Programs, Programs & Partnerships).
+- No claim scored hidden. Search-only content exists, but company profiles hold only a name, FAQ and magazine content also shows on browsable pages, and product detail pages were never fetched. Scoring them as backing a claim would go beyond the evidence.
+- Halal rulings were recorded as IFANCA states them. No religious explanation was written. The missing children's explainer is recorded as a gap for IFANCA.
+
+### Problems hit
+
+- The theme rules needed three passes. The first put 140 items in other and mislabeled many from body text. The second over-corrected and put 401 items in other. The final version has 318 in other: 144 magazine editorials, publisher notes, and puzzles, plus 174 articles (mostly single-food features such as honey or harissa, and fitness pieces). These are recorded as other rather than forced into a theme.
+- In a 40-row audit of the second pass, about 2 labels were wrong and about 6 articles were left in other that belong in health and nutrition. Treat theme counts as approximate, plus or minus a few percent per theme.
+- The resources and certification pages give three different counts of halal consumers (1.57, 1.8, and 1.9 billion). This was recorded as a finding, not corrected.
+
+### Results
+
+| Measure | Count |
+|---|---|
+| Claims | 42 (9 strong, 31 weak, 2 none, 0 hidden) |
+| Resource themes | recipes 352, other 318, health and nutrition 224, community and events 78, industry and certification 69, ingredients 48, halal basics 26 |
+| Consumer education picks | 9 confirmed, 1 corrected and replaced |
+| Journeys | 3 walked, all fail at one or more steps |
