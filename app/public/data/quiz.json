@@ -1,0 +1,284 @@
+{
+  "crawl_date": "2026-10-03",
+  "note": "Demo quiz for a training session only. Each question is written from one IFANCA FAQ answer and quotes the sentence it comes from. Written for this demo, not by IFANCA. Needs review by IFANCA before any wider use.",
+  "source": "https://ifanca.org/faqs/",
+  "written": "2026-10-04",
+  "count": 18,
+  "levels": [
+    "Beginner",
+    "Learner",
+    "Advocate"
+  ],
+  "items": [
+    {
+      "id": "q01",
+      "level": "Beginner",
+      "question": "According to IFANCA, what does the Arabic word halal mean?",
+      "options": [
+        "Clean and healthy",
+        "Lawful or permitted",
+        "Blessed by a scholar",
+        "Made in a Muslim country"
+      ],
+      "answer": 1,
+      "faq_question": "What is halal?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal/",
+      "source_quote": "Halal is an Arabic word meaning lawful or permitted."
+    },
+    {
+      "id": "q02",
+      "level": "Beginner",
+      "question": "According to IFANCA, what is the opposite of halal?",
+      "options": [
+        "Haram",
+        "Mashbooh",
+        "Zabiha",
+        "Kosher"
+      ],
+      "answer": 0,
+      "faq_question": "What is halal?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal/",
+      "source_quote": "The opposite of halal is haram, which means unlawful or prohibited."
+    },
+    {
+      "id": "q03",
+      "level": "Beginner",
+      "question": "According to IFANCA, what does mashbooh mean?",
+      "options": [
+        "Permitted",
+        "Prohibited",
+        "Doubtful or questionable",
+        "Slaughtered by hand"
+      ],
+      "answer": 2,
+      "faq_question": "What is halal?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal/",
+      "source_quote": "Such items are often referred to as mashbooh, which means doubtful or questionable."
+    },
+    {
+      "id": "q04",
+      "level": "Beginner",
+      "question": "According to IFANCA, what does Zabiha refer to?",
+      "options": [
+        "Any meat sold in a Muslim country",
+        "Meat approved by a government inspector",
+        "Meat with no added ingredients",
+        "Slaughtering of an animal or bird by a Muslim according to Islamic requirements"
+      ],
+      "answer": 3,
+      "faq_question": "What is halal?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal/",
+      "source_quote": "Zabiha refers to slaughtering of an animal or bird by a Muslim according to Islamic requirements."
+    },
+    {
+      "id": "q05",
+      "level": "Beginner",
+      "question": "What mark do products certified by IFANCA normally display on the label?",
+      "options": [
+        "The registered Crescent-M service mark",
+        "A green check mark",
+        "The word Zabiha",
+        "No mark at all"
+      ],
+      "answer": 0,
+      "faq_question": "What is halal?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal/",
+      "source_quote": "Products certified by IFANCA normally display the registered Crescent-M service mark on the label."
+    },
+    {
+      "id": "q06",
+      "level": "Beginner",
+      "question": "Why does IFANCA say lists of specific products are not as useful as ingredient lists?",
+      "options": [
+        "Product lists are too long to read",
+        "The status of the products can change at any time",
+        "Product lists are only printed in Arabic",
+        "Ingredient lists are shorter"
+      ],
+      "answer": 1,
+      "faq_question": "What is the verdict on halal and haram lists?",
+      "faq_url": "https://ifanca.org/faqs/what-is-the-verdict-on-halal-and-haram-lists/",
+      "source_quote": "On the other hand, lists of specific products are not as useful because the status of the products can change at any time and this could lead to consuming haram products."
+    },
+    {
+      "id": "q07",
+      "level": "Learner",
+      "question": "According to IFANCA, if the word gelatin appears on a label without its source, what is it generally derived from?",
+      "options": [
+        "Fish bones",
+        "Seaweed",
+        "Pig skins and cattle bones",
+        "Soybeans"
+      ],
+      "answer": 2,
+      "faq_question": "May we eat gelatin?",
+      "faq_url": "https://ifanca.org/faqs/may-we-eat-gelatin/",
+      "source_quote": "If the word gelatin appears on a label without reference to its source, it is generally derived from pig skins and cattle bones, so it must be avoided."
+    },
+    {
+      "id": "q08",
+      "level": "Learner",
+      "question": "Which label wording does IFANCA say halal consumers should look for on mono- and diglycerides?",
+      "options": [
+        "Low fat",
+        "Natural",
+        "Made in the USA",
+        "100% vegetable mono- and diglycerides"
+      ],
+      "answer": 3,
+      "faq_question": "Are mono and diglycerides halal?",
+      "faq_url": "https://ifanca.org/faqs/are-mono-and-diglycerides-halal/",
+      "source_quote": "Halal consumers should avoid products containing mono- and diglycerides unless they are labeled as 100% vegetable mono- and diglycerides."
+    },
+    {
+      "id": "q09",
+      "level": "Learner",
+      "question": "IFANCA says to check with the producer about lecithin unless the label says which words?",
+      "options": [
+        "Soya lecithin or vegetable lecithin",
+        "Organic lecithin",
+        "Pure lecithin",
+        "Lecithin powder"
+      ],
+      "answer": 0,
+      "faq_question": "Is lecithin halal?",
+      "faq_url": "https://ifanca.org/faqs/is-lecithin-halal/",
+      "source_quote": "Unless the ingredient label says soya lecithin or vegetable lecithin, you need to check with the producer to determine the source."
+    },
+    {
+      "id": "q10",
+      "level": "Learner",
+      "question": "According to IFANCA, what is the active ingredient in rennet?",
+      "options": [
+        "Pepsin",
+        "Chymosin",
+        "Gelatin",
+        "Lecithin"
+      ],
+      "answer": 1,
+      "faq_question": "What is the source of rennet?",
+      "faq_url": "https://ifanca.org/faqs/what-is-the-source-of-rennet/",
+      "source_quote": "The active ingredient in rennet is chymosin."
+    },
+    {
+      "id": "q11",
+      "level": "Learner",
+      "question": "According to IFANCA, what are Yellow No. 5 and other numbered dyes made from?",
+      "options": [
+        "Insects",
+        "Animal fat",
+        "Petrochemicals",
+        "Grapes"
+      ],
+      "answer": 2,
+      "faq_question": "Is Yellow No. 5 halal?",
+      "faq_url": "https://ifanca.org/faqs/is-yellow-no-5-halal/",
+      "source_quote": "Yellow No. 5 and all other numbered dyes (colors) are made from petrochemicals."
+    },
+    {
+      "id": "q12",
+      "level": "Learner",
+      "question": "According to IFANCA, does chocolate liquor contain alcohol?",
+      "options": [
+        "Yes, a small amount",
+        "Yes, the same as wine",
+        "Only when it is aged",
+        "No, it does not contain any alcohol"
+      ],
+      "answer": 3,
+      "faq_question": "Is chocolate liquor haram?",
+      "faq_url": "https://ifanca.org/faqs/is-chocolate-liquor-haram/",
+      "source_quote": "It does not contain any alcohol, so it is not haram."
+    },
+    {
+      "id": "q13",
+      "level": "Advocate",
+      "question": "According to IFANCA, how do Islam and Judaism differ on alcohol and wines?",
+      "options": [
+        "Islam prohibits all intoxicants, and Judaism regards alcohol and wines as kosher",
+        "Both prohibit all alcohol",
+        "Both allow wine with meals",
+        "Judaism prohibits wine, and Islam allows it"
+      ],
+      "answer": 0,
+      "faq_question": "Are kosher products halal?",
+      "faq_url": "https://ifanca.org/faqs/are-kosher-products-halal/",
+      "source_quote": "Islam prohibits all intoxicants, including alcohols, liquors and wines, whereas Judaism regards alcohol and wines as kosher."
+    },
+    {
+      "id": "q14",
+      "level": "Advocate",
+      "question": "How does IFANCA describe halal certification?",
+      "options": [
+        "A government food safety inspection",
+        "A qualified independent third party supervises the production of consumables",
+        "A label the company prints on its own",
+        "A one-time online form"
+      ],
+      "answer": 1,
+      "faq_question": "What is halal certification?",
+      "faq_url": "https://ifanca.org/faqs/what-is-halal-certification/",
+      "source_quote": "Halal Certification is the process of having a qualified independent third party supervise the production of consumables, attesting that they were produced in conformity with the preparation and ingredient standards of the halal lifestyle."
+    },
+    {
+      "id": "q15",
+      "level": "Advocate",
+      "question": "Who makes all decisions related to halal certification at IFANCA?",
+      "options": [
+        "The client company",
+        "The magazine editors",
+        "The Halal Certification Committee",
+        "Any IFANCA auditor on site"
+      ],
+      "answer": 2,
+      "faq_question": "What is the procedure for suspension, withdrawal, reduction, maintenance, extension, or renewal of a halal certificate?",
+      "faq_url": "https://ifanca.org/faqs/what-is-the-procedure-for-suspension-withdrawal-reduction-maintenance-extension-or-renewal-of-a-halal-certificate/",
+      "source_quote": "The Halal Certification Committee is responsible for making all decisions related to halal certification including: granting, maintaining, renewing, extending, reducing, suspending, and withdrawing of halal certification."
+    },
+    {
+      "id": "q16",
+      "level": "Advocate",
+      "question": "According to IFANCA, does ISO 9000 on its own make a product halal?",
+      "options": [
+        "Yes, ISO 9000 is the same as halal",
+        "Yes, if the plant is in the USA",
+        "Only for meat products",
+        "No, ISO alone does not make a product halal"
+      ],
+      "answer": 3,
+      "faq_question": "How does ISO 9000 fit in with halal certification?",
+      "faq_url": "https://ifanca.org/faqs/how-does-iso-9000-fit-in-with-halal-certification/",
+      "source_quote": "ISO alone does not make a product halal, and a halal product can be made without ISO."
+    },
+    {
+      "id": "q17",
+      "level": "Advocate",
+      "question": "According to IFANCA, what meal classification do airlines currently use?",
+      "options": [
+        "A Muslim meal rather than a halal meal",
+        "A certified halal meal on every flight",
+        "A Zabiha meal",
+        "No special meals at all"
+      ],
+      "answer": 0,
+      "faq_question": "May I eat the food served on airlines?",
+      "faq_url": "https://ifanca.org/faqs/may-i-eat-the-food-served-on-airlines/",
+      "source_quote": "The current classification includes a ‘Muslim’ meal rather than a halal meal."
+    },
+    {
+      "id": "q18",
+      "level": "Advocate",
+      "question": "What is the typical registration fee for a plant, as listed by IFANCA?",
+      "options": [
+        "$350 to $750",
+        "$2,000 to $2,500",
+        "$1,000 to $1,500",
+        "There is no fee"
+      ],
+      "answer": 1,
+      "faq_question": "What are the fees for certification?",
+      "faq_url": "https://ifanca.org/faqs/what-are-the-fees-for-certification/",
+      "source_quote": "Registration fee for a plant: $2,000-$2,500"
+    }
+  ]
+}
