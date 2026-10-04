@@ -111,6 +111,16 @@ await check('read: themes and dates', async () => {
   await common()
 })
 
+await check('room-leaderboard: /leaderboard path and QR code', async () => {
+  await page.goto(`${BASE}/leaderboard`)
+  await page.waitForSelector('[data-testid=qr-panel]')
+  assert((await page.locator('h2').innerText()) === 'Room leaderboard', 'title')
+  assert(await page.locator('[data-testid=qr]').evaluate((i) => i.complete && i.naturalWidth > 0), 'QR image')
+  const connected = (await page.locator('[data-testid=live-status]').count()) > 0
+  await common()
+  return connected ? 'connected to Supabase' : 'not connected yet'
+})
+
 await check('pwa: manifest, noindex, robots.txt', async () => {
   const m = await (await page.request.get(`${BASE}/manifest.webmanifest`)).json()
   assert(m.name === 'The Halal Way', `manifest name ${m.name}`)
