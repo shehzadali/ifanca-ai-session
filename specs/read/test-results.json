@@ -1,0 +1,69 @@
+{
+  "feature": "read",
+  "date": "2026-10-04",
+  "commit": "a397f93",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Read tile opens the screen with search and theme chips",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "text": "763 articles, newest first",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 3,
+      "text": "Card shows date, title, type, theme, preview, and link",
+      "result": "Pass",
+      "notes": "Published June 30, 2026"
+    },
+    {
+      "n": 4,
+      "text": "Halal basics gives 26, all Halal basics",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 5,
+      "text": "Theme and search combine",
+      "result": "Pass",
+      "notes": "1 articles"
+    },
+    {
+      "n": 6,
+      "text": "Search gelatin",
+      "result": "Pass",
+      "notes": "13 articles"
+    },
+    {
+      "n": 7,
+      "text": "No match message",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 8,
+      "text": "Show more adds 20",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 9,
+      "text": "Snapshot date and themes note",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "No sideways scroll and 44px tap targets",
+      "result": "Pass",
+      "notes": ""
+    }
+  ],
+  "consoleErrors": []
+}

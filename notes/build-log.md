@@ -11,8 +11,8 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Feature 2 ingredient-check | done, 15 of 15 pass | spec 9b06901 to report |
 | Feature 3 learn-halal | done, 13 of 13 pass | 476fcd0 to report |
 | Feature 4 cook | done, 12 of 12 pass | 6dbfb03 to report |
-| Feature 5 read | in progress | |
-| PWA (manifest, icons, offline, noindex) | not started | |
+| Feature 5 read | done, 10 of 10 pass | a397f93 to report |
+| PWA (manifest, icons, offline, noindex) | in progress | |
 | /ship command and smoke test | not started | |
 | Vercel project and production deploy | not started | |
 | QR code | not started | |
@@ -80,3 +80,10 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D35. Ingredient and step lines that end with a colon show as small headings. Steps are numbered by the app. The words are unchanged.
 - D36. Meal plan: seven days, Monday to Sunday, any number of recipes per day. Stored by recipe URL in localStorage (`thw.mealplan`). Clearing asks for confirmation.
 - D37. Lemon Tiramisu lists "limoncello (optional)". Left unchanged as IFANCA published it. Flagged in the test report for IFANCA to review.
+
+### Feature 5 read
+
+- D38. Theme chips with counts from the data. One theme at a time. Labels in sentence case. A line says themes are approximate, as the data note says.
+- D39. Each card leads with "Published <date>" in bold, then title, type and theme, the stored 40-word preview, and the link.
+- D40. 20 cards at a time. Search covers title and preview only, because the full text is not in the data.
+- D41. The filter chip moved to `components/Chip.tsx` so Cook and Read share it.
