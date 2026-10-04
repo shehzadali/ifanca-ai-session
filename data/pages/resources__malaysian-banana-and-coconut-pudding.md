@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/malaysian-banana-and-coconut-pudding/
+title: Malaysian Banana and Coconut Pudding
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2012-03-31'
+modified_date: '2022-09-22'
+word_count: 412
+crawl_date: '2026-10-03'
+---
+
+Back to All Malaysian Banana and Coconut Pudding Aisha Kureishy (Source: Food.com) March 31, 2012 Copied! Servings: 6 | Prep Time: 10 min | Cooking Time: 1 hr 50 min Ingredients 3 firm-ripe bananas 1 can un-sweetened coconut milk ⅓ cup sugar 2 tablespoons butter 2 tablespoons coarsely chopped crystallized ginger (optional) 1 tablespoon small pearl tapioca (slow cooking) Ingredients for Crystallized Ginger 10 ounces fresh ginger, blemish free 2 cups sugar ¼ cup water Equipment measuring cups, spoons and bowls saucepan heavy bottom pan mandoline slicer Crystallized Ginger Wash your hands with soap and water, and have your kitchen gear ready to start preparing. With an adult peel and slice ginger into 2 inch lengths, ⅛ inch thickness. Using a Mandoline Slicer will give you uniform slices with ease and quickness. Toss sugar and ginger together. In a large heavy bottom pan, heat water and add sugar and ginger mix and bring to a very slow simmer. Stir over low heat occasionally for 1 hr 30 minutes. The ginger will become translucent and the sugar will crystallize on the edge of the pan. Sprinkle ¼ cup sugar on parchment paper or a silicone mat. Lay drained ginger on sugar. Toss the sugar when ginger has cooled enough to handle (about 10 minutes) to coat evenly. Place in an air tight container out of heat and light. The yummy sugar that is left over can be saved in a jar and used for tea, sugar the rim of glasses or in baking cookies or cakes. To the left over syrup, add 1 cup water, heat to mix and use as you would corn syrup. Pudding Wash your hands with soap and water, and have your kitchen gear ready to start preparing. In a small bowl, soak tapioca in warm water for an hour. In a small saucepan, cook coconut milk, sugar and ginger over medium heat. Stir well until sugar is dissolved. Let an adult remove pan from the stove and let it stand for ten minutes. Drain tapioca. Peel bananas and cut quarters lengthwise and quarters into ½ piece. Heat coconut milk again over low heat and gently add bananas and tapioca while stirring. Stir and cook pudding for about five minutes until it is slightly thickened. Make sure to not break bananas. Let an adult remove from heat and let it cool. Divide puddings into six serving bowls, cover and chill. Garnish pudding with crystallized ginger before serving. *Source: Food.com

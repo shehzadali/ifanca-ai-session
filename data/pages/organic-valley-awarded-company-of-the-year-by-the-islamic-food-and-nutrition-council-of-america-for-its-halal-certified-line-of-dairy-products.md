@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/organic-valley-awarded-company-of-the-year-by-the-islamic-food-and-nutrition-council-of-america-for-its-halal-certified-line-of-dairy-products/
+title: Organic Valley Awarded “Company of the Year” by the Islamic Food and Nutrition
+  Council of America for Its Halal-Certified Line of Dairy Products
+section: news
+page_type: news
+audience: general
+published_date: '2017-04-18'
+modified_date: '2022-08-08'
+word_count: 350
+crawl_date: '2026-10-03'
+---
+
+ROSEMONT, Illinois (April 18, 2017) — Organic Valley has been selected as the Company of the Year – Retail Products by the Islamic Food and Nutrition Council of America (IFANCA®). The award recognizes Organic Valley’s outstanding commitment to halal compliance and distribution of halal-certified products. Elizabeth Unger, Organic Valley Regulatory Engagement Manager, accepted the award on Organic Valley’s behalf at a banquet during IFANCA’s 19th International Halal Food Conference in the Chicago suburbs. The growing halal industry is no secret with revenue from halal certified food and beverage products estimated to be $415 billion (2015). Organic Valley has worked closely with our technical and IT teams to ensure implementation of strict halal procedures and product labeling requirements that make it easy for consumers to identify and enjoy the halal certified products. “We are so pleased to present Organic Valley this award for their philosophy of providing halal and tayyib (good, wholesome) products,” said President and CEO of IFANCA, Dr. Muhammad Munir Chaudry. “Commitment and awareness of the halal market and its consumers continues to be increasingly important.” “We are honored to receive this recognition and will continue our commitment to providing sustainable, organic products for our diverse customers,” said Elizabeth Unger. IFANCA® A nonprofit headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA®) is a global leader in halal certification and education. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA has been promoting halal since 1982. IFANCA was awarded the “Best Halal Related Service Provider Award” by the Halal Journal at the World Halal Forum 2007 and the Islamic Economy Award for Compliance and Standardization by the Global Islamic Economy Summit (GIES®) 2013. IFANCA is endorsed by many countries and organizations including MUI (Indonesia), JAKIM (Malaysia), MUIS (Singapore), and GSM (United Arab Emirates), and IFANCA halal-certified products are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA, visit www.ifanca.org . For more information: Roger Othman IFANCA Ph: +1 312 957 9300 Email: r.othman@ifanca.org

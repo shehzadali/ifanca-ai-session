@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/eggplant-and-arugula-salad/
+title: Eggplant and Arugula Salad
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2012-12-31'
+modified_date: '2022-08-05'
+word_count: 418
+crawl_date: '2026-10-03'
+---
+
+Back to All Eggplant and Arugula Salad Saira Mohiuddin December 31, 2012 Copied! Serves: 8 | Prep Time: 20 minutes | Cook Time: 20 minutes Ingredients 6 slices of small eggplant, ¼ inch each 3 cups Panko bread crumbs 3 tablespoons chopped sage 1 tablespoon garlic powder 1 teaspoon cayenne pepper 1 teaspoon black pepper 1 teaspoon paprika 1 teaspoon salt 2 large Organic Valley® eggs, beaten 1½ cups flour 18 oz. box of arugula 1 cup balsamic vinegar 1 cup honey 16 slices of tomatoes, ¼ inch each 16 circles of Organic Valley® fresh mozzarella, ¼ inch each 1 cup of freshly shredded Organic Valley® parmesan cheese olive oil basil salt and pepper Step 1 Mix Panko bread crumbs with chopped sage, garlic powder, cayenne pepper, black pepper and salt. Step 2 Season eggplant slices with paprika, salt and pepper. Step 3 Set up your breading station with two plates — for flour and seasoned breadcrumbs, respectively. Use a small bowl for your beaten eggs. Place seasoned eggplant slice in flour and coat each side. Dip eggplant slice in beaten eggs. Dip eggplant slice into seasoned Panko breadcrumbs. Repeat with the remaining eggplant slices. Refrigerate for 10 minutes in order to set your bread coating. Step 4 Add 1 cup balsamic vinegar and honey to saucepan. Bring to boil and simmer 20 minutes. The longer you simmer, the thicker the balsamic reduction will be. Set aside and cool before pouring into plastic squeeze bottle. Place in refrigerator until you are ready to plate. Step 5 Heat frying pan on medium / high heat and add olive oil about ¼ inch deep. Heating the pan first is essential so you do not burn the oil. Place breaded eggplant slices into pan. Do not over- crowd your pan. Fry two minutes on each side or until golden brown. Set finished eggplant on a plate with paper towel to soak up excess oil. Step 6 Dress arugula with olive oil, salt and pepper. Step 7 Marinate tomatoes with olive oil, salt, pepper, basil and a splash of balsamic vinegar. Presentation Now it is time to plate. Start with balsamic reduction and drizzle it across the plate. If you do not have a plastic squeeze bottle, just use a fork dipped in the reduction and run it across the plate. To serve, place fried eggplant on plate, top with fresh mozzarella slice and a slice of tomato. Repeat. Top off your stack with arugula and garnish with shredded parmesan. Serve immediately.

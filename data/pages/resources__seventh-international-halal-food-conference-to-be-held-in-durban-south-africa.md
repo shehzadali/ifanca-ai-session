@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/seventh-international-halal-food-conference-to-be-held-in-durban-south-africa/
+title: Seventh International Halal Food Conference to Be Held in Durban, South Africa
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2005-06-30'
+modified_date: '2022-09-13'
+word_count: 286
+crawl_date: '2026-10-03'
+---
+
+Back to All Seventh International Halal Food Conference to Be Held in Durban, South Africa Saad Asrar June 30, 2005 Copied! Chicago August 25 – The Islamic Food and Nutrition Council of America (IFANCA) is cosponsoring a world class Halal food conference on September 8 th and 9 th . The conference will be the first of its kind to be held in Durban South Africa. The theme of the conference will be “HALAL: A Symbol of Quality and Purity.” The reason for selecting South Africa is that S. Africa has a booming Halal food production environment. Although the Muslim population of the country is only about one million, most of the slaughter houses are under the control of various Halal certification organizations. The conference will feature speakers from many Muslim countries as well as U.S.A, Europe, Asia, and Africa. Topics to be discussed during the conference include important issues like import regulations, Halal certification programs, and the concept of quality and purity in Islam. Food industry professionals, professors, students, government officials, exporters, importers, and food distributors are invited to participate in this conference. The Islamic Food and Nutrition Council of America is an international Halal consulting and certification organization based in the United States of America. IFANCA is actively involved in publishing books and other material to promote Halal. Look for the IFANCA logo on various products to ensure high standards of quality and purity for Muslims and non-Muslims. IFANCA is recognized by various national and international government organizations such as the USDA, the Food Safety Inspection Service as well as by Rabita al-Alam al-Islami (Muslim World League) of Saudi Arabia, Majlis Ugama Islami Singapura, JAKIM of Malaysia, MUI of Indonesia, as well as others.

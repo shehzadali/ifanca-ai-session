@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-fall-2015/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2015-09-30'
+modified_date: '2023-02-07'
+word_count: 385
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Roger M. Othman September 30, 2015 Copied! Assalamu Alaikum Eid Mubarak from all of us at Halal Consumer© magazine and IFANCA. Speaking of Eid, this is a time of sacrifice and if you had any questions regarding what qualifies for the sacrificial offering, you might find your answers in “ Faith and Tradition This Eid-ul-Adha .” As Eid brings families closer together, check out “ Family Time in the Kitchen ” for some ideas on how to help keep the family together every day. While you are in the kitchen, do a quick inventory of your cookware and utensils. I just bought a 25-piece knife set and don’t know what to use 24 of them on. Actually, I even got the second set for just the shipping and handling cost! Had I read “ Kitchen Must-Haves ,” I might have saved some money and kitchen space. As the seasons change, oftentimes eating habits do, too. Keep in mind the Prophetic hadith about only filling one third of your stomach with food and one third with water, leaving one third empty. “ The Healthy Diet ” offers some helpful insights into the benefits of opting for quality over quantity. Speaking of hadith, beets are this issue’s Prophetic food. In “ Give Beets a Chance ,” you can learn more about this Prophetic food that is becoming a trendy superfood! It’s also a good source of energy. Naturally, you can’t spend all your time in the kitchen; when you are away, make sure you reach for healthy foods and snacks. “ Halal & Healthy on the Go ” offers some healthy snack options. There are many halal-certified options awaiting you. If weight is an issue, be sure to read “ Living with Thyroid Dysfunction .” You may be surprised to find that has something to do with your weight gain or loss. Of course, check with a physician for a diagnosis. Check out the Spotlight on IFANCA halal-certified Maple Lodge Farms and their journey to halal. Their chicken isn’t available in the United States yet, but if you are in Canada, give them a try. Finally, check out the delicious recipes and send us some of your own. We may publish them in the next issue. Sincerely, Roger M. Othman, managing editor

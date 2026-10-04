@@ -1,0 +1,15 @@
+dimension,value,count
+all,All resources,1115
+type,Article,584
+type,Recipe,352
+type,Editorial,135
+type,Spotlight,24
+type,Publisher's Note,8
+type,Guide,6
+type,Puzzle,4
+type,Photo Story,2
+type,Quarterly,2
+type,(no type),0
+topic,Resources,128
+topic,Ingredients,8
+topic,(no topic),979

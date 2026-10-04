@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-summer-2016/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2016-06-30'
+modified_date: '2023-02-07'
+word_count: 421
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Alia Shalabi June 30, 2016 Copied! Assalamu Alaikum, Summer, summer, summertime. It’s hot, the days are long. God-willing Ramadan has been treating you well. Only a few days remain. Have you been re-hydrating yourself with “ Summer’s Favorite Melon ”? Of course, I’m talking about watermelon. Did you know there are more varieties than just “regular” and seedless? Imagine my surprise at the last BBQ I attended when the big, green watermelon was cut open to reveal bright yellow flesh! Many of us make online purchases at least some of the time; it’s a lot easier to buy the kids’ Eid gifts that way over dragging them all to the toy store! But have you ever considered purchasing your groceries via the web? Check out “ Store-to-Door: The Convenience of Grocery Delivery ” to see what you might be missing. Once you get your groceries home, do you store everything in the fridge? That might not be the best place for certain items. In “ Battle Royale, ” find out which food storage method is best for your items. We’ve heard the saying, “When you eat better, you feel better.” It goes a little deeper than a fatty double cheeseburger weighing you down. Learn more about the connection between food and your brain in “ What Are You in the Mood for? ” In “ Halalification—More Than a Pinch of Imagination, ” you’ll find out how some cooks are making creative substitutions for a cultural array of foods that traditionally contain haram (forbidden) ingredients. It’s more than just replacing pork with halal beef. Remember when brown rice became all the rage? Then the tables turned and quinoa became the big “it” grain? Though both are still widely consumed today, their trend value has decreased. Avocado, kale, and coconut have been popular for years and are still going strong. Find out why these fruits and vegetable are part of “ The Trend That Won’t End.” There are lots of recipes in this issue. Give them a try and let us know what you think via Facebook or Twitter ! We love to hear from you! May the rest of your Ramadan be filled with reflection, prayer, and many blessings. We wish you a very happy Eid and hope to see you at the first ever Eid Expo at Chicago’s Navy Pier. There will be Eid prayers and a variety of activities for the whole family. For more info, visit www.EidExpo.com. Happy Reading! Sincerely, Alia Shalabi, content manager

@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/go-nuts-with-paramount-farms-halal-certified-almonds-and-pistachios/
+title: Go Nuts with Paramount Farms, Halal Certified Almonds and Pistachios
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2007-03-31'
+modified_date: '2023-02-07'
+word_count: 393
+crawl_date: '2026-10-03'
+---
+
+Back to All Go Nuts with Paramount Farms, Halal Certified Almonds and Pistachios Zeshan Sadek March 31, 2007 Copied! The Iowa Women’s Health Study, the Nurses’ Health Study, and the Adventist Health Study, all link the consumption of nuts with lowering the risk of heart disease. Studies show that people eating nuts daily had up to 60% lower risk of heart attacks, than those who ate nuts less than once per month. In addition to benefits to the heart, nuts also lower the risk of having a stroke, of developing type 2 Diabetes, of developing dementia, of advanced macular degeneration and of gallstones. Studies have found that nut eaters gain an extra 5-6 years of life free of coronary diseases, and regular nut eating prolongs longevity by about 2 years. Studies suggest that 1-2 ounces of nuts should be consumed daily to gain maximum health benefits. Nuts are obviously fatty foods and the risk of weight gain is eminent. However, studies have proven that nuts do not play a major role in weight increase. Nuts reduce hunger, because they reduce the consumption of other foods. Nuts contain low levels of saturated fats, and high levels of unsaturated fat. Studies have shown that nuts consumption lowers blood cholesterol levels, and subsequently lowers the risk of heart disease. Walnuts and almonds are at the top of the list of nuts that reduce the risk of coronary heart disease. However, the best advice is to eat a variety of nuts for a healthy heart. Nuts are good sources of fiber, vitamin E, folic acid, copper, magnesium and essential amino acids that play a role in preventing heart disease. Nuts are also good dietary sources of manganese and contain plant sterols, which help to reduce cholesterol adsorption from food. Nuts could be added to recipes that include bread, cakes, soups, sauces, stuffing, salads and desserts. Nut butters are delicious, like peanut and hazelnut butters. However, surveys have found that one in one hundred people may be allergic to one or more types of nuts. The symptoms, most commonly include, skin rashes and hoarseness in the throat. Regular nut consumption is recommended as a replacement for consumption of red or processed meats, and to lead a better, healthier lifestyle. Pistachio Cake Recipe IFANCA Halal Certified Company for Nut Products: Paramount Farms, Inc. -USA Products: Almond And Pistachio Nuts

@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/ifanca-arranges-iftar-for-ift-attendees-observing-the-fast-of-ramadan/
+title: IFANCA® Arranges IFtar for IFT Attendees Observing the Fast of Ramadan
+section: news
+page_type: news
+audience: general
+published_date: '2013-07-09'
+modified_date: '2022-08-08'
+word_count: 371
+crawl_date: '2026-10-03'
+---
+
+CHICAGO, Illinois (July 9, 2013) — The Islamic Food and Nutrition Council of America (IFANCA) has arranged an Iftar every evening for attendees of the Institute of Food Technologists Annual Meeting and Expo that will be fasting. The meeting is scheduled for July 13-16 at McCormick Place South in Chicago. The Iftar will be available at the Downtown Islamic Center located at 231 South State Street in Chicago around 8:30 PM each evening. This year’s Annual Meeting and Expo falls during the month of Ramadan when Muslims are required to fast. Though the requirement to fast is waived for those who are traveling, many Muslims prefer to observe the fast rather than having to make up the missed days later in the year. This is especially true when their travels take them to a locale where there is a local Muslim community that can assist them. It is IFANCA’s pleasure to be able to facilitate their fasting and breaking the fast (Iftar) with fellow Muslims. It is also convenient to do so in a Mosque where they can also observe the special Taraweeh prayers that are held during Ramadan. We thank the Downtown Islamic Center for their services and support. The Downtown Islamic Center recognizes that guests from out of town may need to take a little food with them for the early morning meal (Sahoor) before fasting begins. The Islamic Food and Nutrition Council of America (IFANCA) is a non-profit organization dedicated to promoting halal food production and supporting the institution of halal. IFANCA® Headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA ®) is one of the world’s leading and well-respected not-for-profit halal certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA® has been promoting halal since 1982. IFANCA® was recognized in the “Best Halal Related Service Provider Award” by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (MUI), Malaysia (JAKIM), Singapore (MUIS), and the United Arab Emirates (GSM) and are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA®, visit www.ifanca.org .

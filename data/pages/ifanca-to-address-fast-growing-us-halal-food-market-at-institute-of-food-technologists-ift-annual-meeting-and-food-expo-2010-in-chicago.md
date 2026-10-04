@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/ifanca-to-address-fast-growing-us-halal-food-market-at-institute-of-food-technologists-ift-annual-meeting-and-food-expo-2010-in-chicago/
+title: IFANCA® to Address Fast Growing US Halal Food Market at Institute of Food Technologists
+  (IFT) Annual Meeting and Food Expo 2010 in Chicago
+section: news
+page_type: news
+audience: general
+published_date: '2010-07-17'
+modified_date: '2022-08-08'
+word_count: 370
+crawl_date: '2026-10-03'
+---
+
+CHICAGO, Illinois (July 17, 2010) — The Islamic Food and Nutrition Council of America (IFANCA®) will be exhibiting their halal certification and information services from July 17, to 20, 2010, at the Institute of Food Technologists Annual Meeting and Food Expo 2010. IFANCA®’s display booth, #5101, will offer free halal certification consultations to IFT Expo attendees for its entire duration. In the past years, interest in the growing halal markets and halal certification has expanded tremendously. In the past 4 years, Datamonitor Group has noted that the number of global halal product launches has increased by 150 percent from 2005 to 2009. IFANCA® has also witnessed an increased interest in halal – both for global, as well as for the US halal food market. “The interest is higher than anything we have seen in the past 10 years for halal food ingredients,” says Dr. Chaudry, president of IFANCA®. Dr. Chaudry estimates an 80 percent growth from halal certified ingredients and food products since 2005 for US and global based halal markets. This increased interest for US halal market ingredients and products may reflect the overall estimated $170 billion US dollar purchasing power of American-Muslims. Dr. Chaudry has estimated the American-Muslim purchasing strength for food items alone may well exceed $20 billion US dollars. To address this growing interest in halal, IFANCA® will be exhibiting its halal certification services and giving out halal informational materials during the IFT Expo 2010. Its Food Technology team at booth #5101 will share specific, halal technical information, and free halal consumer information for both food technology as well as marketing professionals. IFANCA Headquartered in Chicago, Illinois, Islamic Food and Nutrition Council of America (IFANCA®), is one of the world’s leading and well respected not-for-profit halal-certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , and CNN, IFANCA has been promoting halal for the past 28 years. IFANCA® was recognized in the Best Halal Related Service Provider Award by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (M.U.I), Malaysia (JAKIM), Singapore (M.U.I.S), U.A.E., and many other countries. For more information about IFANCA®, visit www.ifanca.org . Contact: Maria Omar +1-773-283-3708 Ext: 222 m.omar@ifanca.org

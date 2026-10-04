@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-winter-2015/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2015-12-31'
+modified_date: '2023-02-07'
+word_count: 437
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Alia Shalabi December 31, 2015 Copied! Assalamu Alaikum Winter is officially upon us. Comforting meals are starting to make a regular rotation on the dinner table, whether that means lasagna or lentils, mac n’ cheese or maqluba . But sometimes creative chefs give these classics a makeover. I once heard of a woman who decided to make her maqluba healthier by using quinoa instead of rice. I find this “ Classic with a Twist ” interesting; my husband deems it sacrilege. What do you think? For many, winter means frigid temps and short days. This can lead to a poor attitude and sadness. Did you know the winter blues is a real disorder, aptly called Seasonal Affective Disorder? Check out “ Battling the Winter Blues ” to learn more about it. Exercise can often boost your mood in the colder months. For some, heading to the health club is part of a daily routine year-round. Are you a gym rat who consumes protein shakes to help bulk up? Do those shakes contain whey? What about your breakfast yogurt? You may be surprised to learn there are many foods that contain whey and not all whey is considered halal. In “ The ‘Whey’ of the World, ” you’ll discover all there is to know on the subject. Do you or your child suffer from eczema? Read up on “ Itching for a Cure ” for some helpful tips on relieving the irritating symptoms of the disease. Foods from the Quran and Sunnah can often be healing. Learn about the benefits of adding figs to your diet in “ Exceptional Food of the Quran: Figs, ” and try out a few of the fig recipes included in this issue. Speaking of figs, have you ever thought of growing your own fig tree indoors? Or any other produce or herbs? Gardening doesn’t have to end with the summer as you’ll learn in “ How Does Your Indoor Garden Grow? ” You’ll definitely want to flip to our feature story about a group of women who created their own “ Halal Cooking Club. ” While the club does have rules, we’re lucky one of them isn’t, “You do not talk about Cooking Club.” You might be inspired to get your friends together and start your own club after you see the amazing displays these ladies are putting together. We’ve included a wide variety of recipes in the issue. Hope you’ll give some a try and let us know what you think via our Facebook page or Twitter account ! Happy reading! Sincerely, Alia Shalabi, content manager

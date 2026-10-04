@@ -1,0 +1,22 @@
+content_type,count,how_found,visitor_path,note
+product detail page,11642,XML sitemap (Stage 1 crawl),site search only,Listing cards show product data but do not link to these pages. Found only by site search.
+company profile page,464,XML sitemap (Stage 1 crawl),site search only,"No menu, listing, or in-page link points here. Found only by typing a company name into site search."
+taxonomy archive: product_companies,149,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: company_categories,78,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+magazine issue page,75,XML sitemap (Stage 1 crawl),site search only,Issue content shows on /halal-consumer-magazine/ through the pickers. The issue URLs are found only by site search.
+taxonomy archive: product_categories,62,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: product_countries,48,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+faq,26,XML sitemap (Stage 1 crawl),site search only,Same questions show inline on /faqs/. The single FAQ URLs are found only by site search.
+taxonomy archive: resource_types,9,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: product_marketplaces,6,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: resource_topics,5,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+post type archive,4,XML sitemap (Stage 1 crawl),none,"Archive index URLs (products, companies, magazines, faqs, teams). No visitor link points here."
+taxonomy archive: post_tag,4,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: author,3,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: category,2,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: event_types,2,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: faq_categories,2,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: team_positions,2,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: company_countries,1,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+taxonomy archive: program_type,1,XML sitemap (Stage 1 crawl),none,Filter value or archive URL. No visitor link points here.
+team profile,1,XML sitemap (Stage 1 crawl),site search only,The /team/ page lists the person but does not link to the profile.

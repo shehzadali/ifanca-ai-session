@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-fall-2012/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2012-09-30'
+modified_date: '2023-02-07'
+word_count: 380
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry September 30, 2012 Copied! Aasalamu Alaikum and Eid Mubarak. May the peace and Blessings of the Almighty be upon you. The awareness of halal in America was non-existent, just a couple of decades ago. Today, major media outlets cover halal issues regularly. Conferences on halal as an economic opportunity are occurring all over the world. There are innumerable blogs, YouTube videos, and Facebook pages about halal. New and diverse businesses catering to the halal consumer are on the rise. The way we look at food is changing on a daily basis. Whether it is the latest trends involving edible packaging and clean food processing or the harnessing of medicinal properties of traditional foods such as lentils and Greek yogurt, industrial food technologists are committed to innovation in food. With nine billion people to feed by mid-century, these innovations are not only important they are necessary. Adept at creating imitation products, food technologists create both natural Greek Yogurt and Greek Yogurt made with Ingredion® starch – both equally nutritious, both aimed at pleasing the palate. Food scientists and technologists are responsible for formulating foods that are safe, flavorful and meet nutritional needs. This is especially significant when it comes to feeding millions where food shortage is common. Speaking of food shortages, one person’s ‘junk food’ is another’s life line. From an Islamic perspective, food is never junk. IFANCA halal certification ensures that all the ingredients and processes are in keeping with Islamic dietary laws. Besides foods, the latest halal trends include the certification of vaccines and even ports. Two important vaccines, GARDASIL® and PREVANOR® are now halal certified and free of porcine materials, without a doubt. The Port of Zeebrugge in Belgium, a state of the art facility, is the largest port in Europe and a gateway to the European Union. As of July 2012, Brussels based Halal Food Council of Europe (HFCE), an IFANCA sister organization, certified the Port of Zeebrugge and warehouses at Ziegler Brussels Airport, for halal trade. Both have warehouses dedicated for the storage and shipping of halal products. Projects like these assure the halal consumer that we are trying our best to keep our food contamination free, halal and wholesome. Sincerely, Muhammad Munir Chaudry, president, IFANCA

@@ -1,0 +1,28 @@
+url,title,page_type,audience,reached_via,click_depth,word_count,items_reachable,via_page,notes,crawl_date
+https://ifanca.org/,Homepage,core page,general,start,0,372,,,,2026-10-04
+https://ifanca.org/about/,About,core page,general,menu,1,448,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/accreditations-and-recognitions/,Accreditations and Recognitions,core page,partner,menu,1,213,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/careers/,Careers,core page,internal,menu,1,160,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/certification-process-indonesia/,Certification Process – Indonesia,core page,industry,menu,1,960,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/certification-process/,Certification Process,core page,industry,menu,1,810,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/certified-companies/,Certified Companies,listing,industry,menu,1,4748,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/contact/,Contact,core page,general,footer,1,458,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/faqs/,Frequently Asked Questions,listing,general,menu,1,3,26,https://ifanca.org/,Questions and answers load inline by category. No link to single FAQ pages.,2026-10-04
+https://ifanca.org/halal-certified-products/,Halal Certified Products,listing,consumer,menu,1,804,11642,https://ifanca.org/,Product cards load by AJAX filter and pagination. Cards have no link to a product page.,2026-10-04
+https://ifanca.org/halal-consumer-magazine/,Halal Consumer Magazine,listing,consumer,menu,1,234,75,https://ifanca.org/,Issues load by year and issue pickers. Each issue shows article links and a PDF link (75 PDFs).,2026-10-04
+https://ifanca.org/news/,News,listing,general,menu,1,115,172,https://ifanca.org/,"3 posts in the banner, the rest load by a Load More list.",2026-10-04
+https://ifanca.org/privacy-policy/,Privacy Policy,legal,general,footer,1,1214,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/resources/,Resources,listing,general,menu,1,122,1115,https://ifanca.org/,"Resource cards load by AJAX filter, search, and pagination.",2026-10-04
+https://ifanca.org/sitemap/,Sitemap,listing,general,footer,1,36,,https://ifanca.org/,"HTML sitemap linked in the footer. Only path to Team, Events, and Beyond Certification.",2026-10-04
+https://ifanca.org/terms-conditions/,Terms & Conditions,legal,general,footer,1,1220,,https://ifanca.org/,,2026-10-04
+https://ifanca.org/beyond-certification/,Beyond Certification,listing,general,in-page link,2,622,3,https://ifanca.org/sitemap/,Programs grid loads by AJAX.,2026-10-04
+https://ifanca.org/events/,Events,listing,general,in-page link,2,90,3,https://ifanca.org/sitemap/,"Three items titled Event 1, Event 2, Event 4 with placeholder text.",2026-10-04
+https://ifanca.org/team/,Team,core page,internal,in-page link,2,10,,https://ifanca.org/sitemap/,,2026-10-04
+https://ifanca.org/events/event-1/,Event 1,news,general,in-page link,3,79,,https://ifanca.org/events/,Placeholder text (lorem ipsum).,2026-10-04
+https://ifanca.org/events/event-2/,Event 2,news,general,in-page link,3,79,,https://ifanca.org/events/,Placeholder text (lorem ipsum).,2026-10-04
+https://ifanca.org/events/event-4/,Event 4,news,general,in-page link,3,79,,https://ifanca.org/events/,Placeholder text (lorem ipsum).,2026-10-04
+https://ifanca.org/programs/aclu-illinois/,ACLU Illinois,resource,general,filter or search,3,31,,https://ifanca.org/beyond-certification/,,2026-10-04
+https://ifanca.org/programs/texas-am-university/,Texas A&M University,resource,general,filter or search,3,89,,https://ifanca.org/beyond-certification/,,2026-10-04
+https://ifanca.org/programs/unicef/,UNICEF,resource,general,filter or search,3,39,,https://ifanca.org/beyond-certification/,,2026-10-04
+https://ifanca.org/programs/,Program Archive,listing,general,in-page link,4,10,,https://ifanca.org/programs/texas-am-university/,Program archive. Reached by Back to All on a program page. Shows 1 of 3 programs.,2026-10-04
+https://ifanca.org/?s,Site search results,listing,general,menu,1,,13520,https://ifanca.org/,"Header search icon. An empty search pages through every public post: products, company profiles, resources, news, FAQs, magazine issues, events, programs, team.",2026-10-04

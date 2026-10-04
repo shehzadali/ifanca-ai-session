@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/spicy-haute-dining/
+title: Spicy Haute Dining
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2012-12-31'
+modified_date: '2022-09-19'
+word_count: 429
+crawl_date: '2026-10-03'
+---
+
+Back to All Spicy Haute Dining Saira Mohiuddin December 31, 2012 Copied! It is said that people eat with their eyes first and the way food looks has the power to augment or diminish its taste. Uncomplicated pretty plating techniques can elevate our standards in the kitchen and make family meal times that much more interesting. And you don’t have to be a gourmet cook to accomplish this. Personally speaking, presenting my food beautifully to loved ones gives me an extreme sense of satisfaction. Pretty Plating Pretty plating involves using color and proportionate serving sizes. Less is always more when it comes to presenting your food artistically. Three to four components on a plate are more than enough. Food always looks best when served on white plates to provide a contrast and act as a canvas. When it comes to plating your dish, consider complimentary colors such as green and red. Ingredients such as rainbow carrots and heirloom tomatoes can bring that “wow” factor to your presentation. Too much of one color can take away from the visual appeal of your plated dish so mix it up a bit, without overcomplicating your dish. Summon Your Inner Artist Cake served with ice-cream is one of the most common desserts. One can simply cut out a square piece of cake and plop some vanilla ice cream on it. Sure, there is nothing wrong with that, as long as it tastes good, right? On the other hand, one can put their inner artist to work and get creative. Consider peppering the plate with cinnamon sugar before you place the cake on it. In addition, you can melt dark chocolate, and pour it into a squeeze bottle, and create abstract chocolate art (See Spiced Brownie recipe below). This is a great accent for your beautifully plated dessert and takes only minutes to create. Elegantly plated food does not mean that it has to look flawless. Do not sweat the small imperfections. Keep your energy light, mind at ease and the rest will fall into place. Most importantly, have fun with it. Whether it’s for your New Year’s party or Super Bowl Sunday, here are some Spicy Haute Chefing Company recipes that will leave guests gushing: Eggplant and Arugula Salad Recipe Spiced Brownies Recipe Butternut Squash Soup About the Chef: Saira Mohiuddin (spicyhautecatering@gmail.com) is a personal chef and owner of Spicy Haute Chefing Co, in Lake in the Hills, IL. She offers culinary expertise as a chef at in-home parties as well as hands-on experiences at demonstrations, with recipes directly from the chef’s kitchen.

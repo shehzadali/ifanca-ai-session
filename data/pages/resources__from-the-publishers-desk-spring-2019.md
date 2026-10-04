@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-spring-2019/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2019-03-31'
+modified_date: '2023-02-07'
+word_count: 290
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry March 31, 2019 Copied! Assalaamu alaikum, For many, eating some form of animal protein on a regular basis is normal. Most enjoy a barbecued steak or burger at a family picnic, a juicy hot dog at the ball park, a spicy hot wing appetizer, or a nice grilled salmon dinner. For some this is regular fare; for others an occasional indulgence. We know that consuming proteins is necessary to provide the amino acids needed to build and maintain healthy muscles; but do they have to come from meat? According to a 2018 Gallup Poll , the percentage of Americans who consider themselves to be vegetarians or vegan has not changed much in the last twenty years. Despite concerns about animal welfare, the environment, personal health, or other reasons, most Americans still consume animal proteins regularly. Yet, plant-based products are experiencing a healthy growth rate. What does it all mean? It means that though most of us enjoy that steak or burger, we are cutting down on the animal flesh without totally abandoning it. This makes sense with the increased offerings of alternate proteins. We already have plant-based products resembling meat to the point that some veggie-burgers even bleed! In addition, non-dairy milk products and egg substitutes have been around for years. For those that want the taste of real meat without having to kill an animal, lab grown meat will be here soon. Humans are very industrious; always looking for something new. Food, palates, and consumer preferences constantly change; but nutrition requirements are fairly stable. The future will provide new options for meeting protein intake requirements. Consumer preferences will influence how the industry presents these. Sincerely, Muhammad Munir Chaudry, president

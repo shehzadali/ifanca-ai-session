@@ -1,0 +1,10 @@
+source_url,link_text,target,issue
+https://ifanca.org/,Explore Programs,#,link to # (goes nowhere)
+https://ifanca.org/halal-consumer-magazine/,,https://ifanca.org/resources/a-special-focus-on-womens-health-2/,dead link: 404 Client Error: Not Found for url: https://ifanca.org/resources/a-special-focus-on-womens-health-2/
+https://ifanca.org/,"Beverages, Cosmetics & Personal Care, Food, Nutritional & Dietary Supplements, Pharmaceuticals",https://ifanca.org/halal-certified-products/,"category tiles open the unfiltered product list, the category is not applied"
+https://ifanca.org/events/,"Event 1, Event 2, Event 4",https://ifanca.org/events/,listing shows only placeholder items with lorem ipsum text
+https://ifanca.org/team/,,https://ifanca.org/team/,"page lists one person and a stray semicolon, no other staff or board"
+https://ifanca.org/programs/,(empty link),https://ifanca.org/author/,broken archive: empty link loads an unrelated news post (Authors Wanted)
+https://ifanca.org/programs/texas-am-university/,Back to All,https://ifanca.org/programs/,broken archive: shows 1 of 3 programs
+"(none, sitemap only)",,https://ifanca.org/companies/,"broken archive: company archive renders a single link, no directory (Stage 1 finding)"
+https://ifanca.org/halal-certified-products/,product cards,,"11,642 product cards have no link to their product pages"

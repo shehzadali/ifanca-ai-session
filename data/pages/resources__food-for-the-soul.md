@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/food-for-the-soul/
+title: Food for the Soul
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2012-12-31'
+modified_date: '2022-08-08'
+word_count: 283
+crawl_date: '2026-10-03'
+---
+
+Back to All Food for the Soul Mujahed Khan December 31, 2012 Copied! While food can comfort the body, there are ways to have its blessings reach your soul. There was a famous scholar who, with his wife, ran a khanaqah (an in-house religious dormitory for young boys). Here the students would spend long hours memorizing Islamic religious texts and laws along with learning good character and piety. After a full day of study, the young boys gathered for the evening meal. They would rush to be seated to serve themselves only to be stopped short. Before they could take their first bite, the scholar would proclaim, “Know that what you eat comes from the ground, and that when I sowed the seeds for the crop, I was with wudu (spiritual ablution) and when I picked the harvest from the ground I was with wudu and when my wife prepared the dish she was with wudu and now when I place the dish before you, I am with wudu , so now when it is time to consume the food please be with wudu .” Food is truly a blessing from God, and as His servants we must be conscious of the food we receive and show our gratitude by having the proper etiquettes of eating. While most of us may not always be with wudu when having a meal, the least we can do is to begin with His gracious name and finish the meal by thanking Him. About the Writer: Mujahed Khan is Assistant Editor of Halal Consumer Magazine and Associate Instructor of Food Analysis and Quality Assurance with the Food and Nutrition Sciences Department at Dominican University River Forest, IL.

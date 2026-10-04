@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/deceptive-chefs-homemade-kimchi/
+title: Deceptive Chef's Homemade Kimchi
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2019-03-31'
+modified_date: '2022-08-04'
+word_count: 410
+crawl_date: '2026-10-03'
+---
+
+Back to All Deceptive Chef’s Homemade Kimchi Deena Anne, The Deceptive Chef March 31, 2019 Copied! Servings: yields 1 quart Ingredients 1 small head or ½ medium head of napa cabbage 1 tablespoon salt (without any anti-caking agents) 1 red pepper, thinly sliced 1 tablespoon fresh garlic, minced 1 tablespoon fresh ginger, finely chopped 1 tablespoon fresh shallots, finely chopped ½ teaspoons dried red chili pepper flakes 2 teaspoons agave 1 tablespoon salt ¼ cup purple cabbage, thinly sliced 1-2 carrots, thinly sliced Step 1 Make sure the mason jar, cutting surfaces, utensils, and your hands are very clean and sterilized. Step 2 Wash and separate the napa cabbage leaves thoroughly, tear into small pieces, and place into a large bowl. Step 3 Sprinkle ½ tablespoon of salt onto the napa cabbage and massage firmly to break down the cabbage, releasing the liquid that will form the brine. Step 4 Set aside and let sit. Step 5 In a food processor combine the ¼ red pepper, garlic, ginger, shallots, red chili pepper flakes, agave, and ½ tablespoon of salt and mix. Step 6 With very clean hands, rub this seasoning paste into the resting cabbage. Step 7 Once all the cabbage leaves are coated with the paste, and you have released a good amount of water, add purple cabbage, carrots, and remaining red pepper, and toss together until well combined. Step 8 Transfer the mixture to a very clean glass container (large bottle, mason jar, etc.) and use a very clean fist or utensil to compress the mixture, ensuring all contents are submerged under brine, to prevent any spoilage. Leave about 2 inches of room at the top of the bottle before capping it tightly with a lid. Step 9 Allow the bottle of kimchi to sit at room temperature for 2-3 days on a shelf to ferment, away from sunlight. (Refrigeration will stall the growth of good bacteria and fermentation.) You may need to “burp” the kimchi every 24 hours to release some of the pressure from fermentation. Note: Be careful when opening the jar to burp it as there is pressure built up and it might pop. Step 10 After 2-3 days, the kimchi is ready to eat. Step 11 Refrigerate remaining kimchi and use as desired. Kimchi will continue to ferment slowly in the refrigerator over time, becoming even more sour and flavorful with each passing day. Remember! Always use clean utensils when dipping into your kimchi.

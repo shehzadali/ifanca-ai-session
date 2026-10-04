@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-spring-2006/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2006-03-31'
+modified_date: '2023-02-07'
+word_count: 419
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Naazish YarKhan March 31, 2006 Copied! Welcome to Halal Consumer Magazine. I hope you enjoy reading it as much as we do! But why a magazine devoted to all that’s Halal? Why a magazine that urges you to ask for Halal, Zabiha food wherever you may be? Because Halal is our identity. Moreover, God (SWT) says: “O people! Eat of what is on earth, lawful and good” (2:168) and “So eat of (meats) on which God’s name has been pronounced if you have faith in His signs” (6 :118). The Prophet(s) said: ‘Ask God for certainty [of faith] and well-being; for after certainty, no one is given any gift better than health.’ (Tirmidhi). It’s an obligation on us to eat that which keeps us healthier. Last but not the least, this magazine is about paving the path in the direction we want to go. Why settle for a future that’s plotted for us without our input? Changes will occur. We can either sit back and let them happen or we can influence those changes. We can be aimless boats at the mercy of the waves or we can harness the winds to our advantage. One in five people in the world is Muslim. North America has a large Muslim population of at least eight million (IFANCA, 1999). Also, Islam is one of the fastest- growing religions in the U.S. The Muslim population is expected to become increasingly important globally: “Islam is growing about 2.9 percent per year; faster than the total world population growth of about 2.3 percent annually.” (www.musli-canada.org/muslimstats.htm). The first immigrant Muslims in the United States slaughtered meat themselves if they wanted Halal, Zabiha meat. Today, not only are there Halal, Zabiha meat stores in every major American city but we also have a global organization such as IFANCA that maintains Halal standards for the Muslim consumer. So much has changed since the first Muslims immigrated to America. That is why we need a magazine devoted to promoting Halal food. If we demand it consistently, we’ll get it. Today, Zabiha foods do not grace every mainstream grocery shelf. Not every university kitchen serves Zabiha meals, but by asking for it we can make Zabiha the rule instead of the exception. That’s how to make the words Halal and Zabiha as common as the word kosher. And given that change happens, we will, Insh’Allah, have Zabiha food available everywhere. Just commit to asking for it today. Warm regards, Naazish YarKhan Managing Editor halalconsumer@ifanca.org

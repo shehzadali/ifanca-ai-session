@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/cake-pops/
+title: Cake Pops - IFANCA Cake Pops Recipe
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2025-03-31'
+modified_date: '2025-09-23'
+word_count: 426
+crawl_date: '2026-10-03'
+---
+
+Back to All Cake Pops Sughra Jafri Recipe March 31, 2025 Copied! Servings: 24 cake pops | Time: 4 hours Ingredients 1 ⅔ cups cake flour ½ teaspoon baking powder ¼ teaspoon baking soda ½ teaspoon salt ½ cup butter, softened to room temperature 1 cup sugar 1 large egg, at room temperature 2 teaspoons pure vanilla extract 1 cup buttermilk or whole milk For Frosting: 7 tablespoons butter, softened to room temperature 1 ¾ cups powdered sugar 2 to 3 teaspoons heavy cream or whole milk 1 teaspoon pure vanilla extract Coating: 24 oz. candy melts (or chocolate bars) sprinkles Other tools: lollipop sticks food coloring Step 1 For the cake: Preheat oven to 350°F and grease a 9-inch springform pan. In a medium bowl, whisk together flour, baking powder, baking soda, and salt. In another large bowl, use a mixer to beat butter and sugar for around 2 minutes until creamy. Then add egg and vanilla and beat until combined. Mix in dry ingredients and milk on low speed until smooth. Pour batter into prepared pan and bake for 30-35 minutes, or until a toothpick comes out clean. Cool on a wire rack. Step 2 Prepare frosting: Using a mixer, beat butter for about 2 minutes on medium speed until creamy. Then mix in powdered sugar, cream, and vanilla. Increase speed and beat for 3 minutes until fluffy. Step 3 Assemble the cake balls: Crumble the cooled cake into the frosting and beat on low until fully combined. Roll into 1 tablespoon balls and place on a lined tray. Chill in the fridge for 2 hours or freeze for 1 hour. Step 4 Melt the coating: For the coating, use any candy coating, candy melts, white chocolate, semi-sweet, bittersweet, or milk chocolate baking bars. Coarsely chop the chocolate and place it in a microwave-safe bowl or glass liquid measuring cup, along with 1/2 teaspoon vegetable oil to help thin it out. Microwave in 20-second increments, stirring after each 20 seconds, until melted and smooth. Step 5 Assemble and decorate: Working with a few cold cake balls at a time, dip the tip of a lollipop stick in the coating and insert halfway into each ball. Dip cake ball fully into the coating, ensuring it covers where the stick meets the cake. Add sprinkles and stand upright in a styrofoam block to set. Repeat until done. Coating will set in about 1 hour. Notes: For best results, make the cake 1 day in advance. Store cake pops in the fridge for up to 1 week.

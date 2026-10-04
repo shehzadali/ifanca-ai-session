@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/ifanca-presenting-at-content-marketing-world-sept-4-6-2012-columbus-ohio/
+title: IFANCA® Presenting at Content Marketing World, Sept. 4 – 6, 2012 Columbus,
+  Ohio
+section: news
+page_type: news
+audience: general
+published_date: '2012-09-04'
+modified_date: '2022-07-28'
+word_count: 373
+crawl_date: '2026-10-03'
+---
+
+COLUMBUS, Ohio (September 4 – 6, 2012) — Earlier this year, IFANCA re-launched its flagship publication Halal Consumer magazine. Formerly B2B2C, the magazine has been reinvented as a digital “flip” consumer magazine, and adopts a “mashup” approach combining videos, text, photos, and slideshows. Halal Consumer magazine #22 Fall 2012 will also feature 30-second video interviews with the magazine’s writers embedded in their respective articles. The only publication of its kind, it continues to be available free as a print publication to 30,000 subscribers. Halal Consumer can be read at www.ifanca.org/magazine/halalmagazines/catalog . The digital version is at http://read.uberflip.com/issue/73981 . The magazine was re-branded so as to fully engage halal consumers and provide IFANCA halal-certified companies with a platform to reach this coveted demographic. The halal food market in the USA alone is valued at $20 billion. Globally, halal consumers form a USD $ 2.1 Trillion market for products that range from food to personal care to finance. Ms. YarKhan, IFANCA, director content strategy, who led the re-launch and re-branding initiative will present on a panel titled “Content Discovery: Strategies and Tactics to Make Sure Your Content is Found” on September 6, 2012, at Content Marketing World at 3:00 pm. The Convention will take place at the Greater Columbus Convention Center, 400 N. High Street in Columbus, OH. She will weigh in on how Halal Consumer magazine has successfully connected with a global audience while furthering IFANCA’s organizational goals. The magazine also engages readers worldwide via www.facebook.com/halalconsumer , sharing news of IFANCA clients’ doings, food trends, nutrition and wellness. IFANCA® Headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA®) is one of the world’s leading and well-respected not-for-profit halal certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA® has been promoting halal since 1982. IFANCA® was recognized in the “Best Halal Related Service Provider Award” by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (MUI), Malaysia (JAKIM), Singapore (MUIS), and the United Arab Emirates (GSM) and are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA®, visit www.ifanca.org .

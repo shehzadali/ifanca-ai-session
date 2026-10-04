@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-2/
+title: From the Publisher’s Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2024-03-31'
+modified_date: '2024-09-27'
+word_count: 286
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry Article March 31, 2024 Copied! Assalaamu alaikum, There has been a changing of the guard here at the Halal Consumer Magazine. After 3 ½ years of dedicated service, our previous editor, Alison DeGuide, has now moved on to pursue new opportunities. We want to express our gratitude for her valuable contributions to IFANCA, and we wish her the very best in her future endeavors. With that, I am delighted to announce that Zehra Jafri has assumed the role of Editor of our magazine. With an extensive background working for various Muslim organizations in the USA and abroad, Zehra brings a wealth of experience and a deep understanding of the global halal industry. She comes with an abundance of fresh ideas aimed at evolving the magazine’s content. We look forward to the positive changes she will bring to our publication. But before we can do that, we want to get to know you, our dedicated readers, a little bit better. Your insights are extremely valuable to us, as we seek to create content of relevance to you. Please scan the QR code below to access our short survey. Please also encourage other members of your household to participate in this survey, as we value everyone’s opinions. Your feedback will enable us to deliver the content you want and is crucial in shaping the future of our magazine. Together, we can create a publication that truly resonates with our community. In addition, we always love to hear from our readers. If you have any feedback, or if you would like to contribute articles or recipes, please email us at halalconsumer@ifanca.org . Sincerely, Muhammad Munir Chaudry President of IFANCA

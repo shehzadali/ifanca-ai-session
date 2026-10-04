@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-spring-2010/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2010-03-31'
+modified_date: '2023-02-07'
+word_count: 394
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Naazish YarKhan March 31, 2010 Copied! Assalamu Alaikum “Let food be thy medicine and medicine be thy food,” recommended Hippocrates. That was a good 2,500 years ago, but food as medicine has once again gained great currency. Specific foods are being consumed to provide physiological benefits beyond basic nutritional needs. For instance, sales of prebiotic and probiotic yogurts hit €12.4 billion, a 108 per cent spike from sales in 2002. The Quran, too, mentions foods that are better for you. The following pages are dedicated to foods that have been mentioned in the Quran, including those that have a stamp of approval from today’s scientific community. In the accompanying articles, Significance of Milk in Islam , and Honey as a Healer , we look at the many ways these foods provide us with much needed nutritional value. Also, learn more about the 4,500 year-old-food we are talking about in the article Not as Simple Anymore . What Ginseng and Echinacea are today, is what the Black Seed, the remedy for all ailments, is poised to become in the USA. It is used widely in the East but is making an impression in the Western world only recently. Read the Seed of Blessing to learn why this little seed lives up to its name and remember to say you first read about it Halal Consumer © , when it becomes all the rage here. In the articles, Halal as a Way of Life – A Mind, Body, Soul Connection and Spiritual Nourishment , learn how food, rest and a physically active lifestyle all contribute to a better connection with the Almighty. Read Halal Happenings for the latest buzz in the halal industry. Check out IFANCA Halal-Certified Company News to see which halal-certified companies are being socially responsible and are especially worthy of your dollars. Food Supplements by Nutrilite will give you a glimpse as to what sets Nutrilite apart from the competition. This Ramadan we bring you a burst of flavor from Afghanistan and America. Say Bismillah and Buon Appetito as you try out recipes ranging from Afghani Comfort Foods to the absolutely delicious Banana Blueberry Loaf ! Last but not the least, play some mind games with Test Your Halal IQ . You may learn some surprising facts. Have a blessed Ramadan and happy reading! Naazish YarKhan Managing Editor

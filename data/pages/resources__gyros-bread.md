@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/gyros-bread/
+title: Gyros Bread
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2024-03-31'
+modified_date: '2024-09-25'
+word_count: 438
+crawl_date: '2026-10-03'
+---
+
+Back to All Gyros Bread Sughra Jafri Recipe March 31, 2024 Copied! Servings: 12-16 | Time: 1 hour Ingredients 3 cups flour 1 cup warm water 1/3 cup olive oil 1 teaspoon salt 2 teaspoons sugar 1 1/2 teaspoons yeast 1 lb. of Olympia® Foods Cooked Halal Gyros Slices 2-3 cups of Cabot® Creamery Pepper Jack, Colby Jack, or Cheddar Cheese For the Garlic Parmesan Spread 1/2 cup of melted butter 1/3 cup parmesan cheese, grated 1/4 teaspoon garlic powder 1 teaspoon dried parsley Step 1 Whisk the warm water, yeast, and sugar together using a stand mixer or large mixing bowl. Let it sit covered for 5 minutes. Step 2 Add olive oil, salt, and flour. Mix on low speed for 2 minutes, or beat slowly with a silicone spatula or wooden spoon until the ingredients are well combined. Step 3 Knead the dough in the mixer for 5 minutes or by hand on a floured surface. If sticky, sprinkle with 1 tsp of flour at a time. Test the dough by poking it, to see if it bounces back and can stretch without tearing. Step 4 Grease a large bowl and place the dough inside. Cover and let rise at room temperature for 60-90 minutes until doubled in size. Step 5 Spread the dough on a greased pan. Cover it lightly and let it rest for 5-10 minutes while you prepare the toppings. Step 6 Combine the ingredients for the garlic parmesan spread in a bowl and mix well. Step 7 Spread a layer of garlic parmesan spread on the dough. Step 8 Heat slices of gyros in the microwave for 1 minute, layer on top of paper towels to absorb the excess grease. Step 9 Layer the gyros without overlapping, so that entire bread surface is covered. Step 10 Optional: you can add sautéed vegetables such as onions, peppers, mushrooms, or sliced olives, according to your tastes. Step 11 Generously top with the cheese. Step 12 Roll the dough into a log shape. Step 13 Optional: you can spread seeds, Italian seasonings, or more cheese on top, according to your tastes. Step 14 Bake with seam side down, at 325°F, for 40-60 minutes. Start checking after 40 minutes. If the dough feels undercooked, cover it with foil to prevent excess browning and continue baking until fully cooked. Step 15 Slice and enjoy with Hummus, soup, or any of your favorite dips or sauces. These are also great for school lunches, picnics, and also make great appetizers for dinner parties. Notes: You may substitute with any other spreads such as pesto, pizza sauce, or cream cheese.

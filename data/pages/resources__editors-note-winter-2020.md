@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-winter-2020/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2020-12-31'
+modified_date: '2023-02-07'
+word_count: 439
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Alison DeGuide December 31, 2020 Copied! Hello Readers, The end of the year is a time to reflect on all that has happened in the past twelve months. Many of us–myself included—are eager to move on to 2021. If this year has made you more health-conscious, you may be interested in “ Nootropics: Medicine for Your Mind .” Also known as “smart pills,” nootropics have been touted as a way to boost your brainpower. While claims of increased intelligence are likely overstated, some nootropics, such as caffeine, have been known to promote certain cognitive effects. For those seeking to inject a bit of the tropics into their routine, check out star fruit. It’s rich in vitamin C, which can help you fend off the cold and flu. Read about its nutritional benefits in the Food Trends section , and check out the recipe for Refreshing Star Fruit Tropical Salad . Mustard seeds are another culinary flavor you might want to try, and we feature them in the Quranic & Prophetic Foods section . Add this spice to marinades for an extra kick, or enjoy it in a bottle of your favorite yellow or brown mustard. What mustard seeds lack in size, they make up for in flavor. Spending less time outside means that we need to be extra cognizant of potential allergens within our homes. Seasonal allergies may be less prevalent in the winter months, but allergies to mold or dust mites may still bother you. “ What You Need to Know About Allergies ” examines the different types and offers tips for how to minimize your symptoms. More time at home also means more time spent sitting. Kitchens and living rooms have become home offices, but not all of them are equipped with the proper workspace to maintain a good posture. “ Stand Against Sitting ” has ergonomic suggestions and recommends exercises you can do to avoid feeling achy at the end of the day. You might consider composting a spring or summer activity, but it’s possible to compost even in the winter. “ Make the Most with Compost ” teaches about the difference between hot and cold composting. Maybe you’ll discover a new hobby—and a way to reduce food waste. We are always eager to hear your thoughts. If you try one of the recipes in this issue or want to comment on something you read, please reach out to us via email , Facebook , or Twitter . From all of us at IFANCA, we hope that 2021 brings you and those you love peace and comfort. Sincerely, Alison DeGuide, editor

@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/ifanca-to-participate-in-halal-panel-at-the-american-muslim-consumer-conference-amcc-2010/
+title: IFANCA to Participate in Halal Panel at the American Muslim Consumer Conference
+  (AMCC) 2010 in New Brunswick
+section: news
+page_type: news
+audience: general
+published_date: '2010-10-22'
+modified_date: '2022-08-08'
+word_count: 369
+crawl_date: '2026-10-03'
+---
+
+CHICAGO, Illinois (October 22, 2010) – Chicago-based Islamic Food and Nutrition Council of America (IFANCA®) will be presenting at the Second Annual American Muslim Consumer Conference (AMCC) 2010 on October 30th in New Brunswick, New Jersey. The AMCC focuses on promoting dialog and raising awareness around the burgeoning American Muslim consumer market, a multicultural niche where many mainstream companies are now seeing a growing opportunity. This year, AMCC returns with the theme “Charting the Landscape” and will once again serve as a platform for industry professionals to examine the American Muslim halal market sector and explore its rich potential. Dr. Muhammad Munir Chaudry, president of Islamic Food and Nutrition Council of America (IFANCA) and an expert in the halal industry, will be speaking on a panel entitled “Halal: Opportunities and Challenges in North America.” Chaudry describes halal certification as one of the foundations to building a loyal customer base. He says, “Credible, third-party halal certification resonates strongly with halal consumers. It gives them the peace of mind that the product they are buying is truly halal. It is one of the most effective ways to pursue the $170 billion US American-Muslim consumer market.” The significance of halal certification today is clearly reflected in the approximate 80 percent growth in halal-certified ingredients and food products in US and global halal markets since 2005. Dr. Chaudry spoke on similar themes earlier this year as a panelist at the National Restaurant Association Show 2010. IFANCA also participated at the Institute of Food Technology Expo 2010 to address the growing interest around halal-certified products in the United States. IFANCA Headquartered in Chicago, Illinois, Islamic Food and Nutrition Council of America (IFANCA®), is one of the world’s leading and well respected not-for-profit halal-certification agencies. Featured in various media such as the Wall Street Journal , Prepared Foods , and CNN, IFANCA has been promoting halal for the past 28 years. IFANCA was recognized in the Best Halal Related Service Provider Award by the Halal Journal at World Halal Forum 2007. IFANCA certified halal products are sold in nearly every country of the world and cover all food industry categories. For more information about IFANCA, visi​​t www.ifanca.org . Contact: Maria Omar +1-773-283-3708 Ext: 222 m.omar@ifanca.org

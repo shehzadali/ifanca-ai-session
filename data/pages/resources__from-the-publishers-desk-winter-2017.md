@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-winter-2017/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2017-12-31'
+modified_date: '2023-02-07'
+word_count: 381
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry December 31, 2017 Copied! Assalamu Alaikum, We are commanded by God Almighty to ‘partake of what is lawful ( halal ) and good ( tayyib ).’ It is our duty to ensure our consumption is good, clean, and wholesome. The food must be from a halal source, be free from harmful substances, and be produced in a clean environment that meets Good Manufacturing Practices (GMPs) under the best sanitary conditions. It must also be prepared and served under sanitary conditions avoiding all chances of cross contamination. While it seems logical and simple to produce halal and wholesome products, it is sometimes challenging because a major portion of the food that enters international trade is produced in facilities that are not dedicated to the production of halal products. Food safety and sanitation laws are enforced quite diligently in the western countries so those products generally meet the definition of wholesome: good, healthy, and promoting the general wellbeing. However, while a product may be wholesome by the European or American definition, it may not be halal. For example, pork sausage, gelatin dessert, or marshmallows may be wholesome but not halal. Similarly a product can be halal but not wholesome if it is not produced in clean, sanitary conditions. Halal food inspectors are playing an important role in making sure that products are not only halal but they are good and wholesome too. Whereas manufacturing sites must maintain the wholesome nature of their products, it is also imperative upon food service outlets and retail establishments to practice sanitary conditions. This requires preparing halal and tayyib products using dedicated equipment and utensils. If one dines out in an establishment where halal and non-halal products are prepared and served, one is taking a chance that the halal product may have been contaminated. These establishments must adhere to GMP principles, comply with appropriate food safety requirements, and employ quality systems that ensure the integrity of the halal products and freedom from contamination. Businesses have a legal and civil/fiduciary duty to ensure the halal products they serve are truly halal. And consumers have a right to get products that meet their requirements. It is our obligation to consume pure, wholesome, and halal products. Sincerely, Muhammad Munir Chaudry, president

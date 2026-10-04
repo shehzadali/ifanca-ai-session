@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/important-updates-on-halal-certification-for-exports-to-saudi-arabia/
+title: Important Updates on Halal Certification for Exports to Saudi Arabia
+section: news
+page_type: news
+audience: general
+published_date: '2024-10-01'
+modified_date: '2024-10-01'
+word_count: 341
+crawl_date: '2026-10-03'
+---
+
+The Islamic Food and Nutrition Council of America (IFANCA) would like to inform all clients and partners of the latest updates regarding halal exports to Saudi Arabia. The Saudi Food and Drug Authority (SFDA) Halal Center has launched a new platform for the registration of halal certificates and the issuance of shipment certificates, which took effect on October 1, 2024. Key Requirements for Halal Certification: GSO Certification: All production facilities exporting halal-certified products to Saudi Arabia must be certified under GSO (Gulf Standardization Organization) standards. Platform Registration: Both the facility certificate and products must be registered on the new Saudi Halal Center platform. Shipment Certificates: Each shipment to Saudi Arabia must be accompanied by a shipment certificate generated through the Saudi Halal Center platform. Fees: Additional application, registration, and processing fees will apply as part of the new certification process. The Saudi Halal Center has issued Circular Letter No. 10130/C outlining the necessity of halal certification for the following products: Slaughtering and processed meat products Food products containing animal-derived ingredients Any product that bears the word or logo indicating halal status Next Steps for Exporters: If your facility or products fall into the above categories, and you wish to pursue halal certification for the Saudi market, the following steps are required: Certification of your plant under GSO standards Registration of your plant and products with the Saudi Halal Center Ensuring each shipment to Saudi Arabia is accompanied by the appropriate shipment certificate To initiate the process, please contact us at halal@ifanca.org , and copy IFANCA’s Director of Customer Service, Mr. Mahmood Baig, at mahmood.baig@ifanca.org . Future Updates: Please be aware that the Saudi Halal Center is currently in the process of updating its requirements. Additional regulations may apply in the future, and we will keep our clients informed of any changes. For further information, we recommend consulting your Saudi importer, visiting the Saudi Halal Center website , or reaching out to Saudi authorities directly. We are here to assist with any questions or concerns you may have regarding this new process.

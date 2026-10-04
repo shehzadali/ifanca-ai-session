@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/eat-halal-eat-healthy/
+title: Eat Halal, Eat Healthy
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2013-03-31'
+modified_date: '2022-08-04'
+word_count: 391
+crawl_date: '2026-10-03'
+---
+
+Back to All Eat Halal, Eat Healthy Sabaahath Latifi March 31, 2013 Copied! Why do you have to eat halal? Why do we have all these restrictions? Let’s face it: finding halal is limiting and difficult. So why should we make the effort? Well first and foremost, it is God’s command that we abstain from eating certain foods, and earning good deeds is incentive enough. There is a second benefit, however; eating halal reinforces, and goes hand in hand with, eating healthy. How is this possible you ask? Many of the latest findings in health science relate to Islamic practices. For example, studies have shown that our fingertips have nutrients that enable digestion, and the Sunnah (tradition) of the Prophet Muhammad (SAW) recommends that we eat with our hands. The beauty of Islam is that by practicing Islamic law, we are not only fulfilling our duties as Muslims, but we are also staying healthy and engaging in behaviors that will keep us fit and strong. So how does halal food play into this? Research has shown that ingredients such as artificial colors and certain animal enzymes can cause harmful allergic reactions in the body. These ingredients can also lead to problems with the liver, kidney, and other organs in the body. In fact, artificial colors that are commonly found in our foods, such as Red 40, are considered harmful enough to be banned in certain countries. What about zabiha meat? Why do we have to eat meat slaughtered in a specific way? The reasons behind this also exemplify the health aspect in Islam. The Islamic method of slaughtering meat is the cleanest and least painful (for the animal) way to kill an animal. All of the blood gets drained from the animal, and this ensures the cleanliness and freshness of the meat. So, even something as simple as halal/zabiha-slaughtered animals has health benefits. Benefits of eating halal are endless. In fact, a vast amount of research that supports the vegetarian movement supports eating halal as well. So, making that extra effort to choose halal foods, despite the limitations, has more benefit than we realize. Eating halal is a buffer, a safety net, against harmful ingredients and foods that can have devastating health effects on our bodies. The information in this article comes from: Vegetarianworldfoods.com (March 2, 2013) Livestrong.com (March 2, 2013)

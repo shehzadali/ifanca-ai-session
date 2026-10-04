@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-spring-2013/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2013-03-31'
+modified_date: '2023-02-07'
+word_count: 337
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry March 31, 2013 Copied! Aasalamu Alaikum In recent years, the Mediterranean diet has been gaining traction as a more widespread, accepted lifestyle choice, and for good reason. The diet promotes a spectrum of health benefits, ranging from digestion to heart health. According to UNESCO, the Mediterranean diet constitutes a set of skills, knowledge, practices and traditions ranging from the landscape to the table, including the crops, harvesting, fishing, conservation, processing, preparation and, particularly, consumption of food. The Mediterranean  diet is characterized by a nutritional model that has remained constant over time and space, consisting mainly of olive oil, cereals, fresh and dried fruit and vegetables, a moderate amount of fish, dairy and meat, and many condiments and spices. Mediterranean cultures, be they Southern European, North African or Middle Eastern, always respected the beliefs of each community, closely adhering to the cultural and religious values. In the USA, most cultures have become intertwined and morphed into what may be considered American culture; however the cultural cuisines of each Mediterranean region persist. At IFANCA, part of our mission is to promote healthy halal nutrition, and the Mediterranean diet is one way Muslim consumers can achieve that. In this issue of Halal Consumer Magazine, we bring you several articles about the Mediterranean diet, a number of recipes from Morocco and a table spread from Middle East, practicing halal and healthy diet and life style. In the USA, the high consumption of meat and dairy products has been associated with higher risk levels for health and increased mortality. Risk factors, like high cholesterol and, high blood pressure may be managed better with a diet containing primarily fruits and vegetables, fish, nuts, olives and olive oil. An added advantage of a Mediterranean diet to a discerning halal consumer is that they do not have to contend with problems associated with the availability of genuinely halal meat and poultry. Fish, fruits and vegetables are naturally halal and healthy. Sincerely, Muhammad Munir Chaudry, president

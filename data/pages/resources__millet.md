@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/millet/
+title: Millet
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2023-06-30'
+modified_date: '2023-08-31'
+word_count: 421
+crawl_date: '2026-10-03'
+---
+
+Back to All Millet Maryam Funmilayo June 30, 2023 Copied! My first encounter with millet was while visiting Ghana last summer. Cooked in the form of porridge and spiced up with ground chili pepper, cloves, and ginger, it tasted like corn pap or ogi, which is a popular Nigerian meal that can be made from maize, sorghum, or millet. According to the North American Millets Alliance (NAMA) , “the term ‘millet’ in English applies to about a dozen cultivated species from different branches of the grass family (like wheat, corn, and rice, but not buckwheat or quinoa).” Although millet is technically a seed, it is classified as a grain. More so, it functions as a whole grain. Millet is one of the earliest cultivated grains in the world, and it is nutty and slightly sweet in taste. It is commonly cultivated in African and Asian countries. According to the Food and Agriculture Organization of the United Nations (UN) , millets can grow on arid lands with minimal inputs. This means that millets sprout up easily in dry soil without the need for much water. Many people in Africa, Asia, and Eastern Europe eat millet as a staple of their diet . For example: Among the Hausa tribe in the Ashanti and Northern regions of Ghana, millet is consumed in the form of porridge. It is popularly known as Hausa koko , which is Ghana’s most popular street breakfast. In India, millet is used to bake roti bread. In Nigeria, millet is used to make a drink called kunu . In the United States, a number of commercially gluten-free breads are baked with millet flour. Joel Fuhrman, a leading expert and board-certified medical specialist in preventing and reversing disease , states that millets are one of the most heavily recommended nutritious natural foods. They are rich in micronutrients, fiber, and resistant starch. In addition, they are among the foods that lower blood glucose levels. Millet can be purchased from grocery stores, health stores, and online. Millet should be stored in a tightly closed container and in a cool, dark, dry location such as the pantry. Millet has grown in popularity in recent years mainly because it is more economical compared to other available grains. No wonder the UN declared 2023 the International Year of Millets! Maryam Funmilayo is a freelance writer and public health researcher in Irving, Texas. With a background in human nutrition and health promotion, she is always fascinated with Quranic and prophetic teachings regarding food, health, nutrition, and wellness.

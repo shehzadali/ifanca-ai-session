@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-spring-2020/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2020-03-31'
+modified_date: '2023-02-07'
+word_count: 305
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Roger M. Othman March 31, 2020 Copied! Assalaamu alaikum, With Ramadan approaching, we wish you Ramadan Mubarak. May your fasting and prayers be accepted, may your supplications be answered, and may it bring peace and security to all. Ramadan is a time when we divert our attention to more spiritual matters, but that doesn’t mean we should neglect our worldly activities. In “ Ready…Set…Ramadan! ” we get some pointers on how to make staying in shape less challenging during this blessed month. In this issue we replace “A Closer Look at Labels” with a new section, “Chef Insights”, featuring insights from Chef Demetrios. This issue kicks off with a look at some “ Upcoming Culinary Trends .” Future issues will delve into specific global cuisines attracting foodies here at home. If winter left you overindulgent like it has me, you might consider the ketogenic diet. “ Keeping Up with the Ketos ” explores what it is and how to follow it. Be sure to check with your physician before starting any diet. “ Prebiotics ” looks into how these elements contribute to a healthy digestive system. There’s a whole microcosm of activity in there! Dates are the featured Quranic food this issue. “ Dates: The Fruit of Paradise ” discusses the various types, their health benefits, and of course, their references in the Quran and Hadith. As Spring brings warmer weather and longer days, air quality may improve, but we can still do better. “ A Breath of Fresh Air ” looks into the impacts of air pollution and what we can do to improve the quality of the air we breathe. Finally, be sure to try out the recipes and share your comments with us via email , Facebook , or Twitter . Enjoy! Sincerely, Roger M. Othman, Editor

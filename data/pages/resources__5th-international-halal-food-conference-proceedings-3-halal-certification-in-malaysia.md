@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/resources/5th-international-halal-food-conference-proceedings-3-halal-certification-in-malaysia/
+title: '5th International Halal Food Conference Proceedings 3: Halal Certification
+  in Malaysia'
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2003-09-30'
+modified_date: '2022-09-14'
+word_count: 374
+crawl_date: '2026-10-03'
+---
+
+Back to All 5th International Halal Food Conference Proceedings 3: Halal Certification in Malaysia A Summary of Presentation by Hj. Mustafa Bin Abdul Rahman, Director Department of Islamic Development September 30, 2003 Copied! In 1975, the Ministry of Internal Trade and Consumer Affairs issued orders concerning Halal. This defined Halal and required proper labeling of Halal food. This was followed by an order in 1982 requiring all meat imports to be Halal certified which later extended to all meat products. In 1994 guidelines were introduced to help the food industry meet Halal requirements. This defined Halal as foods and products permitted under Islamic law based on the Quran, Hadith, Ijma’ (consensus of scholars) and Qiyas (deductive analogy based on the Shafi’e, Hanafi, Maliki or Hanbali Schools of Thought or a fatwa issued by the relevant Islamic Authority. Najis was defined as being impure and included any liquid or other objects discharged from all human or animal orifices, including urine, excrement, blood as well as pork, dead animals, Halal animals not slaughtered according to Islamic law (excludes fish and grasshoppers), or Halal foods that have come into contact with anything that is najis. It also defined the sources of halal food and drinks, halal slaughter, the use of stunning during slaughter, preparation, processing, packaging, transportation and storage requirement and ingredient requirements, use of utensils and other devices. Obtaining a Malaysian Halal certificate requires an application to the Department of lslamic Development Malaysia (JAKlM), providing information on Halal status of ingredients, the manufacturing process, and packaging materials, a site inspection including a meeting with senior officers, and an approval by the Halal committee. If approved, a Halal certificate will be issued and permission to use the JAKIM halal logo will be granted. Halal certificates are valid for one year and renewals must be applied for two months before expiration of the current Halal certificate. Any manufacturing changes must be approved by JAKIM or the Halal certificate will be invalidated. The entire approval process takes about three months. For applications from outside of Malaysia, JAKIM may use local personnel for the inspections. Certification may be withdrawn if the guidelines are not adhered to by the company. The commitment by JAKIM has made the Halal certification extremely successful.

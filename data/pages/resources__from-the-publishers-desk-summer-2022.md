@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-summer-2022/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2022-06-30'
+modified_date: '2023-02-07'
+word_count: 287
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry June 30, 2022 Copied! Assalaamu alaikum, This year, IFANCA is celebrating its 40th anniversary. In 1980, two years before IFANCA was officially founded, a group of Islamic scholars, scientists, and industry executives met and decided to form a technical organization to help Muslim consumers in the United States find information about halal products. This organization would eventually become what we now know as IFANCA. Our first newsletter on “Halal Food & Nutrition” was published in 1981. That same year, we also distributed our first halal/haram list and held our first seminar in Chicago. However, IFANCA was not officially registered until 1982, when we were incorporated as a non-profit in the State of Illinois. We spent the next forty years continuing to serve the Muslim community, creating books, newsletters, and more on many subjects related to halal. We have grown significantly in the past few decades. Today, we certify over 200,000 products in more than 70 countries and more than 5,000 manufacturing sites. We have certified products by some of the world’s largest food and beverage, nutritional supplement, and pharmaceutical companies, and we have solidified our mission of promoting halal through certification, education, and the creation of institutions. As we celebrate our 40th anniversary and look to the future, we hope that halal will one day become mainstream globally, making it easier for halal consumers of all faiths and cultures to find products that align with their religious beliefs. For now, we will continue to do our part by certifying halal products and raising awareness of what halal means. Perhaps one day, we will truly achieve the goal of halal for all . Sincerely, Muhammad Munir Chaudry, president

@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/more-food-producers-pursue-halal-certification-seattle-weekly/
+title: More Food Producers Pursue Halal Certification—Seattle Weekly
+section: news
+page_type: news
+audience: general
+published_date: '2012-04-11'
+modified_date: '2022-07-20'
+word_count: 335
+crawl_date: '2026-10-03'
+---
+
+More Food Producers Pursue Halal Certification There are nearly 100 halal restaurants around Seattle, but a spokesperson for the Islamic Food and Nutrition Council of America (IFANCA) says interest in halal certification is now percolating in U.S. cities without significant Muslim populations “What we are hearing overwhelmingly is that this market is so huge, and people are just beginning to appreciate the opportunities,” says IFANCA development director Asma Ahad, who recently addressed a meeting of corporate chefs and food scientists. Ahad cited Cabot Creamery Cooperative, a Vermont-based dairy best known for its cheddars, as an example of a company which proactively pursued halal certification. Partly in response to projections showing American Muslims would outnumber American Jews by 2010, Cabot obtained its certification in 2003. “They can’t exactly say what Halal contributed, but they’ve seen a double-digit increase in sales since then,” Ahad says. There are nine million Muslims in the U.S., and IFANCA estimates they annually spend $20 billion on food. Globally, halal accounts for 16 percent of food purchases, or $1.2 trillion in sales. Prisons, hospitals and military bases are among the top buyers of halal products in the U.S. “It’s a newer area, but it’s grown a lot, and it’s still growing,” Ahad says. Growth in the halal sector creates a domino effect, since the increased availability of halal ingredients allows food producers to reformulate their recipes. A decade ago, producers who leaned heavily on alcoholic flavoring agents had little hope of ever meeting halal requirements. But laboratories have since manufactured alcohol-free alternatives and introduced transgenic enzymes that can stand in for the pork enzymes popular with cheese makers. According to Ahad, food producers intent on winning halal certification still have to carefully monitor cross-contamination risks. She adds that vigilance is appealing to consumers who worry about food safety. Halal, like kosher, is associated with added inspection and cleanliness. “It’s different than kosher, though, because kosher’s already been developed,” Ahad says of the market potential. “Halal is such a growth area.” Source: http://blogs.seattleweekly.com/voracious/2012/04/more_food_producers_pursue_hal.php

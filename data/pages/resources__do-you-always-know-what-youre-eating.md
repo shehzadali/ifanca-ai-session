@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/do-you-always-know-what-youre-eating/
+title: Do You Always Know What You’re Eating?
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2014-03-31'
+modified_date: '2022-08-04'
+word_count: 328
+crawl_date: '2026-10-03'
+---
+
+Back to All Do You Always Know What You’re Eating? March 31, 2014 Copied! In this section, we’ll explore some of the mashbooh (doubtful) ingredients you may never have placed any doubt in. Food product labels are growing and, let’s face it, you may not be able to pronounce many of the ingredients, let alone know what they all are. Some may look familiar, while others may look like they belong in a science textbook. Here we’ll detail what the ingredients are, what they are made of, where they come from, and why they may not be permissible. We hope you’ll use this section as a guide to verifying the acceptability of the products you buy. The ingredients we’ll feature may be derived from non-halal sources, thus that product may not be halal. If you see any of these ingredients on the label of your favorite item, contact the manufacturer to find the source of the ingredients. Of course, there is no substitute for authentic, halal-certified products. Look for the Crescent-M logo on the package to be sure. Come on and take a closer look at labels…coming Summer 2014. Product Examples of Mashbooh (Doubtful) Ingredients Bread Lecithin, Mono/Di-glycerides, Folic Acid, Riboflavin Bagels Cysteine Hydrochloride, Enzymes, Folic Acid, Niacin Candy Glycerin, Gelatin, Mono/Di-glycerides, Whey, Natural & Artificial Flavors, Stearic Acid, Magnesium Stearate Cereal Natural & Artificial Flavors, Vitamins A, B2, C, D & E Chips Enzymes Cookies Folic Acid, Thiamine Granola Bars Natural & Artificial Flavors, Riboflavin, Folic Acid Coffee Creamer Natural & Artificial Flavors, Mono/Di‑glycerides Cake Natural & Artificial Flavors, Mono/Di‑glycerides Donuts/Pastries Natural & Artificial Flavors, Mono/Di‑glycerides Ice Cream Whey, Natural & Artificial Flavors, Mono/Di‑glycerides Jello/Pudding Gelatin, Natural & Artificial Flavors Cheese Enzymes Shortening Animal Fat, Mono/Di‑glycerides Peanut Butter Mono/Di‑glycerides Soda Natural Flavors Ketchup Natural Flavors Yogurt Natural & Artificial Flavors, Gelatin, Whey Gum Glycerin, Stearic Acid Mouth Wash Alcohol, Natural & Artificial Flavors, Glycerin Nutritional Supplements Gelatin, Magnesium Stearate Soap Sodium Tallowate, Glycerin Toothpaste Sodium Lauryl Sulfate

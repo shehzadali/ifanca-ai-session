@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/international-halal-conference-in-brussels-to-focus-on-quality-assurance/
+title: International Halal Conference in Brussels to Focus on Quality Assurance
+section: news
+page_type: news
+audience: general
+published_date: '2010-03-20'
+modified_date: '2022-08-08'
+word_count: 345
+crawl_date: '2026-10-03'
+---
+
+BRUSSELS, Belgium (March 20, 2010) — The global halal market is worth an estimated $632 billion annually and is growing. From Chicago to Canberra and beyond, halal foods now have a presence in most countries. The expanding market offers immense potential for businesses to produce products geared towards the Muslim consumer. However, the lack of universal standards makes the market vulnerable to fraud. Recent press reports claim that as much as 75% of poultry sold in the UK as halal is falsely labeled. In an effort to overcome this problem an international conference is being organized by the the Islamic Food Council of Europe (IFCE) on March 26, 2010, in Brussels, Belgium. The 4th International Halal Food Conference’s theme for this year is “Establishing a Halal Quality Assurance System.” The conference is being supported by prominent halal organizations including the Department of Islamic Development Malaysia (JAKIM) and the Islamic Religious Council of Singapore (MUIS). IFCE Chairman Prof. Dr. Mohamed Sadek said the conference’s main aim is to develop global convergence on halal assurance systems so that an estimated 1.5 billion Muslims can consume halal-labeled products with confidence. The conference will feature a variety of speakers ranging from food scientists to Islamic scholars, he added. The slate of speakers includes H.E.Dato Hussain Haniff (ambassador of Malaysia to Belgium), Dr. H. Amidan Shaberah (chairperson, MUI, Indonesia), Mr. Lukmanul Hakim (president, World Halal Council), Mr. Othman Mustapha (JAKIM, Malaysia), Ms. Dewi Fartaty Suratty (MUIS, Singapore), Mufti Ebrahim Desai (Darul Ifta-Madrasah In’aamiyah, South Africa), Lilliana Totoiu (Nutrilite, USA), Christine Lodder (Mead Johnson, Netherlands), Othman Mohamed Yusoff (Nestle, Malaysia), Mark Van Mulders (Puratos, Belgium), Jes Knudsen (Novozymes, Denmark), Etienne Maillard (Lesaffre), and Riyaz Khan (Nitta Gelatin, India). Since its debut in 2004, the International Halal Food Conference remains the premiere Halal event in Europe. It attracts a cross section of industry participants from all over Europe and beyond. The conference will be held at the Sheraton Hotel, Brussels. For more information please contact the Islamic Food Council of Europe at 32-2227-1114 (tel.), 32-2218-3141 (fax) or via email at halal@ifce.eu .

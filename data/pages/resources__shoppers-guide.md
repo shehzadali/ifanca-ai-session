@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/shoppers-guide/
+title: Shopper's Guide
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2005-06-30'
+modified_date: '2023-02-07'
+word_count: 377
+crawl_date: '2026-10-03'
+---
+
+Back to All Shopper’s Guide Halal Consumer Magazine Ingredients June 30, 2005 Copied! Haram / Avoid Bacon Beer Bacon Bits Gin Ham Rum Hydrolyzed Animal Protein Scotch Lard Vodka Pork Whiskey Ethyl Alcohol Wine Mashbooh / Questionable Investigate Further Artificial & Natural Colorings Polysorbates Artificial & Natural Flavorings Potassium Stearate Calcium Stearoyl Lactylate Propylene Glycol Monostearate Enzymes Shortening Fatty Acids Gelatin Sodium Lauryl Sulfate Glycerin Glyceryl Stearate Sodium Stearate Gum Base Softeners Lactylated Fatty Acid Esters Sorbitan Monostearate Magnesium Stearate Stearic Acid Mono & Di-glycerides Stearoyl Lactylate Phospholipids Tallow Whey Crescent M design is a registered trademark of IFANCA © IFANCA 2005 With the Compliments of THE ISLAMIC FOOD AND NUTRITION COUNCIL OF AMERICA This guide is intended to help Muslim consumers select acceptable food products in the supermarket. Products contain many ingredients in varying quantities, including trace amounts of haram or questionable ingredients. The ingredients listed here are the more common ones that must be avoided or investigated before consuming them. This is not a comprehensive list. In the listing, we have specified ingredients as: HARAM / AVOID: These are ingredients that are unquestionably haram and are found in large percentages within a product. Examples are lard, which is 100% pork fat, or gin, which is hard liquor (alcoholic beverage). Muslims should not even buy these products for others. MUSHBOOH / INVESTIGATE FURTHER: These ingredients are used in small quantities and may contain components that mainly come from haram animals, alcohol, or Halal animals slaughtered by non-Muslims. Examples are whey, a dairy product, which is the liquid left after making cheese. The cheese may be made with enzymes from pork, calf, goat or microorganisms. It is the responsibility of every Muslim to eat pure (Halal) foods. With the complexity of food manufacturing it is difficult for the Muslim consumer to determine the appropriateness of many food products. We hope this guide will serve as a handy tool for verifying the acceptability of food products. For more information, please visit our Web site at WWW.IFANCA.ORG call us at 1-877-HALAL-23 or contact the manufacturer of the food product to find the source of the ingredient. Of course, there is no substitute for authentic, certified Halal products. IFANCA P. O. Box 597722 Chicago, IL 60659, USA www.IFANCA.org Tel: +1-773-283-3708

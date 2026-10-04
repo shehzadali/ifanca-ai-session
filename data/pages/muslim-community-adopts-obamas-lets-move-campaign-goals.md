@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/muslim-community-adopts-obamas-lets-move-campaign-goals/
+title: Muslim Community Adopts Obama’s “Let’s Move” Campaign Goals
+section: news
+page_type: news
+audience: general
+published_date: '2012-06-05'
+modified_date: '2022-07-28'
+word_count: 369
+crawl_date: '2026-10-03'
+---
+
+(June 5, 2012) — Mrs. Obama is the spirit behind Let’s Move!, a campaign to bring together community leaders, teachers, doctors, nurses, moms, and dads in a nationwide effort to tackle the challenge of childhood obesity. Responding to Mrs. Obama’s call, the Islamic Food and Nutrition Council of America (IFANCA) has initiated a series of first ever “Halal and Nutrition” workshops through 2012 to deliver on the campaign’s goals. Its sixth and final workshop this quarter will be at 210 N. Homan, Chicago, IL, 60624 at Masjid Dawah on Tuesday, June 5th from 7:00 p.m. to 8:30 p.m. In this series, IFANCA is partnering with Yvonne Maffei, founder of My Halal Kitchen, who will conduct a cooking demonstration as part of a fun, interactive workshop on understanding nutritional information and making healthier everyday food choices. These workshops were presented this quarter at Islamic parochial schools and mosques, including College Preparatory School of America (CPSA), Lombard; Al Huda Weekend School, Schaumburg; Muslim Educational Center (MEC) Mosque, Morton Grove; and Islamic Foundation School (IFS), Villa Park, and the ICNA Sisters Wing organized the May 19th workshop at Kindi Academy, Lisle, IL. “Most of us know which foods are healthy but are often overwhelmed about easily incorporating them in our daily life,” said IFANCA’s Asma Ahad, who is presenting the workshop with Yvonne Maffei. Asma has over 13 years of experience in the food industry. “These workshops are intended to take the mystery out of food labels and promote an understanding of nutritional values and ingredients.” IFANCA® Headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA®) is one of the world’s leading and well-respected not-for-profit halal certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA® has been promoting halal since 1982. IFANCA® was recognized in the “Best Halal Related Service Provider Award” by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (MUI), Malaysia (JAKIM), Singapore (MUIS), and the United Arab Emirates (GSM) and are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA®, visit www.ifanca.org .

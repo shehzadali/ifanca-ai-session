@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/healthful-wonder-foods/
+title: Healthful Wonder Foods
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2013-03-31'
+modified_date: '2022-08-04'
+word_count: 303
+crawl_date: '2026-10-03'
+---
+
+Back to All Healthful Wonder Foods M. Munir Chaudry March 31, 2013 Copied! Food Rich In How to Eat Benefits/Harms Apples Ursolic acid, fiber Any which way Reduce risk of colon, prostate, lung cancers Beets Antioxidants, fiber Raw or boiled/add to salads Increase blood flow to brain Black Seed Neutraceuticals Add to any food/cereals Prevent many ailments Broccoli Vitamin C, beta-carotene Raw or steamed Fight infections, improves skin luster Celery Calcium, iron, potassium Raw as snack Balance nutrients Chili Peppers Capsaicin, vitamin C Add to any savory food Improve blood flow Cranberries Anthocyanins, phytochemicals Dried or fresh, add to salads Reduce cholesterol, fights infections Eggs Zinc, iron, protein, choline Any which way Increase blood flow, more cholesterol Figs Calcium, fiber Fresh or dried Prevent bone loss, reduce risk of cancer Fish Good fat omega-3 Broiled, grilled, baked Reduce cholesterol, increase blood flow Grapefruit Vitamin C, fiber Just peel and eat Fight infections, reduces risk of cancer Green Peppers Vitamin C Add to salads Fight infections, improves skin luster Green Tea Antioxidants, flavonoids Beverage Prevent heart disease and cancer Honey Sugars, nutritional factors Sweetener, dessert Elixir, healing effects Kiwi Fruit Antioxidants, lutein Fresh or dried Fights free radicals, prevents cancer Lamb Iron, omega-3 fat Grill, broil, sear Prevent stroke and anemia Mustard Selenium, manganese Add to stew or hot dog Prevent heart disease, boosts immune system Mustard Greens Vitamins A & K, selenium Boiled, pureed Boosts immune system, food supplement Olive Oil Healthy fatty acids Light cooking on salads Improves cardiovascular system Olives Nutritional factors Pickled Feel good heart-healthy food Tomatoes Lutein, flavonoids In salad or cooking Prevent cancer, boost immunity Turmeric Curcumin, phytochemicals Spice, coloring food Many medicinal effects Yogurt Live cultures, calcium Plain or with fruit Many benefits, soothes digestive system Sources: Readers Digest, www.rd.com Wikipedia, www.wikipedia.com The Canons of Medicine, www.kazi.org

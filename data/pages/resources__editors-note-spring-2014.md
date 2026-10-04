@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-spring-2014/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2014-03-31'
+modified_date: '2023-02-07'
+word_count: 302
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Roger M. Othman March 31, 2014 Copied! Assalamu Alaikum As we begin a new year, we are introducing some new segments to the magazine. In the past, the issues focused on a major theme. That worked well and you, the readers, seemed to enjoy the articles. This year, we want to bring you a greater variety of helpful information so we are introducing segments on food trends; health and nutrition; and product labels, as well as select feature articles. We think you will enjoy this even more! Be sure to tell us. You can email us at halalconsumer@ifanca.org . In food trends, you will get information on what’s hot and where consumers are heading. As for me, I’m a ‘stick to the basics’ cook — meat, chicken, or fish with basic frozen vegetables prepared in the microwave. Not too trendy, but you never know…I can change. In health and nutrition, we will look at foods, nutrients, and services to help plan a healthy and nutritious diet. Can smartphones really help us do that? In product labels, we will delve into some of the intricacies of ingredients and nutrition information. Years ago, ingredient labels used to be shorter. Disclosure wasn’t as big a deal back then. While we may not have known everything a product contained, it was certainly easier to read the labels. Nowadays they read like short stories. Seeing a Crescent-M on the label makes it easier to select, but what if it’s not there? This will help you decipher the contents of the product. And in features, we will have a variety of stimulating and thought provoking topics — some real food for thought. We hope you enjoy the changes and please do let us know what you think. Sincerely, Roger M. Othman, managing editor

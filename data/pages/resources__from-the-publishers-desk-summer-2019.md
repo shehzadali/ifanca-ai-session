@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-summer-2019/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2019-06-30'
+modified_date: '2023-02-07'
+word_count: 362
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry June 30, 2019 Copied! Assalaamu alaikum, The use of plastic in the food industry is so prevalent, it is almost impossible to avoid it. Be it plastic wrap, plastic coated paper, plastic bags, plastic bottles, or plastic utensils, plastic is everywhere. It is convenient, inexpensive, and serves as a moisture and gas barrier, which helps maintain the freshness of food products. So what’s the big deal? Well, the food industry isn’t the only place where plastic is used. Counting plastic piping, synthetic fibers, packing peanuts, etc., over 8.3 billion tons have been produced since 1950, add half of that was produced in just the last twelve years. It is forecast that the weight of plastic in our oceans will be greater than the weight of fish in the oceans by 2050! Most of us will still be around then. While plastic used in construction may have a useful life of ten or more years, plastic used in the food industry is disposed of in less than a year. According to a study in Science Advances, though some plastic is recycled or incinerated, over 75% of discarded plastic ends up in landfills. So what’s the big deal? Plastic in the oceans is mistaken for food by many sea creatures and consumption of it results in the deaths of thousands of marine creatures. Others get entangled resulting in injury or death. Plastic is not biodegradable and takes centuries to decompose in a landfill. And production continues to increase every year. Most of us may not remember the days when we went to a butcher for meat and the meat was wrapped in that white ‘butcher’s paper’ rather than plastic wrap; soda was sold in glass bottles rather than plastic bottles, and water came from a tap rather than a plastic bottle. There is no doubt the use of plastic has brought convenience, time-saving, and other benefits. But all that must be weighed against our responsibility as stewards of our planet. We need to seriously consider our lifestyle choices and make better decisions for the long-term preservation of our ecosystem. Sincerely, Muhammad Munir Chaudry, president

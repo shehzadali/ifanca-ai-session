@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/resources/5th-international-halal-food-conference-proceeding-11-food-safety-as-it-relates-to-islam/
+title: '5th International Halal Food Conference Proceeding 11: Food Safety as It Relates
+  to Islam'
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2003-09-30'
+modified_date: '2022-09-14'
+word_count: 405
+crawl_date: '2026-10-03'
+---
+
+Back to All 5th International Halal Food Conference Proceeding 11: Food Safety as It Relates to Islam A Summary of Presentation by Ata Al Baroudi, Ph.D., President & Chief Quality Officer, Food Safety Institute International September 30, 2003 Copied! Bacteria are the cause of nearly 70% of all food poisoning outbreaks. The Centers for Disease Control has identified over 400 food-related illnesses. The most significant are salmonella, Listeria and E. Coli. In the United States alone, food poisoning results in 9000 deaths annually and over 80 million cases of illness. There are a number of factors that lead to food poisoning. One of the major ones is hygiene. Other factors are more resistant pathogens and the global nature of the food supply. Washing the hands and cooking utensils are very effective steps in preventing the spread of pathogens. The bacteria that cause food poisoning are found throughout nature, in plants and animals, the soil and even in people. Meat is a vulnerable source of many pathogens, especially E. Coli 0157:H7. Mishandling of the meat during processing or at home can result in contamination. Perishable foods should be refrigerated and used in a timely manner. Attention to preparation, handling and cooking is essential to prevent the contamination of foods. Cooking utensils used for raw meat and poultry should not be used for cooked foods unless they are thoroughly washed first. When cooking, make sure the food has reached the proper temperature. And be sure to chill foods promptly when you are done eating. 85% of reported food borne illnesses could have been prevented by proper food handling practices. Islam places a great emphasis on cleanliness. One of the 5 pillars of Islam is Salat (prayer), which must be offered 5 times a day. A prerequisite to salat is ablution, a cleansing regime that requires cleaning the face and head, hands and arms and feet. One’s clothes and local environment must also be clean before offering salat. In society today, it is sad to learn that 68% of people do not wash their hands after using the bathroom. The bottom line is that you need to practice safe food handling to avoid serious illness. Be sure to wash your hands thoroughly before handling any food items, clean cooking utensils prior to use and frequently when cooking, keep uncooked foods separated from cooked foods, cook foods to the proper temperature and chill foods properly after preparation or use.

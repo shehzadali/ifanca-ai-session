@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/ifanca-co-hosts-training-workshop-on-halal-food-management-june-4th-5th-2012-in-lahore-pakistan/
+title: IFANCA Co-Hosts Training Workshop on Halal Food Management, June 4th – 5th,
+  2012 in Lahore, Pakistan
+section: news
+page_type: news
+audience: general
+published_date: '2012-06-04'
+modified_date: '2022-07-28'
+word_count: 377
+crawl_date: '2026-10-03'
+---
+
+LAHORE, Pakistan (June 4 – 5, 2012) — IFANCA together with the Halal Research Council, National Institute of Food Science and Technology (NIFSAT), Pakistan Society of Food Scientists and Technologists (PSFST), and Lahore Meat Company will be co-hosting a two-day training workshop on Halal Food Management in Lahore, Pakistan. Professor Dr. Javaid A. Awan, IFANCA country representative, and Dr. Mian N. Riaz, director, Food Protein R&D Center at Texas A&M University, will be participating as speakers. The key goal of this Training Workshop on Halal Food Management is to highlight the potential for halal exports and the international halal market, the importance of consuming halal food, and to develop an awareness of halal concept among consumers. “Pakistan, being a Muslim-majority nation, halal is generally a known commodity. However, when it comes to halal as a business proposition, there is an acute lack of awareness. Manufacturers who want to learn about the different halal standards various export markets have will want to attend this workshop,” said Dr. Awan. “Similarly, entrepreneurs who want to enter the food industry, will have the opportunity to hear why halal certification is integral to the processed foods industry.” The topics to be covered are Shariah issues in halal foods, halal and Tayyab in Islam, halal meat production and export, status of food in the Islamic holy scriptures, needs in halal foods and non-food products, benefits of halal certification and its value to the food industries, halal export potential for Pakistan, hidden ingredients in halal food, and the need for halal awareness education. For details, visit: www.halalrc.org . IFANCA® Headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA®) is one of the world’s leading and well-respected not-for-profit halal certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA® has been promoting halal since 1982. IFANCA® was recognized in the “Best Halal Related Service Provider Award” by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (MUI), Malaysia (JAKIM), Singapore (MUIS), and the United Arab Emirates (GSM) and are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA®, visit www.ifanca.org .

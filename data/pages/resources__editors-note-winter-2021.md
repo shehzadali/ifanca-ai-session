@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/editors-note-winter-2021/
+title: Editor's Note
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2021-12-31'
+modified_date: '2023-02-07'
+word_count: 454
+crawl_date: '2026-10-03'
+---
+
+Back to All Editor’s Note Alison DeGuide December 31, 2021 Copied! Assalaamu alaikum, As we wrap up another year of Halal Consumer© Magazine, we would like to take a moment to thank you for your support. From all of us at IFANCA®, we wish you the best for the upcoming year! If you find yourself craving a snack while reading this issue, check out the spotlight on Enjoy Life™ Foods on page 34 . Besides learning about the company’s history, you will also discover some of their products that are IFANCA halal-certified. For those interested in the latest food trends, check out “ Ube: The Powerful Purple Yam .” Ube is a tasty purple sweet potato that you can incorporate into many recipes. Functional beverages are another rising star in the world of food and nutrition. What makes these products unique is that they provide more than just hydration, as you will read about in the article on page 8 . With the winter months often comes a desire for food that can both satisfy and warm you up. Making soups and stews is a great way to stave off the cold, so be sure to check out the delicious recipes from Chef Demetrios in his article on page 16 . Certain foods, such as those we loved when we were children, can also provide us with a sense of warmth in the cold months. The article “ What Makes Comfort Food So Comfortable? ” explores why some foods cheer us up more than others. Has anyone ever told you that doing crunches can give you six-pack abs? Have you ever heard someone say that you shouldn’t lift weights if you don’t want to look bulky? Learn the truth behind these myths and others in the article on page 28 . Our mental health series continues with a look at post-traumatic stress disorder (PTSD). The article “ Reconsidering the Facts of Traumatic Stress ” takes an in-depth look at the disorder and some of its symptoms. More and more packaging is used each year, which is why some companies are looking at ways to make it more sustainable. Check out “ The Environmental Price of Packaging ” to learn about developments in this space. Lastly, the article on page 32 discusses how IFANCA has partnered with UNICEF USA to combat the COVID-19 pandemic and address vaccine hesitancy. This work is essential, and we are pleased to have the opportunity to team up with such a notable organization. If you have any questions or comments, please reach out to us at halalconsumer@ifanca.org . Be sure to follow us on Twitter or Facebook as well. We would love to hear from you. Sincerely, Alison DeGuide, editor

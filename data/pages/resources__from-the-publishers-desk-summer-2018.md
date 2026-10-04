@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-summer-2018/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2018-06-30'
+modified_date: '2023-02-07'
+word_count: 410
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Roger M. Othman June 30, 2018 Copied! Assalaamu alaikum, As we just bid farewell to the blessed month of Ramadan, we hope to have emerged with a renewed energy and commitment to maintain those blessings we enjoyed throughout the month. After a month of fasting, we hope to have attained the taqwa which the fast was intended to afford us. As part of attaining taqwa , we hope to have developed habits that will survive the year and stay with us if we are fortunate to witness the next Ramadan. First among these habits may be a commitment to fasting other days throughout the year. Some recommended fasts include: the day of Arafa for those not performing Hajj, the day of Ashura and a day before or after, the middle three days of every lunar month, every Monday and Thursday, or every other day as Prophet Dawud (David), peace be upon him practiced. Remembering that the best deeds are those that are followed continuously, we should select a fast that we think we can adhere to for the long term. The next habit would be a commitment to continuing the night prayers. While we may have offered eleven, thirteen, twenty three, or another number of rakas of night prayers during the month, we should try to offer some number throughout the year. This may be as few as one raka or as many as we feel inclined to offer, capping them off with one raka of witr . We can combine this with offering dua during the night. Another habit is the commitment to continue reciting the Quran every day. Without limits, make time every day to recite any number of ayat from the Quran. Going beyond recitation, try to spend time understanding and contemplating the meaning and practicing the guidance. Many of us take advantage of Ramadan to distribute our zakat. While we may have met that obligation, let us not lose site that need exists throughout the year and having met our zakat obligation, the opportunities for sadaqa can be found all around us. Don’t hesitate to lend a hand to those in need. Finally, with the discipline practiced during Ramadan, consider moderating our food consumption, eliminating poor habits like smoking, including exercise in our daily routine, and maintaining that cheery demeanor so evident during Ramadan! May God help us in these efforts. Sincerely, Roger M. Othman, director of consumer relations

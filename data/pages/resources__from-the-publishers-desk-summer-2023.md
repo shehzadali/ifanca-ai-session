@@ -1,0 +1,13 @@
+---
+url: https://ifanca.org/resources/from-the-publishers-desk-summer-2023/
+title: From the Publisher's Desk
+section: resource
+page_type: resource
+audience: consumer
+published_date: '2023-06-30'
+modified_date: '2023-08-31'
+word_count: 394
+crawl_date: '2026-10-03'
+---
+
+Back to All From the Publisher’s Desk Muhammad Munir Chaudry June 30, 2023 Copied! Assalaamu alaikum, Community care is an important aspect of our faith. As Muslims, we know that helping our neighbors benefits both parties and brings us closer together. Caring for the community is also core to our mission at IFANCA. In addition to our certification activities, we provide education and awareness on halal, as well as build and support partners worldwide. IFANCA has several community-based initiatives like the Sabeel Food Pantry, Sabeel Center for Community Development, Chicagoland Muslim Turkey Drive, and Abrahamic Center for Cultural Education (ACCE) . ACCE was established in downtown Chicago, Illinois, to bring the community together to learn more about Abrahamic religions. In addition to its gallery space, which visitors can tour in person or online , ACCE also hosts free events, such as art classes, author signings, and discussions. The Sabeel Center, located in Des Plaines, Illinois, is an Islamic museum and community space dedicated to the life of Prophet Muhammed (Peace Be Upon Him [PBUH]). It is a place where visitors can develop a greater understanding of Islamic culture and heritage through five galleries about the life of Prophet Muhammad (PBUH), and it hosts events such as live cooking demonstrations, holiday celebrations, and community get-togethers. The Sabeel Food Pantry, located on Belmont Ave. in Chicago, is open twice a week to serve local families irrespective of their financial or religious status. Lastly, the Chicagoland Turkey Drive is an annual event run by our associates and friends that provides a turkey to each family in ten Chicago-area schools for the Thanksgiving holidays. These are some of the many ways we support our community Abu Hurairah narrated that the Messenger of Allah (PBUH) said: “Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens on the Day of Judgement. And whoever helps ease a difficulty in the world, Allah will grant him ease from a difficulty in the world and in the Hereafter. And whoever covers (the faults of) a Muslim, Allah will cover (his faults) for him in the world and the Hereafter. And Allah is engaged in helping the worshipper as long as the worshipper is engaged in helping his brother.”—Jami` at-Tirmidhi Book 27, Hadith 36 Sincerely, Muhammad Munir Chaudry, p resident

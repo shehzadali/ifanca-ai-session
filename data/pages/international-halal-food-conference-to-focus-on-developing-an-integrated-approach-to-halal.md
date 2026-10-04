@@ -1,0 +1,14 @@
+---
+url: https://ifanca.org/international-halal-food-conference-to-focus-on-developing-an-integrated-approach-to-halal/
+title: International Halal Food Conference to Focus on Developing an Integrated Approach
+  to Halal
+section: news
+page_type: news
+audience: general
+published_date: '2013-03-05'
+modified_date: '2022-08-08'
+word_count: 375
+crawl_date: '2026-10-03'
+---
+
+CHICAGO, Illinois (March 5, 2013) — The Islamic Food and Nutrition Council of America will hold its 15th Annual International Halal Food Conference from April 6-8, 2013, in Rosemont (suburb of Chicago) in Illinois, USA. The theme of this year’s conference is “Halal United — An Integrated Approach” and will feature a number of sessions organized around it. In its fifteen-year history the conference has become a much sought-after & important venue to discuss and chart the future of the global halal industry. The annual turnover of the growing global halal market in 2010 was estimated at $640 billion, just in food products and over 3 trillion total consumables. Adopting an all-encompassing framework, the conference will cover not only the issues related to food but also non-food products, halal logistics, processing aids, packaging materials, and sanitation chemicals used in the halal industry. The conference will be addressed by renowned scientists, scholars, industry executives, and halal experts from around the world. In conjunction with the conference, a banquet will be held to honor key companies and individuals. Top government officials and diplomats are expected to attend and participate in the event. At the banquet dinner keynote address will be given by Chicago media icon and organic meat entrepreneur Bill Curtis. The Islamic Food and Nutrition Council of America (IFANCA) is a non-profit organization dedicated to promote halal food and the institution of halal. For registration, go to ifanca.org . For more information, please contact: Islamic Food and Nutrition Council of America (IFANCA) Phone: +001-847-993-0034 Fax: +001-847-993-0038 Email: halalconf@gmail.com Web: http://www.ifanca.org IFANCA® Headquartered in Chicago, Illinois, the Islamic Food and Nutrition Council of America (IFANCA®) is one of the world’s leading and well-respected not-for-profit halal certification organizations. Featured in various media such as the Wall Street Journal , Prepared Foods , CNBC, and CNN, IFANCA® has been promoting halal since 1982. IFANCA® was recognized in the “Best Halal Related Service Provider Award” by the Halal Journal at World Halal Forum 2007. IFANCA® certified halal products are recognized by Indonesia (MUI), Malaysia (JAKIM), Singapore (MUIS), and the United Arab Emirates (GSM) and are sold in nearly every country of the world. IFANCA’s halal certification expertise covers all food industry categories. For more information about IFANCA®, visit www.ifanca.org .
