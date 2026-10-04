@@ -55,7 +55,7 @@
 
 ## Steps
 
-- [ ] 1. Design base: font, tokens with dark theme, pattern, logo, new icons, theme setting. (AC 7, 14)
+- [x] 1. Design base: font, tokens with dark theme, pattern, logo, new icons, theme setting. (AC 7, 14)
 - [ ] 2. Shell: top bar, settings sheet, bottom navigation, new home with level bar, footer and screens without snapshot lines, Recipes rename and routes. (AC 1, 2, 3, 4, 5, 6, 11)
 - [ ] 3. Meal plan section with day view, search, and Add. (AC 12)
 - [ ] 4. Profile: avatars, sign up gate, auto post with avatar, leaderboard avatars, `002_profiles.sql` with local tests, fallback when 002 has not run. (AC 8, 9, 10)

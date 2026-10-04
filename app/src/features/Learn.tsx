@@ -58,7 +58,7 @@ function LearnHome({ lessons, date }: { lessons: L[]; date: string }) {
         <p className="text-xl font-semibold" data-testid="level">{quiz.level ?? 'Not started'}</p>
         <a
           href="#/learn/quiz"
-          className="mt-3 flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-white"
+          className="mt-3 flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-on-brand"
         >
           Take the quiz
         </a>
@@ -82,7 +82,7 @@ function LearnHome({ lessons, date }: { lessons: L[]; date: string }) {
                     <a href={`#/learn/${l.slug}`} className="flex min-h-14 items-center gap-3 px-4 py-2" data-testid="lesson-row" data-read={done}>
                       <span
                         className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[12px] font-semibold ${
-                          done ? 'bg-brand text-white' : 'bg-brand-soft text-brand'
+                          done ? 'bg-brand text-on-brand' : 'bg-brand-soft text-brand'
                         }`}
                         aria-label={done ? 'Read' : undefined}
                       >
@@ -167,7 +167,7 @@ function Lesson({ lessons, index, date }: { lessons: L[]; index: number; date: s
         )}
         <a
           href={next ? `#/learn/${next.slug}` : '#/learn/quiz'}
-          className="flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-white"
+          className="flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-on-brand"
         >
           {next ? 'Next' : 'Take the quiz'}
         </a>

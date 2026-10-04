@@ -64,7 +64,7 @@ export default function PostScore({ total, max, level }: { total: number; max: n
         type="button"
         disabled={!ok || status === 'sending'}
         onClick={send}
-        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-white disabled:opacity-40"
+        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-on-brand disabled:opacity-40"
       >
         {status === 'sending' ? 'Posting...' : 'Post my score'}
       </button>

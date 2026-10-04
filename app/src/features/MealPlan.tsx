@@ -28,7 +28,7 @@ export function AddToPlan({ url }: { url: string }) {
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="h-12 w-full rounded-xl bg-brand font-semibold text-white"
+        className="h-12 w-full rounded-xl bg-brand font-semibold text-on-brand"
       >
         Add to meal plan
       </button>
@@ -116,7 +116,7 @@ export default function MealPlan({ recipes }: { recipes: Recipe[] }) {
                   clear()
                   setConfirm(false)
                 }}
-                className="h-12 rounded-xl bg-ink font-medium text-white"
+                className="h-12 rounded-xl bg-ink font-medium text-paper"
               >
                 Clear
               </button>

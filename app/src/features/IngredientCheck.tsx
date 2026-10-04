@@ -170,7 +170,7 @@ export function TextCheck(props: {
         type="button"
         onClick={props.onCheck}
         disabled={!props.text.trim()}
-        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-white disabled:opacity-40"
+        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-on-brand disabled:opacity-40"
       >
         Check ingredients
       </button>

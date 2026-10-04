@@ -157,7 +157,7 @@ function Round({
         <PostScore total={total} max={max} level={level} />
         <div className="mt-4 grid gap-2">
           {passed && next && (
-            <a href={`#/learn/quiz/${next}`} className="flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-white">
+            <a href={`#/learn/quiz/${next}`} className="flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-on-brand">
               Start the {next} round
             </a>
           )}
@@ -185,7 +185,7 @@ function Round({
         {q.options.map((o, i) => {
           let style = 'border-line bg-card'
           if (answered && i === q.answer) style = 'border-brand bg-brand-soft'
-          else if (answered && i === picked) style = 'border-[#b4553c] bg-[#f8e9e4]'
+          else if (answered && i === picked) style = 'border-danger bg-danger-soft'
           return (
             <li key={i}>
               <button
@@ -231,7 +231,7 @@ function Round({
                 onDone(score)
               }
             }}
-            className="mt-3 h-12 w-full rounded-xl bg-brand font-semibold text-white"
+            className="mt-3 h-12 w-full rounded-xl bg-brand font-semibold text-on-brand"
           >
             {index + 1 < questions.length ? 'Next question' : 'See my score'}
           </button>

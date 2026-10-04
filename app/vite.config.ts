@@ -17,8 +17,8 @@ export default defineConfig({
         short_name: 'Halal Way',
         description: "Demo built from IFANCA's public content. Not an official IFANCA app.",
         lang: 'en-US',
-        theme_color: '#1f5f4a',
-        background_color: '#f7f5ef',
+        theme_color: '#0f6b55',
+        background_color: '#f6f1e7',
         display: 'standalone',
         orientation: 'portrait',
         start_url: '/',
@@ -33,7 +33,7 @@ export default defineConfig({
       workbox: {
         // Code, icons, and all data files are precached so every screen works offline after the first visit.
         // products.json is about 3 MB, so the size limit is raised to 4 MB.
-        globPatterns: ['**/*.{js,css,html,svg,png,json,txt}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,json,txt,woff2}'],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         // OCR files are large and only needed for the Photo tab. Cache them when first used.
         globIgnores: ['tesseract/**'],

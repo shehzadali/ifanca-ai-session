@@ -46,7 +46,7 @@ export default function Leaderboard(_: { params: string[] }) {
         </div>
         {boardConfigured && (
           <p className="flex items-center gap-2 text-[14px] text-muted lg:text-lg" data-testid="live-status">
-            <span className={`h-2.5 w-2.5 rounded-full ${live && reachable ? 'bg-brand' : 'bg-[#c58b2c]'}`} aria-hidden="true" />
+            <span className={`h-2.5 w-2.5 rounded-full ${live && reachable ? 'bg-brand' : 'bg-gold'}`} aria-hidden="true" />
             {!reachable ? 'Cannot reach the leaderboard. Retrying.' : live ? 'Live' : `Reconnecting. Checking every ${POLL_MS / 1000} seconds.`}
           </p>
         )}
@@ -146,7 +146,7 @@ function ResetControl({ onCleared }: { onCleared: () => void }) {
             type="button"
             disabled={!code.trim() || busy}
             onClick={clear}
-            className="h-12 rounded-xl bg-ink px-4 font-medium text-white disabled:opacity-40"
+            className="h-12 rounded-xl bg-ink px-4 font-medium text-paper disabled:opacity-40"
           >
             Clear all scores
           </button>

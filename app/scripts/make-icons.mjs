@@ -9,7 +9,7 @@ const svg = fs.readFileSync(path.join(pub, 'icon.svg'), 'utf8')
 const art = svg.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/<rect[^>]*\/>/, '')
 // Full-bleed square for maskable and Apple icons. The art is scaled into the central safe zone.
 const square = (scale) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#1f5f4a"/>` +
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#0f6b55"/>` +
   `<g transform="translate(256 256) scale(${scale}) translate(-256 -256)">${art}</g></svg>`
 
 const outputs = [

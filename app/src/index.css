@@ -1,24 +1,88 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #1d2a26;
-  --color-muted: #5b6a64;
-  --color-paper: #f7f5ef;
-  --color-card: #ffffff;
-  --color-line: #e3e0d6;
-  --color-brand: #1f5f4a;
-  --color-brand-soft: #e4efe9;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+/* The theme setting writes data-theme="light" or "dark" on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  /* Section colors for tiles and headers. White text passes 4.5 to 1 on each. */
+  --color-learn: #0f6b55;
+  --color-product: #0e6a73;
+  --color-ingredients: #8f5f0d;
+  --color-recipes: #ad4428;
+  --color-plan: #3b4a8f;
+  --color-read: #7a3e6e;
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --paper: #f6f1e7;
+  --card: #ffffff;
+  --ink: #14231f;
+  --muted: #56645e;
+  --line: #e6dccb;
+  --brand: #0f6b55;
+  --brand-soft: #dff0e8;
+  --on-brand: #ffffff;
+  --gold: #c99a2e;
+  --gold-soft: #fbf0d4;
+  --danger: #a3402a;
+  --danger-soft: #f8e6e0;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #0b1513;
+  --card: #13211e;
+  --ink: #edf4f0;
+  --muted: #a7b6af;
+  --line: #263a33;
+  --brand: #4cc79e;
+  --brand-soft: #173a30;
+  --on-brand: #04241a;
+  --gold: #e3b955;
+  --gold-soft: #3a3016;
+  --danger: #f0a08c;
+  --danger-soft: #3d201a;
+  color-scheme: dark;
 }
 
 html,
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+/* Original eight-point star lattice. Painted in the current text color through a mask,
+   so one pattern works on every background. Set opacity with Tailwind. */
+.geo {
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M14 14h20v20H14zM24 9.9 38.1 24 24 38.1 9.9 24z'/%3E%3Cpath d='M24 0v9.9M24 38.1V48M0 24h9.9M38.1 24H48M0 0l14 14M48 0 34 14M0 48l14-14M48 48 34 34'/%3E%3Ccircle cx='24' cy='24' r='4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M14 14h20v20H14zM24 9.9 38.1 24 24 38.1 9.9 24z'/%3E%3Cpath d='M24 0v9.9M24 38.1V48M0 24h9.9M38.1 24H48M0 0l14 14M48 0 34 14M0 48l14-14M48 48 34 34'/%3E%3Ccircle cx='24' cy='24' r='4'/%3E%3C/svg%3E");
+  -webkit-mask-size: 48px 48px;
+  mask-size: 48px 48px;
+  pointer-events: none;
+}
+.geo-lg {
+  -webkit-mask-size: 72px 72px;
+  mask-size: 72px 72px;
 }
