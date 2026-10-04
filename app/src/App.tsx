@@ -1,4 +1,12 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { lazy, Suspense, useEffect, useState, type ComponentType, type ReactNode } from 'react'
+import { loadData } from './lib/data'
+
+const ProductCheck = lazy(() => import('./features/ProductCheck'))
+
+// Screens that are built. Each gets the route segments after its id.
+const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
+  product: ProductCheck,
+}
 
 type Tile = {
   id: string
@@ -81,7 +89,10 @@ function useRoute(): string {
   const read = () => window.location.hash.replace(/^#\/?/, '')
   const [route, setRoute] = useState(read)
   useEffect(() => {
-    const onChange = () => setRoute(read())
+    const onChange = () => {
+      setRoute(read())
+      window.scrollTo(0, 0)
+    }
     window.addEventListener('hashchange', onChange)
     return () => window.removeEventListener('hashchange', onChange)
   }, [])
@@ -91,9 +102,8 @@ function useRoute(): string {
 function useCrawlDate(): string | null {
   const [date, setDate] = useState<string | null>(null)
   useEffect(() => {
-    fetch('/data/faqs.json')
-      .then((r) => r.json())
-      .then((d: { crawl_date: string }) => setDate(d.crawl_date))
+    loadData<{ crawl_date: string }>('faqs.json')
+      .then((d) => setDate(d.crawl_date))
       .catch(() => setDate(null))
   }, [])
   return date
@@ -137,19 +147,41 @@ function Placeholder({ tile }: { tile: Tile }) {
 export default function App() {
   const route = useRoute()
   const crawlDate = useCrawlDate()
-  const tile = TILES.find((t) => t.id === route)
+  const [id, ...params] = route.split('?')[0].split('/').filter(Boolean)
+  const tile = TILES.find((t) => t.id === id)
+  const Feature = id ? SCREENS[id] : undefined
+
+  let body: ReactNode = <Home />
+  if (Feature) {
+    body = (
+      <Suspense fallback={<p className="text-muted">Loading...</p>}>
+        <Feature params={params} />
+      </Suspense>
+    )
+  } else if (tile) {
+    body = <Placeholder tile={tile} />
+  }
 
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col px-4 pt-[max(1.5rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))]">
-      <header className="mb-6">
-        <p className="text-sm font-medium tracking-wide text-brand uppercase">Demo</p>
-        <h1 className="mt-1 text-3xl font-semibold tracking-tight">The Halal Way</h1>
-        <p className="mt-2 text-[15px] text-muted">
-          Find what IFANCA has published about products, ingredients, and halal food.
-        </p>
-      </header>
+      {id ? (
+        <header className="mb-2">
+          <a href="#/" className="inline-flex min-h-11 items-center gap-2 text-[15px] font-semibold text-ink">
+            <img src="/icon.svg" alt="" width="24" height="24" className="rounded-md" />
+            The Halal Way
+          </a>
+        </header>
+      ) : (
+        <header className="mb-6">
+          <p className="text-sm font-medium tracking-wide text-brand uppercase">Demo</p>
+          <h1 className="mt-1 text-3xl font-semibold tracking-tight">The Halal Way</h1>
+          <p className="mt-2 text-[15px] text-muted">
+            Find what IFANCA has published about products, ingredients, and halal food.
+          </p>
+        </header>
+      )}
 
-      <main className="flex-1">{tile ? <Placeholder tile={tile} /> : <Home />}</main>
+      <main className="flex-1">{body}</main>
 
       <footer className="mt-8 border-t border-line pt-4 text-center text-[13px] leading-relaxed text-muted">
         <p>Demo built from IFANCA's public content. Not an official IFANCA app.</p>
