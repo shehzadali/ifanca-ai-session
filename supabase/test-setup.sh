@@ -20,10 +20,12 @@ q "create schema extensions;
    alter default privileges in schema public grant all on functions to anon, authenticated;
    create publication supabase_realtime;" >/dev/null
 
-for run in 1 2; do
-  out=$(psql -X -q -v ON_ERROR_STOP=1 -d "$DB" -f "$DIR/setup.sql" 2>&1) || { echo "FAIL  setup.sql run $run: $out"; exit 1; }
+for f in setup.sql 002_profiles.sql; do
+  for run in 1 2; do
+    out=$(psql -X -q -v ON_ERROR_STOP=1 -d "$DB" -f "$DIR/$f" 2>&1) || { echo "FAIL  $f run $run: $out"; exit 1; }
+  done
+  echo "pass  $f runs twice without errors"; pass=$((pass+1))
 done
-echo "pass  setup.sql runs twice without errors"; pass=$((pass+1))
 
 D1=11111111-1111-1111-1111-111111111111
 D2=22222222-2222-2222-2222-222222222222
@@ -52,10 +54,23 @@ ok "rows unchanged after refused writes" "$(q "$A select count(*) || ':' || max(
 refused "anon cannot read device keys" "$A select * from leaderboard_private.devices"
 refused "anon cannot read the reset hash" "$A select * from leaderboard_private.settings"
 
+# 002: avatars and the wider name rule
+D3=33333333-3333-3333-3333-333333333333
+q "$A select public.post_score('$D3', 'ali_99', 7, 'Beginner', 'star-emerald')" >/dev/null
+ok "post with avatar and a name with numbers" "$(q "$A select name || ':' || avatar from public.leaderboard where score = 7")" "ali_99:star-emerald"
+q "$A select public.post_score('$D3', 'ali_99', 8, 'Beginner', null)" >/dev/null
+ok "a later post without avatar keeps it" "$(q "$A select avatar || ':' || score from public.leaderboard where name = 'ali_99'")" "star-emerald:8"
+refused "unknown avatar refused" "$A select public.post_score('$D3', 'ali_99', 9, null, 'Star<script>')"
+refused "one-character name refused" "$A select public.post_score('$D3', 'A', 9, null, 'star-emerald')"
+refused "anon cannot write the avatar directly" "$A update public.leaderboard set avatar = 'sun-amber'"
+ok "anon can read avatars" "$(q "$A select count(avatar) from public.leaderboard")" "1"
+q "$A select public.post_score('$D3', 'ali_99', 6, null)" >/dev/null 2>&1
+ok "the first post_score still works for old app copies" "$(q "$A select count(*) from public.leaderboard where name = 'ali_99'")" "1"
+
 refused "wrong reset code refused" "$A select public.reset_leaderboard('wrong-code')"
-ok "wrong code removes nothing" "$(q "$A select count(*) from public.leaderboard")" "2"
+ok "wrong code removes nothing" "$(q "$A select count(*) from public.leaderboard")" "3"
 if [ -n "${RESET_CODE:-}" ]; then
-  ok "right reset code clears all entries" "$(q "$A select public.reset_leaderboard('$RESET_CODE')")" "2"
+  ok "right reset code clears all entries" "$(q "$A select public.reset_leaderboard('$RESET_CODE')")" "3"
   ok "leaderboard is empty after reset" "$(q "$A select count(*) from public.leaderboard")" "0"
   ok "device keys are cleared too" "$(q "select count(*) from leaderboard_private.devices")" "0"
 else

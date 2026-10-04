@@ -1,10 +1,13 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, type ReactNode } from 'react'
+import Avatar from './components/Avatar'
 import BottomNav from './components/BottomNav'
 import { SECTIONS } from './components/Icons'
 import LevelBar from './components/LevelBar'
 import Logo from './components/Logo'
+import ProfileBlock from './components/ProfileBlock'
 import Settings from './components/Settings'
 import TopBar from './components/TopBar'
+import { useProfile } from './lib/profile'
 import { useStored } from './lib/storage'
 import { useTheme } from './lib/theme'
 import type { QuizProgress } from './lib/level'
@@ -16,6 +19,7 @@ const Cook = lazy(() => import('./features/Cook'))
 const PlanScreen = lazy(() => import('./features/PlanScreen'))
 const Read = lazy(() => import('./features/Read'))
 const Leaderboard = lazy(() => import('./features/Leaderboard'))
+const ProfileScreen = lazy(() => import('./features/ProfileScreen'))
 
 // Screens by route id. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
@@ -26,6 +30,7 @@ const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   plan: PlanScreen,
   read: Read,
   leaderboard: Leaderboard,
+  profile: ProfileScreen,
 }
 
 // Old links from the first version still work.
@@ -116,6 +121,7 @@ export default function App() {
   const route = useRoute()
   const [theme, setTheme] = useTheme()
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const profile = useProfile()
   const closeSettings = useCallback(() => setSettingsOpen(false), [])
   const [id, ...params] = route.split('?')[0].split('/').filter(Boolean)
   const Feature = id ? SCREENS[id] : undefined
@@ -137,7 +143,12 @@ export default function App() {
         projector ? 'max-w-6xl pb-6 lg:px-10' : 'max-w-md'
       } ${section ? 'pb-24' : 'pb-[max(1rem,env(safe-area-inset-bottom))]'}`}
     >
-      {!projector && <TopBar onSettings={() => setSettingsOpen(true)} />}
+      {!projector && (
+        <TopBar
+          onSettings={() => setSettingsOpen(true)}
+          avatar={profile ? <Avatar id={profile.avatar} name={profile.name} size={42} /> : undefined}
+        />
+      )}
 
       <main className={`flex-1 ${projector ? '' : 'mt-3'}`}>{body}</main>
 
@@ -151,7 +162,7 @@ export default function App() {
         onClose={closeSettings}
         theme={theme}
         setTheme={setTheme}
-        profile={<p className="text-[14px] text-muted">Sign up when you start the quiz.</p>}
+        profile={<ProfileBlock onNavigate={closeSettings} />}
       />
     </div>
   )

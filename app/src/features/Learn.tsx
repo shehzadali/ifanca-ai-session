@@ -2,7 +2,9 @@ import { lazy, Suspense, useEffect, useMemo } from 'react'
 import Screen from '../components/Screen'
 import { useData, type Dataset } from '../lib/data'
 import { buildLessons, lessonBlocks, type Faq, type Lesson as L } from '../lib/lessons'
+import { useProfile } from '../lib/profile'
 import { useStored } from '../lib/storage'
+import SignUp from './SignUp'
 
 export const READ_KEY = 'thw.learn.read'
 export const QUIZ_KEY = 'thw.quiz'
@@ -14,10 +16,19 @@ const Quiz = lazy(() => import('./Quiz'))
 export default function Learn({ params }: { params: string[] }) {
   const { data, error } = useData<Dataset<Faq>>('faqs.json')
   const lessons = useMemo(() => (data ? buildLessons(data.items) : null), [data])
+  const profile = useProfile()
   const slug = params[0] ?? ''
 
   if (error) return <Screen tone="learn" title="Learn and quiz">The lessons could not load. Check your connection and try again.</Screen>
   if (!lessons) return <Screen tone="learn" title="Learn and quiz">Loading...</Screen>
+
+  if (slug === 'quiz' && !profile) {
+    return (
+      <Screen tone="learn" title="Sign up to play" back={{ href: '#/learn', label: 'Back to lessons' }}>
+        <SignUp onDone={() => window.scrollTo(0, 0)} />
+      </Screen>
+    )
+  }
 
   if (slug === 'quiz') {
     return (

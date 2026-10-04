@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import Avatar from '../components/Avatar'
 import { boardConfigured, Refused, resetBoard, topTen, watchBoard, type Entry } from '../lib/board'
 
 const POLL_MS = 5000
@@ -68,6 +69,7 @@ export default function Leaderboard(_: { params: string[] }) {
                   <span className="w-10 shrink-0 text-2xl leading-tight font-semibold text-muted tabular-nums lg:w-14 lg:text-[34px]" data-testid="board-rank">
                     {i + 1}
                   </span>
+                  <Avatar id={e.avatar} name={e.name} size={40} />
                   <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3">
                     <span className="truncate text-2xl leading-tight font-semibold lg:text-[34px] lg:leading-[1.15]" data-testid="board-name">
                       {e.name}

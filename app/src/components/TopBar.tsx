@@ -13,7 +13,7 @@ export default function TopBar({ onSettings, avatar }: { onSettings: () => void;
         type="button"
         onClick={onSettings}
         aria-label="Profile and settings"
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-card text-muted shadow-sm"
+        className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-line bg-card text-muted shadow-sm"
         data-testid="avatar-button"
       >
         {avatar ?? <PersonIcon size={22} />}

@@ -1,83 +1,58 @@
-import { useEffect, useState } from 'react'
-import { boardConfigured, cleanName, postScore, readBoard, Refused, validName } from '../lib/board'
+import { useCallback, useEffect, useState } from 'react'
+import Avatar from '../components/Avatar'
+import { boardConfigured, postScore, readBoard, Refused } from '../lib/board'
+import { useProfile } from '../lib/profile'
 
-type Status = 'idle' | 'sending' | 'posted' | 'failed' | 'refused'
+type Status = 'sending' | 'posted' | 'failed' | 'refused'
 
+// Posts the total to the room leaderboard as soon as a round ends. The score is already saved on the device.
 export default function PostScore({ total, max, level }: { total: number; max: number; level: string | null }) {
-  const [name, setName] = useState(() => (boardConfigured ? readBoard().name : ''))
-  const [status, setStatus] = useState<Status>('idle')
-  const [postedAs, setPostedAs] = useState('')
+  const profile = useProfile()
+  const [status, setStatus] = useState<Status>('sending')
 
-  // A pending post that goes through later (for example when the device comes back online) updates this screen.
+  const send = useCallback(() => {
+    if (!profile) return
+    setStatus('sending')
+    postScore(profile.name, total, level, profile.avatar)
+      .then(() => setStatus('posted'))
+      .catch((e) => setStatus(e instanceof Refused ? 'refused' : 'failed'))
+  }, [profile, total, level])
+
+  useEffect(() => {
+    if (boardConfigured) send()
+  }, [send])
+
+  // A pending post that goes through later, for example when the device is back online.
   useEffect(() => {
     const onBoard = () => {
       const b = readBoard()
-      if (!b.pending && b.postedTotal !== null && status === 'failed') {
-        setPostedAs(b.name)
-        setStatus('posted')
-      }
+      if (!b.pending && b.postedTotal !== null) setStatus((s) => (s === 'failed' ? 'posted' : s))
     }
     window.addEventListener('thw-board', onBoard)
     return () => window.removeEventListener('thw-board', onBoard)
-  }, [status])
+  }, [])
 
-  if (!boardConfigured) return null
-
-  const send = async () => {
-    setStatus('sending')
-    try {
-      await postScore(name, total, level)
-      setPostedAs(cleanName(name))
-      setStatus('posted')
-    } catch (e) {
-      setStatus(e instanceof Refused ? 'refused' : 'failed')
-    }
-  }
-
-  const ok = validName(name)
+  if (!boardConfigured || !profile) return null
 
   return (
-    <div className="mt-5 rounded-xl border border-line bg-paper p-4 text-left" data-testid="post-score">
-      <p className="font-semibold">Room leaderboard</p>
-      <p className="mt-1 text-[15px]">
-        Your total is {total} of {max}.
-      </p>
-      <label className="mt-3 block">
-        <span className="mb-1 block text-[13px] font-medium text-muted">First name</span>
-        <input
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value)
-            if (status !== 'sending') setStatus('idle')
-          }}
-          maxLength={24}
-          autoComplete="given-name"
-          enterKeyHint="send"
-          className="h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
-          data-testid="board-name"
-        />
-      </label>
-      {name.trim() && !ok && (
-        <p className="mt-1 text-[13px] text-muted">Use 1 to 20 letters. Spaces, hyphens, apostrophes, and periods are fine.</p>
-      )}
-      <button
-        type="button"
-        disabled={!ok || status === 'sending'}
-        onClick={send}
-        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-on-brand disabled:opacity-40"
-      >
-        {status === 'sending' ? 'Posting...' : 'Post my score'}
-      </button>
-      <div aria-live="polite" data-testid="post-status">
-        {status === 'posted' && <p className="mt-2 font-medium text-brand">Posted as {postedAs}.</p>}
-        {status === 'refused' && <p className="mt-2">The leaderboard did not accept this name. Try another first name.</p>}
+    <div className="mt-5 flex items-start gap-3 rounded-2xl border border-line bg-paper p-3 text-left" data-testid="post-score">
+      <Avatar id={profile.avatar} name={profile.name} size={44} />
+      <div className="min-w-0 flex-1" aria-live="polite" data-testid="post-status">
+        <p className="font-bold">
+          {profile.name}: {total} of {max}
+        </p>
+        {status === 'sending' && <p className="text-[14px] text-muted">Posting to the room leaderboard...</p>}
+        {status === 'posted' && <p className="text-[14px] font-semibold text-brand">Posted to the room leaderboard.</p>}
+        {status === 'refused' && (
+          <p className="text-[14px]">The leaderboard did not accept this name. Change it in Settings, then play a round again.</p>
+        )}
         {status === 'failed' && (
-          <div className="mt-2">
-            <p>Could not reach the leaderboard. Your score is saved on this device.</p>
-            <button type="button" onClick={send} className="mt-2 h-11 w-full rounded-xl border border-line bg-card font-medium text-brand">
-              Try again
+          <>
+            <p className="text-[14px]">Saved on this device. It will post when you are back online.</p>
+            <button type="button" onClick={send} className="mt-2 h-11 rounded-xl border border-line bg-card px-4 font-semibold text-brand">
+              Try again now
             </button>
-          </div>
+          </>
         )}
       </div>
     </div>
