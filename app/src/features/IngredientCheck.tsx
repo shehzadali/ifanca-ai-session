@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import NotInList from '../components/NotInList'
 import Screen from '../components/Screen'
 import { useData } from '../lib/data'
-import { buildMatchers, suggest, type Ingredient, type IngredientData, type Matcher } from '../lib/ingredients'
+import { buildMatchers, checkText, suggest, type Ingredient, type IngredientData, type Matcher } from '../lib/ingredients'
 import IngredientCard from './IngredientCard'
 
 const SOURCE = 'https://ifanca.org/faqs/'
@@ -43,7 +43,10 @@ export default function IngredientCheck({ params }: { params: string[] }) {
       {!matchers && !error && <p className="mt-4 text-muted">Loading...</p>}
 
       {matchers && data && (
-        <div className="mt-4">{tab === '' && <OneIngredient matchers={matchers} items={data.items} />}</div>
+        <div className="mt-4">
+          {tab === '' && <OneIngredient matchers={matchers} items={data.items} />}
+          {tab === 'paste' && <PasteList matchers={matchers} />}
+        </div>
       )}
     </Screen>
   )
@@ -121,5 +124,87 @@ function OneIngredient({ matchers, items }: { matchers: Matcher[]; items: Ingred
         </details>
       )}
     </div>
+  )
+}
+
+function PasteList({ matchers }: { matchers: Matcher[] }) {
+  const [text, setText] = useState('')
+  const [checked, setChecked] = useState<string | null>(null)
+  return (
+    <div>
+      <TextCheck
+        text={text}
+        onChange={setText}
+        onCheck={() => setChecked(text)}
+        label="Ingredient list"
+        placeholder="Paste the ingredient list from the label"
+      />
+      {checked !== null && <Results text={checked} matchers={matchers} />}
+    </div>
+  )
+}
+
+export function TextCheck(props: {
+  text: string
+  onChange: (t: string) => void
+  onCheck: () => void
+  label: string
+  placeholder?: string
+  note?: string
+}) {
+  return (
+    <div>
+      <label className="block">
+        <span className="mb-1 block text-[13px] font-medium text-muted">{props.label}</span>
+        {props.note && <span className="mb-2 block text-[14px] text-ink">{props.note}</span>}
+        <textarea
+          value={props.text}
+          onChange={(e) => props.onChange(e.target.value)}
+          placeholder={props.placeholder}
+          rows={6}
+          className="w-full rounded-xl border border-line bg-card p-3 text-[16px] leading-relaxed outline-none focus:border-brand"
+        />
+      </label>
+      <button
+        type="button"
+        onClick={props.onCheck}
+        disabled={!props.text.trim()}
+        className="mt-2 h-12 w-full rounded-xl bg-brand font-semibold text-white disabled:opacity-40"
+      >
+        Check ingredients
+      </button>
+    </div>
+  )
+}
+
+export function Results({ text, matchers }: { text: string; matchers: Matcher[] }) {
+  const { items, notFound } = useMemo(() => checkText(text, matchers), [text, matchers])
+  return (
+    <section className="mt-6" data-testid="results" aria-live="polite">
+      <h3 className="text-lg font-semibold">
+        IFANCA mentions {items.length} {items.length === 1 ? 'ingredient' : 'ingredients'} from this list
+      </h3>
+      <p className="mt-1 text-[14px] text-muted">
+        Each card quotes what IFANCA published. It is not a verdict on the product.
+      </p>
+      {notFound.length > 0 && (
+        <div className="mt-4 rounded-xl border border-line bg-card p-4" data-testid="not-found">
+          <h4 className="font-semibold">Not found ({notFound.length})</h4>
+          <NotInList className="mt-1 text-[14px]" />
+          <ul className="mt-2 flex flex-wrap gap-1.5">
+            {notFound.map((n) => (
+              <li key={n} className="rounded-full bg-paper px-3 py-1 text-[14px]" data-testid="not-found-item">
+                {n}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div className="mt-3 space-y-3">
+        {items.map((item) => (
+          <IngredientCard key={item.name} item={item} />
+        ))}
+      </div>
+    </section>
   )
 }
