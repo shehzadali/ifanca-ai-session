@@ -5,6 +5,7 @@ const ProductCheck = lazy(() => import('./features/ProductCheck'))
 const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
 const Learn = lazy(() => import('./features/Learn'))
 const Cook = lazy(() => import('./features/Cook'))
+const Read = lazy(() => import('./features/Read'))
 
 // Screens that are built. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
@@ -12,6 +13,7 @@ const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   ingredients: IngredientCheck,
   learn: Learn,
   cook: Cook,
+  read: Read,
 }
 
 type Tile = {

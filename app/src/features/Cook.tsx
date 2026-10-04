@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import Chip from '../components/Chip'
 import Screen from '../components/Screen'
 import MealPlan, { AddToPlan, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
@@ -74,21 +75,6 @@ export default function Cook({ params }: { params: string[] }) {
     <Screen title="Cook" snapshot={date} sourceUrl={SOURCE}>
       <RecipeList recipes={recipes} />
     </Screen>
-  )
-}
-
-function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: string }) {
-  return (
-    <button
-      type="button"
-      aria-pressed={on}
-      onClick={onClick}
-      className={`min-h-11 shrink-0 rounded-full border px-4 text-[14px] font-medium ${
-        on ? 'border-brand bg-brand text-white' : 'border-line bg-card text-ink'
-      }`}
-    >
-      {children}
-    </button>
   )
 }
 
