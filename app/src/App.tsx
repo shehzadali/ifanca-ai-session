@@ -2,10 +2,12 @@ import { lazy, Suspense, useEffect, useState, type ComponentType, type ReactNode
 import { loadData } from './lib/data'
 
 const ProductCheck = lazy(() => import('./features/ProductCheck'))
+const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
 
 // Screens that are built. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   product: ProductCheck,
+  ingredients: IngredientCheck,
 }
 
 type Tile = {

@@ -23,7 +23,14 @@ export default defineConfig({
       workbox: {
         // The data files are large (products.json is several MB). Cache them on first use, not at install.
         globPatterns: ['**/*.{js,css,html,svg}'],
+        // OCR files are large and only needed for the Photo tab. Cache them when first used.
+        globIgnores: ['tesseract/**'],
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/tesseract/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'ocr' },
+          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
             handler: 'StaleWhileRevalidate',
