@@ -17,7 +17,7 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Vercel project and production deploy | done | https://the-halal-way.vercel.app |
 | QR code | done | `slides/qr.png`, `slides/qr.svg`, decoded and checked |
 | Live smoke test | done, 8 of 8 pass | 2026-10-04 |
-| Feature 6 room-leaderboard | built, 13 of 13 pass with a stand-in backend | waiting for the owner's Supabase project URL and anon key |
+| Feature 6 room-leaderboard | done, connected to Supabase | project qfsryjrqgsarogapkspo |
 
 ## How each feature is built
 
@@ -135,6 +135,11 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D74. The settings are `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (Vercel production env, and `app/.env.local` for local builds). With no settings, the post section is hidden and the leaderboard says it is not connected. The anon key is public by design. The rules in `setup.sql` are what protect the data.
 - D75. Order of work: the owner asked to be asked for the Supabase URL and key, and also to run /ship at the end. To avoid waiting, everything ships first with the leaderboard not yet connected. After the owner sends the URL and key, they go into Vercel and a redeploy turns the feature on.
 - D76. Not covered: a player could post a made-up score with the public key. The reset control is for clearing test or bad entries before the session.
+
+- D77. Checked on the real project before connecting, with the anon key only: reads work, a direct insert is refused (401), the private schema is not reachable (406), a bad name and a wrong reset code are refused by the functions. Realtime delivered an insert after 0.7 s and the delete from the reset. The right reset code cleared the one test entry. The board was left empty.
+- D78. Realtime missed one event sent in the first moment after subscribing, then worked. The 5-second poll covers that window.
+- D79. Vercel flagged `VITE_SUPABASE_ANON_KEY` as a possible credential. It was added as a public config value on purpose. A Supabase anon key is meant to be in the browser. The access rules in `setup.sql` protect the data. The service role key is not used anywhere.
+- D80. The two settings are in Vercel (Production) and in `app/.env.local` for local builds. Neither file with values is committed.
 
 ## Deploys
 
