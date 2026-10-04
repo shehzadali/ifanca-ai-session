@@ -1,0 +1,97 @@
+{
+  "feature": "room-leaderboard",
+  "date": "2026-10-04",
+  "commit": "7da18f6",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Post a score after a round",
+      "result": "Pass",
+      "notes": "one post_score call, total 6"
+    },
+    {
+      "n": 2,
+      "text": "Posting again updates the same entry",
+      "result": "Pass",
+      "notes": "same device key, one entry, score 12"
+    },
+    {
+      "n": 3,
+      "text": "Bad names keep the button disabled",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 4,
+      "text": "Network failure keeps the score on the device",
+      "result": "Pass",
+      "notes": "pending total 18 saved, level Advocate kept"
+    },
+    {
+      "n": 5,
+      "text": "Retries by itself when back online",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "text": "Projector view: top 10, large text, QR visible",
+      "result": "Pass",
+      "notes": "12 entries, 10 shown, rank and name 34 and 34px, row 10 ends at 705px of 720"
+    },
+    {
+      "n": 7,
+      "text": "A new score appears within 10 seconds without reload",
+      "result": "Pass",
+      "notes": "appeared after 5.3 s (poll, realtime cannot reach the stand-in)"
+    },
+    {
+      "n": 8,
+      "text": "Wrong reset code",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 9,
+      "text": "Right reset code clears the board",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "/leaderboard path opens the screen",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 11,
+      "text": "Without settings the feature is hidden",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 12,
+      "text": "Database access rules (local Postgres)",
+      "result": "Pass",
+      "notes": "23 passed, 0 failed. Output in sql-test-output.txt"
+    },
+    {
+      "n": 13,
+      "text": "No sideways scroll and 44px tap targets at 390px",
+      "result": "Pass",
+      "notes": ""
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED"
+  ]
+}

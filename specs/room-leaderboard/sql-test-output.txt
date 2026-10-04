@@ -1,0 +1,25 @@
+NOTICE:  database "thw_leaderboard_test" does not exist, skipping
+pass  setup.sql runs twice without errors
+pass  anon can read the leaderboard
+pass  post_score adds an entry
+pass  same device updates, not adds
+pass  a lower total keeps the best
+pass  names are trimmed, hyphen and apostrophe allowed
+pass  empty name refused
+pass  21-character name refused
+pass  name with symbols refused
+pass  score above 18 refused
+pass  unknown level refused
+pass  anon cannot insert directly
+pass  anon cannot update directly
+pass  anon cannot delete directly
+pass  rows unchanged after refused writes
+pass  anon cannot read device keys
+pass  anon cannot read the reset hash
+pass  wrong reset code refused
+pass  wrong code removes nothing
+pass  right reset code clears all entries
+pass  leaderboard is empty after reset
+pass  device keys are cleared too
+pass  table is in the realtime publication
+23 passed, 0 failed

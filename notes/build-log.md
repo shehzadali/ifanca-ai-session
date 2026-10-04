@@ -17,6 +17,7 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Vercel project and production deploy | done | https://the-halal-way.vercel.app |
 | QR code | done | `slides/qr.png`, `slides/qr.svg`, decoded and checked |
 | Live smoke test | done, 8 of 8 pass | 2026-10-04 |
+| Feature 6 room-leaderboard | built, 13 of 13 pass with a stand-in backend | waiting for the owner's Supabase project URL and anon key |
 
 ## How each feature is built
 
@@ -118,6 +119,22 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D61. Recipe photos show only on the recipe screen, from the `image_url` in recipes.json (207 of 340 recipes have one). The list has no thumbnails, so a page of 30 rows does not make 30 requests to ifanca.org.
 - D62. Photos load only when the browser reports it is online. Offline, missing, or failed photos show a plain placeholder with one line of text. Images use `referrerPolicy="no-referrer"` and lazy loading.
 - D63. "Do not cache the photos": the service worker has a NetworkOnly rule for ifanca.org, so it never stores them, and the live smoke test checks this. The browser's own short-lived HTTP cache is controlled by ifanca.org's headers and is outside the app's control.
+
+### Feature 6 room-leaderboard
+
+- D64. Score posted = the sum of the best score in each round (0 to 18) plus the level. The post section shows after every round, passed or not, so everyone in the room can take part.
+- D65. One entry per device. A random device key is made once and saved on the device. Posting again updates that entry and keeps the best total. Ties are ordered by who reached the score first.
+- D66. Names: 1 to 20 letters, spaces, hyphens, apostrophes, or periods. The same rule is checked in the browser and in the database.
+- D67. All writes go through two database functions, `post_score` and `reset_leaderboard`. Anyone can read the table. Nobody can insert, update, or delete rows directly with the public key. Device keys and the reset code hash sit in a schema the API cannot reach. A full board (500 entries) refuses new names.
+- D68. The reset code is stored only as a bcrypt hash in `setup.sql`. The plain code is not in the repo. It is given to the owner in chat. A wrong code waits 1 second before failing, to slow guessing.
+- D69. Live updates: Supabase Realtime, plus a poll every 5 seconds in case a venue network blocks the live connection.
+- D70. Offline or failed posts: the score was already saved on the device by the quiz. The post is kept as pending and tried again on the next app start and whenever the device comes back online. A post the database refuses (bad name) is not retried.
+- D71. `@supabase/supabase-js` added. It loads only on the leaderboard screen or when a score is posted (separate 214 KB chunk). The main bundle did not grow.
+- D72. The leaderboard is at `/leaderboard` (a Vercel rewrite) and `#/leaderboard`. It uses a wide layout and hides the small app bar so all 10 rows and the QR code fit on a 1280 x 720 projector. The footer stays.
+- D73. The QR code on the leaderboard is `app/public/qr.svg`, written by the same script as the slides, so both always match. The URL under it comes from `app/public/qr.json`.
+- D74. The settings are `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (Vercel production env, and `app/.env.local` for local builds). With no settings, the post section is hidden and the leaderboard says it is not connected. The anon key is public by design. The rules in `setup.sql` are what protect the data.
+- D75. Order of work: the owner asked to be asked for the Supabase URL and key, and also to run /ship at the end. To avoid waiting, everything ships first with the leaderboard not yet connected. After the owner sends the URL and key, they go into Vercel and a redeploy turns the feature on.
+- D76. Not covered: a player could post a made-up score with the public key. The reset control is for clearing test or bad entries before the session.
 
 ## Deploys
 
