@@ -195,3 +195,35 @@ Outputs: `.claude/skills/{journey-to-spec,spec-to-plan,implement-feature,test-fe
 | articles.json | 763 | all non-recipe resources |
 | faqs.json | 26 | question, answer, url |
 | ingredients.json | 99 | from 147 statements. 68 mashbooh, 22 haram, 3 halal, 3 depends on source, 3 with sources that disagree (gelatin, lecithin, mono and diglycerides) |
+
+## Stage 4: Build and deploy the app
+
+Date: 2026-10-04. Instruction: build and deploy "The Halal Way" end to end without approval stops, five features in order, each through the four project skills, then PWA, a /ship command, a Vercel production deploy, and a QR code. Full decisions are in `notes/build-log.md`.
+
+### Steps another person can repeat
+
+1. **Keep a build log from the first minute.** A status table at the top and numbered decisions below. It lets the work continue after a break or a context reset.
+2. **Run each feature through spec, plan, implement, test.** One spec with testable criteria, one plan with small steps, one commit per step, one test report with screenshots at phone width.
+3. **Write a shared test harness once.** Every feature test uses the same viewport, records pass or fail per criterion, and keeps going after a failure. A small script turns the results into the report table.
+4. **Make the safety rules into tests.** The fixed missing-item message, the absence of "not halal" anywhere else, word-for-word lesson text, quiz quotes found in the source, and no diet or health words in app text are all checked by code.
+5. **Check generated content at build time.** The quiz is written for the demo, so a script fails the build if a quote drifts from the FAQ text.
+6. **Run OCR on the device.** Serve the OCR engine and language data from the app itself. Load it only when the photo option is used.
+7. **Precache the data for offline use.** Test offline by loading once, cutting the network, and opening every screen.
+8. **Deploy to the production domain, not a preview URL.** Read the production URL from the deploy output. Make the QR code only from that URL, and decode it to check.
+9. **Put the release steps in one command.** Build, test, commit, deploy, QR check, and a live smoke test, in that order, stopping on the first failure.
+
+### Problems hit
+
+- The PWA plugin refused to build when the 4 MB OCR files matched the precache pattern. Fixed by excluding them and caching them on first use.
+- The first OCR trial timed out because the dev server reloaded the page to optimize a new dependency. A second run worked. Tests run against the production preview, which does not do this.
+- Two first-run test failures: one wrong test (it expected an exact phrase where search matches words) and one real issue (a 34px link). Both are recorded in the product-check test report.
+- The crawl flattened the bulleted list in the FAQ "What is halal?" into running text. The lesson shows it as stored. The fix belongs in the crawl export.
+
+### Results
+
+| Item | Result |
+|---|---|
+| Features | 5 of 5 built. Feature tests 62 of 62 criteria pass. |
+| Live URL | https://the-halal-way.vercel.app |
+| Live smoke test | 8 of 8 pass, including offline |
+| For review | `app/public/data/quiz.json` (18 questions written for the demo) |

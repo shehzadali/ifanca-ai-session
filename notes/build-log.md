@@ -114,3 +114,4 @@ The skills say to show the user the criteria or the plan and ask before moving o
 | Date | Commit | URL | Live smoke |
 |---|---|---|---|
 | 2026-10-04 | 1255a30 (first deploy, before the ship command was committed) | https://the-halal-way.vercel.app | 8 of 8 pass |
+| 2026-10-04 | c172bc9 (dry run of the /ship steps, nothing new to commit) | https://the-halal-way.vercel.app, unchanged, QR not regenerated | 8 of 8 pass |
