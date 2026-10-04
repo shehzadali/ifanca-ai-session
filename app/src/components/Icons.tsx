@@ -66,6 +66,14 @@ export const ReadIcon = (p: P) => (
   </Svg>
 )
 
+export const HomeIcon = (p: P) => (
+  <Svg {...p}>
+    <path d="M3.5 10.5 12 3.5l8.5 7" />
+    <path d="M5.5 9v11h13V9" />
+    <path d="M10 20v-5.5h4V20" />
+  </Svg>
+)
+
 export const PersonIcon = (p: P) => (
   <Svg {...p}>
     <circle cx="12" cy="8.5" r="4" />
