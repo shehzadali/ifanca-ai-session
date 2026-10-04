@@ -9,8 +9,8 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Foundation (routing, shared components) | done | 8492252 |
 | Feature 1 product-check | done, 12 of 12 pass | 96e4f81 to 573192d |
 | Feature 2 ingredient-check | done, 15 of 15 pass | spec 9b06901 to report |
-| Feature 3 learn-halal | in progress | |
-| Feature 4 cook | not started | |
+| Feature 3 learn-halal | done, 13 of 13 pass | 476fcd0 to report |
+| Feature 4 cook | in progress | |
 | Feature 5 read | not started | |
 | PWA (manifest, icons, offline, noindex) | not started | |
 | /ship command and smoke test | not started | |
@@ -61,3 +61,13 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D22. The Not found box sits above the ingredient cards so both parts of the answer show without long scrolling.
 - D23. Photos are shrunk to a 2000px long side before OCR. English only. The OCR files (about 7 MB on first use) are cached by the service worker on first use, so the Photo tab works offline only after one use.
 - D24. "Take a photo" uses the camera input. "Choose a photo" opens the photo library. Both read on the device.
+
+### Feature 3 learn-halal
+
+- D25. quiz.json did not exist. It was written in this build: 18 questions, 6 per level. Each question quotes one sentence from one FAQ answer and links that FAQ. Questions that touch a status start with "According to IFANCA". **IFANCA should review it before any wider use.**
+- D26. `scripts/check-quiz.mjs` runs before every build. The build fails if a quote is not word for word in its FAQ answer, a FAQ link is unknown, or the count is outside 15 to 20.
+- D27. Levels are three quiz rounds: Beginner, Learner, Advocate. Beginner is open. A round opens when the round before it is passed with 4 or more of 6. "Your level" is the highest round passed. Saved in localStorage (`thw.quiz`).
+- D28. Lesson order: five topic groups (Halal basics, Ingredients, Eating out, Certification for companies, IFANCA policies), starting with "What is halal?". Grouping only. Text is unchanged.
+- D29. Lessons are split into paragraphs of about 60 words at sentence breaks. No words change. The test joins the paragraphs and compares with faqs.json for all 26.
+- D30. The crawl flattened the bulleted list in "What is halal?" into running text. The app shows it as stored. Fix belongs in the crawl export.
+- D31. Opening a lesson marks it read (`thw.learn.read`). No separate "mark as read" button.
