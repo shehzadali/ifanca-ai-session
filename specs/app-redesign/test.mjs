@@ -91,7 +91,8 @@ try {
   await run('app-redesign', [
     [1, 'Logo in the header, tiles have one line each', async ({ page }) => {
       await go(page, '')
-      assert((await page.locator('main svg[aria-label="The Halal Way logo"]').count()) === 1, 'no logo on home')
+      // Since feedback-2 the home header box is gone. The logo is in the top bar and on the splash.
+      assert((await page.locator('header svg[aria-label="The Halal Way logo"]').count()) === 1, 'no logo on home')
       const tiles = await page.locator('[data-testid=tile]').all()
       for (const t of tiles) {
         const lines = (await t.innerText()).split('\n').filter((l) => l.trim())
@@ -104,7 +105,7 @@ try {
     }],
     [2, 'Learn and quiz first, then the given order', async ({ page }) => {
       const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
-      const want = ['Learn and quiz', 'Check a product', 'Check ingredients', 'Recipes', 'Meal plan', 'Read']
+      const want = ['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']
       assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
     }],
     [3, 'Level bar shows Beginner and at least one third', async ({ page }) => {
@@ -224,10 +225,14 @@ try {
       await go(page, 'plan')
       await page.click('[data-testid=day-Wednesday]')
       await page.waitForSelector('[data-testid=day-view]')
+      // Since feedback-2 the day lists recipes like the Recipes section. A recipe page adds it to the day.
       await page.fill('input[type=search]', 'lentil')
-      const first = page.locator('[data-testid=add-results] li').first()
-      const title = (await first.locator('span span').first().innerText()).trim()
-      await first.getByRole('button').click()
+      const first = page.locator('[data-testid=recipe-row]').first()
+      const title = (await first.locator('span').first().innerText()).trim()
+      await first.click()
+      await page.getByRole('button', { name: 'Add to Wednesday' }).click()
+      await page.getByRole('link', { name: 'Back to Wednesday' }).first().click()
+      await page.waitForSelector('[data-testid=planned]')
       assert((await page.textContent('[data-testid=planned]')).includes(title), 'not in day')
       await page.reload()
       await page.waitForSelector('[data-testid=planned]')
@@ -236,6 +241,7 @@ try {
     }],
     [13, 'Offline after one visit: home, sections, Settings, profile, fonts', async ({ page }) => {
       const ctx = await page.context().browser().newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })
+      await ctx.addInitScript(() => sessionStorage.setItem('thw.splash', '1'))
       const p = await ctx.newPage()
       try {
         await p.goto(`${BASE}/`)

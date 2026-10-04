@@ -89,18 +89,17 @@ await run('cook', [
   [7, 'Add to Tuesday shows in the meal plan', async ({ page }) => {
     await page.getByRole('button', { name: 'Add to meal plan' }).click()
     await page.getByRole('button', { name: 'Tuesday' }).click()
-    await page.getByRole('link', { name: 'See the meal plan' }).click()
-    await page.waitForSelector('[data-testid=day-Tuesday]')
-    assert((await page.textContent('[data-testid=day-Tuesday]')).includes(target.title), 'not in Tuesday')
+    // Since feedback-2 the link after adding opens that day.
+    await page.getByRole('link', { name: 'Back to Tuesday' }).click()
+    await page.waitForSelector('[data-testid=planned]')
+    assert((await page.textContent('[data-testid=planned]')).includes(target.title), 'not in Tuesday')
   }],
   [8, 'Meal plan survives a reload', async ({ page }) => {
     await page.reload()
-    await page.waitForSelector('[data-testid=day-Tuesday]')
-    assert((await page.textContent('[data-testid=day-Tuesday]')).includes(target.title), 'lost after reload')
+    await page.waitForSelector('[data-testid=planned]')
+    assert((await page.textContent('[data-testid=planned]')).includes(target.title), 'lost after reload')
   }],
   [9, 'Remove takes it out of the plan', async ({ page }) => {
-    await page.click('[data-testid=day-Tuesday]')
-    await page.waitForSelector('[data-testid=day-view]')
     await page.getByRole('button', { name: `Remove ${target.title} from Tuesday` }).click()
     assert((await page.textContent('[data-testid=day-view]')).includes('Nothing planned yet'), 'still planned')
   }],

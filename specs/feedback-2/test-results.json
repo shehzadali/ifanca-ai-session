@@ -1,0 +1,93 @@
+{
+  "feature": "feedback-2",
+  "date": "2026-10-04",
+  "commit": "849088a",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Splash shows logo and texts, and is gone within 3 seconds",
+      "result": "Pass",
+      "notes": "gone after 2.9 s from navigation"
+    },
+    {
+      "n": 2,
+      "text": "A tap closes the splash",
+      "result": "Pass",
+      "notes": "closed 361 ms after the tap"
+    },
+    {
+      "n": 3,
+      "text": "Splash shows once per session",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 4,
+      "text": "Reduced motion: no movement, gone within 1.5 seconds",
+      "result": "Pass",
+      "notes": "no animated parts, gone after 1.1 s"
+    },
+    {
+      "n": 5,
+      "text": "No header box on home, Learn and Quiz first",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "text": "Title case headings",
+      "result": "Pass",
+      "notes": "8 screen titles, nav, tiles, and the leaderboard match. Learn section headings use CSS uppercase."
+    },
+    {
+      "n": 7,
+      "text": "Day view shows the Recipes list",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 8,
+      "text": "Search lentil, tap a row, the recipe page opens",
+      "result": "Pass",
+      "notes": "Maash Ki Daal"
+    },
+    {
+      "n": 9,
+      "text": "Back to Wednesday and Add to Wednesday",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "Add, then back: listed under Wednesday",
+      "result": "Pass",
+      "notes": "Maash Ki Daal"
+    },
+    {
+      "n": 11,
+      "text": "A planned recipe opens its page",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 12,
+      "text": "From Recipes, the day picker is unchanged",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 13,
+      "text": "390px layout and tap targets",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 14,
+      "text": "Earlier tests pass with the new headings and routes",
+      "result": "Pass",
+      "notes": "product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13, app-redesign 15/15"
+    }
+  ],
+  "consoleErrors": []
+}

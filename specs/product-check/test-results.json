@@ -1,7 +1,7 @@
 {
   "feature": "product-check",
   "date": "2026-10-04",
-  "commit": "26761c8",
+  "commit": "849088a",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -50,7 +50,7 @@
       "n": 8,
       "text": "Results update within 100 ms with 4x CPU slowdown",
       "result": "Pass",
-      "notes": "47 ms"
+      "notes": "77 ms"
     },
     {
       "n": 9,

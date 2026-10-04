@@ -208,7 +208,7 @@ try {
     }],
     [10, '/leaderboard path opens the screen', async ({ page }) => {
       await page.goto(`${MOCKED}/leaderboard`)
-      assert((await page.locator('h2').innerText()) === 'Room leaderboard', 'title')
+      assert((await page.locator('h2').innerText()) === 'Room Leaderboard', 'title')
       await page.setViewportSize({ width: 390, height: 844 })
     }],
     [11, 'Without settings the feature is hidden', async ({ newPage, setPage }) => {

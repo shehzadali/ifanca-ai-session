@@ -14,7 +14,7 @@ await run('learn-halal', [
   [1, 'Tile reads Learn and quiz and opens Learn', async ({ page }) => {
     await go(page, '')
     const tile = page.locator('a[href="#/learn"]')
-    assert((await tile.innerText()).includes('Learn and quiz'), 'tile label')
+    assert((await tile.innerText()).includes('Learn and Quiz'), 'tile label')
     await tile.click()
     await page.waitForSelector('[data-testid=lesson-row]')
     assert(page.url().endsWith('#/learn'), page.url())

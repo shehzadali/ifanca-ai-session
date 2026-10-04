@@ -19,6 +19,7 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Live smoke test | done, 8 of 8 pass | 2026-10-04 |
 | Feature 6 room-leaderboard | done, connected to Supabase | project qfsryjrqgsarogapkspo |
 | Redesign (owner feedback) | done, 15 of 15 pass, earlier tests rerun and pass | owner to run `supabase/002_profiles.sql` for avatars |
+| Feedback 2 (splash, title case, meal plan day) | done, 14 of 14 pass, all earlier tests rerun and pass | |
 
 ## How each feature is built
 
@@ -162,6 +163,17 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D96. Sign out removes the profile, quiz progress, and the leaderboard device key, so the next person on the same phone gets a new entry. Lessons read and the meal plan stay.
 - D97. `supabase/002_profiles.sql` adds the avatar column (preset ids only, checked by pattern), the wider name rule, and a five-argument `post_score`. The first `post_score` stays for older copies. Until the owner runs 002, the app falls back to the old function and shows initials on the leaderboard. A name with numbers or an underscore is refused by the old function until 002 runs.
 - D98. Test safety: the feature tests now build without the Supabase settings (a test finishes quiz rounds, which would post to the live board). The smoke test answers one question only.
+
+### Feedback 2 (2026-10-04)
+
+- D99. The home header box became a splash screen. It is plain HTML and CSS in `index.html`, so it paints on the first frame while the app code loads, instead of adding a wait. Animation: the lattice fades in, the two squares of the star draw themselves while turning in from opposite sides, the leaf grows, a glow pulses, then the title and line rise. It fades out after about 2 seconds. A tap closes it at once.
+- D100. The splash shows once per app session (a new tab or a fresh launch of the installed app), not on every screen change or reload. It never shows on the projector leaderboard. With reduce motion set on the device it shows still and closes after 0.7 seconds.
+- D101. Home now starts with the Learn and Quiz tile. The logo stays in the top bar.
+- D102. Title case for section names, screen headings, in-screen headings, and the Learn section groups, with small words (a, and, to, for, of) in lower case. Titles written by IFANCA, buttons, filter chips, and sentences are unchanged.
+- D103. Meal Plan day view: "Add a Recipe" is the same list as the Recipes section (search, Main Ingredient chips, "8 or fewer ingredients", count, rows, Show more). Tapping a row opens the full recipe page. The old Add buttons in the list were removed, as the owner asked.
+- D104. A recipe opened from a day uses the route `#/recipes/<slug>/for/<Day>`. Its page shows "Back to <Day>", a main "Add to <Day>" button (disabled as "Added to <Day>" once added), and "Choose another day" for the picker. The bottom navigation marks Meal Plan.
+- D105. On any recipe page, the link after adding now reads "Back to <Day>" and opens that day, instead of the week view.
+- D106. Tests skip the splash through a session flag, except the splash tests, which use fresh browser contexts.
 
 ## Deploys
 

@@ -87,6 +87,10 @@
 14. Given any screen at 390px, then nothing scrolls sideways and tap targets are at least 44px. Body text keeps a contrast ratio of at least 4.5 to 1 in both themes.
 15. Given the earlier feature tests (product-check, ingredient-check, learn-halal, cook, read, room-leaderboard), when they are run again after the redesign with updated selectors, then they pass.
 
+### Change on 2026-10-04: feedback-2
+
+Headings are now in title case, the home header box became a splash screen, and the Meal Plan day lists recipes like the Recipes section. Test 2 and test 12 were updated to match. See `specs/feedback-2/spec.md`.
+
 ## Data needed
 
 - All existing files in `app/public/data/`. No new data.

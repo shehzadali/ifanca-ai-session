@@ -13,6 +13,8 @@ const results = []
 const errors = []
 const browser = await chromium.launch()
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true })
+// The splash shows once per session. The smoke test starts past it.
+await ctx.addInitScript(() => sessionStorage.setItem('thw.splash', '1'))
 const page = await ctx.newPage()
 page.on('pageerror', (e) => errors.push(String(e)))
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
@@ -43,9 +45,9 @@ async function check(name, fn) {
 await check('home: logo, six tiles in order, footer', async () => {
   await go('')
   const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
-  const want = ['Learn and quiz', 'Check a product', 'Check ingredients', 'Recipes', 'Meal plan', 'Read']
+  const want = ['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']
   assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
-  assert((await page.locator('main svg[aria-label="The Halal Way logo"]').count()) === 1, 'logo')
+  assert((await page.locator('header svg[aria-label="The Halal Way logo"]').count()) === 1, 'logo')
   await common()
 })
 
@@ -102,7 +104,8 @@ await check('recipes and meal plan: list, recipe, add to a day', async () => {
   await page.getByRole('button', { name: 'Friday' }).click()
   await go('plan/Wednesday')
   await page.fill('input[type=search]', 'lentil')
-  await page.locator('[data-testid=add-results] button').first().click()
+  await page.locator('[data-testid=recipe-row]').first().click()
+  await page.getByRole('button', { name: 'Add to Wednesday' }).click()
   await go('plan')
   assert(!(await page.textContent('[data-testid=day-Friday]')).includes('Nothing planned'), 'Friday')
   assert(!(await page.textContent('[data-testid=day-Wednesday]')).includes('Nothing planned'), 'Wednesday')
@@ -122,7 +125,7 @@ await check('read: themes and dates', async () => {
 await check('room-leaderboard: /leaderboard path and QR code', async () => {
   await page.goto(`${BASE}/leaderboard`)
   await page.waitForSelector('[data-testid=qr-panel]')
-  assert((await page.locator('h2').innerText()) === 'Room leaderboard', 'title')
+  assert((await page.locator('h2').innerText()) === 'Room Leaderboard', 'title')
   assert(await page.locator('[data-testid=qr]').evaluate((i) => i.complete && i.naturalWidth > 0), 'QR image')
   const connected = (await page.locator('[data-testid=live-status]').count()) > 0
   await common()
