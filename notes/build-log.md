@@ -8,8 +8,8 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 |---|---|---|
 | Foundation (routing, shared components) | done | 8492252 |
 | Feature 1 product-check | done, 12 of 12 pass | 96e4f81 to 573192d |
-| Feature 2 ingredient-check | in progress | |
-| Feature 3 learn-halal | not started | |
+| Feature 2 ingredient-check | done, 15 of 15 pass | spec 9b06901 to report |
+| Feature 3 learn-halal | in progress | |
 | Feature 4 cook | not started | |
 | Feature 5 read | not started | |
 | PWA (manifest, icons, offline, noindex) | not started | |
@@ -49,3 +49,15 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D13. No marketplace or country filter. Cut to keep the screen simple. Search does not cover "Sold in".
 - D14. The empty state links to the current list on ifanca.org and to the ingredient check.
 - D15. The source list repeats a product once per country. Shown as published, not merged.
+
+### Feature 2 ingredient-check
+
+- D16. Matching is on whole words, case ignored. Only spelling variants are matched: hyphens and spaces, "and", "&", or "/" between words, an optional final "s", and E-numbers written as "E471", "E 471", or "E-471".
+- D17. Three names were merged by the Stage 3 export from several printed spellings. The matcher accepts those spellings: "Artificial and natural flavors" matches "natural flavors", "artificial flavors", and "artificial/natural flavors". The same for colorings. "Yellow No. 5" matches "Yellow 5" and "Yellow #5".
+- D18. Longest name wins. "Mono and diglycerides" is not also shown as "Monoglycerides".
+- D19. "Alcohol" matches inside "sugar alcohol". Left as is, because the card shows IFANCA's context ("Listed for Mouth Wash"), so the reader can judge.
+- D20. Status words come from ingredients.json and are labeled "Recorded status in this source". The mapping of IFANCA's headings to status words was made in Stage 3 and is shown next to the heading text.
+- D21. Side by side at 390px: one column per recorded status, in a row that scrolls sideways inside the card, with a line that says how many columns there are. Three full columns do not fit on a phone. On wider screens the columns share the width.
+- D22. The Not found box sits above the ingredient cards so both parts of the answer show without long scrolling.
+- D23. Photos are shrunk to a 2000px long side before OCR. English only. The OCR files (about 7 MB on first use) are cached by the service worker on first use, so the Photo tab works offline only after one use.
+- D24. "Take a photo" uses the camera input. "Choose a photo" opens the photo library. Both read on the device.
