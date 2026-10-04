@@ -38,7 +38,7 @@
 ## Steps
 
 - [x] 1. `setup.sql` and `test-setup.sh`. Run the local test. (AC 12, and the server side of AC 2, 3, 8, 9)
-- [ ] 2. `board.ts`, `PostScore`, the Quiz change, and the dependency. (AC 1, 2, 3, 4, 5, 11)
+- [x] 2. `board.ts`, `PostScore`, the Quiz change, and the dependency. (AC 1, 2, 3, 4, 5, 11)
 - [ ] 3. Leaderboard screen, path route, rewrite, QR file, and reset control. (AC 6, 7, 8, 9, 10, 11, 13)
 
 ## Test cases

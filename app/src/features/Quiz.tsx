@@ -3,6 +3,7 @@ import { useData } from '../lib/data'
 import { slugOf } from '../lib/lessons'
 import { useStored } from '../lib/storage'
 import { EMPTY_QUIZ, QUIZ_KEY, type QuizState } from './Learn'
+import PostScore from './PostScore'
 
 type Question = {
   id: string
@@ -48,6 +49,9 @@ export default function Quiz({ round }: { round?: string }) {
         name={round}
         questions={data.items.filter((q) => q.level === round)}
         next={data.levels[data.levels.indexOf(round) + 1]}
+        total={data.levels.reduce((n, l) => n + (state.best[l] ?? 0), 0)}
+        max={data.items.length}
+        level={state.level}
         onDone={(score) =>
           setState((s) => {
             const best = { ...s.best, [round]: Math.max(score, s.best[round] ?? 0) }
@@ -120,11 +124,17 @@ function Round({
   name,
   questions,
   next,
+  total,
+  max,
+  level,
   onDone,
 }: {
   name: string
   questions: Question[]
   next?: string
+  total: number
+  max: number
+  level: string | null
   onDone: (score: number) => void
 }) {
   const [index, setIndex] = useState(0)
@@ -144,6 +154,7 @@ function Round({
         <p className="mt-2 text-[15px]">
           {passed ? `Round passed. Your level is now ${name} or higher.` : `Get ${PASS} or more right to pass. Read the lessons and try again.`}
         </p>
+        <PostScore total={total} max={max} level={level} />
         <div className="mt-4 grid gap-2">
           {passed && next && (
             <a href={`#/learn/quiz/${next}`} className="flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-white">

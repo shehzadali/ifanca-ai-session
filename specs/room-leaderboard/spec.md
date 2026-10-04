@@ -8,7 +8,7 @@
 
 ### Post your score (on the quiz round result screen)
 
-- Shown under the score after any round, once the player has a level.
+- Shown under the score after any round, passed or not, so everyone in the room can take part.
 - Text: "Room leaderboard. Your total is <n> of 18." The total is the sum of the best score in each round.
 - A "First name" field (1 to 20 characters) and a "Post my score" button, both at least 44px tall.
 - After posting: "Posted as <name>." Posting again later updates the same entry. The best total is kept.

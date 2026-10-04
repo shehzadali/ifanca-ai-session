@@ -27,3 +27,4 @@ dist-ssr
 public/tesseract/
 .vercel
 .env*
+!.env.example

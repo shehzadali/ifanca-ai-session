@@ -1,0 +1,145 @@
+// Room leaderboard on Supabase. The client library loads only when the leaderboard is used.
+// Scores always stay on the device first. Posting is a copy for the room screen.
+import type { SupabaseClient } from '@supabase/supabase-js'
+import { readStored, writeStored } from './storage'
+
+const URL = import.meta.env.VITE_SUPABASE_URL ?? ''
+const KEY = import.meta.env.VITE_SUPABASE_ANON_KEY ?? ''
+export const boardConfigured = Boolean(URL && KEY)
+
+export type Entry = { id: string; name: string; score: number; level: string | null; updated_at: string }
+
+export type BoardState = {
+  deviceId: string
+  name: string
+  postedTotal: number | null
+  pending: { name: string; total: number; level: string | null } | null
+}
+
+const KEY_BOARD = 'thw.board'
+
+export function readBoard(): BoardState {
+  const s = readStored<Partial<BoardState>>(KEY_BOARD, {})
+  const state: BoardState = {
+    deviceId: s.deviceId || crypto.randomUUID(),
+    name: s.name ?? '',
+    postedTotal: s.postedTotal ?? null,
+    pending: s.pending ?? null,
+  }
+  if (!s.deviceId) writeStored(KEY_BOARD, state)
+  return state
+}
+
+export function writeBoard(state: BoardState) {
+  writeStored(KEY_BOARD, state)
+  window.dispatchEvent(new Event('thw-board'))
+}
+
+// Same rule as the database: 1 to 20 letters, spaces, hyphens, apostrophes, or periods.
+export function cleanName(raw: string): string {
+  return raw.replace(/\s+/g, ' ').trim()
+}
+export function validName(raw: string): boolean {
+  const n = cleanName(raw)
+  return n.length >= 1 && n.length <= 20 && /^\p{L}[\p{L} .'-]*$/u.test(n)
+}
+
+let client: Promise<SupabaseClient> | null = null
+function getClient(): Promise<SupabaseClient> {
+  if (!client) {
+    client = import('@supabase/supabase-js').then(({ createClient }) =>
+      createClient(URL, KEY, { auth: { persistSession: false, autoRefreshToken: false } }),
+    )
+    client.catch(() => (client = null))
+  }
+  return client
+}
+
+export class Refused extends Error {}
+
+async function rpc<T>(fn: string, args: Record<string, unknown>): Promise<T> {
+  const c = await getClient()
+  const { data, error } = await c.rpc(fn, args)
+  if (error) {
+    // P0001 is an error raised on purpose by the database functions. Anything else is treated as a network problem.
+    if (error.code === 'P0001') throw new Refused(error.message)
+    throw new Error(error.message)
+  }
+  return data as T
+}
+
+// Saves the post as pending first, so a failed post can be tried again later.
+export async function postScore(name: string, total: number, level: string | null): Promise<void> {
+  const state = readBoard()
+  const pending = { name: cleanName(name), total, level }
+  writeBoard({ ...state, name: pending.name, pending })
+  await sendPending()
+}
+
+let sending: Promise<void> | null = null
+export function sendPending(): Promise<void> {
+  if (!sending) {
+    sending = (async () => {
+      const state = readBoard()
+      if (!state.pending || !boardConfigured) return
+      const p = state.pending
+      try {
+        await rpc('post_score', { p_device: state.deviceId, p_name: p.name, p_score: p.total, p_level: p.level })
+      } catch (e) {
+        // A refused post will not succeed later, so it is not kept as pending.
+        if (e instanceof Refused) writeBoard({ ...readBoard(), pending: null })
+        throw e
+      }
+      writeBoard({ ...readBoard(), pending: null, postedTotal: p.total })
+    })().finally(() => (sending = null))
+  }
+  return sending
+}
+
+// Try a pending post again on start and whenever the device comes back online.
+export function startPendingRetry() {
+  if (!boardConfigured) return
+  const retry = () => {
+    if (readBoard().pending) sendPending().catch(() => {})
+  }
+  window.addEventListener('online', retry)
+  retry()
+}
+
+export async function topTen(): Promise<Entry[]> {
+  const c = await getClient()
+  const { data, error } = await c
+    .from('leaderboard')
+    .select('id,name,score,level,updated_at')
+    .order('score', { ascending: false })
+    .order('updated_at', { ascending: true })
+    .limit(10)
+  if (error) throw new Error(error.message)
+  return data as Entry[]
+}
+
+export async function resetBoard(code: string): Promise<number> {
+  return rpc<number>('reset_leaderboard', { p_code: code })
+}
+
+// Live changes through Supabase Realtime. Returns a function that stops listening.
+export function watchBoard(onChange: () => void, onStatus: (live: boolean) => void): () => void {
+  let stop = () => {}
+  let stopped = false
+  getClient()
+    .then((c) => {
+      if (stopped) return
+      const channel = c
+        .channel('leaderboard')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'leaderboard' }, () => onChange())
+        .subscribe((status) => onStatus(status === 'SUBSCRIBED'))
+      stop = () => {
+        c.removeChannel(channel)
+      }
+    })
+    .catch(() => onStatus(false))
+  return () => {
+    stopped = true
+    stop()
+  }
+}
