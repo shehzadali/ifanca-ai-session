@@ -79,6 +79,22 @@ def write(name: str, crawl_date: str, source: str, items: list[dict], extra: dic
     return len(items)
 
 
+def load_exclusions() -> dict[str, set[str]]:
+    """URLs to leave out of each app dataset, from crawl/app_exclusions.csv. Each row records a reason."""
+    path = Path(__file__).with_name("app_exclusions.csv")
+    out: dict[str, set[str]] = {}
+    if path.exists():
+        with path.open(newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if not row["reason"].strip():
+                    raise SystemExit(f"app_exclusions.csv: no reason given for {row['url']}")
+                out.setdefault(row["dataset"], set()).add(row["url"])
+    return out
+
+
+EXCLUDED = load_exclusions()
+
+
 def read_csv(name: str) -> list[dict]:
     with (DATA_DIR / name).open(encoding="utf-8") as f:
         return list(csv.DictReader(f))
@@ -172,8 +188,11 @@ def _image(soup: BeautifulSoup) -> str:
 
 def export_recipes() -> tuple[int, list[str]]:
     rows = [r for r in read_csv("resources-themes.csv") if r["type"] == "Recipe"]
-    items, skipped = [], []
+    items, skipped, excluded = [], [], []
     for r in rows:
+        if r["url"] in EXCLUDED.get("recipes.json", set()):
+            excluded.append(r["url"])
+            continue
         soup = cached_html(r["url"])
         if soup is None:
             skipped.append(f"{r['url']} (not cached)")
@@ -202,9 +221,9 @@ def export_recipes() -> tuple[int, list[str]]:
         max(r["crawl_date"] for r in rows),
         "https://ifanca.org/resources/ (type: Recipe)",
         items,
-        {"recipes_in_listing": len(rows), "recipes_skipped": len(skipped)},
+        {"recipes_in_listing": len(rows), "recipes_skipped": len(skipped), "recipes_excluded": len(excluded)},
     )
-    return len(items), skipped
+    return len(items), skipped + [f"{u} (excluded, see crawl/app_exclusions.csv)" for u in excluded]
 
 
 # ---------- articles ----------
@@ -241,17 +260,50 @@ def export_articles() -> int:
 
 # ---------- FAQs ----------
 
+def _flat(fragment: str) -> str:
+    """Answer HTML to plain text. Tags become spaces. Used for the answer and for each block."""
+    fragment = re.sub(r"</(li|p)>|<br\s*/?>", "\n", fragment)
+    return clean(re.sub(r"<[^>]+>", " ", fragment))
+
+
+def _blocks(answer_html: str) -> list[dict]:
+    """Paragraph and list structure of an answer, from the cached HTML. Formatting only.
+
+    Lists come from <ul> and <ol>. Other text is split into paragraphs at <p> tags and blank lines,
+    which is how WordPress stores paragraphs. The words are the same as in "answer".
+    """
+    blocks: list[dict] = []
+    for part in re.split(r"(<(?:ul|ol)\b[^>]*>.*?</(?:ul|ol)>)", answer_html, flags=re.S):
+        m = re.match(r"<(ul|ol)\b", part)
+        if m:
+            items = [_flat(li) for li in re.findall(r"<li\b[^>]*>(.*?)</li>", part, flags=re.S)]
+            blocks.append({"type": m.group(1), "items": [i for i in items if i]})
+            continue
+        for para in re.split(r"</?p\b[^>]*>|\n\s*\n", part):
+            text = _flat(para)
+            if text:
+                blocks.append({"type": "p", "text": text})
+    return blocks
+
+
+def _block_text(blocks: list[dict]) -> str:
+    return " ".join(b["text"] if b["type"] == "p" else " ".join(b["items"]) for b in blocks)
+
+
 def load_faqs() -> tuple[list[dict], str]:
     faqs, dates = [], []
     for path in sorted((RAW_DIR / "faq").glob("page_*.json")):
         dates.append(file_date(path))
         for post in json.loads(path.read_text(encoding="utf-8"))["posts"].values():
-            answer = re.sub(r"</(li|p)>|<br\s*/?>", "\n", post["answer"])
-            answer = re.sub(r"<[^>]+>", " ", answer)
+            answer = _flat(post["answer"])
+            blocks = _blocks(post["answer"])
+            if _block_text(blocks) != answer:
+                raise SystemExit(f"FAQ blocks do not match the answer text: {post['tocopylink']}")
             faqs.append(
                 {
                     "question": clean(post["question"]),
-                    "answer": clean(answer),
+                    "answer": answer,
+                    "blocks": blocks,
                     "url": post["tocopylink"],
                 }
             )
