@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Screen from '../components/Screen'
+import MealPlan, { AddToPlan, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
 type RawRecipe = {
@@ -62,6 +63,13 @@ export default function Cook({ params }: { params: string[] }) {
   if (!recipes) return <Screen title="Cook">Loading...</Screen>
   const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
   if (recipe) return <RecipeView recipe={recipe} date={date} />
+  if (params[0] === 'plan') {
+    return (
+      <Screen title="Meal plan" back={{ href: '#/cook', label: 'All recipes' }} snapshot={date} sourceUrl={SOURCE}>
+        <MealPlan recipes={recipes} />
+      </Screen>
+    )
+  }
   return (
     <Screen title="Cook" snapshot={date} sourceUrl={SOURCE}>
       <RecipeList recipes={recipes} />
@@ -101,10 +109,19 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
   }, [recipes, query, main, few])
 
   const reset = () => setLimit(PAGE)
+  const { count } = useMealPlan()
 
   return (
     <div>
       <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>
+      <a
+        href="#/cook/plan"
+        className="mt-3 flex h-12 items-center justify-between rounded-xl border border-line bg-card px-4 font-medium text-brand"
+        data-testid="plan-link"
+      >
+        <span>My meal plan</span>
+        <span className="text-[14px] text-muted">{count} planned</span>
+      </a>
 
       <input
         type="search"
@@ -188,6 +205,7 @@ function RecipeView({ recipe, date }: { recipe: Recipe; date: string }) {
   return (
     <Screen title={recipe.title} back={{ href: '#/cook', label: 'All recipes' }} snapshot={date}>
       {source}
+      <AddToPlan url={recipe.url} />
 
       <h3 className="mt-5 text-lg font-semibold">Ingredients</h3>
       <ul className="mt-2 space-y-1.5 text-[16px] leading-snug" data-testid="ingredients">

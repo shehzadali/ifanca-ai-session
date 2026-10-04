@@ -28,7 +28,7 @@
 
 - [x] 1. Route, tile subtitle, recipe list with search, chips, count, and show more. (AC 1, 2, 3, 4, 5, 11)
 - [x] 2. Recipe screen with unchanged ingredients and steps, source link, and date. (AC 6, 10)
-- [ ] 3. Meal plan hook, Add to meal plan, and the meal plan screen. (AC 7, 8, 9, 12)
+- [x] 3. Meal plan hook, Add to meal plan, and the meal plan screen. (AC 7, 8, 9, 12)
 
 ## Test cases
 
