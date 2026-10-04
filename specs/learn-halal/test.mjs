@@ -13,7 +13,7 @@ const lessonText = (page) => page.locator('[data-testid=lesson-text] [data-text]
 await run('learn-halal', [
   [1, 'Tile reads Learn and quiz and opens Learn', async ({ page }) => {
     await go(page, '')
-    const tile = page.locator('a[href="#/learn"]')
+    const tile = page.locator('main a[href="#/learn"]')
     assert((await tile.innerText()).includes('Learn and Quiz'), 'tile label')
     await tile.click()
     await page.waitForSelector('[data-testid=lesson-row]')

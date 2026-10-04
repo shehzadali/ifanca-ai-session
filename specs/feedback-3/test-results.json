@@ -1,0 +1,75 @@
+{
+  "feature": "feedback-3",
+  "date": "2026-10-04",
+  "commit": "d0b0226",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Splash on load and again on reload",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "text": "Logo tap from a section plays the splash, then shows home",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 3,
+      "text": "Logo tap on home plays the splash again",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 4,
+      "text": "Home in the navigation: home, no splash",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 5,
+      "text": "Navigation on home: seven items, Home marked",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "text": "In a section: Home first, section marked",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 7,
+      "text": "Tap closes a logo splash at once",
+      "result": "Pass",
+      "notes": "closed 429 ms after the tap"
+    },
+    {
+      "n": 8,
+      "text": "Reduced motion on load and on a logo tap",
+      "result": "Pass",
+      "notes": "load 1.1 s, logo tap 1.0 s"
+    },
+    {
+      "n": 9,
+      "text": "No splash on the projector",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 10,
+      "text": "390px: no side scroll, nav items 44px, labels fit",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 11,
+      "text": "Earlier tests pass after the change",
+      "result": "Pass",
+      "notes": "product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13, app-redesign 15/15, feedback-2 14/14"
+    }
+  ],
+  "consoleErrors": []
+}

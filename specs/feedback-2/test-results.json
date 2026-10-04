@@ -1,7 +1,7 @@
 {
   "feature": "feedback-2",
   "date": "2026-10-04",
-  "commit": "849088a",
+  "commit": "d0b0226",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -14,11 +14,11 @@
       "n": 2,
       "text": "A tap closes the splash",
       "result": "Pass",
-      "notes": "closed 361 ms after the tap"
+      "notes": "closed 427 ms after the tap"
     },
     {
       "n": 3,
-      "text": "Splash shows once per session",
+      "text": "No splash on screen changes or the projector (since feedback-3 it plays on every load)",
       "result": "Pass",
       "notes": ""
     },

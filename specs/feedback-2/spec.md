@@ -58,6 +58,10 @@
 13. Given any screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 14. Given the earlier tests, when rerun with the new headings and routes, then they pass.
 
+### Change on 2026-10-04: feedback-3
+
+The owner asked for the splash on every app load and on a tap of the top-left logo, so criterion 3 now covers screen changes and the projector only. The bottom navigation gained Home. See `specs/feedback-3/spec.md`.
+
 ## Data needed
 
 - `app/public/data/recipes.json` (340 recipes). No new data.

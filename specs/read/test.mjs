@@ -14,7 +14,7 @@ async function search(page, t) {
 await run('read', [
   [1, 'Read tile opens the screen with search and theme chips', async ({ page }) => {
     await go(page, '')
-    await page.locator('a[href="#/read"]').click()
+    await page.locator('main a[href="#/read"]').click()
     await page.waitForSelector('[data-testid=result-count]')
     assert(page.url().endsWith('#/read'), page.url())
     assert((await page.locator('[data-testid=themes] button').count()) === 7, 'chip count')

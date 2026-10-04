@@ -1,7 +1,7 @@
 {
   "feature": "room-leaderboard",
   "date": "2026-10-04",
-  "commit": "849088a",
+  "commit": "d0b0226",
   "base": "http://localhost:4173",
   "results": [
     {

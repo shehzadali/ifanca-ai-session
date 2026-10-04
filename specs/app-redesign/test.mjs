@@ -137,13 +137,15 @@ try {
     [5, 'Bottom navigation inside sections', async ({ page }) => {
       await go(page, 'product')
       const nav = page.locator('nav[aria-label=Sections] a')
-      assert((await nav.count()) === 6, `${await nav.count()} items`)
+      // Since feedback-3: Home plus six sections.
+      assert((await nav.count()) === 7, `${await nav.count()} items`)
       assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/product', 'current')
       await page.locator('nav[aria-label=Sections] a[href="#/read"]').click()
       await page.waitForSelector('[data-testid=article-card]')
       assert(page.url().endsWith('#/read'), page.url())
       await go(page, '')
-      assert((await page.locator('nav[aria-label=Sections]').count()) === 0, 'nav shown on home')
+      // Since feedback-3 the navigation also shows on home, with Home marked.
+      assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/', 'Home not marked')
     }],
     [6, 'Avatar button opens Settings', async ({ page }) => {
       await go(page, 'recipes')
@@ -241,7 +243,7 @@ try {
     }],
     [13, 'Offline after one visit: home, sections, Settings, profile, fonts', async ({ page }) => {
       const ctx = await page.context().browser().newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })
-      await ctx.addInitScript(() => sessionStorage.setItem('thw.splash', '1'))
+      await ctx.addInitScript(() => sessionStorage.setItem('thw.splash.skip', '1'))
       const p = await ctx.newPage()
       try {
         await p.goto(`${BASE}/`)

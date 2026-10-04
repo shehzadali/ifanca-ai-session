@@ -13,8 +13,8 @@ const results = []
 const errors = []
 const browser = await chromium.launch()
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true })
-// The splash shows once per session. The smoke test starts past it.
-await ctx.addInitScript(() => sessionStorage.setItem('thw.splash', '1'))
+// The splash plays on every load. The smoke test starts past it.
+await ctx.addInitScript(() => sessionStorage.setItem('thw.splash.skip', '1'))
 const page = await ctx.newPage()
 page.on('pageerror', (e) => errors.push(String(e)))
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))

@@ -91,6 +91,10 @@
 
 Headings are now in title case, the home header box became a splash screen, and the Meal Plan day lists recipes like the Recipes section. Test 2 and test 12 were updated to match. See `specs/feedback-2/spec.md`.
 
+### Change on 2026-10-04: feedback-3
+
+The bottom navigation now has seven items (Home first) and also shows on home. Test 5 was updated to match.
+
 ## Data needed
 
 - All existing files in `app/public/data/`. No new data.

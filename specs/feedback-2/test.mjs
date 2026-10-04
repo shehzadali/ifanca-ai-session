@@ -44,15 +44,14 @@ await run('feedback-2', [
       await ctx.close()
     }
   }],
-  [3, 'Splash shows once per session', async ({ page }) => {
+  [3, 'No splash on screen changes or the projector (since feedback-3 it plays on every load)', async ({ page }) => {
     const [ctx, p] = await fresh(page)
     try {
       await p.goto(`${BASE}/`)
       await p.waitForSelector('#splash', { state: 'detached', timeout: 4000 })
-      await p.goto(`${BASE}/#/read`)
+      await p.evaluate(() => (location.hash = '#/read'))
+      await p.waitForSelector('[data-testid=article-card]')
       assert((await p.locator('#splash').count()) === 0, 'shown on navigation')
-      await p.reload()
-      assert((await p.locator('#splash').count()) === 0, 'shown after reload')
       await p.goto(`${BASE}/leaderboard`)
       assert((await p.locator('#splash').count()) === 0, 'shown on projector')
     } finally {
@@ -86,7 +85,8 @@ await run('feedback-2', [
     assert(JSON.stringify(tiles) === JSON.stringify(['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']), tiles.join(', '))
     await go(page, 'product')
     const nav = await page.locator('nav[aria-label=Sections] a').allInnerTexts()
-    assert(JSON.stringify(nav.map((t) => t.trim())) === JSON.stringify(['Learn', 'Products', 'Ingredients', 'Recipes', 'Meal Plan', 'Read']), nav.join(', '))
+    // Since feedback-3 Home is first.
+    assert(JSON.stringify(nav.map((t) => t.trim())) === JSON.stringify(['Home', 'Learn', 'Products', 'Ingredients', 'Recipes', 'Meal Plan', 'Read']), nav.join(', '))
     const want = {
       product: 'Check a Product',
       ingredients: 'Check Ingredients',
