@@ -34,7 +34,7 @@
 ## Steps
 
 - [x] 1. Copy script, gitignore, `ingredients.ts` matcher, route, and the One ingredient tab with `IngredientCard` for statements without disagreement. (AC 1, 2, 3, 4, 13)
-- [ ] 2. `SideBySide` for the three disagreeing ingredients. (AC 5, 6, 14)
+- [x] 2. `SideBySide` for the three disagreeing ingredients. (AC 5, 6, 14)
 - [ ] 3. Paste a list tab and `Results` with the Not found box and the no-verdict line. (AC 7, 8, 9)
 - [ ] 4. Photo tab with lazy OCR, progress, editable text, and check. (AC 10, 11, 12, 15)
 
