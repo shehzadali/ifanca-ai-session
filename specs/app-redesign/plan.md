@@ -57,7 +57,7 @@
 
 - [x] 1. Design base: font, tokens with dark theme, pattern, logo, new icons, theme setting. (AC 7, 14)
 - [x] 2. Shell: top bar, settings sheet, bottom navigation, new home with level bar, footer and screens without snapshot lines, Recipes rename and routes. (AC 1, 2, 3, 4, 5, 6, 11)
-- [ ] 3. Meal plan section with day view, search, and Add. (AC 12)
+- [x] 3. Meal plan section with day view, search, and Add. (AC 12)
 - [ ] 4. Profile: avatars, sign up gate, auto post with avatar, leaderboard avatars, `002_profiles.sql` with local tests, fallback when 002 has not run. (AC 8, 9, 10)
 - [ ] 5. Restyle feature screens to the new look, check both themes, offline check. (AC 13, 14)
 - [ ] 6. Update the earlier feature tests and the smoke test for the new texts and routes, and run them all. (AC 15)
