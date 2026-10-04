@@ -29,7 +29,7 @@ export default function SignUp({ initial, onDone, editing = false }: { initial?:
           maxLength={24}
           autoComplete="nickname"
           autoCapitalize="words"
-          className="h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
+          className="h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
           data-testid="profile-name"
         />
       </label>

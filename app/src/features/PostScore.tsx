@@ -49,7 +49,7 @@ export default function PostScore({ total, max, level }: { total: number; max: n
         {status === 'failed' && (
           <>
             <p className="text-[14px]">Saved on this device. It will post when you are back online.</p>
-            <button type="button" onClick={send} className="mt-2 h-11 rounded-xl border border-line bg-card px-4 font-semibold text-brand">
+            <button type="button" onClick={send} className="mt-2 h-11 rounded-2xl border border-line bg-card shadow-sm px-4 font-semibold text-brand">
               Try again now
             </button>
           </>

@@ -76,12 +76,12 @@ function OneIngredient({ matchers, items }: { matchers: Matcher[]; items: Ingred
           }}
           placeholder="For example gelatin or E471"
           autoComplete="off"
-          className="h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
+          className="h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
         />
       </label>
 
       {!picked && query.trim() && options.length > 0 && (
-        <ul className="mt-2 overflow-hidden rounded-xl border border-line bg-card" data-testid="suggestions">
+        <ul className="mt-2 overflow-hidden rounded-2xl border border-line bg-card shadow-sm" data-testid="suggestions">
           {options.slice(0, 10).map((o) => (
             <li key={o.name} className="border-b border-line last:border-0">
               <button type="button" onClick={() => pick(o)} className="flex min-h-12 w-full items-center px-4 text-left text-[16px]">
@@ -93,7 +93,7 @@ function OneIngredient({ matchers, items }: { matchers: Matcher[]; items: Ingred
       )}
 
       {!picked && query.trim().length > 1 && options.length === 0 && (
-        <div className="mt-3 rounded-xl border border-line bg-card p-4">
+        <div className="mt-3 rounded-2xl border border-line bg-card shadow-sm p-4">
           <NotInList />
           <p className="mt-2 text-[14px] text-muted">
             The app only knows the ingredients IFANCA names in its FAQs and its two shopper guides.
@@ -108,7 +108,7 @@ function OneIngredient({ matchers, items }: { matchers: Matcher[]; items: Ingred
       )}
 
       {!query.trim() && (
-        <details className="mt-4 rounded-xl border border-line bg-card">
+        <details className="mt-4 rounded-2xl border border-line bg-card shadow-sm">
           <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium">
             Browse all {items.length} ingredients
           </summary>
@@ -162,7 +162,7 @@ export function TextCheck(props: {
           onChange={(e) => props.onChange(e.target.value)}
           placeholder={props.placeholder}
           rows={6}
-          className="w-full rounded-xl border border-line bg-card p-3 text-[16px] leading-relaxed outline-none focus:border-brand"
+          className="w-full rounded-2xl border border-line bg-card shadow-sm p-3 text-[16px] leading-relaxed outline-none focus:border-brand"
         />
       </label>
       <button
@@ -188,7 +188,7 @@ export function Results({ text, matchers }: { text: string; matchers: Matcher[] 
         Each card quotes what IFANCA published. It is not a verdict on the product.
       </p>
       {notFound.length > 0 && (
-        <div className="mt-4 rounded-xl border border-line bg-card p-4" data-testid="not-found">
+        <div className="mt-4 rounded-2xl border border-line bg-card shadow-sm p-4" data-testid="not-found">
           <h4 className="font-semibold">Not found ({notFound.length})</h4>
           <NotInList className="mt-1 text-[14px]" />
           <ul className="mt-2 flex flex-wrap gap-1.5">

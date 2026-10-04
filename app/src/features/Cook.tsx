@@ -95,7 +95,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
       <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>
       <a
         href="#/plan"
-        className="mt-3 flex h-12 items-center justify-between rounded-xl border border-line bg-card px-4 font-medium text-brand"
+        className="mt-3 flex h-12 items-center justify-between rounded-2xl border border-line bg-card shadow-sm px-4 font-medium text-brand"
         data-testid="plan-link"
       >
         <span>My meal plan</span>
@@ -112,7 +112,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
         placeholder="Search recipes or ingredients"
         aria-label="Search recipes or ingredients"
         autoComplete="off"
-        className="mt-3 h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
+        className="mt-3 h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
       />
 
       <p className="mt-3 text-[13px] font-medium text-muted">Main ingredient</p>

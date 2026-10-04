@@ -3,6 +3,7 @@ import Screen from '../components/Screen'
 import { useData, type Dataset } from '../lib/data'
 import { buildLessons, lessonBlocks, type Faq, type Lesson as L } from '../lib/lessons'
 import { useProfile } from '../lib/profile'
+import LevelBar from '../components/LevelBar'
 import { useStored } from '../lib/storage'
 import SignUp from './SignUp'
 
@@ -63,6 +64,9 @@ function LearnHome({ lessons }: { lessons: L[] }) {
       <div className="mt-4 rounded-2xl border border-line bg-card p-4">
         <p className="text-[13px] font-medium text-muted">Your level</p>
         <p className="text-xl font-semibold" data-testid="level">{quiz.level ?? 'Not started'}</p>
+        <div className="mt-3">
+          <LevelBar quiz={quiz} barOnly />
+        </div>
         <a
           href="#/learn/quiz"
           className="mt-3 flex h-12 items-center justify-center rounded-xl bg-brand font-semibold text-on-brand"
@@ -78,7 +82,7 @@ function LearnHome({ lessons }: { lessons: L[] }) {
       {sections.map((section) => (
         <section key={section} className="mt-4">
           <h3 className="mb-2 text-[13px] font-semibold tracking-wide text-muted uppercase">{section}</h3>
-          <ul className="overflow-hidden rounded-xl border border-line bg-card">
+          <ul className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
             {lessons
               .map((l, i) => [l, i] as const)
               .filter(([l]) => l.section === section)

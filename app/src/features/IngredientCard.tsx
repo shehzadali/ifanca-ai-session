@@ -3,7 +3,7 @@ import { groupByStatus, STATUS_LABEL, type Ingredient, type Statement as S } fro
 
 export default function IngredientCard({ item }: { item: Ingredient }) {
   return (
-    <article className="rounded-xl border border-line bg-card p-4" data-testid="ingredient-card" data-name={item.name}>
+    <article className="rounded-2xl border border-line bg-card shadow-sm p-4" data-testid="ingredient-card" data-name={item.name}>
       <h3 className="text-lg font-semibold">{item.name}</h3>
       <p className="mt-0.5 text-[13px] text-muted">
         {item.statements.length} {item.statements.length === 1 ? 'statement' : 'statements'} from IFANCA

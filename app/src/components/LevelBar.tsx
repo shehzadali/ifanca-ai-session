@@ -1,13 +1,13 @@
 import { LEVELS, levelsToGo, progress, type QuizProgress } from '../lib/level'
 
 // Four steps: Not started, then the three quiz levels. The fill shows how far the player is toward the top level.
-export default function LevelBar({ quiz, light = false }: { quiz: QuizProgress; light?: boolean }) {
+export default function LevelBar({ quiz, light = false, barOnly = false }: { quiz: QuizProgress; light?: boolean; barOnly?: boolean }) {
   const pct = Math.round((progress(quiz) / LEVELS.length) * 100)
   const togo = levelsToGo(quiz)
   const steps = ['Not started', ...LEVELS]
   return (
     <div data-testid="level-bar">
-      <div className="flex items-baseline justify-between gap-2">
+      <div className={`flex items-baseline justify-between gap-2 ${barOnly ? 'hidden' : ''}`}>
         <p className={`text-[15px] font-semibold ${light ? 'text-white' : 'text-ink'}`} data-testid="home-level">
           {quiz.level ?? 'Not started'}
         </p>

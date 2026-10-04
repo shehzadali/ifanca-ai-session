@@ -25,7 +25,7 @@ export function AddToPlan({ url }: { url: string }) {
   const days = DAYS.filter((d) => plan[d]?.includes(url))
 
   return (
-    <div className="mt-4 rounded-xl border border-line bg-card p-3">
+    <div className="mt-4 rounded-2xl border border-line bg-card shadow-sm p-3">
       <button
         type="button"
         onClick={() => setOpen(!open)}

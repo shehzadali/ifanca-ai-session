@@ -71,7 +71,7 @@ export default function Read(_: { params: string[] }) {
         placeholder="Search articles"
         aria-label="Search articles"
         autoComplete="off"
-        className="mt-3 h-12 w-full rounded-xl border border-line bg-card px-4 text-[17px] outline-none focus:border-brand"
+        className="mt-3 h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
       />
 
       <div className="mt-3 flex flex-wrap gap-2" data-testid="themes">
@@ -129,7 +129,7 @@ export default function Read(_: { params: string[] }) {
 
 function ArticleCard({ a }: { a: Article }) {
   return (
-    <li className="rounded-xl border border-line bg-card p-4" data-testid="article-card" data-url={a.url} data-date={a.date}>
+    <li className="rounded-2xl border border-line bg-card shadow-sm p-4" data-testid="article-card" data-url={a.url} data-date={a.date}>
       <p className="text-[14px] font-semibold text-ink" data-testid="article-date">
         Published {formatDate(a.date)}
       </p>

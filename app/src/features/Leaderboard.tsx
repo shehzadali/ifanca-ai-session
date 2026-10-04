@@ -140,7 +140,7 @@ function ResetControl({ onCleared }: { onCleared: () => void }) {
               onChange={(e) => setCode(e.target.value)}
               placeholder="Reset code"
               autoComplete="off"
-              className="h-12 w-full rounded-xl border border-line bg-card px-4 text-[16px] outline-none focus:border-brand"
+              className="h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[16px] outline-none focus:border-brand"
               data-testid="reset-code"
             />
           </label>

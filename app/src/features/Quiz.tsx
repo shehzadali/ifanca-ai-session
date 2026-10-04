@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useData } from '../lib/data'
 import { slugOf } from '../lib/lessons'
+import LevelBar from '../components/LevelBar'
 import { useStored } from '../lib/storage'
 import { EMPTY_QUIZ, QUIZ_KEY, type QuizState } from './Learn'
 import PostScore from './PostScore'
@@ -71,6 +72,9 @@ export default function Quiz({ round }: { round?: string }) {
       <div className="mt-4 rounded-2xl border border-line bg-card p-4">
         <p className="text-[13px] font-medium text-muted">Your level</p>
         <p className="text-xl font-semibold" data-testid="level">{state.level ?? 'Not started'}</p>
+        <div className="mt-3">
+          <LevelBar quiz={state} barOnly />
+        </div>
         <p className="mt-1 text-[13px] text-muted">Saved on this device only.</p>
       </div>
       <ul className="mt-4 space-y-2">
@@ -82,7 +86,7 @@ export default function Quiz({ round }: { round?: string }) {
               {open ? (
                 <a
                   href={`#/learn/quiz/${l}`}
-                  className="flex min-h-16 items-center justify-between rounded-xl border border-line bg-card px-4 py-2"
+                  className="flex min-h-16 items-center justify-between rounded-2xl border border-line bg-card shadow-sm px-4 py-2"
                   data-testid={`round-${l}`}
                 >
                   <span>
@@ -206,7 +210,7 @@ function Round({
       </ul>
 
       {answered && (
-        <div className="mt-4 rounded-xl border border-line bg-card p-4" data-testid="feedback" aria-live="polite">
+        <div className="mt-4 rounded-2xl border border-line bg-card shadow-sm p-4" data-testid="feedback" aria-live="polite">
           <p className="font-semibold">{right ? 'Correct.' : `Not quite. The answer is: ${q.options[q.answer]}.`}</p>
           <p className="mt-3 text-[13px] text-muted">From IFANCA's answer to "{q.faq_question}"</p>
           <blockquote className="mt-1 border-l-4 border-brand pl-3 text-[15px] leading-relaxed" data-testid="quote">
