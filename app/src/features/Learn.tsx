@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { lazy, Suspense, useEffect, useMemo } from 'react'
 import Screen from '../components/Screen'
 import { useData, type Dataset } from '../lib/data'
 import { buildLessons, paragraphs, type Faq, type Lesson as L } from '../lib/lessons'
@@ -10,6 +10,7 @@ export type QuizState = { best: Record<string, number>; level: string | null }
 export const EMPTY_QUIZ: QuizState = { best: {}, level: null }
 
 const SOURCE = 'https://ifanca.org/faqs/'
+const Quiz = lazy(() => import('./Quiz'))
 
 export default function Learn({ params }: { params: string[] }) {
   const { data, error } = useData<Dataset<Faq>>('faqs.json')
@@ -22,8 +23,15 @@ export default function Learn({ params }: { params: string[] }) {
 
   if (slug === 'quiz') {
     return (
-      <Screen title="Quiz" back={{ href: '#/learn', label: 'Back to lessons' }} snapshot={date} sourceUrl={SOURCE}>
-        <p className="text-muted">The quiz is not built yet.</p>
+      <Screen
+        title={params[1] ? `Quiz: ${params[1]}` : 'Quiz'}
+        back={params[1] ? { href: '#/learn/quiz', label: 'All rounds' } : { href: '#/learn', label: 'Back to lessons' }}
+        snapshot={date}
+        sourceUrl={SOURCE}
+      >
+        <Suspense fallback={<p className="text-muted">Loading...</p>}>
+          <Quiz round={params[1]} />
+        </Suspense>
       </Screen>
     )
   }

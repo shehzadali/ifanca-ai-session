@@ -33,7 +33,7 @@
 
 - [x] 1. `storage.ts`, `lessons.ts`, Learn home, lesson screen, route, and tile rename. (AC 1, 2, 3, 4, 5, 6, 12)
 - [x] 2. `quiz.json` and `check-quiz.mjs` in prebuild. (AC 7)
-- [ ] 3. Quiz screen with rounds, feedback, results, and saved level. Next on the last lesson opens the quiz. (AC 5, 8, 9, 10, 11, 13)
+- [x] 3. Quiz screen with rounds, feedback, results, and saved level. Next on the last lesson opens the quiz. (AC 5, 8, 9, 10, 11, 13)
 
 ## Test cases
 
