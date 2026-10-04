@@ -115,7 +115,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
         className="mt-3 h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
       />
 
-      <p className="mt-3 text-[13px] font-medium text-muted">Main ingredient</p>
+      <p className="mt-3 text-[13px] font-medium text-muted">Main Ingredient</p>
       <div className="mt-1 flex flex-wrap gap-2" data-testid="main-chips">
         {MAINS.map(([m]) => (
           <Chip

@@ -42,7 +42,7 @@ export default function Leaderboard(_: { params: string[] }) {
     <section>
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
-          <h2 className="text-3xl font-semibold tracking-tight lg:text-[44px]">Room leaderboard</h2>
+          <h2 className="text-3xl font-semibold tracking-tight lg:text-[44px]">Room Leaderboard</h2>
           <p className="mt-1 text-[15px] text-muted lg:text-xl">Quiz scores from The Halal Way. Top 10.</p>
         </div>
         {boardConfigured && (

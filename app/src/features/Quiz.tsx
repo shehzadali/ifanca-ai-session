@@ -70,7 +70,7 @@ export default function Quiz({ round }: { round?: string }) {
         more right to pass a round and open the next one.
       </p>
       <div className="mt-4 rounded-2xl border border-line bg-card p-4">
-        <p className="text-[13px] font-medium text-muted">Your level</p>
+        <p className="text-[13px] font-medium text-muted">Your Level</p>
         <p className="text-xl font-semibold" data-testid="level">{state.level ?? 'Not started'}</p>
         <div className="mt-3">
           <LevelBar quiz={state} barOnly />

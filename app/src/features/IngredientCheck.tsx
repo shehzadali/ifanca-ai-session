@@ -18,7 +18,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
   const tab = TABS.some((t) => t.id === params[0]) ? params[0] : ''
 
   return (
-    <Screen tone="ingredients" title="Check ingredients">
+    <Screen tone="ingredients" title="Check Ingredients">
       <p className="text-[15px] text-muted" data-testid="no-verdict">
         This shows what IFANCA has published about each ingredient. It is not a verdict on the product.
       </p>
@@ -189,7 +189,7 @@ export function Results({ text, matchers }: { text: string; matchers: Matcher[] 
       </p>
       {notFound.length > 0 && (
         <div className="mt-4 rounded-2xl border border-line bg-card shadow-sm p-4" data-testid="not-found">
-          <h4 className="font-semibold">Not found ({notFound.length})</h4>
+          <h4 className="font-semibold">Not Found ({notFound.length})</h4>
           <NotInList className="mt-1 text-[14px]" />
           <ul className="mt-2 flex flex-wrap gap-1.5">
             {notFound.map((n) => (

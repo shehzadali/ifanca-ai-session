@@ -9,7 +9,7 @@ const F = 'https://ifanca.org/faqs/'
 
 // Lesson order. "What is halal?" comes first. Grouping is by topic only. The text is not changed.
 const SECTIONS: [string, string[]][] = [
-  ['Halal basics', ['what-is-halal', 'what-is-the-verdict-on-halal-and-haram-lists', 'are-kosher-products-halal', 'what-is-halal-certification']],
+  ['Halal Basics', ['what-is-halal', 'what-is-the-verdict-on-halal-and-haram-lists', 'are-kosher-products-halal', 'what-is-halal-certification']],
   [
     'Ingredients',
     [
@@ -22,9 +22,9 @@ const SECTIONS: [string, string[]][] = [
       'is-chocolate-liquor-haram',
     ],
   ],
-  ['Eating out', ['may-i-eat-in-fast-food-restaurants', 'may-i-eat-the-food-served-on-airlines']],
+  ['Eating Out', ['may-i-eat-in-fast-food-restaurants', 'may-i-eat-the-food-served-on-airlines']],
   [
-    'Certification for companies',
+    'Certification for Companies',
     [
       'why-do-i-need-halal-certification',
       'what-is-the-benefit-of-ifanca-halal-certification',
@@ -36,7 +36,7 @@ const SECTIONS: [string, string[]][] = [
     ],
   ],
   [
-    'IFANCA policies',
+    'IFANCA Policies',
     [
       'can-ifanca-refuse-to-grant-a-halal-certificate',
       'is-ifancas-certification-process-impartial',
@@ -67,7 +67,7 @@ export function buildLessons(faqs: Faq[]): Lesson[] {
     }
   }
   // Any FAQ not placed above still gets a lesson.
-  for (const f of bySlug.values()) add(f, 'More questions')
+  for (const f of bySlug.values()) add(f, 'More Questions')
   return out
 }
 

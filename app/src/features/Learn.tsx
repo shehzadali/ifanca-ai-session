@@ -20,12 +20,12 @@ export default function Learn({ params }: { params: string[] }) {
   const profile = useProfile()
   const slug = params[0] ?? ''
 
-  if (error) return <Screen tone="learn" title="Learn and quiz">The lessons could not load. Check your connection and try again.</Screen>
-  if (!lessons) return <Screen tone="learn" title="Learn and quiz">Loading...</Screen>
+  if (error) return <Screen tone="learn" title="Learn and Quiz">The lessons could not load. Check your connection and try again.</Screen>
+  if (!lessons) return <Screen tone="learn" title="Learn and Quiz">Loading...</Screen>
 
   if (slug === 'quiz' && !profile) {
     return (
-      <Screen tone="learn" title="Sign up to play" back={{ href: '#/learn', label: 'Back to lessons' }}>
+      <Screen tone="learn" title="Sign Up to Play" back={{ href: '#/learn', label: 'Back to lessons' }}>
         <SignUp onDone={() => window.scrollTo(0, 0)} />
       </Screen>
     )
@@ -56,13 +56,13 @@ function LearnHome({ lessons }: { lessons: L[] }) {
   const readCount = lessons.filter((l) => read.includes(l.slug)).length
 
   return (
-    <Screen tone="learn" title="Learn and quiz">
+    <Screen tone="learn" title="Learn and Quiz">
       <p className="text-[15px] text-muted">
         IFANCA's answers to common questions, in a suggested order. Each lesson is IFANCA's answer, quoted in full.
       </p>
 
       <div className="mt-4 rounded-2xl border border-line bg-card p-4">
-        <p className="text-[13px] font-medium text-muted">Your level</p>
+        <p className="text-[13px] font-medium text-muted">Your Level</p>
         <p className="text-xl font-semibold" data-testid="level">{quiz.level ?? 'Not started'}</p>
         <div className="mt-3">
           <LevelBar quiz={quiz} barOnly />

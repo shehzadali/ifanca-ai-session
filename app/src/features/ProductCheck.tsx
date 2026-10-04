@@ -57,7 +57,7 @@ export default function ProductCheck(_: { params: string[] }) {
   }, [prepared, deferredQuery, category])
 
   return (
-    <Screen tone="product" title="Check a product">
+    <Screen tone="product" title="Check a Product">
       <p className="mb-3 text-[15px] text-muted">
         Search IFANCA's published list of certified products.
       </p>

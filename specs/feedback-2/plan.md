@@ -28,7 +28,7 @@
 ## Steps
 
 - [x] 1. Splash in `index.html` and `splash.css`, test helper to skip it. Remove the home header box. (AC 1, 2, 3, 4, 5)
-- [ ] 2. Title case labels and headings. (AC 6)
+- [x] 2. Title case labels and headings. (AC 6)
 - [ ] 3. Day view with the recipe list, day-aware recipe page and `AddToPlan`. (AC 7, 8, 9, 10, 11, 12)
 - [ ] 4. Update earlier tests and the smoke test, then run everything. (AC 13, 14)
 

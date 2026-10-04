@@ -100,10 +100,10 @@ export const SearchIcon = (p: P) => (
 
 // The sections, in home and navigation order.
 export const SECTIONS = [
-  { id: 'learn', label: 'Learn and quiz', short: 'Learn', Icon: LearnIcon, color: 'bg-learn' },
-  { id: 'product', label: 'Check a product', short: 'Products', Icon: ProductIcon, color: 'bg-product' },
-  { id: 'ingredients', label: 'Check ingredients', short: 'Ingredients', Icon: IngredientsIcon, color: 'bg-ingredients' },
+  { id: 'learn', label: 'Learn and Quiz', short: 'Learn', Icon: LearnIcon, color: 'bg-learn' },
+  { id: 'product', label: 'Check a Product', short: 'Products', Icon: ProductIcon, color: 'bg-product' },
+  { id: 'ingredients', label: 'Check Ingredients', short: 'Ingredients', Icon: IngredientsIcon, color: 'bg-ingredients' },
   { id: 'recipes', label: 'Recipes', short: 'Recipes', Icon: RecipesIcon, color: 'bg-recipes' },
-  { id: 'plan', label: 'Meal plan', short: 'Meal plan', Icon: PlanIcon, color: 'bg-plan' },
+  { id: 'plan', label: 'Meal Plan', short: 'Meal Plan', Icon: PlanIcon, color: 'bg-plan' },
   { id: 'read', label: 'Read', short: 'Read', Icon: ReadIcon, color: 'bg-read' },
 ] as const
