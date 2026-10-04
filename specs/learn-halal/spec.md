@@ -49,9 +49,15 @@
 12. Given any Learn screen, then the snapshot date is visible.
 13. Given any Learn screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 
+### Change on 2026-10-04: lists restored
+
+The first build showed each answer as running text because the crawl export dropped list markup. The export now also writes `blocks` (paragraphs and lists) from the cached FAQ HTML. Joining the blocks gives the same `answer` text, and the export fails if it does not.
+
+14. Given a lesson whose FAQ answer has a list on ifanca.org, then the lesson shows the same list (numbered for `ol`, bulleted for `ul`) with the same items. (Checked for all 10 such lessons.)
+
 ## Data needed
 
-- `app/public/data/faqs.json`: `crawl_date` (2026-10-03), `count` (26), `items` with `question`, `answer`, `url`. Present.
+- `app/public/data/faqs.json`: `crawl_date` (2026-10-03), `count` (26), `items` with `question`, `answer`, `blocks`, `url`. Present.
 - `app/public/data/quiz.json`: not present before this feature. It is written in this feature from the FAQ answers only. Fields: `crawl_date`, `note`, `source`, `count`, and `items` with `id`, `level`, `question`, `options`, `answer` (index), `faq_question`, `faq_url`, `source_quote`. Not a blocker, but a person at IFANCA should review it.
 
 ## Out of scope

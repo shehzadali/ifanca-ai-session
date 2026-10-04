@@ -8,7 +8,7 @@ const app = new URL('../../app/', import.meta.url).pathname
 const faqs = JSON.parse(fs.readFileSync(path.join(app, 'public/data/faqs.json'), 'utf8')).items
 const quiz = JSON.parse(fs.readFileSync(path.join(app, 'public/data/quiz.json'), 'utf8'))
 const slug = (u) => u.replace('https://ifanca.org/faqs/', '').replace(/\/$/, '')
-const lessonText = (page) => page.locator('[data-testid=lesson-text] p').allInnerTexts().then((ps) => ps.join(' '))
+const lessonText = (page) => page.locator('[data-testid=lesson-text] [data-text]').allInnerTexts().then((ps) => ps.join(' '))
 
 await run('learn-halal', [
   [1, 'Tile reads Learn and quiz and opens Learn', async ({ page }) => {
@@ -125,6 +125,22 @@ await run('learn-halal', [
       await go(page, h)
       assert((await page.textContent('[data-testid=snapshot]')).includes('October 3, 2026'), h)
     }
+  }],
+  [14, 'Lists from the source show as lists in all 10 lessons that have them', async ({ page }) => {
+    const withLists = faqs.filter((f) => f.blocks.some((b) => b.type !== 'p'))
+    const bad = []
+    for (const f of withLists) {
+      await go(page, `learn/${slug(f.url)}`)
+      const want = f.blocks.filter((b) => b.type !== 'p').map((b) => `${b.type}:${b.items.join('|')}`)
+      const got = await page.locator('[data-testid=lesson-text] ul, [data-testid=lesson-text] ol').evaluateAll((els) =>
+        els.map((e) => `${e.tagName.toLowerCase()}:${[...e.children].map((li) => li.textContent).join('|')}`),
+      )
+      if (JSON.stringify(want) !== JSON.stringify(got)) bad.push(slug(f.url))
+    }
+    await go(page, 'learn/what-is-halal')
+    await page.locator('[data-testid=lesson-text] ol').scrollIntoViewIfNeeded()
+    assert(bad.length === 0, bad.join(', '))
+    return `${withLists.length} lessons with lists, all match`
   }],
   [13, 'No sideways scroll and 44px tap targets', async ({ page }) => {
     for (const h of ['learn', 'learn/what-is-halal', 'learn/quiz', 'learn/quiz/Beginner']) {

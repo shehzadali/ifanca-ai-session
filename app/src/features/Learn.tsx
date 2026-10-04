@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo } from 'react'
 import Screen from '../components/Screen'
 import { useData, type Dataset } from '../lib/data'
-import { buildLessons, paragraphs, type Faq, type Lesson as L } from '../lib/lessons'
+import { buildLessons, lessonBlocks, type Faq, type Lesson as L } from '../lib/lessons'
 import { useStored } from '../lib/storage'
 
 export const READ_KEY = 'thw.learn.read'
@@ -125,9 +125,25 @@ function Lesson({ lessons, index, date }: { lessons: L[]; index: number; date: s
         {lesson.section}. Lesson {index + 1} of {lessons.length}.
       </p>
       <div className="space-y-4 text-[17px] leading-relaxed text-ink" data-testid="lesson-text">
-        {paragraphs(lesson.answer).map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
+        {lessonBlocks(lesson).map((b, i) => {
+          if (b.type === 'p') {
+            return (
+              <p key={i} data-text>
+                {b.text}
+              </p>
+            )
+          }
+          const List = b.type
+          return (
+            <List key={i} className={`space-y-2 pl-6 ${b.type === 'ol' ? 'list-decimal' : 'list-disc'} marker:text-brand`}>
+              {b.items.map((item, j) => (
+                <li key={j} className="pl-1" data-text>
+                  {item}
+                </li>
+              ))}
+            </List>
+          )
+        })}
       </div>
       <div className="mt-5 rounded-xl bg-brand-soft p-3 text-[14px]">
         <p>IFANCA's answer, quoted in full.</p>

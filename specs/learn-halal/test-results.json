@@ -1,7 +1,7 @@
 {
   "feature": "learn-halal",
   "date": "2026-10-04",
-  "commit": "37fcda7",
+  "commit": "7deda30",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -75,6 +75,12 @@
       "text": "Snapshot date on Learn home, lesson, and quiz",
       "result": "Pass",
       "notes": ""
+    },
+    {
+      "n": 14,
+      "text": "Lists from the source show as lists in all 10 lessons that have them",
+      "result": "Pass",
+      "notes": "10 lessons with lists, all match"
     },
     {
       "n": 13,

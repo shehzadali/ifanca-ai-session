@@ -1,4 +1,7 @@
-export type Faq = { question: string; answer: string; url: string }
+// Paragraph and list structure from the cached FAQ HTML. Joining every text with one space gives "answer".
+export type Block = { type: 'p'; text: string } | { type: 'ul' | 'ol'; items: string[] }
+
+export type Faq = { question: string; answer: string; blocks?: Block[]; url: string }
 
 export type Lesson = Faq & { slug: string; section: string; minutes: number }
 
@@ -66,6 +69,13 @@ export function buildLessons(faqs: Faq[]): Lesson[] {
   // Any FAQ not placed above still gets a lesson.
   for (const f of bySlug.values()) add(f, 'More questions')
   return out
+}
+
+// The source structure, with long source paragraphs split at sentence breaks for a phone screen.
+// Older data without blocks falls back to one paragraph.
+export function lessonBlocks(f: Faq): Block[] {
+  const blocks: Block[] = f.blocks?.length ? f.blocks : [{ type: 'p', text: f.answer }]
+  return blocks.flatMap((b): Block[] => (b.type === 'p' ? paragraphs(b.text).map((text) => ({ type: 'p', text })) : [b]))
 }
 
 // Sentence breaks only, then about 60 words per paragraph. Joining paragraphs with one space
