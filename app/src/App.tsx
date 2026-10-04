@@ -114,7 +114,8 @@ export default function App() {
   const [id, ...params] = route.split('?')[0].split('/').filter(Boolean)
   const Feature = id ? SCREENS[id] : undefined
   const projector = id === 'leaderboard'
-  const section = SECTIONS.some((s) => s.id === id) ? id : null
+  // A recipe opened from a meal plan day belongs to Meal Plan.
+  const section = id === 'recipes' && params[1] === 'for' ? 'plan' : SECTIONS.some((s) => s.id === id) ? id : null
 
   let body: ReactNode = <Home />
   if (Feature) {

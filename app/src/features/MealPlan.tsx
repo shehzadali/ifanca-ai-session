@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react'
-import { formatDate, terms } from '../lib/data'
-import { ChevronIcon, SearchIcon } from '../components/Icons'
+import { ChevronIcon } from '../components/Icons'
 import { useStored } from '../lib/storage'
-import type { Recipe } from './Cook'
+import { RecipeList, type Recipe } from './Cook'
 
 export const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 type Plan = Record<string, string[]>
@@ -18,45 +17,72 @@ export function useMealPlan() {
   return { plan, add, remove, clear, count }
 }
 
-export function AddToPlan({ url }: { url: string }) {
+export function AddToPlan({ url, day }: { url: string; day?: string }) {
   const { plan, add } = useMealPlan()
   const [open, setOpen] = useState(false)
   const [added, setAdded] = useState<string | null>(null)
   const days = DAYS.filter((d) => plan[d]?.includes(url))
+  const onDay = !!day && days.includes(day)
+
+  const picker = open && (
+    <div className="mt-3 grid grid-cols-2 gap-2" data-testid="day-picker">
+      {DAYS.map((d) => (
+        <button
+          key={d}
+          type="button"
+          onClick={() => {
+            add(d, url)
+            setAdded(d)
+            setOpen(false)
+          }}
+          className="min-h-11 rounded-xl border border-line bg-paper text-[15px] font-medium"
+        >
+          {d}
+        </button>
+      ))}
+    </div>
+  )
 
   return (
-    <div className="mt-4 rounded-2xl border border-line bg-card shadow-sm p-3">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="h-12 w-full rounded-xl bg-brand font-semibold text-on-brand"
-      >
-        Add to meal plan
-      </button>
-      {open && (
-        <div className="mt-3 grid grid-cols-2 gap-2" data-testid="day-picker">
-          {DAYS.map((d) => (
-            <button
-              key={d}
-              type="button"
-              onClick={() => {
-                add(d, url)
-                setAdded(d)
-                setOpen(false)
-              }}
-              className="min-h-11 rounded-xl border border-line bg-paper text-[15px] font-medium"
-            >
-              {d}
-            </button>
-          ))}
-        </div>
+    <div className="mt-4 rounded-2xl border border-line bg-card p-3 shadow-sm" data-testid="add-to-plan">
+      {day ? (
+        <>
+          <button
+            type="button"
+            disabled={onDay}
+            onClick={() => {
+              add(day, url)
+              setAdded(day)
+            }}
+            className="h-12 w-full rounded-xl bg-plan font-bold text-white disabled:bg-line disabled:text-muted"
+          >
+            {onDay ? `Added to ${day}` : `Add to ${day}`}
+          </button>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            className="mt-2 h-11 w-full rounded-xl border border-line text-[15px] font-semibold"
+          >
+            Choose another day
+          </button>
+        </>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          className="h-12 w-full rounded-xl bg-brand font-semibold text-on-brand"
+        >
+          Add to meal plan
+        </button>
       )}
+      {picker}
       {added && (
         <p className="mt-2 text-[14px]" role="status">
           Added to {added}.{' '}
-          <a href="#/plan" className="inline-flex min-h-11 items-center font-medium text-brand underline">
-            See the meal plan
+          <a href={`#/plan/${added}`} className="inline-flex min-h-11 items-center font-medium text-brand underline">
+            Back to {added}
           </a>
         </p>
       )}
@@ -151,21 +177,16 @@ function WeekView({ recipes }: { recipes: Recipe[] }) {
 }
 
 function DayView({ recipes, day }: { recipes: Recipe[]; day: string }) {
-  const { plan, add, remove } = useMealPlan()
-  const [query, setQuery] = useState('')
+  const { plan, remove } = useMealPlan()
   const byUrl = useMemo(() => new Map(recipes.map((r) => [r.url, r])), [recipes])
   const planned = (plan[day] ?? []).map((u) => byUrl.get(u)).filter((r): r is Recipe => !!r)
-  const results = useMemo(() => {
-    const words = terms(query)
-    return recipes.filter((r) => words.every((w) => r.haystack.includes(w))).slice(0, 20)
-  }, [recipes, query])
 
   return (
     <div data-testid="day-view">
       <section className="rounded-2xl border border-line bg-card p-3">
         <h3 className="font-bold">Planned for {day}</h3>
         {planned.length === 0 ? (
-          <p className="mt-1 text-[14px] text-muted">Nothing planned yet. Search below and tap Add.</p>
+          <p className="mt-1 text-[14px] text-muted">Nothing planned yet. Pick a recipe below and tap Add to {day}.</p>
         ) : (
           <ul className="mt-1" data-testid="planned">
             {planned.map((r) => (
@@ -187,44 +208,8 @@ function DayView({ recipes, day }: { recipes: Recipe[]; day: string }) {
         )}
       </section>
 
-      <label className="relative mt-4 block">
-        <span className="sr-only">Search recipes to add</span>
-        <span className="pointer-events-none absolute top-0 left-0 flex h-12 w-11 items-center justify-center text-muted">
-          <SearchIcon size={20} />
-        </span>
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search recipes to add"
-          autoComplete="off"
-          className="h-12 w-full rounded-xl border border-line bg-card pr-4 pl-11 text-[17px] outline-none focus:border-brand"
-        />
-      </label>
-      <p className="mt-3 text-[13px] font-semibold text-muted">{query.trim() ? 'Matching recipes' : 'Newest recipes'}</p>
-      {results.length === 0 && <p className="mt-2">No recipes match. Try another word.</p>}
-      <ul className="mt-2 overflow-hidden rounded-2xl border border-line bg-card" data-testid="add-results">
-        {results.map((r) => {
-          const added = (plan[day] ?? []).includes(r.url)
-          return (
-            <li key={r.url} className="flex items-center gap-3 border-b border-line px-3 py-2 last:border-0">
-              <span className="min-w-0 flex-1">
-                <span className="block text-[15px] leading-snug font-semibold">{r.title}</span>
-                <span className="block text-[12px] text-muted">{formatDate(r.date)}</span>
-              </span>
-              <button
-                type="button"
-                disabled={added}
-                onClick={() => add(day, r.url)}
-                className="h-11 min-w-[72px] shrink-0 rounded-xl bg-plan px-3 text-[14px] font-bold text-white disabled:bg-line disabled:text-muted"
-                aria-label={added ? `${r.title} added` : `Add ${r.title} to ${day}`}
-              >
-                {added ? 'Added' : 'Add'}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      <h3 className="mt-6 mb-2 text-lg font-bold">Add a Recipe</h3>
+      <RecipeList recipes={recipes} linkSuffix={`/for/${day}`} intro={false} />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import RecipePhoto from '../components/RecipePhoto'
 import Screen from '../components/Screen'
-import { AddToPlan, useMealPlan } from './MealPlan'
+import { AddToPlan, DAYS, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
 type RawRecipe = {
@@ -63,7 +63,9 @@ export default function Cook({ params }: { params: string[] }) {
   if (error) return <Screen tone="recipes" title="Recipes">The recipes could not load. Check your connection and try again.</Screen>
   if (!recipes) return <Screen tone="recipes" title="Recipes">Loading...</Screen>
   const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
-  if (recipe) return <RecipeView recipe={recipe} />
+  // Opened from a meal plan day: #/recipes/<slug>/for/<Day>
+  const day = params[1] === 'for' && DAYS.includes(params[2]) ? params[2] : undefined
+  if (recipe) return <RecipeView recipe={recipe} day={day} />
   return (
     <Screen tone="recipes" title="Recipes">
       <RecipeList recipes={recipes} />
@@ -71,7 +73,8 @@ export default function Cook({ params }: { params: string[] }) {
   )
 }
 
-function RecipeList({ recipes }: { recipes: Recipe[] }) {
+// The recipe list. Also used in a meal plan day, where rows open the recipe for that day.
+export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes: Recipe[]; linkSuffix?: string; intro?: boolean }) {
   const [query, setQuery] = useState('')
   const [main, setMain] = useState<string | null>(null)
   const [few, setFew] = useState(false)
@@ -92,15 +95,15 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
 
   return (
     <div>
-      <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>
-      <a
+      {intro && <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>}
+      {intro && <a
         href="#/plan"
         className="mt-3 flex h-12 items-center justify-between rounded-2xl border border-line bg-card shadow-sm px-4 font-medium text-brand"
         data-testid="plan-link"
       >
         <span>My meal plan</span>
         <span className="text-[14px] text-muted">{count} planned</span>
-      </a>
+      </a>}
 
       <input
         type="search"
@@ -149,7 +152,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
       <ul className="mt-2 overflow-hidden rounded-xl border border-line bg-card empty:hidden">
         {results.slice(0, limit).map((r) => (
           <li key={r.url} className="border-b border-line last:border-0">
-            <a href={`#/recipes/${r.slug}`} className="block min-h-14 px-4 py-2.5" data-testid="recipe-row" data-url={r.url}>
+            <a href={`#/recipes/${r.slug}${linkSuffix}`} className="block min-h-14 px-4 py-2.5" data-testid="recipe-row" data-url={r.url}>
               <span className="block text-[16px] leading-snug font-medium">{r.title}</span>
               <span className="mt-0.5 block text-[13px] text-muted">
                 {formatDate(r.date)}. {r.ingredientCount} ingredients.
@@ -171,7 +174,7 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
   )
 }
 
-function RecipeView({ recipe }: { recipe: Recipe }) {
+function RecipeView({ recipe, day }: { recipe: Recipe; day?: string }) {
   const source = (
     <p className="text-[14px] text-muted" data-testid="recipe-source">
       Published {formatDate(recipe.date)} on ifanca.org.{' '}
@@ -182,10 +185,10 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
   )
   let n = 0
   return (
-    <Screen tone="recipes" title={recipe.title} back={{ href: '#/recipes', label: 'All recipes' }}>
+    <Screen tone="recipes" title={recipe.title} back={day ? { href: `#/plan/${day}`, label: `Back to ${day}` } : { href: '#/recipes', label: 'All recipes' }}>
       {source}
       <RecipePhoto src={recipe.image_url} alt={`Photo of ${recipe.title} from ifanca.org`} />
-      <AddToPlan url={recipe.url} />
+      <AddToPlan url={recipe.url} day={day} />
 
       <h3 className="mt-5 text-lg font-semibold">Ingredients</h3>
       <ul className="mt-2 space-y-1.5 text-[16px] leading-snug" data-testid="ingredients">
