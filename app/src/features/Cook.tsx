@@ -5,6 +5,7 @@ import Screen from '../components/Screen'
 import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
 import PlanScreen from './PlanScreen'
 import { AddToPlan, DAYS, useMealPlan } from './MealPlan'
+import { isVegetarian } from '../lib/vegetarian'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
 type RawRecipe = {
@@ -22,6 +23,7 @@ export type Recipe = RawRecipe & {
   haystack: string
   ingredientCount: number
   mains: string[]
+  vegetarian: boolean
 }
 
 const PAGE = 30
@@ -49,6 +51,7 @@ function prepare(items: RawRecipe[]): Recipe[] {
         haystack: fold(`${title} ${r.ingredients.join(' ')}`),
         ingredientCount: r.ingredients.filter((l) => !isHeading(l)).length,
         mains: MAINS.filter(([, re]) => re.test(lines)).map(([m]) => m),
+        vegetarian: isVegetarian(r.ingredients),
       }
     })
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -81,6 +84,7 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
   const [query, setQuery] = useState('')
   const [main, setMain] = useState<string | null>(null)
   const [few, setFew] = useState(false)
+  const [veg, setVeg] = useState(false)
   const [limit, setLimit] = useState(PAGE)
 
   const results = useMemo(() => {
@@ -89,9 +93,10 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
       (r) =>
         (!main || r.mains.includes(main)) &&
         (!few || r.ingredientCount <= MAX_FEW) &&
+        (!veg || r.vegetarian) &&
         words.every((w) => r.haystack.includes(w)),
     )
-  }, [recipes, query, main, few])
+  }, [recipes, query, main, few, veg])
 
   const reset = () => setLimit(PAGE)
   const { count } = useMealPlan()
@@ -136,7 +141,16 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
           </Chip>
         ))}
       </div>
-      <div className="mt-2 flex gap-2">
+      <div className="mt-2 flex flex-wrap gap-2">
+        <Chip
+          on={veg}
+          onClick={() => {
+            setVeg(!veg)
+            reset()
+          }}
+        >
+          Vegetarian
+        </Chip>
         <Chip
           on={few}
           onClick={() => {
@@ -147,6 +161,9 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
           {`${MAX_FEW} or fewer ingredients`}
         </Chip>
       </div>
+      <p className="mt-1 text-[12px] text-muted" data-testid="veg-note">
+        Vegetarian: based on the ingredient list. Eggs and dairy are included.
+      </p>
 
       <p className="mt-4 text-[14px] font-medium text-muted" data-testid="result-count">
         {results.length} {results.length === 1 ? 'recipe' : 'recipes'}
