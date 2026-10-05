@@ -1,6 +1,8 @@
 import { useDeferredValue, useMemo, useState } from 'react'
 import NotInList from '../components/NotInList'
 import SectionShell, { CHECK_TABS } from '../components/SectionShell'
+import Chip from '../components/Chip'
+import { BASE_GROUP, CONSUMER_GROUPS, groupOf, groupRank, type Group } from '../lib/productGroups'
 import { decodeEntities, fold, terms, useData, type Dataset } from '../lib/data'
 
 type RawProduct = {
@@ -12,7 +14,7 @@ type RawProduct = {
   url: string
 }
 
-type Product = RawProduct & { haystack: string }
+type Product = RawProduct & { haystack: string; group: Group; rank: number }
 
 const PAGE = 50
 const SOURCE = 'https://ifanca.org/halal-certified-products/'
@@ -30,14 +32,23 @@ function prepare(items: RawProduct[]) {
       sold_in: decodeEntities(p.sold_in),
       marketplace: decodeEntities(p.marketplace),
       haystack: fold(`${name} ${company} ${category}`),
+      group: groupOf(category, name),
+      rank: 0,
     }
   })
+  for (const p of products) p.rank = groupRank(p.group)
+  // Consumer products first, then ingredients and base materials. Stable, so the list order stays within each.
+  products.sort((a, b) => a.rank - b.rank)
+  const groupCounts = new Map<Group, number>()
+  for (const p of products) groupCounts.set(p.group, (groupCounts.get(p.group) ?? 0) + 1)
+  const groupCats = new Map<Group, Set<string>>()
+  for (const p of products) groupCats.set(p.group, (groupCats.get(p.group) ?? new Set()).add(p.category))
   const counts = new Map<string, number>()
   for (const p of products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1)
   const categories = [...counts.entries()]
     .filter(([c]) => c)
     .sort((a, b) => a[0].localeCompare(b[0]))
-  return { products, categories }
+  return { products, categories, groupCounts, groupCats }
 }
 
 export default function ProductCheck(_: { params: string[] }) {
@@ -45,6 +56,7 @@ export default function ProductCheck(_: { params: string[] }) {
   const prepared = useMemo(() => (data ? prepare(data.items) : null), [data])
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('')
+  const [group, setGroup] = useState<Group | ''>('')
   const [limit, setLimit] = useState(PAGE)
   const deferredQuery = useDeferredValue(query)
 
@@ -52,9 +64,19 @@ export default function ProductCheck(_: { params: string[] }) {
     if (!prepared) return []
     const words = terms(deferredQuery)
     return prepared.products.filter(
-      (p) => (!category || p.category === category) && words.every((w) => p.haystack.includes(w)),
+      (p) =>
+        (!group || p.group === group) &&
+        (!category || p.category === category) &&
+        words.every((w) => p.haystack.includes(w)),
     )
-  }, [prepared, deferredQuery, category])
+  }, [prepared, deferredQuery, category, group])
+  // Before anything is typed or picked, show the category chips instead of 11,642 products.
+  const browsing = !query.trim() && !group && !category
+  const pickGroup = (g: Group | '') => {
+    setGroup(g)
+    setCategory('')
+    setLimit(PAGE)
+  }
 
   return (
     <SectionShell title="Check" tone="product" tabs={CHECK_TABS} current="products">
@@ -96,6 +118,26 @@ export default function ProductCheck(_: { params: string[] }) {
           </div>
         </label>
 
+        <div>
+          <p className="mb-1.5 text-[13px] font-semibold text-muted">Browse by category</p>
+          <div className="flex flex-wrap gap-2" data-testid="group-chips">
+            {CONSUMER_GROUPS.map((g) => (
+              <Chip key={g} on={group === g} onClick={() => pickGroup(group === g ? '' : g)}>
+                {`${g} (${(prepared?.groupCounts.get(g) ?? 0).toLocaleString('en-US')})`}
+              </Chip>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => pickGroup(group === BASE_GROUP ? '' : BASE_GROUP)}
+            aria-pressed={group === BASE_GROUP}
+            className={`mt-1 min-h-11 text-[14px] underline ${group === BASE_GROUP ? 'font-bold text-brand' : 'text-muted'}`}
+            data-testid="base-group"
+          >
+            {`Also listed: ${BASE_GROUP} (${(prepared?.groupCounts.get(BASE_GROUP) ?? 0).toLocaleString('en-US')})`}
+          </button>
+        </div>
+
         <label className="block">
           <span className="mb-1 block text-[13px] font-medium text-muted">Category</span>
           <select
@@ -106,8 +148,8 @@ export default function ProductCheck(_: { params: string[] }) {
             }}
             className="h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-3 text-[16px] outline-none focus:border-brand"
           >
-            <option value="">All categories</option>
-            {prepared?.categories.map(([c, n]) => (
+            <option value="">{group ? `All of ${group}` : 'All categories'}</option>
+            {prepared?.categories.filter(([c]) => !group || prepared.groupCats.get(group)?.has(c)).map(([c, n]) => (
               <option key={c} value={c}>
                 {c} ({n.toLocaleString('en-US')})
               </option>
@@ -119,7 +161,13 @@ export default function ProductCheck(_: { params: string[] }) {
       {error && <p className="mt-4 text-ink">The product list could not load. Check your connection and try again.</p>}
       {!data && !error && <p className="mt-4 text-muted">Loading the product list...</p>}
 
-      {prepared && (
+      {prepared && browsing && (
+        <p className="mt-4 rounded-2xl border border-dashed border-line p-4 text-[15px] text-muted" data-testid="browse-hint">
+          Pick a category above, or type a product or company name to search {prepared.products.length.toLocaleString('en-US')} products.
+        </p>
+      )}
+
+      {prepared && !browsing && (
         <>
           <p className="mt-4 text-[14px] font-medium text-muted" data-testid="result-count" aria-live="polite">
             {results.length.toLocaleString('en-US')} {results.length === 1 ? 'product' : 'products'}
