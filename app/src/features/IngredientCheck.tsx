@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import NotInList from '../components/NotInList'
-import Screen from '../components/Screen'
+import SectionShell, { CHECK_TABS } from '../components/SectionShell'
 import { useData } from '../lib/data'
 import { buildMatchers, checkText, suggest, type Ingredient, type IngredientData, type Matcher } from '../lib/ingredients'
 import IngredientCard from './IngredientCard'
@@ -18,7 +18,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
   const tab = TABS.some((t) => t.id === params[0]) ? params[0] : ''
 
   return (
-    <Screen tone="ingredients" title="Check Ingredients">
+    <SectionShell title="Check" tone="product" tabs={CHECK_TABS} current="ingredients">
       <p className="text-[15px] text-muted" data-testid="no-verdict">
         This shows what IFANCA has published about each ingredient. It is not a verdict on the product.
       </p>
@@ -27,7 +27,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
         {TABS.map((t) => (
           <a
             key={t.id}
-            href={`#/ingredients${t.id ? `/${t.id}` : ''}`}
+            href={`#/check/ingredients${t.id ? `/${t.id}` : ''}`}
             aria-current={tab === t.id ? 'page' : undefined}
             className={`flex min-h-11 items-center justify-center rounded-lg text-center text-[14px] font-medium ${
               tab === t.id ? 'bg-card text-ink shadow-sm' : 'text-muted'
@@ -48,7 +48,7 @@ export default function IngredientCheck({ params }: { params: string[] }) {
           {tab === 'photo' && <Photo matchers={matchers} />}
         </div>
       )}
-    </Screen>
+    </SectionShell>
   )
 }
 

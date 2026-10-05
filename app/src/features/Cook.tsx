@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import RecipePhoto from '../components/RecipePhoto'
 import Screen from '../components/Screen'
+import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
+import PlanScreen from './PlanScreen'
 import { AddToPlan, DAYS, useMealPlan } from './MealPlan'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
@@ -62,14 +64,15 @@ export default function Cook({ params }: { params: string[] }) {
   const { recipes, error } = useRecipes()
   if (error) return <Screen tone="recipes" title="Recipes">The recipes could not load. Check your connection and try again.</Screen>
   if (!recipes) return <Screen tone="recipes" title="Recipes">Loading...</Screen>
+  if (params[0] === 'plan') return <PlanScreen params={params.slice(1)} />
   const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
   // Opened from a meal plan day: #/recipes/<slug>/for/<Day>
   const day = params[1] === 'for' && DAYS.includes(params[2]) ? params[2] : undefined
   if (recipe) return <RecipeView recipe={recipe} day={day} />
   return (
-    <Screen tone="recipes" title="Recipes">
+    <SectionShell title="Recipes" tone="recipes" tabs={RECIPE_TABS} current="recipes">
       <RecipeList recipes={recipes} />
-    </Screen>
+    </SectionShell>
   )
 }
 
@@ -97,7 +100,7 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
     <div>
       {intro && <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>}
       {intro && <a
-        href="#/plan"
+        href="#/recipes/plan"
         className="mt-3 flex h-12 items-center justify-between rounded-2xl border border-line bg-card shadow-sm px-4 font-medium text-brand"
         data-testid="plan-link"
       >
@@ -185,7 +188,7 @@ function RecipeView({ recipe, day }: { recipe: Recipe; day?: string }) {
   )
   let n = 0
   return (
-    <Screen tone="recipes" title={recipe.title} back={day ? { href: `#/plan/${day}`, label: `Back to ${day}` } : { href: '#/recipes', label: 'All recipes' }}>
+    <Screen tone="recipes" title={recipe.title} back={day ? { href: `#/recipes/plan/${day}`, label: `Back to ${day}` } : { href: '#/recipes', label: 'All recipes' }}>
       {source}
       <RecipePhoto src={recipe.image_url} alt={`Photo of ${recipe.title} from ifanca.org`} />
       <AddToPlan url={recipe.url} day={day} />

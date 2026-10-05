@@ -11,31 +11,30 @@ import { useStored } from './lib/storage'
 import { useTheme } from './lib/theme'
 import type { QuizProgress } from './lib/level'
 
-const ProductCheck = lazy(() => import('./features/ProductCheck'))
-const IngredientCheck = lazy(() => import('./features/IngredientCheck'))
+const CheckScreen = lazy(() => import('./features/CheckScreen'))
 const Learn = lazy(() => import('./features/Learn'))
 const Cook = lazy(() => import('./features/Cook'))
-const PlanScreen = lazy(() => import('./features/PlanScreen'))
 const Read = lazy(() => import('./features/Read'))
 const Leaderboard = lazy(() => import('./features/Leaderboard'))
 const ProfileScreen = lazy(() => import('./features/ProfileScreen'))
 
 // Screens by route id. Each gets the route segments after its id.
 const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
-  product: ProductCheck,
-  ingredients: IngredientCheck,
+  check: CheckScreen,
   learn: Learn,
   recipes: Cook,
-  plan: PlanScreen,
   read: Read,
   leaderboard: Leaderboard,
   profile: ProfileScreen,
 }
 
-// Old links from the first version still work.
-function normalize(route: string): string {
-  if (route === 'cook/plan') return 'plan'
+// Old links from earlier versions still work.
+export function normalize(route: string): string {
+  if (route === 'cook/plan') return 'recipes/plan'
   if (route === 'cook' || route.startsWith('cook/')) return route.replace(/^cook/, 'recipes')
+  if (route === 'plan' || route.startsWith('plan/')) return `recipes/${route}`
+  if (route === 'product' || route.startsWith('product/')) return 'check/products'
+  if (route === 'ingredients' || route.startsWith('ingredients/')) return `check/${route}`
   return route
 }
 
@@ -63,6 +62,9 @@ function Home() {
   const [learn, ...rest] = SECTIONS
   return (
     <div>
+      <p className="mb-4 text-[15px] leading-snug text-muted" data-testid="home-intro">
+        Check products and ingredients, learn the basics of halal, and plan meals, all from IFANCA's public content.
+      </p>
       <a
         href="#/learn"
         className="relative block overflow-hidden rounded-3xl bg-learn p-5 text-white shadow-sm transition active:scale-[0.99]"
@@ -73,8 +75,13 @@ function Home() {
           <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
             <learn.Icon size={28} />
           </span>
-          <span className="text-[20px] font-bold" data-testid="tile-label">
-            {learn.label}
+          <span>
+            <span className="block text-[20px] leading-tight font-bold" data-testid="tile-label">
+              {learn.label}
+            </span>
+            <span className="block text-[13px] text-white/85" data-testid="tile-subtitle">
+              {learn.subtitle}
+            </span>
           </span>
         </div>
         <div className="relative mt-4">
@@ -83,19 +90,24 @@ function Home() {
       </a>
 
       <ul className="mt-3 grid grid-cols-2 gap-3">
-        {rest.map(({ id, label, Icon, color }, i) => (
+        {rest.map(({ id, label, subtitle, Icon, color }, i) => (
           <li key={id} className={i === rest.length - 1 ? 'col-span-2' : ''}>
             <a
               href={`#/${id}`}
-              className={`relative flex h-full min-h-[118px] flex-col justify-between overflow-hidden rounded-3xl ${color} p-4 text-white shadow-sm transition active:scale-[0.98]`}
+              className={`relative flex h-full min-h-[132px] flex-col justify-between gap-3 overflow-hidden rounded-3xl ${color} p-4 text-white shadow-sm transition active:scale-[0.98]`}
               data-testid="tile"
             >
               <div className="geo absolute inset-0 opacity-[0.14]" aria-hidden="true" />
               <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15">
                 <Icon size={26} />
               </span>
-              <span className="relative text-[17px] leading-tight font-bold" data-testid="tile-label">
-                {label}
+              <span className="relative">
+                <span className="block text-[18px] leading-tight font-bold" data-testid="tile-label">
+                  {label}
+                </span>
+                <span className="mt-0.5 block text-[13px] leading-snug text-white/85" data-testid="tile-subtitle">
+                  {subtitle}
+                </span>
               </span>
             </a>
           </li>
@@ -115,7 +127,7 @@ export default function App() {
   const Feature = id ? SCREENS[id] : undefined
   const projector = id === 'leaderboard'
   // A recipe opened from a meal plan day belongs to Meal Plan.
-  const section = !id ? 'home' : id === 'recipes' && params[1] === 'for' ? 'plan' : SECTIONS.some((s) => s.id === id) ? id : null
+  const section = !id ? 'home' : SECTIONS.some((s) => s.id === id) ? id : null
 
   let body: ReactNode = <Home />
   if (Feature) {

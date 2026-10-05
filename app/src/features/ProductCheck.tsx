@@ -1,6 +1,6 @@
 import { useDeferredValue, useMemo, useState } from 'react'
 import NotInList from '../components/NotInList'
-import Screen from '../components/Screen'
+import SectionShell, { CHECK_TABS } from '../components/SectionShell'
 import { decodeEntities, fold, terms, useData, type Dataset } from '../lib/data'
 
 type RawProduct = {
@@ -57,7 +57,7 @@ export default function ProductCheck(_: { params: string[] }) {
   }, [prepared, deferredQuery, category])
 
   return (
-    <Screen tone="product" title="Check a Product">
+    <SectionShell title="Check" tone="product" tabs={CHECK_TABS} current="products">
       <p className="mb-3 text-[15px] text-muted">
         Search IFANCA's published list of certified products.
       </p>
@@ -143,7 +143,7 @@ export default function ProductCheck(_: { params: string[] }) {
               >
                 Search the current list on ifanca.org
               </a>
-              <a href="#/ingredients" className="flex min-h-11 items-center text-[14px] font-medium text-brand underline">
+              <a href="#/check/ingredients" className="flex min-h-11 items-center text-[14px] font-medium text-brand underline">
                 Check the ingredients on the label instead
               </a>
             </div>
@@ -159,7 +159,7 @@ export default function ProductCheck(_: { params: string[] }) {
           )}
         </>
       )}
-    </Screen>
+    </SectionShell>
   )
 }
 

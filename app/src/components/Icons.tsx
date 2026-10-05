@@ -106,12 +106,18 @@ export const SearchIcon = (p: P) => (
   </Svg>
 )
 
+export const CheckIcon = (p: P) => (
+  <Svg {...p}>
+    <circle cx="10.5" cy="10.5" r="6.5" />
+    <path d="m20 20-4.8-4.8" />
+    <path d="m7.8 10.6 1.9 1.9 3.6-3.8" />
+  </Svg>
+)
+
 // The sections, in home and navigation order.
 export const SECTIONS = [
-  { id: 'learn', label: 'Learn and Quiz', short: 'Learn', Icon: LearnIcon, color: 'bg-learn' },
-  { id: 'product', label: 'Check a Product', short: 'Products', Icon: ProductIcon, color: 'bg-product' },
-  { id: 'ingredients', label: 'Check Ingredients', short: 'Ingredients', Icon: IngredientsIcon, color: 'bg-ingredients' },
-  { id: 'recipes', label: 'Recipes', short: 'Recipes', Icon: RecipesIcon, color: 'bg-recipes' },
-  { id: 'plan', label: 'Meal Plan', short: 'Meal Plan', Icon: PlanIcon, color: 'bg-plan' },
-  { id: 'read', label: 'Read', short: 'Read', Icon: ReadIcon, color: 'bg-read' },
+  { id: 'learn', label: 'Learn and Quiz', short: 'Learn', subtitle: "IFANCA's answers as lessons, then a quiz", Icon: LearnIcon, color: 'bg-learn' },
+  { id: 'check', label: 'Check', short: 'Check', subtitle: 'Certified products and ingredients', Icon: CheckIcon, color: 'bg-product' },
+  { id: 'recipes', label: 'Recipes', short: 'Recipes', subtitle: 'Recipes, meal plan, and shopping list', Icon: RecipesIcon, color: 'bg-recipes' },
+  { id: 'read', label: 'Read', short: 'Read', subtitle: "Articles from IFANCA's library", Icon: ReadIcon, color: 'bg-read' },
 ] as const
