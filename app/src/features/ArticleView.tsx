@@ -28,7 +28,8 @@ export default function ArticleView({ article, themeLabel }: { article: ArticleM
     setLoad({ status: 'loading' })
     fetch(`/data/articles/${slug}.json`)
       .then(async (r) => {
-        if (r.status === 404) return { status: 'missing' } as const
+        // No body file. Some hosts answer a missing file with the app page instead of a 404.
+        if (r.status === 404 || !(r.headers.get('content-type') ?? '').includes('json')) return { status: 'missing' } as const
         if (!r.ok) throw new Error(String(r.status))
         return { status: 'ready', body: (await r.json()) as Body } as const
       })
