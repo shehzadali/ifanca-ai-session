@@ -4,6 +4,7 @@ import RecipePhoto from '../components/RecipePhoto'
 import Screen from '../components/Screen'
 import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
 import PlanScreen from './PlanScreen'
+import ShoppingList from './ShoppingList'
 import { AddToPlan, DAYS, useMealPlan } from './MealPlan'
 import { isVegetarian } from '../lib/vegetarian'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
@@ -68,6 +69,7 @@ export default function Cook({ params }: { params: string[] }) {
   if (error) return <Screen tone="recipes" title="Recipes">The recipes could not load. Check your connection and try again.</Screen>
   if (!recipes) return <Screen tone="recipes" title="Recipes">Loading...</Screen>
   if (params[0] === 'plan') return <PlanScreen params={params.slice(1)} />
+  if (params[0] === 'shopping') return <ShoppingList />
   const recipe = params[0] ? recipes.find((r) => r.slug === params[0]) : undefined
   // Opened from a meal plan day: #/recipes/<slug>/for/<Day>
   const day = params[1] === 'for' && DAYS.includes(params[2]) ? params[2] : undefined
