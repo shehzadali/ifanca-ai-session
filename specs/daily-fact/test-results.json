@@ -1,0 +1,45 @@
+{
+  "feature": "daily-fact",
+  "date": "2026-10-05",
+  "commit": "0b39026",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "n": 1,
+      "text": "Card with quote, source FAQ, and lesson link",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 2,
+      "text": "The quote is word for word in the named FAQ",
+      "result": "Pass",
+      "notes": "Are kosher products halal?"
+    },
+    {
+      "n": 3,
+      "text": "The link opens that lesson",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 4,
+      "text": "Different days, different facts. Same day, same fact",
+      "result": "Pass",
+      "notes": "October 5 and 6 differ, two times on October 5 match"
+    },
+    {
+      "n": 5,
+      "text": "Offline after one visit",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 6,
+      "text": "390px layout and link size",
+      "result": "Pass",
+      "notes": ""
+    }
+  ],
+  "consoleErrors": []
+}

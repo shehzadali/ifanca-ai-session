@@ -19,7 +19,7 @@
 
 ## Steps
 
-- [ ] 1. Card and placement on Home. (AC 1 to 6)
+- [x] 1. Card and placement on Home. (AC 1 to 6)
 
 ## Test cases
 
