@@ -48,8 +48,7 @@ export const CHECK_TABS: SectionTab[] = [
   { id: 'ingredients', label: 'Ingredients', href: '#/check/ingredients' },
 ]
 
-export const RECIPE_TABS: SectionTab[] = [
-  { id: 'recipes', label: 'Recipes', href: '#/recipes' },
-  { id: 'plan', label: 'Meal Plan', href: '#/recipes/plan' },
-  { id: 'shopping', label: 'Shopping List', href: '#/recipes/shopping' },
+export const PLAN_TABS: SectionTab[] = [
+  { id: 'plan', label: 'Meal Plan', href: '#/plan' },
+  { id: 'shopping', label: 'Shopping List', href: '#/plan/shopping' },
 ]

@@ -114,10 +114,30 @@ export const CheckIcon = (p: P) => (
   </Svg>
 )
 
-// The sections, in home and navigation order.
+export const ShoppingIcon = (p: P) => (
+  <Svg {...p}>
+    <path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z" />
+    <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+    <path d="m9.5 14 1.8 1.8 3.2-3.3" />
+  </Svg>
+)
+
+// The sections, in navigation order.
 export const SECTIONS = [
-  { id: 'learn', label: 'Learn and Quiz', short: 'Learn', subtitle: "IFANCA's answers as lessons, then a quiz", Icon: LearnIcon, color: 'bg-learn' },
-  { id: 'check', label: 'Check', short: 'Check', subtitle: 'Certified products and ingredients', Icon: CheckIcon, color: 'bg-product' },
-  { id: 'recipes', label: 'Recipes', short: 'Recipes', subtitle: 'Recipes, meal plan, and shopping list', Icon: RecipesIcon, color: 'bg-recipes' },
-  { id: 'read', label: 'Read', short: 'Read', subtitle: "Articles from IFANCA's library", Icon: ReadIcon, color: 'bg-read' },
+  { id: 'learn', label: 'Learn and Quiz', short: 'Learn', subtitle: "IFANCA's answers as lessons, then a quiz", Icon: LearnIcon, color: 'bg-learn', href: '#/learn' },
+  { id: 'check', label: 'Check', short: 'Check', subtitle: 'Certified products and ingredients', Icon: CheckIcon, color: 'bg-product', href: '#/check' },
+  { id: 'recipes', label: 'Recipes', short: 'Recipes', subtitle: "Recipes from IFANCA's library", Icon: RecipesIcon, color: 'bg-recipes', href: '#/recipes' },
+  { id: 'plan', label: 'Meal Plan', short: 'Meal Plan', subtitle: 'Plan your week, day by day', Icon: PlanIcon, color: 'bg-plan', href: '#/plan' },
+  { id: 'read', label: 'Read', short: 'Read', subtitle: "Articles from IFANCA's library", Icon: ReadIcon, color: 'bg-read', href: '#/read' },
+] as const
+
+// Home tiles: every section, plus Shopping List, which is a tab inside Meal Plan.
+const [learn, check, recipes, plan, read] = SECTIONS
+export const HOME_TILES = [
+  learn,
+  check,
+  recipes,
+  plan,
+  { id: 'shopping', label: 'Shopping List', short: 'Shopping', subtitle: 'One list from your meal plan', Icon: ShoppingIcon, color: 'bg-shop', href: '#/plan/shopping' },
+  read,
 ] as const

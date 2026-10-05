@@ -2,7 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, t
 import Avatar from './components/Avatar'
 import BottomNav from './components/BottomNav'
 import DailyFact from './components/DailyFact'
-import { SECTIONS } from './components/Icons'
+import { HOME_TILES, SECTIONS } from './components/Icons'
 import LevelBar from './components/LevelBar'
 import ProfileBlock from './components/ProfileBlock'
 import Settings from './components/Settings'
@@ -15,6 +15,7 @@ import type { QuizProgress } from './lib/level'
 const CheckScreen = lazy(() => import('./features/CheckScreen'))
 const Learn = lazy(() => import('./features/Learn'))
 const Cook = lazy(() => import('./features/Cook'))
+const PlanScreen = lazy(() => import('./features/PlanScreen'))
 const Read = lazy(() => import('./features/Read'))
 const Leaderboard = lazy(() => import('./features/Leaderboard'))
 const ProfileScreen = lazy(() => import('./features/ProfileScreen'))
@@ -24,6 +25,7 @@ const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
   check: CheckScreen,
   learn: Learn,
   recipes: Cook,
+  plan: PlanScreen,
   read: Read,
   leaderboard: Leaderboard,
   profile: ProfileScreen,
@@ -31,9 +33,11 @@ const SCREENS: Record<string, ComponentType<{ params: string[] }>> = {
 
 // Old links from earlier versions still work.
 export function normalize(route: string): string {
-  if (route === 'cook/plan') return 'recipes/plan'
+  if (route === 'cook/plan') return 'plan'
+  // Meal Plan and Shopping List were tabs of Recipes for one version.
+  if (route === 'recipes/plan' || route.startsWith('recipes/plan/')) return route.replace(/^recipes\//, '')
+  if (route === 'recipes/shopping') return 'plan/shopping'
   if (route === 'cook' || route.startsWith('cook/')) return route.replace(/^cook/, 'recipes')
-  if (route === 'plan' || route.startsWith('plan/')) return `recipes/${route}`
   if (route === 'product' || route.startsWith('product/')) return 'check/products'
   if (route === 'ingredients' || route.startsWith('ingredients/')) return `check/${route}`
   return route
@@ -60,7 +64,7 @@ function useRoute(): string {
 
 function Home() {
   const [quiz] = useStored<QuizProgress>('thw.quiz', { best: {}, level: null })
-  const [learn, ...rest] = SECTIONS
+  const [learn, ...rest] = HOME_TILES
   return (
     <div>
       <p className="mb-4 text-[15px] leading-snug text-muted" data-testid="home-intro">
@@ -93,10 +97,10 @@ function Home() {
       <DailyFact />
 
       <ul className="mt-3 grid grid-cols-2 gap-3">
-        {rest.map(({ id, label, subtitle, Icon, color }, i) => (
+        {rest.map(({ id, label, subtitle, Icon, color, href }, i) => (
           <li key={id} className={i === rest.length - 1 ? 'col-span-2' : ''}>
             <a
-              href={`#/${id}`}
+              href={href}
               className={`relative flex h-full min-h-[132px] flex-col justify-between gap-3 overflow-hidden rounded-3xl ${color} p-4 text-white shadow-sm transition active:scale-[0.98]`}
               data-testid="tile"
             >
@@ -130,7 +134,8 @@ export default function App() {
   const Feature = id ? SCREENS[id] : undefined
   const projector = id === 'leaderboard'
   // A recipe opened from a meal plan day belongs to Meal Plan.
-  const section = !id ? 'home' : SECTIONS.some((s) => s.id === id) ? id : null
+  // A recipe opened from a meal plan day belongs to Meal Plan.
+  const section = !id ? 'home' : id === 'recipes' && params[1] === 'for' ? 'plan' : SECTIONS.some((s) => s.id === id) ? id : null
 
   let body: ReactNode = <Home />
   if (Feature) {

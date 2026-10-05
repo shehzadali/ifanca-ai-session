@@ -3,7 +3,7 @@ import Sheet from '../components/Sheet'
 import { useData } from '../lib/data'
 import { buildMatchers, findMatches, type Ingredient, type IngredientData } from '../lib/ingredients'
 import IngredientCard from './IngredientCard'
-import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
+import SectionShell, { PLAN_TABS } from '../components/SectionShell'
 import { buildList, type ShopItem } from '../lib/shopping'
 import { useStored } from '../lib/storage'
 import { useRecipes } from './Cook'
@@ -41,13 +41,13 @@ export default function ShoppingList() {
   const toggle = (key: string) => setTicked((t) => (t.includes(key) ? t.filter((k) => k !== key) : [...t, key]))
 
   return (
-    <SectionShell title="Recipes" tone="recipes" tabs={RECIPE_TABS} current="shopping">
+    <SectionShell title="Meal Plan" tone="plan" tabs={PLAN_TABS} current="shopping">
       {error && <p>The recipes could not load. Check your connection and try again.</p>}
       {!recipes && !error && <p className="text-muted">Loading...</p>}
       {recipes && items.length === 0 && (
         <div className="rounded-2xl border border-dashed border-line p-4" data-testid="shopping-empty">
           <p className="text-[15px]">Your meal plan is empty. Add recipes to days first.</p>
-          <a href="#/recipes/plan" className="mt-1 inline-flex min-h-11 items-center font-semibold text-brand underline">
+          <a href="#/plan" className="mt-1 inline-flex min-h-11 items-center font-semibold text-brand underline">
             Go to Meal Plan
           </a>
         </div>

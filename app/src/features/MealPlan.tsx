@@ -81,7 +81,7 @@ export function AddToPlan({ url, day }: { url: string; day?: string }) {
       {added && (
         <p className="mt-2 text-[14px]" role="status">
           Added to {added}.{' '}
-          <a href={`#/recipes/plan/${added}`} className="inline-flex min-h-11 items-center font-medium text-brand underline">
+          <a href={`#/plan/${added}`} className="inline-flex min-h-11 items-center font-medium text-brand underline">
             Back to {added}
           </a>
         </p>
@@ -121,7 +121,7 @@ function WeekView({ recipes }: { recipes: Recipe[] }) {
           return (
             <li key={d}>
               <a
-                href={`#/recipes/plan/${d}`}
+                href={`#/plan/${d}`}
                 className="flex min-h-16 items-center gap-3 rounded-2xl border border-line bg-card p-3 shadow-sm"
                 data-testid={`day-${d}`}
               >

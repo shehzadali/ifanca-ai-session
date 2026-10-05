@@ -1,13 +1,13 @@
 import { HomeIcon, SECTIONS } from './Icons'
 
-// App navigation: Home and the six sections. Home goes home without the splash.
+// App navigation: Home and the five sections. Home goes home without the splash.
 export default function BottomNav({ current }: { current: string }) {
   return (
     <nav
       aria-label="Sections"
       className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-card/95 pb-[env(safe-area-inset-bottom)] backdrop-blur"
     >
-      <ul className="mx-auto grid max-w-md grid-cols-7">
+      <ul className="mx-auto grid max-w-md grid-cols-6">
         {[{ id: 'home', short: 'Home', Icon: HomeIcon }, ...SECTIONS].map(({ id, short, Icon }) => {
           const on = id === current
           return (
