@@ -25,7 +25,7 @@
 
 ## Steps
 
-- [ ] 1. `shopping.ts` and a check in Node on real recipes. (AC 3, 4, 5)
+- [x] 1. `shopping.ts` and a check in Node on real recipes. (AC 3, 4, 5)
 - [ ] 2. Screen, tab, route, ticks, empty state. (AC 1, 2, 7, 8, 9, 10)
 - [ ] 3. Guidance badge and sheet. (AC 6)
 
