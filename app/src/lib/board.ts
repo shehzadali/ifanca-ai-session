@@ -1,6 +1,7 @@
 // Room leaderboard on Supabase. The client library loads only when the leaderboard is used.
 // Scores always stay on the device first. Posting is a copy for the room screen.
 import type { SupabaseClient } from '@supabase/supabase-js'
+import { readProfile } from './profile'
 import { readStored, writeStored } from './storage'
 
 const URL = import.meta.env.VITE_SUPABASE_URL ?? ''
@@ -73,6 +74,8 @@ async function rpc<T>(fn: string, args: Record<string, unknown>): Promise<T> {
   if (error) {
     // P0001 is an error raised on purpose by the database functions. Anything else is treated as a network problem.
     if (error.code === 'P0001') throw new Refused(error.message)
+    // 23505: another player already has this name (supabase/003_unique_names.sql).
+    if (error.code === '23505') throw new Refused('name is taken')
     throw new Error(error.message)
   }
   return data as T
@@ -118,18 +121,36 @@ export function startPendingRetry() {
   retry()
 }
 
-export async function topTen(): Promise<Entry[]> {
+export async function topTen(): Promise<{ entries: Entry[]; total: number }> {
   const c = await getClient()
   const query = (cols: string) =>
-    c.from('leaderboard').select(cols).order('score', { ascending: false }).order('updated_at', { ascending: true }).limit(10)
-  let { data, error } = await query(legacy ? 'id,name,score,level,updated_at' : 'id,name,score,level,updated_at,avatar')
+    c.from('leaderboard').select(cols, { count: 'exact' }).order('score', { ascending: false }).order('updated_at', { ascending: true }).limit(10)
+  let { data, error, count } = await query(legacy ? 'id,name,score,level,updated_at' : 'id,name,score,level,updated_at,avatar')
   // 42703: the avatar column does not exist yet.
   if (error?.code === '42703') {
     legacy = true
-    ;({ data, error } = await query('id,name,score,level,updated_at'))
+    ;({ data, error, count } = await query('id,name,score,level,updated_at'))
   }
   if (error) throw new Error(error.message)
-  return data as unknown as Entry[]
+  const entries = data as unknown as Entry[]
+  return { entries, total: count ?? entries.length }
+}
+
+// True when another player already uses this name on the board. Case is ignored.
+// This device's own entry does not count. Offline or on error, returns false and the database decides.
+export async function nameTaken(name: string): Promise<boolean> {
+  if (!boardConfigured) return false
+  try {
+    const c = await getClient()
+    const clean = cleanName(name).replace(/[\\%_]/g, (ch) => `\\${ch}`)
+    const { data, error } = await c.from('leaderboard').select('id,name').ilike('name', clean).limit(1)
+    if (error || !data?.length) return false
+    const mine = readBoard()
+    const myName = readProfile()?.name ?? ''
+    return !(mine.postedTotal !== null && myName.toLowerCase() === cleanName(name).toLowerCase())
+  } catch {
+    return false
+  }
 }
 
 export async function resetBoard(code: string): Promise<number> {

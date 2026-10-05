@@ -100,3 +100,15 @@ input[type="search"]::-webkit-search-cancel-button {
 @media (prefers-reduced-motion: reduce) {
   .shimmer { animation: none; background: var(--line); }
 }
+
+/* A new or changed leaderboard row glows gold for a moment. */
+.flash {
+  animation: flash 2.6s ease-out;
+}
+@keyframes flash {
+  0%, 30% { background: var(--gold-soft); box-shadow: inset 6px 0 0 var(--gold); }
+  100% { background: transparent; box-shadow: inset 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flash { animation: none; background: var(--gold-soft); }
+}

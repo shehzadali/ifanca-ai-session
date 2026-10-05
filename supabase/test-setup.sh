@@ -20,7 +20,7 @@ q "create schema extensions;
    alter default privileges in schema public grant all on functions to anon, authenticated;
    create publication supabase_realtime;" >/dev/null
 
-for f in setup.sql 002_profiles.sql; do
+for f in setup.sql 002_profiles.sql 003_unique_names.sql; do
   for run in 1 2; do
     out=$(psql -X -q -v ON_ERROR_STOP=1 -d "$DB" -f "$DIR/$f" 2>&1) || { echo "FAIL  $f run $run: $out"; exit 1; }
   done
@@ -66,6 +66,13 @@ refused "anon cannot write the avatar directly" "$A update public.leaderboard se
 ok "anon can read avatars" "$(q "$A select count(avatar) from public.leaderboard")" "1"
 q "$A select public.post_score('$D3', 'ali_99', 6, null)" >/dev/null 2>&1
 ok "the first post_score still works for old app copies" "$(q "$A select count(*) from public.leaderboard where name = 'ali_99'")" "1"
+
+# 003: one player per name, case ignored
+D4=44444444-4444-4444-4444-444444444444
+refused "another device cannot take an existing name" "$A select public.post_score('$D4', 'AMINA', 5, null, 'sun-amber')"
+refused "another device cannot rename to an existing name" "$A select public.post_score('$D2', 'amina', 9, null, null)"
+q "$A select public.post_score('$D1', 'Amina', 11, 'Learner', 'star-emerald')" >/dev/null
+ok "the same device keeps its own name" "$(q "$A select count(*) from public.leaderboard where lower(name) = 'amina'")" "1"
 
 refused "wrong reset code refused" "$A select public.reset_leaderboard('wrong-code')"
 ok "wrong code removes nothing" "$(q "$A select count(*) from public.leaderboard")" "3"

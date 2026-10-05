@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Avatar from '../components/Avatar'
 import { boardConfigured, Refused, resetBoard, topTen, watchBoard, type Entry } from '../lib/board'
 
@@ -6,6 +6,10 @@ const POLL_MS = 5000
 
 export default function Leaderboard(_: { params: string[] }) {
   const [entries, setEntries] = useState<Entry[] | null>(null)
+  const [total, setTotal] = useState(0)
+  // Rows whose score just arrived or changed get a short highlight.
+  const seen = useRef<Map<string, string> | null>(null)
+  const [fresh, setFresh] = useState<Set<string>>(new Set())
   const [live, setLive] = useState(false)
   const [reachable, setReachable] = useState(true)
   const [qr, setQr] = useState<{ url: string } | null>(null)
@@ -19,8 +23,19 @@ export default function Leaderboard(_: { params: string[] }) {
 
   const load = useCallback(() => {
     topTen()
-      .then((e) => {
+      .then(({ entries: e, total: t }) => {
+        const before = seen.current
+        const now = new Map(e.map((x) => [x.id, `${x.score}|${x.updated_at}`]))
+        if (before) {
+          const changed = new Set(e.filter((x) => before.get(x.id) !== now.get(x.id)).map((x) => x.id))
+          if (changed.size) {
+            setFresh(changed)
+            window.setTimeout(() => setFresh(new Set()), 3000)
+          }
+        }
+        seen.current = now
         setEntries(e)
+        setTotal(t)
         setReachable(true)
       })
       .catch(() => setReachable(false))
@@ -42,54 +57,80 @@ export default function Leaderboard(_: { params: string[] }) {
     <section>
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
-          <h2 className="text-3xl font-semibold tracking-tight lg:text-[44px]">Room Leaderboard</h2>
-          <p className="mt-1 text-[15px] text-muted lg:text-xl">Quiz scores from The Halal Way. Top 10.</p>
+          <h2 className="text-3xl font-semibold tracking-tight lg:text-[clamp(2.25rem,6.2vh,4.5rem)] lg:leading-none">Room Leaderboard</h2>
+          <p className="mt-1 text-[15px] text-muted lg:mt-2 lg:text-[clamp(1.1rem,2.6vh,1.9rem)]">
+            Quiz scores from The Halal Way. Top 10.
+            {boardConfigured && entries && (
+              <span className="ml-2 font-bold text-ink" data-testid="player-count">
+                {total} {total === 1 ? 'player' : 'players'}
+              </span>
+            )}
+          </p>
         </div>
         {boardConfigured && (
-          <p className="flex items-center gap-2 text-[14px] text-muted lg:text-lg" data-testid="live-status">
+          <p className="flex items-center gap-2 text-[14px] text-muted lg:text-[clamp(1rem,2.2vh,1.6rem)]" data-testid="live-status">
             <span className={`h-2.5 w-2.5 rounded-full ${live && reachable ? 'bg-brand' : 'bg-gold'}`} aria-hidden="true" />
             {!reachable ? 'Cannot reach the leaderboard. Retrying.' : live ? 'Live' : `Reconnecting. Checking every ${POLL_MS / 1000} seconds.`}
           </p>
         )}
       </div>
 
-      <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_320px] lg:items-start">
+      <div className="mt-4 grid gap-6 lg:mt-[2.5vh] lg:grid-cols-[1fr_min(28vw,50vh)] lg:items-start lg:gap-[3vw]">
         <div>
           {!boardConfigured && <p className="text-xl" data-testid="board-empty">The room leaderboard is not connected yet.</p>}
           {boardConfigured && entries === null && reachable && <p className="text-xl text-muted">Loading...</p>}
           {boardConfigured && entries?.length === 0 && (
-            <p className="text-2xl lg:text-4xl" data-testid="board-empty">
+            <p className="text-2xl lg:text-[clamp(2rem,5vh,3.5rem)]" data-testid="board-empty">
               No scores yet. Scan the code to play.
             </p>
           )}
           {entries && entries.length > 0 && (
             <ol className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-card" data-testid="board">
               {entries.map((e, i) => (
-                <li key={e.id} className="flex items-center gap-4 px-4 py-1 lg:px-6 lg:py-1.5" data-testid="board-row">
-                  <span className="w-10 shrink-0 text-2xl leading-tight font-semibold text-muted tabular-nums lg:w-14 lg:text-[34px]" data-testid="board-rank">
+                <li
+                  key={e.id}
+                  className={`flex items-center gap-4 px-4 py-1 lg:gap-[2vh] lg:px-6 lg:py-[0.55vh] ${fresh.has(e.id) ? 'flash' : ''}`}
+                  data-testid="board-row"
+                  data-fresh={fresh.has(e.id) || undefined}
+                >
+                  <span
+                    className="w-10 shrink-0 text-2xl leading-tight font-semibold text-muted tabular-nums lg:w-[7vh] lg:text-[clamp(2rem,5.2vh,3.75rem)]"
+                    data-testid="board-rank"
+                  >
                     {i + 1}
                   </span>
-                  <Avatar id={e.avatar} name={e.name} size={40} />
-                  <span className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-3">
-                    <span className="truncate text-2xl leading-tight font-semibold lg:text-[34px] lg:leading-[1.15]" data-testid="board-name">
+                  <Avatar id={e.avatar} name={e.name} size={40} className="lg:h-[5.6vh] lg:w-[5.6vh]" />
+                  <span className="flex min-w-0 flex-1 items-baseline gap-x-3">
+                    <span
+                      className="truncate text-2xl leading-tight font-semibold lg:text-[clamp(2rem,5.2vh,3.75rem)] lg:leading-[1.15]"
+                      data-testid="board-name"
+                    >
                       {e.name}
                     </span>
-                    {e.level && <span className="text-[14px] text-muted lg:text-lg">{e.level}</span>}
+                    {e.level && <span className="shrink-0 text-[14px] text-muted lg:text-[clamp(1rem,2.3vh,1.6rem)]">{e.level}</span>}
                   </span>
-                  <span className="shrink-0 text-2xl leading-tight font-bold text-brand tabular-nums lg:text-[36px]" data-testid="board-score">
+                  <span
+                    className="shrink-0 text-2xl leading-tight font-bold text-brand tabular-nums lg:text-[clamp(2.1rem,5.4vh,4rem)]"
+                    data-testid="board-score"
+                  >
                     {e.score}
-                    <span className="text-[15px] font-medium text-muted lg:text-xl"> of 18</span>
+                    <span className="text-[15px] font-medium text-muted lg:text-[clamp(1rem,2.3vh,1.6rem)]"> of 18</span>
                   </span>
                 </li>
               ))}
             </ol>
           )}
+          {entries && entries.length > 1 && (
+            <p className="mt-2 text-[13px] text-muted lg:text-[clamp(0.9rem,1.8vh,1.2rem)]">Equal scores: the player who reached the score first ranks higher.</p>
+          )}
         </div>
 
-        <aside className="rounded-2xl border border-line bg-card p-4 text-center lg:p-5" data-testid="qr-panel">
-          <p className="text-xl font-semibold lg:text-2xl">Scan to play</p>
-          <img src="/qr.svg" alt="QR code for The Halal Way" className="mx-auto mt-3 w-full max-w-[260px]" data-testid="qr" />
-          {qr?.url && <p className="mt-2 text-[15px] font-medium break-all lg:text-lg">{qr.url.replace(/^https:\/\//, '')}</p>}
+        <aside className="rounded-2xl border border-line bg-card p-4 text-center lg:p-[2.2vh]" data-testid="qr-panel">
+          <p className="text-xl font-semibold lg:text-[clamp(1.5rem,3.6vh,2.6rem)]">Scan to play</p>
+          <img src="/qr.svg" alt="QR code for The Halal Way" className="mx-auto mt-3 w-full max-w-[260px] lg:max-w-none" data-testid="qr" />
+          {qr?.url && (
+            <p className="mt-2 text-[15px] font-medium break-all lg:text-[clamp(1rem,2.4vh,1.7rem)]">{qr.url.replace(/^https:\/\//, '')}</p>
+          )}
         </aside>
       </div>
 

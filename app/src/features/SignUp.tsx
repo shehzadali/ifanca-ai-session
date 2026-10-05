@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AVATARS, AvatarPicker } from '../components/Avatar'
+import { nameTaken } from '../lib/board'
 import { cleanProfileName, saveProfile, validProfileName, type Profile } from '../lib/profile'
 
 // Name and avatar. Used before the first quiz and to edit the profile later.
@@ -7,12 +8,19 @@ export default function SignUp({ initial, onDone, editing = false }: { initial?:
   const [name, setName] = useState(initial?.name ?? '')
   const [avatar, setAvatar] = useState(initial?.avatar ?? AVATARS[0].id)
   const ok = validProfileName(name)
+  const [taken, setTaken] = useState(false)
+  const [checking, setChecking] = useState(false)
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault()
         if (!ok) return
+        setChecking(true)
+        const isTaken = await nameTaken(name)
+        setChecking(false)
+        setTaken(isTaken)
+        if (isTaken) return
         saveProfile({ name: cleanProfileName(name), avatar })
         onDone()
       }}
@@ -25,7 +33,10 @@ export default function SignUp({ initial, onDone, editing = false }: { initial?:
         <span className="mb-1 block text-[13px] font-semibold text-muted">Name</span>
         <input
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value)
+            setTaken(false)
+          }}
           maxLength={24}
           autoComplete="nickname"
           autoCapitalize="words"
@@ -33,6 +44,11 @@ export default function SignUp({ initial, onDone, editing = false }: { initial?:
           data-testid="profile-name"
         />
       </label>
+      {taken && (
+        <p className="mt-1 text-[14px] font-semibold text-danger" data-testid="name-taken">
+          That name is already on the room leaderboard. Pick another name.
+        </p>
+      )}
       {name.trim() && !ok && (
         <p className="mt-1 text-[13px] text-muted">
           Use 2 to 20 letters or numbers. Spaces, hyphens, apostrophes, periods, and underscores are fine.
@@ -45,7 +61,7 @@ export default function SignUp({ initial, onDone, editing = false }: { initial?:
       </p>
       <button
         type="submit"
-        disabled={!ok}
+        disabled={!ok || checking}
         className="mt-3 h-12 w-full rounded-xl bg-brand font-bold text-on-brand disabled:opacity-40"
       >
         {editing ? 'Save profile' : 'Start playing'}

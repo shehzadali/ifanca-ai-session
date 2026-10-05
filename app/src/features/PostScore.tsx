@@ -9,13 +9,17 @@ type Status = 'sending' | 'posted' | 'failed' | 'refused'
 export default function PostScore({ total, max, level }: { total: number; max: number; level: string | null }) {
   const profile = useProfile()
   const [status, setStatus] = useState<Status>('sending')
+  const [reason, setReason] = useState('')
 
   const send = useCallback(() => {
     if (!profile) return
     setStatus('sending')
     postScore(profile.name, total, level, profile.avatar)
       .then(() => setStatus('posted'))
-      .catch((e) => setStatus(e instanceof Refused ? 'refused' : 'failed'))
+      .catch((e) => {
+        setReason(e instanceof Error ? e.message : '')
+        setStatus(e instanceof Refused ? 'refused' : 'failed')
+      })
   }, [profile, total, level])
 
   useEffect(() => {
@@ -44,7 +48,11 @@ export default function PostScore({ total, max, level }: { total: number; max: n
         {status === 'sending' && <p className="text-[14px] text-muted">Posting to the room leaderboard...</p>}
         {status === 'posted' && <p className="text-[14px] font-semibold text-brand">Posted to the room leaderboard.</p>}
         {status === 'refused' && (
-          <p className="text-[14px]">The leaderboard did not accept this name. Change it in Settings, then play a round again.</p>
+          <p className="text-[14px]">
+            {reason.includes('taken')
+              ? 'Another player already has this name. Change your name in Settings, then play a round again.'
+              : 'The leaderboard did not accept this name. Change it in Settings, then play a round again.'}
+          </p>
         )}
         {status === 'failed' && (
           <>

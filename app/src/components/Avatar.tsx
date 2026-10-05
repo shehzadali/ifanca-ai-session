@@ -102,13 +102,13 @@ export const AVATARS: { id: string; motif: string; color: string; label: string 
 export const isAvatar = (id: string | null | undefined) => !!id && AVATARS.some((a) => a.id === id)
 
 // A known avatar, or initials on a neutral color for players without one.
-export default function Avatar({ id, name = '', size = 40 }: { id?: string | null; name?: string; size?: number }) {
+export default function Avatar({ id, name = '', size = 40, className = '' }: { id?: string | null; name?: string; size?: number; className?: string }) {
   const a = AVATARS.find((x) => x.id === id)
   if (!a) {
     const initials = name.trim().split(/\s+/).map((w) => w[0] ?? '').join('').slice(0, 2).toUpperCase() || '?'
     return (
       <span
-        className="inline-flex shrink-0 items-center justify-center rounded-full bg-line font-bold text-ink"
+        className={`inline-flex shrink-0 items-center justify-center rounded-full bg-line font-bold text-ink ${className}`}
         style={{ width: size, height: size, fontSize: size * 0.38 }}
         aria-hidden="true"
         data-avatar="initials"
@@ -118,7 +118,7 @@ export default function Avatar({ id, name = '', size = 40 }: { id?: string | nul
     )
   }
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" className="shrink-0" aria-hidden="true" data-avatar={a.id}>
+    <svg width={size} height={size} viewBox="0 0 24 24" className={`shrink-0 ${className}`} aria-hidden="true" data-avatar={a.id}>
       <circle cx="12" cy="12" r="12" fill={COLORS[a.color]} />
       {MOTIFS[a.motif]}
     </svg>

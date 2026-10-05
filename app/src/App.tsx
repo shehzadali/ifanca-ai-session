@@ -141,7 +141,7 @@ export default function App() {
   return (
     <div
       className={`mx-auto flex min-h-dvh flex-col px-4 pt-[max(0.75rem,env(safe-area-inset-top))] ${
-        projector ? 'max-w-6xl pb-6 lg:px-10' : 'max-w-md'
+        projector ? 'max-w-[1800px] pb-6 lg:px-[3vw]' : 'max-w-md'
       } ${section ? 'pb-24' : 'pb-[max(1rem,env(safe-area-inset-bottom))]'}`}
     >
       {!projector && (
