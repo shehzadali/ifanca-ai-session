@@ -142,7 +142,8 @@ export default function App() {
       <main className={`flex-1 ${projector ? '' : 'mt-3'}`}>{body}</main>
 
       <footer className="mt-8 border-t border-line pt-4 pb-2 text-center text-[13px] leading-relaxed text-muted">
-        <p>Demo built from IFANCA's public content. Not an official IFANCA app.</p>
+        <p>Demo built from IFANCA's public content.</p>
+        <p>Not an official IFANCA app.</p>
       </footer>
 
       {section && <BottomNav current={section} />}
