@@ -52,10 +52,10 @@ create table if not exists leaderboard_private.settings (
   reset_code_hash text not null
 );
 
--- The reset code itself is not in this file. Only its bcrypt hash is.
+-- The reset code itself is not in this file. Only the hash of the first code is, and that code has been replaced.
 insert into leaderboard_private.settings (id, reset_code_hash)
 values (true, '$2a$10$9bA7oL8yFMo8gQn9d6QgZuo9QhOM/fSRpvSThAgq/5HFhPyVkGLVa')
-on conflict (id) do update set reset_code_hash = excluded.reset_code_hash;
+on conflict (id) do nothing; -- keeps a code that was changed later. Change it with an update, not by rerunning this file.
 
 -- ---------- functions ----------
 

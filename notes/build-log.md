@@ -227,6 +227,9 @@ New features:
 
 - D139. Intro lines removed at the owner's request: the home line under the title, the Learn and Quiz line ("IFANCA's answers to common questions, in a suggested order..."), the Read line ("...newest first. Themes are approximate."), and the Recipes line ("...newest first."). This reverses D118 for home. The Read screen no longer says themes are approximate. The theme note stays in articles.json.
 
+- D140. The GitHub repo (shehzadali/ifanca-ai-session) was made public at the owner's request. Pushes from this Mac need git compression off, because FortiClient damages compressed git uploads in transit (see the push commands in the chat).
+- D141. Because the repo is public, the first reset code's bcrypt hash in `setup.sql` is public too, and that short code could be guessed. A new, longer reset code (five parts, bcrypt cost 12) replaces it. The owner sets it with one SQL update in Supabase. Neither the new code nor its hash is in the repo. `setup.sql` no longer overwrites the stored code when it is run again.
+
 ## Deploys
 
 | Date | Commit | URL | Live smoke |
