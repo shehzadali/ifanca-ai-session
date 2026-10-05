@@ -258,6 +258,171 @@ def export_articles() -> int:
     )
 
 
+# ---------- article bodies ----------
+
+INLINE = {"span", "strong", "em", "b", "i", "a", "u", "sup", "sub", "small", "font", "mark", "code", "abbr", "cite", "s"}
+SKIP = {"script", "style", "noscript", "iframe", "svg", "form", "button", "input", "select", "textarea"}
+HEADING = {"h1": "h2", "h2": "h2", "h3": "h3", "h4": "h4", "h5": "h5", "h6": "h5"}
+
+
+def _inline_text(el) -> str:
+    """Text as a browser shows it: tags add no spaces, <br> is a line break. Empty lines are dropped."""
+    from bs4 import NavigableString, Comment
+
+    parts: list[str] = []
+    for d in el.descendants:
+        if isinstance(d, Comment):
+            continue
+        if isinstance(d, NavigableString):
+            if not any(p.name in SKIP for p in d.parents if p is not el):
+                parts.append(str(d))
+        elif d.name == "br":
+            parts.append("\n")
+    lines = [clean(line) for line in "".join(parts).split("\n")]
+    return "\n".join(line for line in lines if line)
+
+
+def _article_image(img, page_url: str) -> dict | None:
+    from urllib.parse import urljoin
+
+    src = img.get("src") or img.get("data-src") or img.get("data-lazy-src") or ""
+    if not src or src.startswith("data:"):
+        return None
+    return {"type": "img", "src": urljoin(page_url, src), "alt": clean(img.get("alt", ""))}
+
+
+def article_blocks(section, page_url: str) -> list[dict]:
+    """Paragraphs, headings, lists, tables, quotes, and images of an article body, in order."""
+    from bs4 import NavigableString, Comment
+
+    blocks: list[dict] = []
+    pending: list[str] = []
+
+    def flush():
+        text = "\n".join(line for line in (clean(x) for x in "".join(pending).split("\n")) if line)
+        if text:
+            blocks.append({"type": "p", "text": text})
+        pending.clear()
+
+    def walk(node):
+        for child in node.children:
+            if isinstance(child, Comment):
+                continue
+            if isinstance(child, NavigableString):
+                pending.append(str(child))
+                continue
+            name = child.name
+            if name in SKIP:
+                continue
+            if name == "br":
+                pending.append("\n")
+            elif name in INLINE and not child.find(["p", "div", "img", "ul", "ol", "table", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "blockquote"]):
+                pending.append(_inline_text(child).replace("\n", "\n"))
+            elif name in HEADING:
+                flush()
+                text = _inline_text(child)
+                if text:
+                    blocks.append({"type": HEADING[name], "text": text})
+            elif name in ("ul", "ol"):
+                flush()
+                items = [t for t in (_inline_text(li) for li in child.find_all("li", recursive=False)) if t]
+                if items:
+                    blocks.append({"type": name, "items": items})
+            elif name == "table":
+                flush()
+                rows = [[_inline_text(c) for c in tr.find_all(["td", "th"], recursive=False)] for tr in child.find_all("tr")]
+                rows = [r for r in rows if any(r)]
+                if rows:
+                    blocks.append({"type": "table", "rows": rows})
+            elif name == "blockquote":
+                flush()
+                text = _inline_text(child)
+                if text:
+                    blocks.append({"type": "quote", "text": text})
+            elif name == "figure":
+                flush()
+                for img in child.find_all("img"):
+                    b = _article_image(img, page_url)
+                    if b:
+                        blocks.append(b)
+                cap = child.find("figcaption")
+                if cap and _inline_text(cap):
+                    blocks.append({"type": "caption", "text": _inline_text(cap)})
+            elif name == "img":
+                flush()
+                b = _article_image(child, page_url)
+                if b:
+                    blocks.append(b)
+            elif name == "hr":
+                flush()
+                blocks.append({"type": "hr"})
+            elif name == "p" and not child.find(["img", "ul", "ol", "table", "div", "figure"]):
+                flush()
+                text = _inline_text(child)
+                if text:
+                    blocks.append({"type": "p", "text": text})
+            else:
+                flush()
+                walk(child)
+                flush()
+
+    walk(section)
+    flush()
+    return blocks
+
+
+def _block_words(blocks: list[dict]) -> str:
+    out = []
+    for b in blocks:
+        if b["type"] in ("p", "h2", "h3", "h4", "h5", "quote", "caption"):
+            out.append(b["text"])
+        elif b["type"] in ("ul", "ol"):
+            out.extend(b["items"])
+        elif b["type"] == "table":
+            out.extend(c for r in b["rows"] for c in r)
+    return re.sub(r"\s+", "", "".join(out))
+
+
+def _section_words(section) -> str:
+    from bs4 import NavigableString, Comment
+
+    parts = [
+        str(d) for d in section.descendants
+        if isinstance(d, NavigableString) and not isinstance(d, Comment) and not any(p.name in SKIP for p in d.parents)
+    ]
+    return re.sub(r"\s+", "", clean("".join(parts)))
+
+
+def export_article_bodies() -> int:
+    """One file per article: app/public/data/articles/<slug>.json. Stops if any article's text differs from its page."""
+    out_dir = OUT_DIR / "articles"
+    out_dir.mkdir(exist_ok=True)
+    rows = [r for r in read_csv("resources-themes.csv") if r["type"] != "Recipe"]
+    written = 0
+    for r in rows:
+        soup = cached_html(r["url"])
+        section = soup.find("section", id="wysiwyg") if soup else None
+        if section is None:
+            continue
+        blocks = article_blocks(section, r["url"])
+        if _block_words(blocks) != _section_words(section):
+            raise SystemExit(f"article text does not match the page: {r['url']}")
+        slug = r["url"].rstrip("/").split("/")[-1]
+        payload = {
+            "url": r["url"],
+            "title": r["title"],
+            "type": r["type"],
+            "date": iso_date(r["date"]),
+            "crawl_date": r["crawl_date"],
+            "note": NOTE,
+            "blocks": blocks,
+        }
+        (out_dir / f"{slug}.json").write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        written += 1
+    print(f"articles checked: {written}")
+    return written
+
+
 # ---------- FAQs ----------
 
 def _flat(fragment: str) -> str:
@@ -514,6 +679,7 @@ def main() -> None:
     n_recipes, skipped = export_recipes()
     counts["recipes.json"] = n_recipes
     counts["articles.json"] = export_articles()
+    counts["articles/*.json"] = export_article_bodies()
     counts["faqs.json"] = export_faqs()
     counts["ingredients.json"] = export_ingredients()
     write_meta()
