@@ -58,9 +58,6 @@ function LearnHome({ lessons }: { lessons: L[] }) {
 
   return (
     <Screen tone="learn" title="Learn and Quiz">
-      <p className="text-[15px] text-muted">
-        IFANCA's answers to common questions, in a suggested order. Each lesson is IFANCA's answer, quoted in full.
-      </p>
 
       <div className="mt-4 rounded-2xl border border-line bg-card p-4">
         <p className="text-[13px] font-medium text-muted">Your Level</p>

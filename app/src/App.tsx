@@ -67,9 +67,6 @@ function Home() {
   const [learn, ...rest] = HOME_TILES
   return (
     <div>
-      <p className="mb-4 text-[15px] leading-snug text-muted" data-testid="home-intro">
-        Check products and ingredients, learn the basics of halal, and plan meals, all from IFANCA's public content.
-      </p>
       <a
         href="#/learn"
         className="relative block overflow-hidden rounded-3xl bg-learn p-5 text-white shadow-sm transition active:scale-[0.99]"

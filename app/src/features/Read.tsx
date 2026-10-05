@@ -64,9 +64,6 @@ export default function Read({ params }: { params: string[] }) {
 
   return (
     <Screen tone="read" title="Read">
-      <p className="text-[15px] text-muted">
-        Articles from IFANCA's resource library, newest first. Themes are approximate.
-      </p>
 
       <input
         type="search"

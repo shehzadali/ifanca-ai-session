@@ -40,6 +40,10 @@
 
 The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
+### Change on 2026-10-04: intro line removed
+
+The owner asked to remove the intro line "Articles from IFANCA's resource library, newest first. Themes are approximate." Criterion 9 now covers the snapshot date only.
+
 ## Data needed
 
 - `app/public/data/articles.json`: `crawl_date` (2026-10-04), `count` (763), `theme_note`, and `items` with `title`, `url`, `type`, `theme`, `date`, `first_40_words`. Six themes. Dates from 1998 to 2026. No blocker.

@@ -101,7 +101,6 @@ export function RecipeList({ recipes, linkSuffix = '', intro = true }: { recipes
 
   return (
     <div>
-      {intro && <p className="text-[15px] text-muted">Recipes from IFANCA's resource library, newest first.</p>}
       {intro && <a
         href="#/plan"
         className="mt-3 flex h-12 items-center justify-between rounded-2xl border border-line bg-card shadow-sm px-4 font-medium text-brand"

@@ -225,6 +225,8 @@ New features:
 - D137. Links from the previous version still work: `#/recipes/plan...` and `#/recipes/shopping` redirect to the new routes.
 - D138. Bug found and fixed: after the five-tab change the bottom bar kept a seven-column grid, so the five items sat packed to the left on the live app. The bar now has six columns for six items, and the feedback-3 test checks that the items fill the bar.
 
+- D139. Intro lines removed at the owner's request: the home line under the title, the Learn and Quiz line ("IFANCA's answers to common questions, in a suggested order..."), the Read line ("...newest first. Themes are approximate."), and the Recipes line ("...newest first."). This reverses D118 for home. The Read screen no longer says themes are approximate. The theme note stays in articles.json.
+
 ## Deploys
 
 | Date | Commit | URL | Live smoke |

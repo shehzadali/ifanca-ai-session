@@ -72,7 +72,7 @@ await run('read', [
   [9, 'Snapshot date and themes note', async ({ page }) => {
     await go(page, 'read')
     await dateInAboutOnly(page, 'October 4, 2026')
-    assert((await page.textContent('main')).includes('Themes are approximate.'), 'note')
+    // The intro line ("newest first, themes are approximate") was removed at the owner's request.
   }],
   [10, 'No sideways scroll and 44px tap targets', async ({ page }) => {
     await noSideScroll(page)
