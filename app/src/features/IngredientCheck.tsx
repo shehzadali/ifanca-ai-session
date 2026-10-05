@@ -76,6 +76,14 @@ function OneIngredient({ matchers, items }: { matchers: Matcher[]; items: Ingred
           }}
           placeholder="For example gelatin or E471"
           autoComplete="off"
+          enterKeyHint="search"
+          onKeyDown={(e) => {
+            // Enter opens the top match.
+            if (e.key === 'Enter' && options.length > 0) {
+              e.preventDefault()
+              pick(options[0])
+            }
+          }}
           className="h-12 w-full rounded-2xl border border-line bg-card shadow-sm px-4 text-[17px] outline-none focus:border-brand"
         />
       </label>
