@@ -31,7 +31,9 @@ async function common() {
   assert(!/snapshot/i.test(main), 'snapshot line on screen')
   const w = await page.evaluate(() => document.documentElement.scrollWidth)
   assert(w <= 390, `page is ${w}px wide`)
-  assert((await page.textContent('footer')).includes(FOOTER), 'footer text missing')
+  // The footer is two lines: "Demo built from IFANCA's public content." and "Not an official IFANCA app."
+  const footer = (await page.locator('footer p').allInnerTexts()).map((t) => t.trim()).join(' ')
+  assert(footer === FOOTER, `footer text: ${footer}`)
 }
 async function check(name, fn) {
   try {
