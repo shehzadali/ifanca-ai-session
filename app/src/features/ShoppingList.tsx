@@ -1,4 +1,8 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
+import Sheet from '../components/Sheet'
+import { useData } from '../lib/data'
+import { buildMatchers, findMatches, type Ingredient, type IngredientData } from '../lib/ingredients'
+import IngredientCard from './IngredientCard'
 import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
 import { buildList, type ShopItem } from '../lib/shopping'
 import { useStored } from '../lib/storage'
@@ -9,6 +13,8 @@ export default function ShoppingList() {
   const { recipes, error } = useRecipes()
   const { plan } = useMealPlan()
   const [ticked, setTicked] = useStored<string[]>('thw.shopping.ticked', [])
+  const { data: ingredientData } = useData<IngredientData>('ingredients.json')
+  const matchers = useMemo(() => (ingredientData ? buildMatchers(ingredientData.items) : null), [ingredientData])
 
   const planned = useMemo(() => {
     if (!recipes) return []
@@ -18,6 +24,18 @@ export default function ShoppingList() {
       .filter((r): r is NonNullable<typeof r> => !!r)
   }, [recipes, plan])
   const items = useMemo(() => buildList(planned), [planned])
+  const [open, setOpen] = useState<ShopItem | null>(null)
+  // IFANCA ingredients named in each item's lines. Same matching as the ingredient check.
+  const guidance = useMemo(() => {
+    const out = new Map<string, Ingredient[]>()
+    if (!matchers) return out
+    for (const item of items) {
+      const found: Ingredient[] = []
+      for (const m of findMatches(item.lines.map((l) => l.text).join('\n'), matchers)) if (!found.includes(m.item)) found.push(m.item)
+      if (found.length) out.set(item.key, found)
+    }
+    return out
+  }, [items, matchers])
   const recipeCount = new Set(planned.map((r) => r.slug)).size
   const sorted = [...items.filter((i) => !ticked.includes(i.key)), ...items.filter((i) => ticked.includes(i.key))]
   const toggle = (key: string) => setTicked((t) => (t.includes(key) ? t.filter((k) => k !== key) : [...t, key]))
@@ -49,16 +67,47 @@ export default function ShoppingList() {
           </div>
           <ul className="mt-2 overflow-hidden rounded-2xl border border-line bg-card shadow-sm" data-testid="shopping-list">
             {sorted.map((item) => (
-              <Item key={item.key} item={item} done={ticked.includes(item.key)} onToggle={() => toggle(item.key)} />
+              <Item
+                key={item.key}
+                item={item}
+                done={ticked.includes(item.key)}
+                onToggle={() => toggle(item.key)}
+                guidance={guidance.get(item.key)}
+                onGuidance={() => setOpen(item)}
+              />
             ))}
           </ul>
         </>
+      )}
+      {open && (
+        <Sheet title={`IFANCA guidance: ${open.name}`} onClose={() => setOpen(null)}>
+          <p className="text-[14px] text-muted" data-testid="no-verdict">
+            This shows what IFANCA has published about this ingredient. It is not a verdict on the product.
+          </p>
+          <div className="mt-3 space-y-3">
+            {(guidance.get(open.key) ?? []).map((g) => (
+              <IngredientCard key={g.name} item={g} />
+            ))}
+          </div>
+        </Sheet>
       )}
     </SectionShell>
   )
 }
 
-function Item({ item, done, onToggle }: { item: ShopItem; done: boolean; onToggle: () => void }) {
+function Item({
+  item,
+  done,
+  onToggle,
+  guidance,
+  onGuidance,
+}: {
+  item: ShopItem
+  done: boolean
+  onToggle: () => void
+  guidance?: Ingredient[]
+  onGuidance: () => void
+}) {
   return (
     <li className="flex gap-2 border-b border-line px-2 py-1.5 last:border-0" data-testid="shop-item" data-key={item.key} data-done={done}>
       <button
@@ -77,8 +126,13 @@ function Item({ item, done, onToggle }: { item: ShopItem; done: boolean; onToggl
           )}
         </span>
       </button>
-      <button type="button" onClick={onToggle} className="min-h-11 flex-1 py-1.5 text-left" data-testid="shop-name">
+      <button type="button" onClick={guidance ? onGuidance : onToggle} className="min-h-11 flex-1 py-1.5 text-left" data-testid="shop-name">
         <span className={`block text-[16px] font-semibold first-letter:uppercase ${done ? 'text-muted line-through' : ''}`}>{item.name}</span>
+        {guidance && (
+          <span className="mt-0.5 inline-flex items-center gap-1 rounded-full bg-ingredients/15 px-2 py-0.5 text-[12px] font-bold text-ingredients dark:bg-ingredients/40 dark:text-ink" data-testid="guidance-badge">
+            IFANCA guidance: {guidance.map((g) => g.name).join(', ')}
+          </span>
+        )}
         <ul className="mt-0.5 space-y-0.5">
           {item.lines.map((l, i) => (
             <li key={i} className="text-[13px] text-muted" data-testid="shop-line">
