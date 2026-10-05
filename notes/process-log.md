@@ -227,3 +227,36 @@ Date: 2026-10-04. Instruction: build and deploy "The Halal Way" end to end witho
 | Live URL | https://the-halal-way.vercel.app |
 | Live smoke test | 8 of 8 pass, including offline |
 | For review | `app/public/data/quiz.json` (18 questions written for the demo) |
+
+## Stage 5: Training material (2026-10-05)
+
+**Driving instruction:** Turn the finished project into material for a training session with a non-technical audience. Walk through the whole build by showing files (not code): how the site was crawled, how the insights were found, what was learned about IFANCA's mission, the user journeys, then one journey through spec, plan, build, test, and deploy. Teach the ideas along the way (skill, slash command, spec, ship).
+
+### Steps another person can repeat
+
+1. **Write the guide around the files people will see,** in the order the work happened. For each chapter: what to open, what to point at, one idea to teach, and one story to tell.
+2. **Keep the builder's own instructions.** Collect every prompt in order (`training/prompts.md`). They show the audience that the builder writes plain English.
+3. **Fill the gaps a presenter needs.** Here: a one-page mission summary, one list of journeys mapped to features, the gap map picture promised in CLAUDE.md, and skills for the crawl and analysis stages (written from this log).
+4. **Pick one journey to follow end to end,** with a spec that has a short plan and a test report with a real first-run failure. Here: Journey 1 and `specs/product-check/`.
+5. **Show change over time with screenshots** pulled from git history (`training/screens/`).
+6. **Add a glossary in plain words** for every term the audience will hear.
+7. **Update CLAUDE.md** so it describes the whole project, not only the first stage.
+
+### Decisions
+
+- The guide is a folder in the repo (`training/`), presented from the editor or GitHub, so the audience sees the real files.
+- The crawl and analysis skills were written after those stages, from this log. The guide says so.
+- The gap map is built by a script (`crawl/build_gap_map.py`) from the analysis files, so it always matches the data. Ratings use status colors with an icon and a label, so color never carries meaning alone.
+- `specs/report.mjs` now keeps a report's written notes when it is regenerated. All test reports were regenerated from the latest runs.
+- Favorite recipes stays unbuilt, for a live build in the session.
+
+### Results
+
+| File | What it is |
+|---|---|
+| `training/README.md` | The presenter's guide, 13 chapters, a 60-minute and a 30-minute path |
+| `training/glossary.md` | Plain-language terms |
+| `training/prompts.md` | Every instruction, in order |
+| `training/screens/` | 14 screenshots, from the first scaffold to today |
+| `analysis/mission.md`, `analysis/user-journeys.md`, `viz/gap-map.html` | Presenter versions of the analysis |
+| `.claude/skills/site-crawl/`, `.claude/skills/mission-gap-analysis/` | Skills for the understand stage |

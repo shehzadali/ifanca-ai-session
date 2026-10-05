@@ -1,14 +1,14 @@
 # Test report: shopping-list
 
 - Date: 2026-10-05
-- Commit tested: 190799a
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 10 of 10 criteria pass
 
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
-| 1 | Three Recipes tabs, Shopping List opens its route | Pass |  | [ac-1](screenshots/ac-1.png) |
+| 1 | Meal Plan has two tabs, Shopping List opens its route | Pass |  | [ac-1](screenshots/ac-1.png) |
 | 2 | Empty plan shows the empty state | Pass |  | [ac-2](screenshots/ac-2.png) |
 | 3 | Sugar from two recipes groups into one item | Pass | Sugar / 1 1/4 cups sugar (Ras Malai Milk Cake) / 1/2-1 teaspoon sugar (optional) (Udang Balado (Indonesian Chili-Tomato Shrimp)) | [ac-3](screenshots/ac-3.png) |
 | 4 | Every non-heading line appears word for word | Pass | 27 lines | [ac-4](screenshots/ac-4.png) |

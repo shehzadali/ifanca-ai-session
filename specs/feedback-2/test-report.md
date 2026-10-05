@@ -1,7 +1,7 @@
 # Test report: feedback-2
 
-- Date: 2026-10-04
-- Commit tested: 849088a
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 14 of 14 criteria pass
@@ -9,8 +9,8 @@
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
 | 1 | Splash shows logo and texts, and is gone within 3 seconds | Pass | gone after 2.9 s from navigation | [ac-1](screenshots/ac-1.png) |
-| 2 | A tap closes the splash | Pass | closed 361 ms after the tap | [ac-2](screenshots/ac-2.png) |
-| 3 | Splash shows once per session | Pass |  | [ac-3](screenshots/ac-3.png) |
+| 2 | A tap closes the splash | Pass | closed 355 ms after the tap | [ac-2](screenshots/ac-2.png) |
+| 3 | No splash on screen changes or the projector (since feedback-3 it plays on every load) | Pass |  | [ac-3](screenshots/ac-3.png) |
 | 4 | Reduced motion: no movement, gone within 1.5 seconds | Pass | no animated parts, gone after 1.1 s | [ac-4](screenshots/ac-4.png) |
 | 5 | No header box on home, Learn and Quiz first | Pass |  | [ac-5](screenshots/ac-5.png) |
 | 6 | Title case headings | Pass | 8 screen titles, nav, tiles, and the leaderboard match. Learn section headings use CSS uppercase. | [ac-6](screenshots/ac-6.png) |
@@ -21,7 +21,7 @@
 | 11 | A planned recipe opens its page | Pass |  | [ac-11](screenshots/ac-11.png) |
 | 12 | From Recipes, the day picker is unchanged | Pass |  | [ac-12](screenshots/ac-12.png) |
 | 13 | 390px layout and tap targets | Pass |  | [ac-13](screenshots/ac-13.png) |
-| 14 | Earlier tests pass with the new headings and routes | Pass | product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13, app-redesign 15/15 | [ac-14](screenshots/ac-14.png) |
+| 14 | Earlier tests pass with the new headings and routes | Pass | product-check 14/14, ingredient-check 16/16, learn-halal 14/14, cook 18/18, read 10/10, room-leaderboard 13/13, app-redesign 15/15 | [ac-14](screenshots/ac-14.png) |
 
 ## Console errors
 

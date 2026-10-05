@@ -1,10 +1,10 @@
 # Test report: ingredient-check
 
-- Date: 2026-10-04
-- Commit tested: 62229e4
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
-- Result: 15 of 15 criteria pass
+- Result: 16 of 16 criteria pass
 
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
@@ -20,9 +20,10 @@
 | 10 | Photo shows progress then editable recognized text | Pass | recognized: INGREDIENTS: SUGAR, GELATIN, SOY LECITHIN, SALT, NATURAL FLAVORS. | [ac-10](screenshots/ac-10.png) |
 | 11 | Edited text is what gets checked | Pass | Gelatin, Lecithin, Lard, Artificial and natural flavors | [ac-11](screenshots/ac-11.png) |
 | 12 | OCR files load from the app origin only | Pass | 5 requests, all on http://localhost:4173 | [ac-12](screenshots/ac-12.png) |
-| 13 | Snapshot date visible | Pass |  | [ac-13](screenshots/ac-13.png) |
+| 13 | No snapshot line on screen, date in Settings, About | Pass |  | [ac-13](screenshots/ac-13.png) |
 | 14 | No page side scroll, tap targets 44px | Pass |  | [ac-14](screenshots/ac-14.png) |
 | 15 | No OCR files before the Photo tab | Pass |  | [ac-15](screenshots/ac-15.png) |
+| 16 | Enter opens the top match | Pass |  | [ac-16](screenshots/ac-16.png) |
 
 ## Console errors
 

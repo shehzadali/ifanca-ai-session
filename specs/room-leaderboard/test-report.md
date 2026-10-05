@@ -1,29 +1,30 @@
 # Test report: room-leaderboard
 
-- Date: 2026-10-04
-- Commit tested: 7da18f6
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 13 of 13 criteria pass
 
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
-| 1 | Post a score after a round | Pass | one post_score call, total 6 | [ac-1](screenshots/ac-1.png) |
+| 1 | Sign up, then the score posts after a round | Pass | post_score with Amina, rosette-indigo, total 6, no tap needed | [ac-1](screenshots/ac-1.png) |
 | 2 | Posting again updates the same entry | Pass | same device key, one entry, score 12 | [ac-2](screenshots/ac-2.png) |
-| 3 | Bad names keep the button disabled | Pass |  | [ac-3](screenshots/ac-3.png) |
-| 4 | Network failure keeps the score on the device | Pass | pending total 18 saved, level Advocate kept | [ac-4](screenshots/ac-4.png) |
+| 3 | Bad profile names cannot be saved | Pass | empty, 1 character, 21 characters, symbols, and a leading underscore are refused | [ac-3](screenshots/ac-3.png) |
+| 4 | Network failure keeps the score on the device | Pass | pending total 18 with avatar saved, level Advocate kept | [ac-4](screenshots/ac-4.png) |
 | 5 | Retries by itself when back online | Pass |  | [ac-5](screenshots/ac-5.png) |
-| 6 | Projector view: top 10, large text, QR visible | Pass | 12 entries, 10 shown, rank and name 34 and 34px, row 10 ends at 705px of 720 | [ac-6](screenshots/ac-6.png) |
-| 7 | A new score appears within 10 seconds without reload | Pass | appeared after 5.3 s (poll, realtime cannot reach the stand-in) | [ac-7](screenshots/ac-7.png) |
+| 6 | Projector view: top 10, large text, QR visible | Pass | 12 entries, 10 shown, rank and name 37.44 and 37.44px, row 10 ends at 686px of 720 | [ac-6](screenshots/ac-6.png) |
+| 7 | A new score appears within 10 seconds without reload | Pass | appeared after 4.8 s (poll, realtime cannot reach the stand-in) | [ac-7](screenshots/ac-7.png) |
 | 8 | Wrong reset code | Pass |  | [ac-8](screenshots/ac-8.png) |
 | 9 | Right reset code clears the board | Pass |  | [ac-9](screenshots/ac-9.png) |
 | 10 | /leaderboard path opens the screen | Pass |  | [ac-10](screenshots/ac-10.png) |
 | 11 | Without settings the feature is hidden | Pass |  | [ac-11](screenshots/ac-11.png) |
-| 12 | Database access rules (local Postgres) | Pass | 23 passed, 0 failed. Output in sql-test-output.txt | [ac-12](screenshots/ac-12.png) |
+| 12 | Database access rules (local Postgres) | Pass | 35 passed, 0 failed. Output in sql-test-output.txt | [ac-12](screenshots/ac-12.png) |
 | 13 | No sideways scroll and 44px tap targets at 390px | Pass |  | [ac-13](screenshots/ac-13.png) |
 
 ## Console errors
 
+- Failed to load resource: net::ERR_INTERNET_DISCONNECTED
 - Failed to load resource: net::ERR_INTERNET_DISCONNECTED
 - WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
 - WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED

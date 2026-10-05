@@ -1,7 +1,7 @@
 # Test report: article-reader
 
 - Date: 2026-10-05
-- Commit tested: 29aac82
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 12 of 12 criteria pass

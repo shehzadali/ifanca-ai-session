@@ -1,10 +1,13 @@
-# IFANCA AI Session: Content Crawl and Gap Analysis
+# IFANCA AI Session: from website to app
 
 ## Purpose
 
-Prepare material for a 90-minute AI session for about 10 IFANCA staff (Chicago, halal certification body, not AI proficient).
-This project crawls the public ifanca.org website, builds a content inventory, and compares the digital experience against the claims on the About page.
-The output feeds two things: a gap visualization shown in the session, and a mobile web app built later from the same corpus.
+Material for an AI session with IFANCA (Chicago, halal certification body). The project shows how one builder uses an AI assistant to go from an organization's public website to a working app.
+
+It has three parts:
+1. **Understand:** crawl ifanca.org, build a content inventory, and compare what IFANCA promises with what a visitor can find.
+2. **Build:** "The Halal Way", a phone app (installable, works offline) built from the same content. Live at https://the-halal-way.vercel.app.
+3. **Teach:** a presenter's guide that walks through every step with the real files. Start at `training/README.md`.
 
 ## Ground rules
 
@@ -17,39 +20,73 @@ The output feeds two things: a gap visualization shown in the session, and a mob
 - Product and company lists are a dated snapshot for demo use only. Record the crawl date on every dataset.
 - Scope is what a website visitor can reach by clicking from the homepage, including content loaded through search, filters, or pagination. Content found only through sitemaps, REST, or theme code is recorded as unreachable, not treated as app content.
 
-## Crawl strategy
+## App rules (every screen)
 
-1. Try the WordPress REST API first (/wp-json/wp/v2/pages, /posts, and any custom post types listed at /wp-json/). It returns clean content and metadata.
-2. Then check XML sitemaps (/wp-sitemap.xml, /sitemap_index.xml, /sitemap.xml).
-3. Fall back to the HTML sitemap at /sitemap/ and link discovery within the ifanca.org domain.
-4. For the certified products and certified companies pages, inspect how the list loads (static HTML, AJAX, or an API call) before scraping. Prefer the underlying JSON if one exists.
-5. For the magazine, record issue titles, dates, and PDF URLs. Do not download PDFs unless asked.
+- No halal ruling of the app's own. Quote IFANCA's text word for word with a source link.
+- Never use the words "not halal", except in the fixed message for missing items: "Not in IFANCA's published list. This does not mean it is not certified or not halal."
+- IFANCA text is never changed: FAQ answers, recipes, and articles are shown as published. Formatting may change, words may not.
+- The footer stays on every screen: "Demo built from IFANCA's public content." and "Not an official IFANCA app."
+- Data dates are shown in Settings, About (the owner asked to remove them from each screen).
+- No Crescent-M mark and no IFANCA logo. The logo and patterns are original.
+- Mobile first: 390px wide, tap targets at least 44px, works in light and dark mode.
+
+## How work is done
+
+Every feature goes through the same four project skills, in order, with a commit after each plan step:
+
+1. `journey-to-spec`: a visitor's journey becomes `specs/<feature>/spec.md` (goal, screens, acceptance criteria, safety notes).
+2. `spec-to-plan`: the spec becomes `specs/<feature>/plan.md` (small steps and test cases).
+3. `implement-feature`: build one step at a time, one commit per step.
+4. `test-feature`: Playwright at 390px, one check per criterion, screenshots, and `specs/<feature>/test-report.md`.
+
+The understand stage has its own skills: `site-crawl` and `mission-gap-analysis`.
+
+Release with the `/ship` slash command (`.claude/commands/ship.md`): build, smoke test, commit, deploy to Vercel production, check the QR code, smoke test the live site. It stops at the first failure.
+
+## Logs
+
+- `notes/process-log.md`: the understand stages, written as steps another person could repeat on a different organization's website.
+- `notes/build-log.md`: every decision made while building, numbered (D1, D2, ...), with the reason. A status table at the top and a deploys table at the end. Keep it current.
+
+## Testing safety
+
+- Feature tests build the app without the Supabase settings (`VITE_SUPABASE_URL=` and `VITE_SUPABASE_ANON_KEY=` set empty), because some tests finish quiz rounds and would post to the live leaderboard.
+- The smoke test answers only one quiz question. It never posts a score.
+- Tests skip the splash screen with the session flag `thw.splash.skip`.
 
 ## Folder structure
 
 ```
-crawl/            scripts (Python, requirements.txt)
-data/raw/         cached raw responses
-data/pages/       one Markdown file per page, with YAML frontmatter
-data/products.csv
-data/companies.csv
-data/magazine.csv
-data/inventory.csv
-analysis/claims.json
-analysis/coverage.csv
-analysis/gaps.md
-viz/gap-map.html
-notes/process-log.md
+CLAUDE.md                 this file
+training/                 presenter's guide, glossary, prompts, screenshots (start here)
+crawl/                    crawl, analysis, and export scripts (Python)
+data/raw/                 cached raw responses (not in git)
+data/pages/               one Markdown file per page, with YAML frontmatter
+data/*.csv                inventory, products, companies, magazine, reachability
+analysis/                 claims.json, coverage.csv, journeys.md, gaps.md, mission.md, user-journeys.md
+viz/gap-map.html          picture of promises vs. what visitors can find (built by crawl/build_gap_map.py)
+app/                      the app (Vite, React, TypeScript, Tailwind, PWA)
+app/public/data/          the app's data, exported by crawl/export_app_data.py
+app/tests/smoke.mjs       smoke test used by /ship
+specs/<feature>/          spec, plan, test, test report, screenshots for each feature
+supabase/                 leaderboard database setup (run in the Supabase SQL editor)
+slides/                   QR code for the live app
+notes/                    process log and build log
+.claude/skills/           the six project skills
+.claude/commands/ship.md  the /ship command
 ```
 
 ## Page frontmatter fields
 
 url, title, section, page_type (core page, news, resource, faq, listing, legal), audience (consumer, industry, partner, internal, general), published_date, modified_date, word_count, crawl_date
 
-## Process log
+## Pushing to GitHub
 
-After each stage, append to notes/process-log.md: what was done, the prompt or instruction that drove it, decisions made, and problems hit.
-This log becomes a reusable skill later, so write it as steps another person could repeat on a different organization's website.
+The repo is https://github.com/shehzadali/ifanca-ai-session. On the builder's Mac, FortiClient damages compressed git uploads, so push with compression off:
+
+```
+git -c core.compression=0 -c pack.compression=0 -c pack.window=0 push
+```
 
 ## Writing style for all human-readable output
 

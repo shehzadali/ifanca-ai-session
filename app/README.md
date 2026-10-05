@@ -1,32 +1,24 @@
-# React + TypeScript + Vite
+# The Halal Way (app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A phone app built from IFANCA's public content. Installable, works offline after the first visit.
 
-Currently, two official plugins are available:
+Live: https://the-halal-way.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sections
 
-## React Compiler
+| Section | What it does | Spec |
+|---|---|---|
+| Learn and Quiz | IFANCA's 26 FAQ answers as lessons, a quiz in three levels, and a room leaderboard | `specs/learn-halal/`, `specs/room-leaderboard/` |
+| Check | Search 11,642 certified products, and check ingredients by name, pasted list, or photo | `specs/product-check/`, `specs/ingredient-check/` |
+| Recipes | 340 recipes from IFANCA's library, with filters | `specs/cook/` |
+| Meal Plan | A weekly plan and a combined shopping list | `specs/cook/`, `specs/shopping-list/` |
+| Read | 763 articles from IFANCA's library, 761 readable in full in the app | `specs/read/`, `specs/article-reader/` |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## For builders
 
-## Expanding the Oxlint configuration
+- Data comes from `public/data/`, exported by `crawl/export_app_data.py` from the cached crawl.
+- Run locally: `npm install`, then `npm run dev`.
+- Release: type `/ship` in Claude Code (see `.claude/commands/ship.md`).
+- Leaderboard settings go in `.env.local` (see `.env.example`).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Demo built from IFANCA's public content. Not an official IFANCA app.

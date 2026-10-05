@@ -1,7 +1,7 @@
 # Test report: read
 
-- Date: 2026-10-04
-- Commit tested: a397f93
+- Date: 2026-10-05
+- Commit tested: 1858c3c
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 10 of 10 criteria pass

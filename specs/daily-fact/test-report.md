@@ -1,7 +1,7 @@
 # Test report: daily-fact
 
 - Date: 2026-10-05
-- Commit tested: 0b39026
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 6 of 6 criteria pass

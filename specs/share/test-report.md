@@ -1,7 +1,7 @@
 # Test report: share
 
 - Date: 2026-10-05
-- Commit tested: ecbfda2
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 8 of 8 criteria pass

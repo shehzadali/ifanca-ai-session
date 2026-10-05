@@ -1,14 +1,14 @@
 # Test report: app-redesign
 
-- Date: 2026-10-04
-- Commit tested: 849088a
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 15 of 15 criteria pass
 
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
-| 1 | Logo in the header, tiles have one line each | Pass | 6 tiles | [ac-1](screenshots/ac-1.png) |
+| 1 | Logo in the header, each tile has a label and one short subtitle (changed by owner request) | Pass | 6 tiles | [ac-1](screenshots/ac-1.png) |
 | 2 | Learn and quiz first, then the given order | Pass |  | [ac-2](screenshots/ac-2.png) |
 | 3 | Level bar shows Beginner and at least one third | Pass | fill 33% | [ac-3](screenshots/ac-3.png) |
 | 4 | No snapshot outside About, dates inside About | Pass | 8 screens checked | [ac-4](screenshots/ac-4.png) |
@@ -22,14 +22,14 @@
 | 12 | Meal plan: Wednesday, search lentil, Add, kept after reload | Pass | Maash Ki Daal | [ac-12](screenshots/ac-12.png) |
 | 13 | Offline after one visit: home, sections, Settings, profile, fonts | Pass | all sections, quiz, Settings with profile, and the font work offline | [ac-13](screenshots/ac-13.png) |
 | 14 | 390px layout, tap targets, and contrast in both themes | Pass | light: lowest 5.52, dark: lowest 7.87 | [ac-14](screenshots/ac-14.png) |
-| 15 | Earlier feature tests pass after the redesign | Pass | product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13 | [ac-15](screenshots/ac-15.png) |
+| 15 | Earlier feature tests pass after the redesign | Pass | product-check 14/14, ingredient-check 16/16, learn-halal 14/14, cook 18/18, read 10/10, room-leaderboard 13/13 | [ac-15](screenshots/ac-15.png) |
 
 ## Console errors
 
 - WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
 - Failed to load resource: the server responded with a status of 404 (Not Found)
-- Failed to load resource: the server responded with a status of 400 (Bad Request)
 - WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
+- Failed to load resource: the server responded with a status of 400 (Bad Request)
 - Failed to load resource: net::ERR_INTERNET_DISCONNECTED
 
 ## How this was tested

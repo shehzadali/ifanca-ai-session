@@ -1,10 +1,10 @@
 # Test report: cook
 
-- Date: 2026-10-04
-- Commit tested: 849088a
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
-- Result: 16 of 16 criteria pass
+- Result: 18 of 18 criteria pass
 
 | # | Criterion | Result | Notes | Screenshot |
 |---|---|---|---|---|
@@ -24,6 +24,8 @@
 | 15 | A failed photo shows the placeholder | Pass |  | [ac-15](screenshots/ac-15.png) |
 | 16 | Lemon Tiramisu is hidden | Pass | search "tiramisu" gives 0 rows | [ac-16](screenshots/ac-16.png) |
 | 12 | No sideways scroll and 44px tap targets | Pass |  | [ac-12](screenshots/ac-12.png) |
+| 17 | Vegetarian filter: only recipes whose ingredients name no meat, fish, or gelatin | Pass | 218 recipes | [ac-17](screenshots/ac-17.png) |
+| 18 | Shimmer while a recipe photo loads | Pass |  | [ac-18](screenshots/ac-18.png) |
 
 ## Console errors
 

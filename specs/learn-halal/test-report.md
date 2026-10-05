@@ -1,7 +1,7 @@
 # Test report: learn-halal
 
-- Date: 2026-10-04
-- Commit tested: 7deda30
+- Date: 2026-10-05
+- Commit tested: 495b5e7
 - Viewport: 390 x 844, deviceScaleFactor 2, mobile, touch
 - Target: http://localhost:4173
 - Result: 14 of 14 criteria pass
@@ -19,7 +19,7 @@
 | 9 | Six right answers give 6 of 6, level Beginner, Learner opens | Pass |  | [ac-9](screenshots/ac-9.png) |
 | 10 | Locked round is disabled with a reason | Pass |  | [ac-10](screenshots/ac-10.png) |
 | 11 | Level survives a reload | Pass |  | [ac-11](screenshots/ac-11.png) |
-| 12 | Snapshot date on Learn home, lesson, and quiz | Pass |  | [ac-12](screenshots/ac-12.png) |
+| 12 | No snapshot line on Learn screens, date in Settings, About | Pass |  | [ac-12](screenshots/ac-12.png) |
 | 14 | Lists from the source show as lists in all 10 lessons that have them | Pass | 10 lessons with lists, all match | [ac-14](screenshots/ac-14.png) |
 | 13 | No sideways scroll and 44px tap targets | Pass |  | [ac-13](screenshots/ac-13.png) |
 
