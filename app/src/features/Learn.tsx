@@ -6,6 +6,7 @@ import { useProfile } from '../lib/profile'
 import LevelBar from '../components/LevelBar'
 import { useStored } from '../lib/storage'
 import SignUp from './SignUp'
+import ShareButton from '../components/ShareButton'
 
 export const READ_KEY = 'thw.learn.read'
 export const QUIZ_KEY = 'thw.quiz'
@@ -135,6 +136,9 @@ function Lesson({ lessons, index }: { lessons: L[]; index: number }) {
       <p className="-mt-2 mb-3 text-[13px] text-muted">
         {lesson.section}. Lesson {index + 1} of {lessons.length}.
       </p>
+      <div className="-mt-3 mb-4">
+        <ShareButton title={lesson.question} sourceUrl={lesson.url} path={`/#/learn/${lesson.slug}`} />
+      </div>
       <div className="space-y-4 text-[17px] leading-relaxed text-ink" data-testid="lesson-text">
         {lessonBlocks(lesson).map((b, i) => {
           if (b.type === 'p') {

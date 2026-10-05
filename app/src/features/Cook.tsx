@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import RecipePhoto from '../components/RecipePhoto'
+import ShareButton from '../components/ShareButton'
 import Screen from '../components/Screen'
 import SectionShell, { RECIPE_TABS } from '../components/SectionShell'
 import PlanScreen from './PlanScreen'
@@ -209,6 +210,7 @@ function RecipeView({ recipe, day }: { recipe: Recipe; day?: string }) {
   return (
     <Screen tone="recipes" title={recipe.title} back={day ? { href: `#/recipes/plan/${day}`, label: `Back to ${day}` } : { href: '#/recipes', label: 'All recipes' }}>
       {source}
+      <ShareButton title={recipe.title} sourceUrl={recipe.url} path={`/#/recipes/${recipe.slug}`} />
       <RecipePhoto src={recipe.image_url} alt={`Photo of ${recipe.title} from ifanca.org`} />
       <AddToPlan url={recipe.url} day={day} />
 
