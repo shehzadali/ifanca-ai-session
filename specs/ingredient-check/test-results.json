@@ -1,7 +1,7 @@
 {
   "feature": "ingredient-check",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -91,6 +91,12 @@
     {
       "n": 15,
       "text": "No OCR files before the Photo tab",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 16,
+      "text": "Enter opens the top match",
       "result": "Pass",
       "notes": ""
     }

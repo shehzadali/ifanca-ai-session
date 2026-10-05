@@ -44,6 +44,12 @@ Elements at 390px:
 
 The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
+### Change on 2026-10-04: navigation and fixes
+
+The ingredient check now lives under Check (`#/check/ingredients`). Old links still work.
+
+16. Given the One ingredient tab, when the user types part of a name and presses Enter, then the top match opens.
+
 ## Data needed
 
 - `app/public/data/ingredients.json`: `crawl_date` (2026-10-03), `source`, `scope_note`, `count` (99), `statement_count` (147), and `items` with `name`, `status`, `sources_disagree`, `statuses`, and `statements` (`status`, `ifanca_label`, `source_text`, `context`, `url`, `source_title`, `source_date`). Three items have `sources_disagree: true`. No blocker.

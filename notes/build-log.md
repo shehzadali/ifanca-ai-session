@@ -21,6 +21,11 @@ Started 2026-10-04. The build runs without approval stops, by instruction from t
 | Redesign (owner feedback) | done, 15 of 15 pass, earlier tests rerun and pass | owner to run `supabase/002_profiles.sql` for avatars |
 | Feedback 2 (splash, title case, meal plan day) | done, 14 of 14 pass, all earlier tests rerun and pass | |
 | Feedback 3 (splash every load and on logo, Home tab) | done, 11 of 11 pass, all earlier tests rerun and pass | |
+| Batch 4 fixes (nav, chips, Enter, home, shimmer, leaderboard, back links, footer, vegetarian) | done | owner to run `supabase/003_unique_names.sql` |
+| Shopping list | done, 10 of 10 pass | |
+| Did you know card | done, 6 of 6 pass | |
+| Share | done, 8 of 8 pass | |
+| Article reader | done, 12 of 12 pass | 761 bodies checked word for word |
 
 ## How each feature is built
 
@@ -183,6 +188,34 @@ The skills say to show the user the criteria or the plan and ask before moving o
 - D109. The bottom navigation has Home first, then the six sections, seven items in all. Home goes home without the splash. The navigation now also shows on home, with Home marked, so it looks the same on every screen. This replaces D88, which hid it on home.
 - D110. Seven items at 390px: labels are 10px with slightly tighter letter spacing and no side padding, so "Ingredients" fits when marked. Each item is 56px tall.
 - D111. Tests skip the splash with the session flag `thw.splash.skip`. Splash tests use fresh browser contexts.
+
+### Batch 4 (2026-10-04)
+
+Fixes:
+- D112. Five bottom tabs: Home, Learn, Check, Recipes, Read. Check has two tabs, Products and Ingredients (`#/check/products`, `#/check/ingredients`). Recipes has three tabs: Recipes, Meal Plan (`#/recipes/plan`), Shopping List (`#/recipes/shopping`). Home has four tiles to match: Learn and Quiz, Check, Recipes, Read.
+- D113. Old routes still work and are redirected: `#/product`, `#/ingredients/...`, `#/plan/...`, `#/cook/...`.
+- D114. Product search shows five category chips before anything is typed, with counts, instead of the 11,642-item list: Beverages (537), Food (5,350), Cosmetics and Personal Care (2,477), Nutritional and Dietary Supplements (2,976), Pharmaceuticals (5). The 62 raw categories map to these in `app/src/lib/productGroups.ts`. Choices worth checking: Syrups (honey, balsamic) and Nutritional Food Products (formula and nutrition drinks) are in Food. Essential Oils and Fragrances are in Cosmetics and Personal Care.
+- D115. Ingredients and base materials (297 products) are a sixth group, shown as a small link under the chips, not a chip. They sort after consumer products in every result list. They are 13 categories (botanical extracts, colorings, dairy, food, nutritional, personal care, and soy ingredients, flavors, food and sanitation chemicals, vitamin premixes, water treatment chemicals, whey products) plus any product whose name contains "base powder" (37).
+- D116. The fine category select stays under the chips and narrows to the chosen group.
+- D117. Pressing Enter in the one-ingredient search opens the top match.
+- D118. Home: one line under the top bar explains the app. Each tile has a short subtitle.
+- D119. Recipe photos show a light shimmer while loading (still, with reduce motion). The same image component is used for article images.
+- D120. Leaderboard: rows, avatars, and the QR code scale with the screen height (names 37px at 720p, 56px at 1080p), and the projector screen uses the full width. A player count sits next to the title. Ties go to the player who reached the score first, and a line says so. A row whose score arrives or changes glows gold for about 3 seconds.
+- D121. Duplicate names are blocked in three places: sign-up checks the board and says "That name is already on the room leaderboard", the app treats the database's duplicate error (23505) as final, and `supabase/003_unique_names.sql` adds a case-insensitive unique index. The index needs the owner to run 003 in the SQL editor. Until then, two phones could still post the same name at the same moment.
+- D122. Back links ("All recipes", "All lessons", "All articles", "Whole week", "Back to Wednesday") now sit above the colored header on every detail screen.
+- D123. Footer on two lines: "Demo built from IFANCA's public content." then "Not an official IFANCA app."
+- D124. Vegetarian filter, based on the ingredient list only. IFANCA's recipe pages have no tags, so there was nothing else to use. A recipe is left out if any ingredient line, headings included, names meat or poultry (with common cuts and products such as sausage, kebab, keema, bones), fish or seafood (with common species), gelatin, lard, suet, tallow, anchovy, fish or oyster sauce, or stock, broth, or bouillon unless it says vegetable, veggie, or mushroom. Marshmallow and Worcestershire are also left out, because they usually contain gelatin and anchovy. Eggs and dairy are allowed. Kidney is not on the list, so kidney beans are not caught. The chip has the note "Vegetarian: based on the ingredient list. Eggs and dairy are included."
+- D125. Vegetarian count: 218 of 340 recipes. All four recipes titled vegan or vegetarian are included. Ten for a spot check, spread across the list: Çiğ Köfte (bulgur version), Slow Cooker Vegan Chili, Ginger-Based Broth (water, vegetables, ginger), Yogurt and Honey, Pea Protein Superfood Powder Smoothie, Spinach and Fruit Smoothie, Perfect Tomato Cream Sauce with Pasta, Watermelon and Feta Salad, Strawberry and Feta Salad, Apple Crisp.
+
+New features:
+- D126. Shopping list: built from the recipes in the meal plan, each recipe counted once. Lines are grouped by a simplified name (amount, unit, and text after the first comma removed), but every original line is shown as published with its recipe. Amounts are not added up. Items that match ingredients.json show an "IFANCA guidance" badge. Tapping one opens IFANCA's statements in a sheet. Ticks are saved on the device.
+- D127. Did You Know card: one of the 18 quiz quotes per day, by the device's local date. These sentences are already checked word for word against the FAQ answers at every build. The card names the FAQ and links its lesson.
+- D128. Share: on recipes, lessons, and articles. Uses the phone's share sheet with the title, a line naming IFANCA as the source with the ifanca.org URL, and the app link. Falls back to copying the link, then to a selected field. Closing the share sheet does nothing.
+- D129. Article reader: the export writes one file per article (`app/public/data/articles/<slug>.json`, 761 files, about 5 MB) with headings, paragraphs (line breaks kept), lists, quotes, tables, images, and captions. Every body is checked word for word, whitespace aside, against its cached page, and the export stops on any difference. Inline bold, italics, and links inside paragraphs are not kept. The words are.
+- D130. Article bodies are not installed up front, because they would roughly double the install size. Each one is saved by the service worker when first opened, so it then works offline. An article never opened shows "This article is not saved on this device yet" when offline. Two cached pages had no body. They show the preview and the ifanca.org link.
+- D131. Article images load from ifanca.org only while online, with the shimmer. Offline or on failure they are left out and the text continues.
+- D132. Read cards now open the article in the app. "Read on ifanca.org" stays on each card.
+- D133. Not built, as asked: favorite recipes.
 
 ## Deploys
 

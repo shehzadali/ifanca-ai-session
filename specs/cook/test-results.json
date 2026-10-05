@@ -1,7 +1,7 @@
 {
   "feature": "cook",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -97,6 +97,18 @@
     {
       "n": 12,
       "text": "No sideways scroll and 44px tap targets",
+      "result": "Pass",
+      "notes": ""
+    },
+    {
+      "n": 17,
+      "text": "Vegetarian filter: only recipes whose ingredients name no meat, fish, or gelatin",
+      "result": "Pass",
+      "notes": "218 recipes"
+    },
+    {
+      "n": 18,
+      "text": "Shimmer while a recipe photo loads",
       "result": "Pass",
       "notes": ""
     }

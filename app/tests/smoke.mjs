@@ -42,18 +42,20 @@ async function check(name, fn) {
   }
 }
 
-await check('home: logo, six tiles in order, footer', async () => {
+await check('home: logo, four tiles, daily fact, footer', async () => {
   await go('')
   const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
-  const want = ['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']
+  const want = ['Learn and Quiz', 'Check', 'Recipes', 'Read']
   assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
   assert((await page.locator('header svg[aria-label="The Halal Way logo"]').count()) === 1, 'logo')
+  await page.waitForSelector('[data-testid=fact-quote]')
   await common()
 })
 
 await check('product-check: search, category, missing message', async () => {
-  await go('product')
-  await page.waitForSelector('[data-testid=result-count]', { timeout: 20000 })
+  await go('check/products')
+  await page.waitForSelector('[data-testid=browse-hint]', { timeout: 20000 })
+  assert((await page.locator('[data-testid=group-chips] button').count()) === 5, 'category chips')
   await page.selectOption('select', 'Cheese')
   assert((await page.textContent('[data-testid=result-count]')) === '258 products', 'Cheese count')
   await page.selectOption('select', '')
@@ -112,6 +114,13 @@ await check('recipes and meal plan: list, recipe, add to a day', async () => {
   await common()
 })
 
+await check('shopping list: built from the meal plan', async () => {
+  await go('recipes/shopping')
+  await page.waitForSelector('[data-testid=shopping-list]')
+  assert((await page.locator('[data-testid=shop-item]').count()) > 0, 'no items')
+  await common()
+})
+
 await check('read: themes and dates', async () => {
   await go('read')
   await page.waitForSelector('[data-testid=article-card]')
@@ -119,6 +128,14 @@ await check('read: themes and dates', async () => {
   await page.getByRole('button', { name: /^Halal basics/ }).click()
   assert((await page.textContent('[data-testid=result-count]')) === '26 articles', 'theme filter')
   assert((await page.locator('[data-testid=article-date]').first().innerText()).startsWith('Published'), 'date')
+  await common()
+})
+
+await check('read: an article opens in the app', async () => {
+  await go('read')
+  await page.locator('[data-testid=article-link]').first().click()
+  await page.waitForSelector('[data-testid=article-body] [data-block]', { timeout: 15000 })
+  assert((await page.locator('[data-testid=attribution-top] a').getAttribute('href')).startsWith('https://ifanca.org/'), 'source link')
   await common()
 })
 
@@ -163,7 +180,7 @@ await check('pwa: works offline after first load', async () => {
   try {
     await page.reload()
     for (const [hash, sel] of [
-      ['product', '[data-testid=result-count]'],
+      ['check/products', '[data-testid=browse-hint]'],
       ['ingredients', 'nav[aria-label="Ways to check"]'],
       ['learn', '[data-testid=lesson-title]'],
       ['recipes', '[data-testid=recipe-row]'],

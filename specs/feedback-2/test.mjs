@@ -82,17 +82,17 @@ await run('feedback-2', [
   }],
   [6, 'Title case headings', async ({ page }) => {
     const tiles = await page.locator('[data-testid=tile-label]').allInnerTexts()
-    assert(JSON.stringify(tiles) === JSON.stringify(['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']), tiles.join(', '))
+    assert(JSON.stringify(tiles) === JSON.stringify(['Learn and Quiz', 'Check', 'Recipes', 'Read']), tiles.join(', '))
     await go(page, 'product')
     const nav = await page.locator('nav[aria-label=Sections] a').allInnerTexts()
     // Since feedback-3 Home is first.
-    assert(JSON.stringify(nav.map((t) => t.trim())) === JSON.stringify(['Home', 'Learn', 'Products', 'Ingredients', 'Recipes', 'Meal Plan', 'Read']), nav.join(', '))
+    assert(JSON.stringify(nav.map((t) => t.trim())) === JSON.stringify(['Home', 'Learn', 'Check', 'Recipes', 'Read']), nav.join(', '))
     const want = {
-      product: 'Check a Product',
-      ingredients: 'Check Ingredients',
+      product: 'Check',
+      ingredients: 'Check',
       learn: 'Learn and Quiz',
       recipes: 'Recipes',
-      plan: 'Meal Plan',
+      plan: 'Recipes',
       read: 'Read',
       profile: 'Sign Up to Play',
       'learn/quiz': 'Sign Up to Play',
@@ -138,7 +138,8 @@ await run('feedback-2', [
     assert((await page.locator('main a', { hasText: 'Back to Wednesday' }).count()) >= 1, 'back link')
     const first = page.locator('[data-testid=add-to-plan] button').first()
     assert((await first.innerText()) === 'Add to Wednesday', await first.innerText())
-    assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/plan', 'nav not on Meal Plan')
+    // Meal Plan lives inside Recipes since the five-tab navigation.
+    assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/recipes', 'nav not on Recipes')
   }],
   [10, 'Add, then back: listed under Wednesday', async ({ page }) => {
     const title = await page.locator('main h2').innerText()

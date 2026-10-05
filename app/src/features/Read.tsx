@@ -141,7 +141,7 @@ function ArticleCard({ a }: { a: Article }) {
         Published {formatDate(a.date)}
       </p>
       <h3 className="mt-1 text-[17px] leading-snug font-semibold">
-        <a href={`#/read/${articleSlug(a.url)}`} className="text-ink hover:underline" data-testid="article-link">
+        <a href={`#/read/${articleSlug(a.url)}`} className="-my-[11px] block py-[11px] text-ink hover:underline" data-testid="article-link">
           {a.title}
         </a>
       </h3>

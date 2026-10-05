@@ -1,14 +1,14 @@
 {
   "feature": "app-redesign",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
-      "text": "Logo in the header, tiles have one line each",
+      "text": "Logo in the header, each tile has a label and one short subtitle (changed by owner request)",
       "result": "Pass",
-      "notes": "6 tiles"
+      "notes": "4 tiles"
     },
     {
       "n": 2,
@@ -92,7 +92,7 @@
       "n": 15,
       "text": "Earlier feature tests pass after the redesign",
       "result": "Pass",
-      "notes": "product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13"
+      "notes": "product-check 14/14, ingredient-check 16/16, learn-halal 14/14, cook 18/18, read 10/10, room-leaderboard 13/13"
     }
   ],
   "consoleErrors": [

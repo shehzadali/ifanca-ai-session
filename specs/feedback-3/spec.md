@@ -34,6 +34,10 @@
 10. Given any screen at 390px, then nothing scrolls sideways, every navigation item is at least 44px tall, and no label overflows its item.
 11. Given the earlier tests, when rerun, then they pass.
 
+### Change on 2026-10-04: navigation and fixes
+
+The owner later reduced the navigation to five tabs: Home, Learn, Check, Recipes, Read. Criterion 5 now expects those five.
+
 ## Data needed
 
 - None.

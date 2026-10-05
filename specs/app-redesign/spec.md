@@ -95,6 +95,10 @@ Headings are now in title case, the home header box became a splash screen, and 
 
 The bottom navigation now has seven items (Home first) and also shows on home. Test 5 was updated to match.
 
+### Change on 2026-10-04: navigation and fixes
+
+The owner then asked for a five-tab navigation (Home, Learn, Check, Recipes, Read), four home tiles with one short subtitle each, and the footer on two lines. Tests 1, 2, 4, 5, and 13 were updated to match.
+
 ## Data needed
 
 - All existing files in `app/public/data/`. No new data.

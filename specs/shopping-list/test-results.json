@@ -1,7 +1,7 @@
 {
   "feature": "shopping-list",
   "date": "2026-10-05",
-  "commit": "190799a",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {

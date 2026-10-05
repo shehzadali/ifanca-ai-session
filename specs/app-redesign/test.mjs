@@ -89,23 +89,22 @@ function contrastCheck() {
 
 try {
   await run('app-redesign', [
-    [1, 'Logo in the header, tiles have one line each', async ({ page }) => {
+    [1, 'Logo in the header, each tile has a label and one short subtitle (changed by owner request)', async ({ page }) => {
       await go(page, '')
       // Since feedback-2 the home header box is gone. The logo is in the top bar and on the splash.
       assert((await page.locator('header svg[aria-label="The Halal Way logo"]').count()) === 1, 'no logo on home')
+      // The owner first asked for labels only, then for one short subtitle on each tile.
       const tiles = await page.locator('[data-testid=tile]').all()
       for (const t of tiles) {
-        const lines = (await t.innerText()).split('\n').filter((l) => l.trim())
-        // The Learn tile also holds the level bar. Its label is the first line.
-        assert(lines[0] && !/IFANCA/.test(lines.slice(0, 2).join(' ')), `tile has a tagline: ${lines.join(' / ')}`)
+        assert((await t.locator('[data-testid=tile-label]').count()) === 1, 'label')
+        assert((await t.locator('[data-testid=tile-subtitle]').count()) === 1, 'subtitle')
       }
-      const plain = await page.locator('[data-testid=tile]:not(:has([data-testid=level-bar]))').allInnerTexts()
-      assert(plain.every((t) => t.trim().split('\n').length === 1), plain.join(' | '))
       return `${tiles.length} tiles`
     }],
     [2, 'Learn and quiz first, then the given order', async ({ page }) => {
       const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
-      const want = ['Learn and Quiz', 'Check a Product', 'Check Ingredients', 'Recipes', 'Meal Plan', 'Read']
+      // Since the five-tab navigation: Check holds Products and Ingredients, Recipes holds Meal Plan.
+      const want = ['Learn and Quiz', 'Check', 'Recipes', 'Read']
       assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
     }],
     [3, 'Level bar shows Beginner and at least one third', async ({ page }) => {
@@ -121,8 +120,10 @@ try {
         await go(page, h)
         const main = await page.textContent('main')
         assert(!/snapshot/i.test(main) && !/October [34], 2026|2026-10-0/.test(main), `date or snapshot on #/${h}`)
+        // The footer has been on two lines since the owner asked for it.
+        const lines = (await page.locator('footer p').allInnerTexts()).map((t) => t.trim())
         assert(
-          (await page.textContent('footer')).trim() === "Demo built from IFANCA's public content. Not an official IFANCA app.",
+          JSON.stringify(lines) === JSON.stringify(["Demo built from IFANCA's public content.", 'Not an official IFANCA app.']),
           `footer on #/${h}`,
         )
       }
@@ -138,8 +139,9 @@ try {
       await go(page, 'product')
       const nav = page.locator('nav[aria-label=Sections] a')
       // Since feedback-3: Home plus six sections.
-      assert((await nav.count()) === 7, `${await nav.count()} items`)
-      assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/product', 'current')
+      // Five items since the five-tab navigation. The old #/product route opens Check.
+      assert((await nav.count()) === 5, `${await nav.count()} items`)
+      assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/check', 'current')
       await page.locator('nav[aria-label=Sections] a[href="#/read"]').click()
       await page.waitForSelector('[data-testid=article-card]')
       assert(page.url().endsWith('#/read'), page.url())
@@ -264,7 +266,7 @@ try {
         for (const [h, sel] of [
           ['learn', '[data-testid=lesson-title]'],
           ['learn/quiz', '[data-testid=round-Beginner]'],
-          ['product', '[data-testid=result-count]'],
+          ['check', '[data-testid=browse-hint]'],
           ['ingredients', 'nav[aria-label="Ways to check"]'],
           ['recipes', '[data-testid=recipe-row]'],
           ['plan', '[data-testid=day-Monday]'],

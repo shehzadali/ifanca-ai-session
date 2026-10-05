@@ -1,7 +1,7 @@
 {
   "feature": "room-leaderboard",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -38,7 +38,7 @@
       "n": 6,
       "text": "Projector view: top 10, large text, QR visible",
       "result": "Pass",
-      "notes": "12 entries, 10 shown, rank and name 34 and 34px, row 10 ends at 693px of 720"
+      "notes": "12 entries, 10 shown, rank and name 37.44 and 37.44px, row 10 ends at 686px of 720"
     },
     {
       "n": 7,
@@ -74,7 +74,7 @@
       "n": 12,
       "text": "Database access rules (local Postgres)",
       "result": "Pass",
-      "notes": "31 passed, 0 failed. Output in sql-test-output.txt"
+      "notes": "35 passed, 0 failed. Output in sql-test-output.txt"
     },
     {
       "n": 13,

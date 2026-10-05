@@ -1,12 +1,12 @@
 {
   "feature": "product-check",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
-      "text": "Home tile opens the product check with search and category filter",
+      "text": "Home Check tile opens Products with search, category chips, and filter",
       "result": "Pass",
       "notes": ""
     },
@@ -50,7 +50,7 @@
       "n": 8,
       "text": "Results update within 100 ms with 4x CPU slowdown",
       "result": "Pass",
-      "notes": "54 ms"
+      "notes": "53 ms"
     },
     {
       "n": 9,
@@ -75,6 +75,18 @@
       "text": "products.json not loaded on home",
       "result": "Pass",
       "notes": ""
+    },
+    {
+      "n": 13,
+      "text": "Before typing: category chips instead of the full list",
+      "result": "Pass",
+      "notes": "537 Beverages"
+    },
+    {
+      "n": 14,
+      "text": "Consumer products before ingredients and base materials",
+      "result": "Pass",
+      "notes": "first base powder at position 14 of 19"
     }
   ],
   "consoleErrors": []

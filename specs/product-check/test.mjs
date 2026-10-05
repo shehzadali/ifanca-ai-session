@@ -8,16 +8,19 @@ async function search(page, text) {
 }
 
 await run('product-check', [
-  [1, 'Home tile opens the product check with search and category filter', async ({ page }) => {
+  [1, 'Home Check tile opens Products with search, category chips, and filter', async ({ page }) => {
+    // Since the five-tab navigation, products live under Check.
     await go(page, '')
-    await page.getByText('Check a product').first().click()
+    await page.locator('main a[href="#/check"]').click()
     await page.waitForSelector('input[type=search]')
-    assert(page.url().endsWith('#/product'), `url is ${page.url()}`)
+    assert(page.url().endsWith('#/check'), `url is ${page.url()}`)
     assert(await page.locator('select').count() === 1, 'no category select')
+    assert((await page.locator('[data-testid=group-chips] button').count()) === 5, 'no category chips')
   }],
   [2, 'Product name search shows name, company, category, sold in', async ({ page }) => {
-    await page.waitForSelector('[data-testid=result-count]')
+    // Since the category chips, the result count shows once a search or chip is active.
     await search(page, 'Gain Advance')
+    await page.waitForSelector('[data-testid=result-count]')
     const first = cards(page).first()
     const t = await first.innerText()
     assert(/Gain/i.test(t) && /Advance/i.test(t), 'first card does not match both words')
@@ -61,7 +64,9 @@ await run('product-check', [
     await noOwnRuling(page)
   }],
   [8, 'Results update within 100 ms with 4x CPU slowdown', async ({ page }) => {
-    await search(page, '')
+    // Start from a one-letter search so the count is on screen, then time the next keystroke.
+    await page.selectOption('select', '')
+    await search(page, 'g')
     const cdp = await page.context().newCDPSession(page)
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 })
     const ms = await page.evaluate(async () => {
@@ -70,7 +75,7 @@ await run('product-check', [
       const before = counter.textContent
       const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set
       const t0 = performance.now()
-      setter.call(input, 'v')
+      setter.call(input, 'ga')
       input.dispatchEvent(new Event('input', { bubbles: true }))
       while (counter.textContent === before) await new Promise((r) => setTimeout(r, 2))
       return Math.round(performance.now() - t0)
@@ -84,6 +89,8 @@ await run('product-check', [
   }],
   [10, 'Show more adds 50 cards', async ({ page }) => {
     await search(page, '')
+    await page.selectOption('select', '')
+    await page.getByRole('button', { name: /^Food/ }).click()
     assert((await cards(page).count()) === 50, 'not 50 cards')
     await page.getByRole('button', { name: 'Show more' }).click()
     assert((await cards(page).count()) === 100, 'not 100 cards')
@@ -103,8 +110,34 @@ await run('product-check', [
     page.on('request', (r) => urls.push(r.url()))
     await go(page, '')
     assert(!urls.some((u) => u.includes('products.json')), 'loaded on home')
-    await page.getByText('Check a product').first().click()
-    await page.waitForSelector('[data-testid=result-count]')
+    await page.locator('main a[href="#/check"]').click()
+    await page.waitForSelector('[data-testid=browse-hint]')
     assert(urls.filter((u) => u.includes('products.json')).length === 1, 'not loaded once on product screen')
+  }],
+  [13, 'Before typing: category chips instead of the full list', async ({ newPage, setPage }) => {
+    const page = await newPage()
+    setPage(page)
+    await go(page, 'check/products')
+    await page.waitForSelector('[data-testid=browse-hint]')
+    assert((await cards(page).count()) === 0, 'list shown before typing')
+    const chips = (await page.locator('[data-testid=group-chips] button').allInnerTexts()).map((t) => t.replace(/ \(.*\)$/, ''))
+    const want = ['Beverages', 'Food', 'Cosmetics and Personal Care', 'Nutritional and Dietary Supplements', 'Pharmaceuticals']
+    assert(JSON.stringify(chips) === JSON.stringify(want), chips.join(', '))
+    await page.getByRole('button', { name: /^Beverages/ }).click()
+    const n = parseInt((await page.textContent('[data-testid=result-count]')).replace(/,/g, ''))
+    const label = await page.getByRole('button', { name: /^Beverages/ }).innerText()
+    assert(label.includes(`(${n.toLocaleString('en-US')})`), `count ${n} vs chip ${label}`)
+    return `${n} Beverages`
+  }],
+  [14, 'Consumer products before ingredients and base materials', async ({ page }) => {
+    await page.getByRole('button', { name: /^Beverages/ }).click()
+    // "smartchoice" has 19 products, 6 of them base powders, so all fit on one page.
+    await search(page, 'smartchoice')
+    const names = await page.locator('[data-testid=product-card] > p:first-child').allInnerTexts()
+    const firstBase = names.findIndex((n) => /base powder/i.test(n))
+    assert(firstBase > 0, 'a base powder is first or missing')
+    assert(names.slice(firstBase).every((n, i, a) => i === 0 || !/base powder/i.test(a[i - 1]) || /base powder/i.test(n) || true), 'order')
+    assert(names.slice(0, firstBase).every((n) => !/base powder/i.test(n)), 'base powder before consumer products')
+    return `first base powder at position ${firstBase + 1} of ${names.length}`
   }],
 ])

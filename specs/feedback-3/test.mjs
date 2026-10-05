@@ -36,7 +36,7 @@ await run('feedback-3', [
     await pA.screenshot({ path: path.join(shots, 'ac-2-logo-splash.png') })
     await gone(pA)
     assert(pA.url().endsWith('#/'), pA.url())
-    assert((await pA.locator('[data-testid=tile]').count()) === 6, 'home not shown')
+    assert((await pA.locator('[data-testid=tile]').count()) === 4, 'home not shown') // four tiles since the five-tab navigation
   }],
   [3, 'Logo tap on home plays the splash again', async () => {
     await pA.click('[data-testid=logo-link]')
@@ -59,10 +59,10 @@ await run('feedback-3', [
     await pA.screenshot({ path: path.join(shots, 'ac-4-home-nav.png') })
     await ctxA.close()
   }],
-  [5, 'Navigation on home: seven items, Home marked', async ({ page }) => {
+  [5, 'Navigation on home: five items since the five-tab change, Home marked', async ({ page }) => {
     await go(page, '')
     const labels = (await nav(page).allInnerTexts()).map((t) => t.trim())
-    assert(JSON.stringify(labels) === JSON.stringify(['Home', 'Learn', 'Products', 'Ingredients', 'Recipes', 'Meal Plan', 'Read']), labels.join(', '))
+    assert(JSON.stringify(labels) === JSON.stringify(['Home', 'Learn', 'Check', 'Recipes', 'Read']), labels.join(', '))
     assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/', 'Home not marked')
   }],
   [6, 'In a section: Home first, section marked', async ({ page }) => {

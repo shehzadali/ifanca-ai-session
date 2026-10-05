@@ -36,7 +36,9 @@ await run('ingredient-check', [
   [1, 'Home tile opens the screen with three tabs', async ({ page }) => {
     await go(page, '')
     data = await page.evaluate(() => fetch('/data/ingredients.json').then((r) => r.json()))
-    await page.getByText('Check ingredients').first().click()
+    // Since the five-tab navigation: home Check tile, then the Ingredients tab.
+    await page.locator('main a[href="#/check"]').click()
+    await page.locator('[data-testid=section-tabs] a', { hasText: 'Ingredients' }).click()
     await page.waitForSelector('nav[aria-label="Ways to check"]')
     const tabs = await page.locator('nav[aria-label="Ways to check"] a').allInnerTexts()
     assert(JSON.stringify(tabs) === JSON.stringify(['One ingredient', 'Paste a list', 'Photo']), tabs.join(','))
@@ -147,10 +149,17 @@ await run('ingredient-check', [
     const urls = []
     p.on('request', (r) => urls.push(r.url()))
     await go(p, '')
-    await p.getByText('Check ingredients').first().click()
+    await p.locator('main a[href="#/check"]').click()
+    await p.locator('[data-testid=section-tabs] a', { hasText: 'Ingredients' }).click()
     await p.waitForSelector('input[type=search]')
     await p.fill('input[type=search]', 'gelatin')
     await p.waitForTimeout(300)
     assert(!urls.some((u) => u.includes('/tesseract/') || u.includes('tesseract')), 'OCR file requested early')
+  }],
+  [16, 'Enter opens the top match', async ({ page }) => {
+    await go(page, 'check/ingredients')
+    await page.fill('input[type=search]', 'lecit')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=ingredient-card][data-name="Lecithin"]')
   }],
 ])

@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { assert, dateInAboutOnly, go, noSideScroll, run, tapTargets } from '../test-lib.mjs'
+import { assert, BASE, dateInAboutOnly, go, noSideScroll, run, tapTargets } from '../test-lib.mjs'
 
 const recipes = JSON.parse(fs.readFileSync(new URL('../../app/public/data/recipes.json', import.meta.url), 'utf8')).items
 const byUrl = new Map(recipes.map((r) => [r.url, r]))
@@ -29,7 +29,7 @@ await run('cook', [
   [1, 'Recipes tile opens Recipes, and no Cook label remains', async ({ page }) => {
     await go(page, '')
     const tile = page.locator('main a[href="#/recipes"]')
-    assert((await tile.innerText()).trim() === 'Recipes', 'tile text')
+    assert((await tile.locator('[data-testid=tile-label]').innerText()).trim() === 'Recipes', 'tile text')
     assert(!/\bcook\b/i.test(await page.evaluate(() => document.body.innerText)), 'Cook label on home')
     await tile.click()
     await page.waitForSelector('[data-testid=result-count]')
@@ -176,5 +176,30 @@ await run('cook', [
       await noSideScroll(page)
       await tapTargets(page)
     }
+  }],
+  [17, 'Vegetarian filter: only recipes whose ingredients name no meat, fish, or gelatin', async ({ page }) => {
+    await go(page, 'recipes')
+    await page.getByRole('button', { name: 'Vegetarian' }).click()
+    assert((await page.textContent('[data-testid=veg-note]')).includes('based on the ingredient list'), 'note')
+    const n = parseInt(await count(page))
+    const urls = await rowUrls(page)
+    const bad = /\b(beef|chicken|lamb|mutton|goat|turkey|fish|salmon|tuna|shrimps?|prawns?|gelatine?|lard|anchov(y|ies)|meat)\b/i
+    const wrong = urls.filter((u) => bad.test(byUrl.get(u).ingredients.join(' ')))
+    assert(wrong.length === 0, `${wrong.length} rows name meat or fish`)
+    assert(n === 218, `count ${n}`)
+    return `${n} recipes`
+  }],
+  [18, 'Shimmer while a recipe photo loads', async ({ newPage, setPage }) => {
+    const page = await newPage()
+    setPage(page)
+    await page.route('**/app/uploads/**', async (r) => {
+      await new Promise((x) => setTimeout(x, 1500))
+      await r.continue()
+    })
+    // Not go(): it waits for the network to be idle, which includes the delayed photo.
+    await page.goto(`${BASE}/#/recipes/${slug(withPhoto.url)}`)
+    await page.waitForSelector('[data-testid=shimmer]')
+    await page.waitForSelector('[data-testid=shimmer]', { state: 'detached', timeout: 15000 })
+    assert(await page.locator('[data-testid=recipe-photo]').evaluate((i) => i.naturalWidth > 0), 'photo did not load')
   }],
 ])

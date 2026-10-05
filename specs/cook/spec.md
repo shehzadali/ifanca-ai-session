@@ -66,6 +66,13 @@
 
 The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
+### Change on 2026-10-04: navigation and fixes
+
+Recipes now holds three tabs: Recipes, Meal Plan, Shopping List. A Vegetarian filter was added, based on the ingredient list only, and recipe photos show a shimmer while loading.
+
+17. Given the Vegetarian chip, then only recipes whose ingredient lines name no meat, poultry, fish, seafood, gelatin, animal stock or broth, fish sauce, anchovy, or lard are listed, and the note says it is based on the ingredient list.
+18. Given a recipe photo is loading, then a shimmer shows until it loads.
+
 ## Data needed
 
 - `app/public/data/recipes.json`: `crawl_date` (2026-10-04), `count` (340, after one exclusion), `items` with `title`, `url`, `date`, `ingredients` (lines), `steps` (lines), `image_url`, `parsed_from`. Dates range from 2006 to 2026. No blocker.

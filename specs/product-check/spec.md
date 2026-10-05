@@ -43,6 +43,13 @@ Elements, top to bottom at 390px:
 
 The owner asked to remove the snapshot line from every screen. The crawl date now shows only in Settings, About. The criterion about the snapshot date was changed to match. See `specs/app-redesign/spec.md`.
 
+### Change on 2026-10-04: navigation and fixes
+
+The owner asked for category chips before typing (Beverages, Food, Cosmetics and Personal Care, Nutritional and Dietary Supplements, Pharmaceuticals) instead of the full list, and for consumer products to sort before ingredients and base materials. Products now live under Check (`#/check/products`).
+
+13. Given the product screen before typing, then the five category chips show with counts and no product list.
+14. Given a search, then consumer products are listed before ingredients and base materials.
+
 ## Data needed
 
 - `app/public/data/products.json`: `crawl_date` (2026-10-03), `source`, `count` (11,642), and `items` with `name`, `company`, `category`, `sold_in`, `marketplace`, `url`. 149 companies. 60 or more categories. All present. No blocker.

@@ -1,7 +1,7 @@
 {
   "feature": "feedback-3",
-  "date": "2026-10-04",
-  "commit": "d0b0226",
+  "date": "2026-10-05",
+  "commit": "1de733b",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "n": 5,
-      "text": "Navigation on home: seven items, Home marked",
+      "text": "Navigation on home: five items since the five-tab change, Home marked",
       "result": "Pass",
       "notes": ""
     },
@@ -44,7 +44,7 @@
       "n": 7,
       "text": "Tap closes a logo splash at once",
       "result": "Pass",
-      "notes": "closed 429 ms after the tap"
+      "notes": "closed 423 ms after the tap"
     },
     {
       "n": 8,
@@ -68,7 +68,7 @@
       "n": 11,
       "text": "Earlier tests pass after the change",
       "result": "Pass",
-      "notes": "product-check 12/12, ingredient-check 15/15, learn-halal 14/14, cook 16/16, read 10/10, room-leaderboard 13/13, app-redesign 15/15, feedback-2 14/14"
+      "notes": "product-check 14/14, ingredient-check 16/16, learn-halal 14/14, cook 18/18, read 10/10, room-leaderboard 13/13, app-redesign 15/15, feedback-2 14/14"
     }
   ],
   "consoleErrors": []

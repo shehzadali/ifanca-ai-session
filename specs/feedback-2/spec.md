@@ -62,6 +62,10 @@
 
 The owner asked for the splash on every app load and on a tap of the top-left logo, so criterion 3 now covers screen changes and the projector only. The bottom navigation gained Home. See `specs/feedback-3/spec.md`.
 
+### Change on 2026-10-04: navigation and fixes
+
+With the five-tab navigation, the home tiles are Learn and Quiz, Check, Recipes, Read, and a recipe opened from a meal plan day marks Recipes. Tests 6 and 9 were updated.
+
 ## Data needed
 
 - `app/public/data/recipes.json` (340 recipes). No new data.

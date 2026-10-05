@@ -34,7 +34,7 @@ await run('read', [
     assert((await c.locator('[data-testid=article-type]').innerText()) === a.type, 'type')
     assert((await c.locator('[data-testid=article-theme]').innerText()).toLowerCase() === a.theme, 'theme')
     assert((await c.locator('[data-testid=article-preview]').innerText()).length > 20, 'preview')
-    assert((await c.locator('a').getAttribute('href')) === a.url, 'link')
+    assert((await c.locator('a[href^="https://ifanca.org"]').getAttribute('href')) === a.url, 'link')
     return await c.locator('[data-testid=article-date]').innerText()
   }],
   [4, 'Halal basics gives 26, all Halal basics', async ({ page }) => {
