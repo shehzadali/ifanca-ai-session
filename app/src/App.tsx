@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, type ReactNode } from 'react'
 import Avatar from './components/Avatar'
 import BottomNav from './components/BottomNav'
+import DailyFact from './components/DailyFact'
 import { SECTIONS } from './components/Icons'
 import LevelBar from './components/LevelBar'
 import ProfileBlock from './components/ProfileBlock'
@@ -88,6 +89,8 @@ function Home() {
           <LevelBar quiz={quiz} light />
         </div>
       </a>
+
+      <DailyFact />
 
       <ul className="mt-3 grid grid-cols-2 gap-3">
         {rest.map(({ id, label, subtitle, Icon, color }, i) => (
