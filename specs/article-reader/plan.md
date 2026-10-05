@@ -25,8 +25,8 @@
 ## Steps
 
 - [x] 1. Export article bodies with the word-for-word check. (AC 3)
-- [ ] 2. Article screen, route, card links, attribution, Share, offline message. (AC 1, 2, 4, 5, 10, 11, 12)
-- [ ] 3. Images with shimmer, left out offline or on failure. Service worker caching for bodies. (AC 6, 7, 8, 9)
+- [x] 2. Article screen, route, card links, attribution, Share, offline message. (AC 1, 2, 4, 5, 10, 11, 12)
+- [x] 3. Images with shimmer, left out offline or on failure. Service worker caching for bodies. (AC 6, 7, 8, 9)
 
 ## Test cases
 

@@ -9,12 +9,16 @@ export default function RemoteImage({
   frame,
   fallback,
   testId,
+  imgClass = 'h-full w-full object-cover',
+  loadingClass = '',
 }: {
   src: string
   alt: string
   frame: string
   fallback?: (reason: 'none' | 'offline' | 'failed') => ReactNode
   testId?: string
+  imgClass?: string
+  loadingClass?: string
 }) {
   const online = useOnline()
   const [state, setState] = useState<{ src: string; status: 'loading' | 'loaded' | 'failed' }>({ src, status: 'loading' })
@@ -24,7 +28,7 @@ export default function RemoteImage({
   if (reason) return fallback ? <>{fallback(reason)}</> : null
 
   return (
-    <div className={`relative overflow-hidden ${frame}`}>
+    <div className={`relative overflow-hidden ${frame} ${status === 'loaded' ? '' : loadingClass}`}>
       {status !== 'loaded' && <div className="shimmer absolute inset-0" data-testid="shimmer" aria-hidden="true" />}
       <img
         src={src}
@@ -34,7 +38,7 @@ export default function RemoteImage({
         referrerPolicy="no-referrer"
         onLoad={() => setState({ src, status: 'loaded' })}
         onError={() => setState({ src, status: 'failed' })}
-        className={`h-full w-full object-cover transition-opacity duration-300 ${status === 'loaded' ? 'opacity-100' : 'opacity-0'}`}
+        className={`${imgClass} transition-opacity duration-300 ${status === 'loaded' ? 'opacity-100' : 'opacity-0'}`}
         data-testid={testId}
       />
     </div>

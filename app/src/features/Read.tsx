@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import Chip from '../components/Chip'
 import Screen from '../components/Screen'
+import ArticleView, { articleSlug } from './ArticleView'
 import { decodeEntities, fold, formatDate, terms, useData, type Dataset } from '../lib/data'
 
 type RawArticle = {
@@ -36,7 +37,7 @@ function prepare(items: RawArticle[]): Article[] {
     .sort((a, b) => b.date.localeCompare(a.date))
 }
 
-export default function Read(_: { params: string[] }) {
+export default function Read({ params }: { params: string[] }) {
   const { data, error } = useData<Dataset<RawArticle>>('articles.json')
   const articles = useMemo(() => (data ? prepare(data.items) : null), [data])
   const [query, setQuery] = useState('')
@@ -54,6 +55,12 @@ export default function Read(_: { params: string[] }) {
     const words = terms(query)
     return articles.filter((a) => (!theme || a.theme === theme) && words.every((w) => a.haystack.includes(w)))
   }, [articles, query, theme])
+
+  // #/read/<slug> opens the article in the app.
+  if (params[0] && articles) {
+    const article = articles.find((a) => articleSlug(a.url) === params[0])
+    if (article) return <ArticleView key={params[0]} article={article} themeLabel={themeLabel(article.theme)} />
+  }
 
   return (
     <Screen tone="read" title="Read">
@@ -133,14 +140,23 @@ function ArticleCard({ a }: { a: Article }) {
       <p className="text-[14px] font-semibold text-ink" data-testid="article-date">
         Published {formatDate(a.date)}
       </p>
-      <h3 className="mt-1 text-[17px] leading-snug font-semibold">{a.title}</h3>
+      <h3 className="mt-1 text-[17px] leading-snug font-semibold">
+        <a href={`#/read/${articleSlug(a.url)}`} className="text-ink hover:underline" data-testid="article-link">
+          {a.title}
+        </a>
+      </h3>
       <p className="mt-1 text-[13px] text-muted">
         <span data-testid="article-type">{a.type}</span>. Theme: <span data-testid="article-theme">{themeLabel(a.theme)}</span>.
       </p>
       <p className="mt-2 text-[15px] leading-relaxed text-ink" data-testid="article-preview">{a.first_40_words}</p>
-      <a href={a.url} target="_blank" rel="noopener" className="mt-1 inline-flex min-h-11 items-center text-[14px] font-medium text-brand underline">
-        Read the full article on ifanca.org
-      </a>
+      <div className="mt-1 flex flex-wrap gap-x-4">
+        <a href={`#/read/${articleSlug(a.url)}`} className="inline-flex min-h-11 items-center text-[14px] font-bold text-brand underline">
+          Read the article
+        </a>
+        <a href={a.url} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center text-[14px] font-medium text-muted underline">
+          Read on ifanca.org
+        </a>
+      </div>
     </li>
   )
 }

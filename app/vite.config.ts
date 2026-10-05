@@ -36,9 +36,15 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,png,json,txt,woff2}'],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         // OCR files are large and only needed for the Photo tab. Cache them when first used.
-        globIgnores: ['tesseract/**'],
+        // Article bodies (761 files, about 5 MB) are not installed up front. Each one is saved when first opened.
+        globIgnores: ['tesseract/**', 'data/articles/**'],
         cleanupOutdatedCaches: true,
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/data/articles/'),
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'articles', expiration: { maxEntries: 800 } },
+          },
           {
             // Recipe photos come from ifanca.org and are never stored by the service worker.
             urlPattern: ({ url }) => url.hostname.endsWith('ifanca.org'),
