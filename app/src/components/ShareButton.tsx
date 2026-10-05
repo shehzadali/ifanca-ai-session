@@ -1,10 +1,18 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // Share a recipe or lesson. Uses the phone's share sheet when there is one, otherwise copies the link.
 export default function ShareButton({ title, sourceUrl, path }: { title: string; sourceUrl: string; path: string }) {
   const [note, setNote] = useState<'copied' | 'manual' | null>(null)
   const field = useRef<HTMLInputElement>(null)
   const url = `${window.location.origin}${path}`
+
+  // Select the link once the field is on the page, so it is ready to copy.
+  useEffect(() => {
+    if (note === 'manual') {
+      field.current?.focus()
+      field.current?.select()
+    }
+  }, [note])
 
   const copy = async () => {
     try {
@@ -13,7 +21,6 @@ export default function ShareButton({ title, sourceUrl, path }: { title: string;
       window.setTimeout(() => setNote((n) => (n === 'copied' ? null : n)), 3000)
     } catch {
       setNote('manual')
-      window.setTimeout(() => field.current?.select(), 0)
     }
   }
 
