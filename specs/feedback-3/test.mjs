@@ -36,7 +36,7 @@ await run('feedback-3', [
     await pA.screenshot({ path: path.join(shots, 'ac-2-logo-splash.png') })
     await gone(pA)
     assert(pA.url().endsWith('#/'), pA.url())
-    assert((await pA.locator('[data-testid=tile]').count()) === 4, 'home not shown') // four tiles since the five-tab navigation
+    assert((await pA.locator('[data-testid=tile]').count()) === 6, 'home not shown') // six tiles: Meal Plan and Shopping List have their own
   }],
   [3, 'Logo tap on home plays the splash again', async () => {
     await pA.click('[data-testid=logo-link]')
@@ -62,7 +62,7 @@ await run('feedback-3', [
   [5, 'Navigation on home: five items since the five-tab change, Home marked', async ({ page }) => {
     await go(page, '')
     const labels = (await nav(page).allInnerTexts()).map((t) => t.trim())
-    assert(JSON.stringify(labels) === JSON.stringify(['Home', 'Learn', 'Check', 'Recipes', 'Read']), labels.join(', '))
+    assert(JSON.stringify(labels) === JSON.stringify(['Home', 'Learn', 'Check', 'Recipes', 'Meal Plan', 'Read']), labels.join(', '))
     assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/', 'Home not marked')
   }],
   [6, 'In a section: Home first, section marked', async ({ page }) => {
@@ -132,6 +132,9 @@ await run('feedback-3', [
           .filter(([, h, over]) => h < 44 || over > 0),
       )
       assert(bad.length === 0, `#/${h}: ${JSON.stringify(bad)}`)
+      // The items fill the bar. (A grid with more columns than items once left them packed to the left.)
+      const right = await page.$eval('nav[aria-label=Sections] li:last-child', (li) => Math.round(li.getBoundingClientRect().right))
+      assert(right >= 385, `#/${h}: navigation ends at ${right}px of 390`)
     }
   }],
   [11, 'Earlier tests pass after the change', async () => {

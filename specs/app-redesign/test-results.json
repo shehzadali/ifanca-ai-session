@@ -1,14 +1,14 @@
 {
   "feature": "app-redesign",
   "date": "2026-10-05",
-  "commit": "1de733b",
+  "commit": "495b5e7",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
       "text": "Logo in the header, each tile has a label and one short subtitle (changed by owner request)",
       "result": "Pass",
-      "notes": "4 tiles"
+      "notes": "6 tiles"
     },
     {
       "n": 2,
@@ -98,8 +98,8 @@
   "consoleErrors": [
     "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
     "Failed to load resource: the server responded with a status of 404 (Not Found)",
-    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
     "WebSocket connection to 'wss://mock.supabase.test/realtime/v1/websocket?apikey=test-anon-key&vsn=2.0.0' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
     "Failed to load resource: net::ERR_INTERNET_DISCONNECTED"
   ]
 }

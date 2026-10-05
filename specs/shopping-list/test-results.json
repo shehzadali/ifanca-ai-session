@@ -1,12 +1,12 @@
 {
   "feature": "shopping-list",
   "date": "2026-10-05",
-  "commit": "1de733b",
+  "commit": "495b5e7",
   "base": "http://localhost:4173",
   "results": [
     {
       "n": 1,
-      "text": "Three Recipes tabs, Shopping List opens its route",
+      "text": "Meal Plan has two tabs, Shopping List opens its route",
       "result": "Pass",
       "notes": ""
     },

@@ -104,7 +104,7 @@ try {
     [2, 'Learn and quiz first, then the given order', async ({ page }) => {
       const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
       // Since the five-tab navigation: Check holds Products and Ingredients, Recipes holds Meal Plan.
-      const want = ['Learn and Quiz', 'Check', 'Recipes', 'Read']
+      const want = ['Learn and Quiz', 'Check', 'Recipes', 'Meal Plan', 'Shopping List', 'Read']
       assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
     }],
     [3, 'Level bar shows Beginner and at least one third', async ({ page }) => {
@@ -140,7 +140,7 @@ try {
       const nav = page.locator('nav[aria-label=Sections] a')
       // Since feedback-3: Home plus six sections.
       // Five items since the five-tab navigation. The old #/product route opens Check.
-      assert((await nav.count()) === 5, `${await nav.count()} items`)
+      assert((await nav.count()) === 6, `${await nav.count()} items`) // Home, Learn, Check, Recipes, Meal Plan, Read
       assert((await page.getAttribute('nav[aria-label=Sections] a[aria-current=page]', 'href')) === '#/check', 'current')
       await page.locator('nav[aria-label=Sections] a[href="#/read"]').click()
       await page.waitForSelector('[data-testid=article-card]')

@@ -99,6 +99,10 @@ The bottom navigation now has seven items (Home first) and also shows on home. T
 
 The owner then asked for a five-tab navigation (Home, Learn, Check, Recipes, Read), four home tiles with one short subtitle each, and the footer on two lines. Tests 1, 2, 4, 5, and 13 were updated to match.
 
+### Change on 2026-10-04: Meal Plan section
+
+Meal Plan then became its own bottom tab again (six items: Home, Learn, Check, Recipes, Meal Plan, Read). Home has six tiles: Learn and Quiz, Check, Recipes, Meal Plan, Shopping List, Read.
+
 ## Data needed
 
 - All existing files in `app/public/data/`. No new data.

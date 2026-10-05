@@ -38,6 +38,10 @@
 
 The owner later reduced the navigation to five tabs: Home, Learn, Check, Recipes, Read. Criterion 5 now expects those five.
 
+### Change on 2026-10-04: Meal Plan section
+
+The navigation now has six items: Home, Learn, Check, Recipes, Meal Plan, Read. Home has six tiles.
+
 ## Data needed
 
 - None.

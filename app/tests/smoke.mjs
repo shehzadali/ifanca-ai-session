@@ -44,10 +44,10 @@ async function check(name, fn) {
   }
 }
 
-await check('home: logo, four tiles, daily fact, footer', async () => {
+await check('home: logo, six tiles, daily fact, footer', async () => {
   await go('')
   const labels = await page.locator('[data-testid=tile-label]').allInnerTexts()
-  const want = ['Learn and Quiz', 'Check', 'Recipes', 'Read']
+  const want = ['Learn and Quiz', 'Check', 'Recipes', 'Meal Plan', 'Shopping List', 'Read']
   assert(JSON.stringify(labels) === JSON.stringify(want), labels.join(', '))
   assert((await page.locator('header svg[aria-label="The Halal Way logo"]').count()) === 1, 'logo')
   await page.waitForSelector('[data-testid=fact-quote]')
@@ -117,7 +117,7 @@ await check('recipes and meal plan: list, recipe, add to a day', async () => {
 })
 
 await check('shopping list: built from the meal plan', async () => {
-  await go('recipes/shopping')
+  await go('plan/shopping')
   await page.waitForSelector('[data-testid=shopping-list]')
   assert((await page.locator('[data-testid=shop-item]').count()) > 0, 'no items')
   await common()

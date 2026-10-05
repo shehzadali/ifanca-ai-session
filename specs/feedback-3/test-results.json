@@ -1,7 +1,7 @@
 {
   "feature": "feedback-3",
   "date": "2026-10-05",
-  "commit": "1de733b",
+  "commit": "495b5e7",
   "base": "http://localhost:4173",
   "results": [
     {
@@ -44,7 +44,7 @@
       "n": 7,
       "text": "Tap closes a logo splash at once",
       "result": "Pass",
-      "notes": "closed 423 ms after the tap"
+      "notes": "closed 432 ms after the tap"
     },
     {
       "n": 8,

@@ -36,6 +36,10 @@
 9. Given "Clear ticks", then no item is ticked.
 10. Given the screen at 390px, then nothing scrolls sideways and tap targets are at least 44px.
 
+### Change on 2026-10-04: Meal Plan section
+
+The owner moved Meal Plan out of Recipes into its own bottom tab. Shopping List is now the second tab of Meal Plan, at `#/plan/shopping`, and has its own home tile. Criterion 1 now expects the tabs Meal Plan and Shopping List. `#/recipes/shopping` redirects.
+
 ## Data needed
 
 - `app/public/data/recipes.json` (340 recipes, `ingredients` lines) and the meal plan on the device (`thw.mealplan`).

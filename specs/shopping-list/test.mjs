@@ -17,18 +17,19 @@ async function setPlan(page, plan) {
 const items = (page) => page.locator('[data-testid=shop-item]')
 
 await run('shopping-list', [
-  [1, 'Three Recipes tabs, Shopping List opens its route', async ({ page }) => {
-    await go(page, 'recipes')
+  [1, 'Meal Plan has two tabs, Shopping List opens its route', async ({ page }) => {
+    // Since the owner moved it: Meal Plan is its own section, with Shopping List as its second tab.
+    await go(page, 'plan')
     const tabs = (await page.locator('[data-testid=section-tabs] a').allInnerTexts()).map((t) => t.trim())
-    assert(JSON.stringify(tabs) === JSON.stringify(['Recipes', 'Meal Plan', 'Shopping List']), tabs.join(', '))
+    assert(JSON.stringify(tabs) === JSON.stringify(['Meal Plan', 'Shopping List']), tabs.join(', '))
     await page.locator('[data-testid=section-tabs] a', { hasText: 'Shopping List' }).click()
     await page.waitForTimeout(300)
-    assert(page.url().endsWith('#/recipes/shopping'), page.url())
+    assert(page.url().endsWith('#/plan/shopping'), page.url())
   }],
   [2, 'Empty plan shows the empty state', async ({ page }) => {
     await setPlan(page, {})
     await page.waitForSelector('[data-testid=shopping-empty]')
-    assert((await page.locator('[data-testid=shopping-empty] a').getAttribute('href')) === '#/recipes/plan', 'link')
+    assert((await page.locator('[data-testid=shopping-empty] a').getAttribute('href')) === '#/plan', 'link')
   }],
   [3, 'Sugar from two recipes groups into one item', async ({ page }) => {
     await setPlan(page, { Monday: [A.url], Wednesday: [B.url] })

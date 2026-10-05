@@ -66,6 +66,10 @@ The owner asked for the splash on every app load and on a tap of the top-left lo
 
 With the five-tab navigation, the home tiles are Learn and Quiz, Check, Recipes, Read, and a recipe opened from a meal plan day marks Recipes. Tests 6 and 9 were updated.
 
+### Change on 2026-10-04: Meal Plan section
+
+With Meal Plan back as its own bottom tab, a recipe opened from a day marks Meal Plan again, and the Meal Plan screen title is Meal Plan.
+
 ## Data needed
 
 - `app/public/data/recipes.json` (340 recipes). No new data.

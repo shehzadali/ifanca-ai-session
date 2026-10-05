@@ -217,6 +217,14 @@ New features:
 - D132. Read cards now open the article in the app. "Read on ifanca.org" stays on each card.
 - D133. Not built, as asked: favorite recipes.
 
+### Meal Plan section (2026-10-04)
+
+- D134. Meal Plan is its own bottom tab again, with Shopping List as its second tab: `#/plan`, `#/plan/<Day>`, `#/plan/shopping`. Recipes is a single list with no tabs. The navigation has six items: Home, Learn, Check, Recipes, Meal Plan, Read.
+- D135. Home has six tiles: Learn and Quiz (full width), Check, Recipes, Meal Plan, Shopping List, Read (full width). Shopping List has its own color (a blue, white text passes 4.5 to 1) and opens the Shopping List tab directly.
+- D136. A recipe opened from a meal plan day marks Meal Plan in the navigation and links back to that day.
+- D137. Links from the previous version still work: `#/recipes/plan...` and `#/recipes/shopping` redirect to the new routes.
+- D138. Bug found and fixed: after the five-tab change the bottom bar kept a seven-column grid, so the five items sat packed to the left on the live app. The bar now has six columns for six items, and the feedback-3 test checks that the items fill the bar.
+
 ## Deploys
 
 | Date | Commit | URL | Live smoke |
