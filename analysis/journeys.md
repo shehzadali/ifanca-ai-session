@@ -1,6 +1,8 @@
-# Visitor journeys
+# Visitor journeys, step by step
 
 Crawl date: 2026-10-04. Walked against the cached site and the Stage 1 visitor map (`data/visitor-inventory.csv`). No live requests were made. Forms were not submitted. Search and filter behavior is taken from the cached responses the pages load.
+
+This is the detailed record behind `analysis/user-journeys.md`. Each step that is not OK is an opportunity for a new digital experience.
 
 Result key: **OK** works, **Partial** works with a gap, **Fail** the visitor cannot complete the step.
 

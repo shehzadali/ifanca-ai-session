@@ -1,8 +1,10 @@
-# Gaps between IFANCA's claims and the visitor experience
+# Opportunities: IFANCA's mission and the online experience
 
 Crawl date: 2026-10-04. Sources: `analysis/claims.json` (42 claims from the homepage, About, and Beyond Certification pages), `analysis/coverage.csv`, `analysis/journeys.md`, `data/visitor-inventory.csv`, `data/unreachable.csv`, `data/dead-paths.csv`, and `data/resources-themes.csv`.
 
-Gaps are ranked by impact on the mission: promote halal through certification, education, and institutions. Impact weighs how central the claim is, how many visitors it touches, and whether the visitor can work around it.
+This is the detailed record behind `analysis/mission.md`. It lists where a new digital experience could help most. Each item keeps the evidence found in the crawl.
+
+Opportunities are ranked by impact on the mission: promote halal through certification, education, and institutions. Impact weighs how central the claim is, how many visitors it touches, and whether the visitor can work around it.
 
 ## Coverage at a glance
 
@@ -23,7 +25,7 @@ No claim scored hidden. Search-only content does exist (11,642 product pages, 46
 
 A claim can belong to more than one pillar.
 
-## Top 5 gaps
+## Top 5 opportunities
 
 | Rank | Gap | Kind | Claims |
 |---|---|---|---|
@@ -33,7 +35,7 @@ A claim can belong to more than one pillar.
 | 4 | The Certified Companies page lists only 471 companies in China | Missing | C10, C30 |
 | 5 | Consumer education is not connected to the product list and is buried in an unsorted library | Cannot find | C23, C29, C31 |
 
-## Part 1: Content that is missing
+## Part 1: Content to create
 
 ### 1. No way to verify certification (highest impact)
 
@@ -64,7 +66,7 @@ Evidence:
 - The 149 companies behind the product list (for example Abbott, General Mills, NSE Products) are not on it. The two lists share no names.
 - The 464 company profiles hold only a name and are reachable only by search.
 
-A shopper or a prospective client reads this page as the full client list.
+A consumer or a prospective client reads this page as the full client list.
 
 ### 4. Missing information for companies considering certification
 
@@ -101,7 +103,7 @@ Evidence: the magazine picker lists 2 issues for 2025 (Spring 2025, dated Septem
 
 Claims: "writing articles for various publications around the world" and "contributing to research papers and findings". No page lists either. The closest content is the 2003 conference proceedings in the resources library and a 2006 news item on a research center.
 
-## Part 2: Content that exists but visitors cannot find
+## Part 2: Content that exists and could be easier to find
 
 ### 1. Institutions work sits behind the footer Sitemap page
 
@@ -115,7 +117,7 @@ The vision paragraph appears on three pages, but the work behind it is the harde
 ### 2. Consumer education is buried and not connected to products
 
 Evidence:
-- The best shopper material (Halal Shopper's Guide to Ingredients, 2011, the Quick Reference Guide, 2012, and E-Numbers, 2009) sits in a 93-page list sorted by date.
+- The best consumer material (Halal Shopper's Guide to Ingredients, 2011, the Quick Reference Guide, 2012, and E-Numbers, 2009) sits in a 93-page list sorted by date.
 - The topic filter has 2 topics. 979 of 1,115 resources have no topic.
 - The product list does not link to any of it.
 
@@ -134,7 +136,7 @@ All five tiles (Beverages, Cosmetics & Personal Care, Food, Nutritional & Dietar
 
 Low impact. The same content shows on the FAQ page and through the magazine picker. These pages cannot be reached by browsing.
 
-## Dead and broken paths (from Stage 1)
+## Links to refresh (from Stage 1)
 
 | Source | Link | Problem |
 |---|---|---|

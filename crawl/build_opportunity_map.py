@@ -1,8 +1,8 @@
-"""Build viz/gap-map.html from analysis/claims.json and analysis/coverage.csv.
+"""Build viz/opportunity-map.html (the mission opportunity map) from analysis/claims.json and analysis/coverage.csv.
 
-One page for the training session: every claim IFANCA makes on its homepage, About, and Beyond
-Certification pages, grouped by pillar and rated by how well a website visitor can find content that
-backs it. All text is copied from the analysis files. Nothing is written by hand.
+One page for the training session: every promise in IFANCA's mission pages, grouped by pillar, and
+whether a consumer can easily reach content about it online today. Where not, there is an opportunity
+for a new digital experience. All promise text is copied from the analysis files.
 """
 from __future__ import annotations
 
@@ -52,19 +52,20 @@ page = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IFANCA Gap Map</title>
+<title>IFANCA Mission Opportunity Map</title>
 <meta name="robots" content="noindex">
 <style>
   :root {{
     --surface-0: #f4f3ef; --surface-1: #fcfcfb; --line: #e3e1da;
     --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #6b6a66;
-    --good: #0ca30c; --warning: #fab219; --critical: #d03b3b;
+    --good: #0ca30c; --warning: #fab219; --critical: #2a78d6;
     color-scheme: light;
   }}
   @media (prefers-color-scheme: dark) {{
     :root {{
       --surface-0: #111110; --surface-1: #1a1a19; --line: #33332f;
       --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #a3a29a;
+      --critical: #3987e5;
       color-scheme: dark;
     }}
   }}
@@ -86,7 +87,7 @@ page = f"""<!doctype html>
   .sw {{ width: 18px; height: 18px; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center;
     font-size: 12px; font-weight: 800; color: #0b0b0b; }}
   .good {{ background: var(--good); color: #fff; }} .warning {{ background: var(--warning); color: #0b0b0b; }} .critical {{ background: var(--critical); color: #fff; }}
-  .good.sw, .good.cell {{ color: #fff; }}
+  .good.sw, .good.cell, .critical.sw, .critical.cell {{ color: #fff; }}
   .bars {{ display: grid; gap: 12px; margin-top: 10px; }}
   .bar-row {{ display: grid; grid-template-columns: 130px 1fr 90px; align-items: center; gap: 12px; }}
   .bar-row .name {{ font-weight: 600; text-transform: capitalize; }}
@@ -121,22 +122,22 @@ page = f"""<!doctype html>
 </head>
 <body>
 <main>
-  <h1>What IFANCA promises, and what a visitor can find</h1>
+  <h1>IFANCA's mission, and the opportunities for a new digital experience</h1>
   <p class="lede">Every promise on the ifanca.org homepage, About, and Beyond Certification pages, copied word for word.
-  Each one is rated by whether a website visitor can browse to content that backs it up.</p>
+  For each one: can a consumer easily reach content about it online today? Where not yet, there is an opportunity.</p>
 
   <div class="tiles">
-    <div class="tile"><div class="n">{len(data)}</div><div class="l">promises found</div></div>
-    <div class="tile"><div class="n">{totals['strong']}</div><div class="l"><span class="sw good">&#10003;</span> strong: backed and easy to find</div></div>
-    <div class="tile"><div class="n">{totals['weak']}</div><div class="l"><span class="sw warning">~</span> weak: partly backed, dated, or buried</div></div>
-    <div class="tile"><div class="n">{totals['none']}</div><div class="l"><span class="sw critical">&#10005;</span> none: nothing backs it</div></div>
+    <div class="tile"><div class="n">{len(data)}</div><div class="l">promises in IFANCA's own words</div></div>
+    <div class="tile"><div class="n">{totals['strong']}</div><div class="l"><span class="sw good">&#10003;</span> online and easy to find</div></div>
+    <div class="tile"><div class="n">{totals['weak']}</div><div class="l"><span class="sw warning">~</span> online, with room to grow</div></div>
+    <div class="tile"><div class="n">{totals['none']}</div><div class="l"><span class="sw critical">+</span> new opportunity: not online yet</div></div>
   </div>
 
   <section class="card" aria-labelledby="bars-title">
     <h2 id="bars-title">By pillar</h2>
     <p class="note">IFANCA's mission names three pillars. A promise can belong to more than one, so it counts once in each.</p>
     <div class="legend">
-      <span><span class="sw good">&#10003;</span>Strong</span><span><span class="sw warning">~</span>Weak</span><span><span class="sw critical">&#10005;</span>None</span>
+      <span><span class="sw good">&#10003;</span>Online and easy to find</span><span><span class="sw warning">~</span>Room to grow</span><span><span class="sw critical">+</span>New opportunity</span>
     </div>
     <div class="bars">
 """
@@ -145,7 +146,7 @@ for p in PILLARS:
     counts = per_pillar[p]
     total = sum(counts.values())
     segs = ""
-    for s, cls, icon in (("strong", "good", "&#10003;"), ("weak", "warning", "~"), ("none", "critical", "&#10005;")):
+    for s, cls, icon in (("strong", "good", "&#10003;"), ("weak", "warning", "~"), ("none", "critical", "+")):
         if counts[s]:
             segs += (
                 f'<div class="seg {cls}" style="flex:{counts[s]}" '
@@ -159,13 +160,13 @@ page += """    </div>
 
   <section class="card" aria-labelledby="map-title">
     <h2 id="map-title">Every promise</h2>
-    <p class="note">One square per promise. Point at a square, or tab to it, to read the promise and the reason for its rating.</p>
+    <p class="note">One square per promise. Point at a square, or tab to it, to read the promise and what is online about it today.</p>
 """
 
 for p, items in cells:
     page += f'    <div class="grid-row"><h3>{p}</h3><div class="cells">\n'
     for d in items:
-        cls, icon = {"strong": ("good", "&#10003;"), "weak": ("warning", "~"), "none": ("critical", "&#10005;")}[d["score"]]
+        cls, icon = {"strong": ("good", "&#10003;"), "weak": ("warning", "~"), "none": ("critical", "+")}[d["score"]]
         page += (
             f'      <div class="cell {cls}" tabindex="0" data-id="{d["id"]}" aria-label="{esc(d["id"])}: {esc(d["score"])}. {esc(d["text"])}">'
             f'<span class="i">{icon}</span>{d["id"]}</div>\n'
@@ -177,13 +178,13 @@ page += """  </section>
   <details class="card">
     <summary>Show all promises as a table</summary>
     <table>
-      <thead><tr><th>ID</th><th>Promise (word for word)</th><th>Pillars</th><th>Rating</th><th>Why</th><th>Page</th></tr></thead>
+      <thead><tr><th>ID</th><th>Promise (word for word)</th><th>Pillars</th><th>Online today</th><th>Notes</th><th>Page</th></tr></thead>
       <tbody>
 """
 for d in data:
     page += (
         f'        <tr><td>{d["id"]}</td><td>{esc(d["text"])}</td><td>{esc(", ".join(d["pillars"]))}</td>'
-        f'<td>{d["score"]}</td><td>{esc(d["reason"])}</td>'
+        f'<td>{ {"strong": "Easy to find", "weak": "Room to grow", "none": "New opportunity"}[d["score"]] }</td><td>{esc(d["reason"])}</td>'
         f'<td><a href="{esc(d["page"])}">{esc(d["page"].replace("https://ifanca.org", "") or "/")}</a></td></tr>\n'
     )
 
@@ -192,13 +193,13 @@ page += f"""      </tbody>
   </details>
 
   <footer>Sources: analysis/claims.json and analysis/coverage.csv, built from a copy of ifanca.org made on {crawl_date}.
-  Built by crawl/build_gap_map.py. Demo material, not an official IFANCA document.</footer>
+  Built by crawl/build_opportunity_map.py. Demo material, not an official IFANCA document.</footer>
 </main>
 <div id="tip" role="tooltip"></div>
 <script>
   const DATA = {json.dumps({d["id"]: d for d in data}, ensure_ascii=False)};
   const tip = document.getElementById('tip');
-  const label = {{ strong: 'Strong: backed and easy to find', weak: 'Weak: partly backed, dated, or buried', none: 'None: nothing backs it' }};
+  const label = {{ strong: 'Online and easy to find', weak: 'Online, with room to grow', none: 'New opportunity: not online yet' }};
   function show(el) {{
     const d = DATA[el.dataset.id];
     tip.innerHTML = '<div class="meta">' + d.id + ' &middot; ' + d.pillars.join(', ') + '</div><q></q><div><b></b></div><div class="meta why"></div>';
@@ -225,6 +226,6 @@ page += f"""      </tbody>
 </html>
 """
 
-out = ROOT / "viz/gap-map.html"
+out = ROOT / "viz/opportunity-map.html"
 out.write_text(page, encoding="utf-8")
 print(f"wrote {out.relative_to(ROOT)}: {len(data)} claims, {dict(totals)}")

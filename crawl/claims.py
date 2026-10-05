@@ -218,7 +218,7 @@ COVERAGE = {
             [ACCRED]),
     "C40": ("weak", "Programs grid loads 3 programs. The page itself is reachable only through the footer Sitemap page.",
             [BEYOND, SITEMAP]),
-    "C42": ("weak", "Same as C03. Accreditations support global acceptance, but nothing explains or verifies the mark for a shopper.",
+    "C42": ("weak", "Same as C03. Accreditations support global acceptance, but nothing explains or verifies the mark for a consumer.",
             [ACCRED, PRODUCTS]),
     "C41": ("strong", "Contact form and phone and email on every page.",
             [CONTACT]),

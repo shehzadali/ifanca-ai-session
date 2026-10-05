@@ -236,7 +236,7 @@ Date: 2026-10-04. Instruction: build and deploy "The Halal Way" end to end witho
 
 1. **Write the guide around the files people will see,** in the order the work happened. For each chapter: what to open, what to point at, one idea to teach, and one story to tell.
 2. **Keep the builder's own instructions.** Collect every prompt in order (`training/prompts.md`). They show the audience that the builder writes plain English.
-3. **Fill the gaps a presenter needs.** Here: a one-page mission summary, one list of journeys mapped to features, the gap map picture promised in CLAUDE.md, and skills for the crawl and analysis stages (written from this log).
+3. **Fill the gaps a presenter needs.** Here: a one-page mission summary, one list of journeys mapped to features, the mission map picture promised in CLAUDE.md, and skills for the crawl and analysis stages (written from this log).
 4. **Pick one journey to follow end to end,** with a spec that has a short plan and a test report with a real first-run failure. Here: Journey 1 and `specs/product-check/`.
 5. **Show change over time with screenshots** pulled from git history (`training/screens/`).
 6. **Add a glossary in plain words** for every term the audience will hear.
@@ -246,7 +246,7 @@ Date: 2026-10-04. Instruction: build and deploy "The Halal Way" end to end witho
 
 - The guide is a folder in the repo (`training/`), presented from the editor or GitHub, so the audience sees the real files.
 - The crawl and analysis skills were written after those stages, from this log. The guide says so.
-- The gap map is built by a script (`crawl/build_gap_map.py`) from the analysis files, so it always matches the data. Ratings use status colors with an icon and a label, so color never carries meaning alone.
+- The opportunity map is built by a script (`crawl/build_opportunity_map.py`) from the analysis files, so it always matches the data. Ratings use status colors with an icon and a label, so color never carries meaning alone.
 - `specs/report.mjs` now keeps a report's written notes when it is regenerated. All test reports were regenerated from the latest runs.
 - Favorite recipes stays unbuilt, for a live build in the session.
 
@@ -258,5 +258,20 @@ Date: 2026-10-04. Instruction: build and deploy "The Halal Way" end to end witho
 | `training/glossary.md` | Plain-language terms |
 | `training/prompts.md` | Every instruction, in order |
 | `training/screens/` | 14 screenshots, from the first scaffold to today |
-| `analysis/mission.md`, `analysis/user-journeys.md`, `viz/gap-map.html` | Presenter versions of the analysis |
-| `.claude/skills/site-crawl/`, `.claude/skills/mission-gap-analysis/` | Skills for the understand stage |
+| `analysis/mission.md`, `analysis/user-journeys.md`, `viz/opportunity-map.html` | Presenter versions of the analysis |
+| `.claude/skills/site-crawl/`, `.claude/skills/mission-opportunities/` | Skills for the understand stage |
+
+### Stage 5 update: reframe as opportunities
+
+**Instruction:** the audience is IFANCA staff. Do not frame findings as "you claim this, but you do not deliver it". Frame them as opportunities from the mission statement for a new digital experience. Use "consumer", not "shopper". Present from one file, top to bottom.
+
+**What was done:**
+1. Wrote `training/presentation.md`, one file for a 45-minute session, with insights on IFANCA's library and education content.
+2. Turned `training/README.md` into a short index that points to the presentation.
+3. Renamed the analysis skill to `mission-opportunities`, the map to `viz/opportunity-map.html`, and its builder to `crawl/build_opportunity_map.py`.
+4. Relabeled the ratings for people: "Online and easy to find", "Room to grow", and "New opportunity". The data files keep strong, weak, and none.
+5. Gave `analysis/gaps.md` and `analysis/journeys.md` softer titles and intros. The facts and evidence did not change.
+
+**Decision:** keep the underlying evidence exactly as found and change only how it is presented. The rating codes in the data stay the same, so the scripts and checks still work.
+
+**Reusable step:** when the audience is the organization itself, present findings as opportunities that grow from its own mission, in its own words.

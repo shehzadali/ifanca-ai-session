@@ -24,11 +24,11 @@ Stages 1 to 3 happened in earlier sessions. Their instructions are summarized fr
 
 ---
 
-## Stage 2: Understand the mission and find the gaps (summary)
+## Stage 2: Understand the mission and find the opportunities (summary)
 
 > Work from the visitor inventory and the cached pages. Do not crawl. Classify the resources into themes, extract claims from the homepage, About, and Beyond Certification, score each claim against what a visitor can browse, walk three journeys, and write a ranked gap report.
 
-**What came out:** 42 promises (`analysis/claims.json`), ratings (`analysis/coverage.csv`), three journeys (`analysis/journeys.md`), and the ranked gaps (`analysis/gaps.md`). Presenter versions: `analysis/mission.md`, `analysis/user-journeys.md`, `viz/gap-map.html`. Method: `.claude/skills/mission-gap-analysis/SKILL.md`.
+**What came out:** 42 promises (`analysis/claims.json`), ratings (`analysis/coverage.csv`), three journeys (`analysis/journeys.md`), and the ranked opportunities (`analysis/gaps.md`). Presenter versions: `analysis/mission.md`, `analysis/user-journeys.md`, `viz/opportunity-map.html`. Method: `.claude/skills/mission-opportunities/SKILL.md`.
 
 ---
 

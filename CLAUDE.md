@@ -39,7 +39,7 @@ Every feature goes through the same four project skills, in order, with a commit
 3. `implement-feature`: build one step at a time, one commit per step.
 4. `test-feature`: Playwright at 390px, one check per criterion, screenshots, and `specs/<feature>/test-report.md`.
 
-The understand stage has its own skills: `site-crawl` and `mission-gap-analysis`.
+The understand stage has its own skills: `site-crawl` and `mission-opportunities`.
 
 Release with the `/ship` slash command (`.claude/commands/ship.md`): build, smoke test, commit, deploy to Vercel production, check the QR code, smoke test the live site. It stops at the first failure.
 
@@ -64,7 +64,7 @@ data/raw/                 cached raw responses (not in git)
 data/pages/               one Markdown file per page, with YAML frontmatter
 data/*.csv                inventory, products, companies, magazine, reachability
 analysis/                 claims.json, coverage.csv, journeys.md, gaps.md, mission.md, user-journeys.md
-viz/gap-map.html          picture of promises vs. what visitors can find (built by crawl/build_gap_map.py)
+viz/opportunity-map.html  picture of IFANCA's mission and the opportunities online (built by crawl/build_opportunity_map.py)
 app/                      the app (Vite, React, TypeScript, Tailwind, PWA)
 app/public/data/          the app's data, exported by crawl/export_app_data.py
 app/tests/smoke.mjs       smoke test used by /ship

@@ -22,11 +22,11 @@ Plain words for the ideas in this session, in the order they come up.
 
 **Claim (promise).** A sentence where an organization says what it does, copied word for word with the page it came from.
 
-**Coverage.** Whether a visitor can find content on the website that backs up a claim: strong, weak, or none.
+**Coverage.** Whether a consumer can easily reach content about a promise online today: online and easy to find, online with room to grow, or a new opportunity.
 
-**Gap.** A promise that the website does not keep, or content that exists but nobody can find.
+**Opportunity.** A part of the mission where a new digital experience could help: content to create, or content that exists and could be easier to find.
 
-**User journey.** One real person trying to get one thing done, step by step, noting where they succeed and where they get stuck. See `analysis/user-journeys.md`.
+**User journey.** One real person trying to get one thing done, step by step, noting what works today and where a new experience could help. See `analysis/user-journeys.md`.
 
 ## Building with the assistant
 

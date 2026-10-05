@@ -1,6 +1,6 @@
 # From a website to an app, with AI
 
-How one builder used an AI assistant (Claude Code) to read IFANCA's public website, find where visitors get stuck, and build a phone app that helps them.
+How one builder used an AI assistant (Claude Code) to read IFANCA's public website, see the opportunities in IFANCA's mission for a new consumer experience, and build a phone app for consumers.
 
 - **Live app:** https://the-halal-way.vercel.app
 - **Presenter's guide:** [training/README.md](training/README.md), start here
@@ -13,8 +13,8 @@ How one builder used an AI assistant (Claude Code) to read IFANCA's public websi
 |---|---|---|
 | Rules | The house rules the AI follows | [CLAUDE.md](CLAUDE.md) |
 | Collect | A polite copy of ifanca.org | [crawl/](crawl/), [data/](data/) |
-| Understand | IFANCA's promises, rated against what visitors can find | [analysis/mission.md](analysis/mission.md), [viz/gap-map.html](viz/gap-map.html) |
-| Journeys | Three visitors, where they get stuck, and the features that help | [analysis/user-journeys.md](analysis/user-journeys.md) |
+| Understand | IFANCA's mission, and the opportunities it opens online | [analysis/mission.md](analysis/mission.md), [viz/opportunity-map.html](viz/opportunity-map.html) |
+| Journeys | Three people, their goals, and the app features that help them | [analysis/user-journeys.md](analysis/user-journeys.md) |
 | Workflow | Recipe cards (skills) the AI follows, and the /ship command | [.claude/](.claude/) |
 | Features | Spec, plan, test report, and screenshots for each feature | [specs/](specs/) |
 | App | The phone app | [app/](app/) |

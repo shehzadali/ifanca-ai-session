@@ -1,44 +1,39 @@
 # User journeys
 
-A user journey is one real person trying to get one thing done, step by step. We walked three journeys on ifanca.org, saw where each one breaks, and turned the breaks into app features.
+A user journey is one real person trying to get one thing done, step by step. We walked three journeys on ifanca.org and noted, at each step, where a new digital experience could help. Those opportunities became the app's features.
 
 The full step-by-step walks, with evidence for every step, are in `analysis/journeys.md`.
 
-## Part 1: Three journeys on ifanca.org
+## Three journeys
 
-| # | Who | What they want | Steps | Where it breaks |
-|---|---|---|---|---|
-| 1 | A shopper in a grocery store, on a phone | "Is this product halal certified?" | 8 | Can find a product name, but cannot see proof, cannot spot a fake mark, and gets no explanation when a product is missing. |
-| 2 | A parent | "Help me explain halal to my child." | 5 | No "What is halal?" starting point. Nothing written for families or children. |
-| 3 | A food company | "Should we get certified with IFANCA?" | 9 | No timeline, no list of peer companies, no page on the training and support IFANCA promises. |
+**1. A consumer in a grocery store, on a phone**
+- Wants to know: "Is this product halal certified?"
+- Today: the consumer can find the product name in IFANCA's list.
+- Opportunity: product search that fits in a pocket, a clear message when a product is not on the list, and IFANCA's guidance on the ingredients on the label.
 
-Result key used in the walks: **OK** works, **Partial** works with a gap, **Fail** the visitor cannot finish the step.
+**2. A parent**
+- Wants to know: "Help me explain halal to my child."
+- Today: IFANCA's FAQ answers explain the basics, written for adults.
+- Opportunity: a simple starting point, "What is halal?", and a fun way for a family to learn.
 
-## Part 2: From journey to app feature
+**3. A food company**
+- Wants to know: "Should we get certified with IFANCA?"
+- Today: the certification process, fees, and recognitions are online.
+- Opportunity: a future experience for businesses, with timelines, peer companies, and the training IFANCA offers. Not part of this consumer app.
 
-| Visitor need | From | App feature | Spec folder |
-|---|---|---|---|
-| "Is this product on IFANCA's list?" | Journey 1, steps 2 to 7 | Check, Products tab | `specs/product-check/` |
-| "What does IFANCA say about the ingredients on this label?" | Journey 1, step 8 | Check, Ingredients tab, with a photo of the label | `specs/ingredient-check/` |
-| "Start me at the beginning: what is halal?" | Journey 2 | Learn and Quiz | `specs/learn-halal/` |
-| "One thing to learn today" | Journey 2 | Did You Know card on Home | `specs/daily-fact/` |
-| "Make learning fun in a group" | Session goal | Room Leaderboard | `specs/room-leaderboard/` |
-| "What can I cook, and what do I buy?" | IFANCA's recipe library is hard to browse | Recipes, Meal Plan, Shopping List | `specs/cook/`, `specs/shopping-list/` |
-| "Let me read IFANCA's articles easily" | IFANCA's article library is hard to browse | Read, with articles inside the app | `specs/read/`, `specs/article-reader/` |
-| "Send this to my family" | All of the above | Share button | `specs/share/` |
+## From journey to app feature
 
-Journey 3 (companies) was not built into the app. The app is for consumers. The company gaps stay in `analysis/gaps.md` for IFANCA.
+- **"Is this product on IFANCA's list?"** (Journey 1): Check, Products tab. Spec: `specs/product-check/`
+- **"What does IFANCA say about the ingredients on this label?"** (Journey 1): Check, Ingredients tab, with a photo of the label. Spec: `specs/ingredient-check/`
+- **"Start me at the beginning: what is halal?"** (Journey 2): Learn and Quiz. Spec: `specs/learn-halal/`
+- **"One thing to learn today"** (Journey 2): Did You Know card on Home. Spec: `specs/daily-fact/`
+- **"Make learning fun in a group"** (the session itself): Room Leaderboard. Spec: `specs/room-leaderboard/`
+- **"What can I cook, and what do I buy?"** (IFANCA's recipe library): Recipes, Meal Plan, Shopping List. Specs: `specs/cook/`, `specs/shopping-list/`
+- **"Let me read IFANCA's articles easily"** (IFANCA's article library): Read, with articles inside the app. Specs: `specs/read/`, `specs/article-reader/`
+- **"Send this to my family"** (all of the above): Share button. Spec: `specs/share/`
 
 Changes made after the owner's reviews have their own specs: `specs/app-redesign/`, `specs/feedback-2/`, `specs/feedback-3/`.
 
-## Part 3: The journey to show in the session
+## The journey to show in the session
 
-**Journey 1, the shopper.** It is the easiest to picture, and it touches two features.
-
-1. `analysis/journeys.md`: read Journey 1. Point at steps 5 to 7, marked Fail.
-2. `specs/product-check/spec.md`: the visitor's goal, the screen, and the numbered checks the feature must pass.
-3. `specs/product-check/plan.md`: the small steps to build it, ticked off one by one.
-4. `specs/product-check/test-report.md` and its screenshots: the robot tester's results, including the problem it caught on the first run.
-5. Then open the app on a phone and search for a product.
-
-For a "wow" moment, show `specs/ingredient-check/` next: the same journey, step 8, where the app reads an ingredient label from a photo.
+**Journey 1, the consumer in the grocery store.** It is the easiest to picture, and it touches two features: product search and the ingredient check. Its spec, plan, and test report are in `specs/product-check/`.
